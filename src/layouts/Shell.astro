@@ -1,0 +1,17 @@
+---
+import Layout from "./Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+
+const { title = "El Gallo Galante", description } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <div class="min-h-screen flex flex-col selection:bg-stone-200">
+    <Navigation />
+    <main class="flex-grow pt-24 md:pt-32 pb-20">
+      <slot />
+    </main>
+    <Footer />
+  </div>
+</Layout>

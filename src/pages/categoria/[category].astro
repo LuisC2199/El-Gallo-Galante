@@ -1,0 +1,65 @@
+---
+import Shell from "../../layouts/Shell.astro";
+import PostPreview from "../../components/PostPreview.astro";
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+
+type CategorySlug = "poesia" | "narrativa" | "critica" | "ensayo" | "epistolario";
+
+const CATEGORY_LABEL: Record<CategorySlug, string> = {
+  poesia: "Poesía",
+  narrativa: "Narrativa",
+  critica: "Crítica",
+  ensayo: "Ensayo",
+  epistolario: "Epistolario",
+};
+
+export async function getStaticPaths() {
+  const slugs: CategorySlug[] = ["poesia", "narrativa", "critica", "ensayo", "epistolario"];
+
+  return slugs.map((category: CategorySlug) => ({
+    params: { category },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props as { category: CategorySlug };
+const label = CATEGORY_LABEL[category];
+
+const posts: CollectionEntry<"posts">[] = await getCollection("posts");
+
+const filtered: CollectionEntry<"posts">[] = posts
+  .filter((p: CollectionEntry<"posts">) => p.data.category === label)
+  .slice()
+  .sort(
+    (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
+      b.data.date.valueOf() - a.data.date.valueOf()
+  );
+
+const filteredWithAuthors: { post: CollectionEntry<"posts">; author: CollectionEntry<"authors"> }[] =
+  await Promise.all(
+    filtered.map(async (post: CollectionEntry<"posts">) => {
+      const author = await getEntry(post.data.author);
+      if (!author) throw new Error(`Author not found for post: ${post.slug}`);
+      return { post, author };
+    })
+  );
+---
+
+<Shell title={`${label} · El Gallo Galante`} description={`Textos de ${label}.`}>
+  <div class="max-w-6xl mx-auto px-6">
+    <header class="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
+      <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-stone-800 bg-stone-100 inline-block px-4 py-1">
+        Sección
+      </p>
+      <h1 class="display-serif text-4xl md:text-7xl font-bold leading-tight mt-6">
+        {label}
+      </h1>
+    </header>
+
+    <section class="space-y-20">
+      {filteredWithAuthors.map(({ post, author }) => (
+        <PostPreview post={post} authorName={author.data.name} authorSlug={author.slug} />
+      ))}
+    </section>
+  </div>
+</Shell>

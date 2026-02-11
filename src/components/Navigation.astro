@@ -1,0 +1,65 @@
+---
+const CATEGORIES = [
+  { slug: "poesia", label: "Poesía" },
+  { slug: "narrativa", label: "Narrativa" },
+  { slug: "critica", label: "Crítica" },
+  { slug: "ensayo", label: "Ensayo" },
+  { slug: "epistolario", label: "Epistolario" },
+] as const;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#fcfcfc]/90 backdrop-blur-sm border-b border-stone-100">
+  <div class="max-w-6xl mx-auto px-6 h-16 md:h-24 flex items-center justify-between">
+    <a
+      href="/"
+      class="display-serif text-xl md:text-3xl font-bold tracking-tight text-stone-800 hover:text-stone-500 transition-colors"
+    >
+      El Gallo Galante
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex gap-8 items-center text-sm font-light tracking-widest uppercase">
+      {CATEGORIES.map((c) => (
+        <a
+          href={`/categoria/${c.slug}`}
+          class="hover:text-stone-400 transition-colors"
+        >
+          {c.label}
+        </a>
+      ))}
+      <a
+        href="/contacto"
+        class="px-3 py-1 bg-stone-100 text-[10px] rounded hover:bg-stone-200 transition-colors"
+      >
+        Contáctanos
+      </a>
+    </div>
+
+    <!-- Mobile toggle (CSS-only) -->
+    <label class="md:hidden text-stone-800 cursor-pointer">
+      <input id="nav-toggle" type="checkbox" class="hidden peer" />
+      <span class="text-xs uppercase tracking-widest peer-checked:hidden">Menú</span>
+      <span class="text-xs uppercase tracking-widest hidden peer-checked:inline">Cerrar</span>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="hidden peer-checked:block fixed inset-0 bg-[#fcfcfc] z-40 pt-24 px-8 animate-fade-in">
+        <div class="flex flex-col gap-8 items-start">
+          {CATEGORIES.map((c) => (
+            <a
+              href={`/categoria/${c.slug}`}
+              class="display-serif text-3xl font-medium text-stone-800"
+            >
+              {c.label}
+            </a>
+          ))}
+          <a
+            href="/contacto"
+            class="text-stone-400 text-sm tracking-widest uppercase mt-4"
+          >
+            Contáctanos
+          </a>
+        </div>
+      </div>
+    </label>
+  </div>
+</nav>

@@ -1,0 +1,6 @@
+---
+name: "Asunción Rangel"
+bio: "Fue profesora del Departamento de Letras Hispánicas de la Universidad de Guanajuato, donde impartió cursos de poesía latinoamericana, teoría poética y literatura mexicana contemporánea. Fue doctora en Letras Mexicanas por la Universidad Nacional Autónoma de México (UNAM) y Miembro del Sistema Nacional de Investigadores desde enero del 2013. Integró el Cuerpo Académico Estudios de poética y crítica literaria hispanoamericana (Universidad de Guanajuato). Coordinó el libro _Zurita. Una cartografía poética_ (UG, 2018). Es autora de los libros _La pulsión por el viaje de José Emilio Pacheco: su periplo al romanticismo_ (Universidad de Guanajuato, 2013), _Pacheco_ (UG/CONACULTA, 2013) y _Escritores viajeros. El nomadismo como poética_ (UANL, 2021)"
+birthYear: "1981 - 2023"
+birthPlace: "Aguascalientes - Guanajuato"
+---

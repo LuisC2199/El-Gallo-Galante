@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 200ms ease-out; }
+
+.drop-cap > p:first-child::first-letter,
+.drop-cap::first-letter {
+  float: left;
+  font-family: "Playfair Display", serif;
+  font-size: 3.5em;
+  line-height: 0.9;
+  padding-right: 0.12em;
+  padding-top: 0.05em;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fcfcfc;
+    color: #1a1a1a;
+}
+.serif {
+    font-family: 'Crimson Pro', serif;
+}
+.display-serif {
+    font-family: 'Playfair Display', serif;
+}
+::selection {
+    background: #e5e7eb;
+}
+
+.author-photo {
+  transition: opacity 300ms ease, filter 300ms ease;
+}
+
+.author-photo:hover {
+  filter: grayscale(0%);
+}

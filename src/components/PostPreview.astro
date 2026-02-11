@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+const { post, authorName, authorSlug } = Astro.props as {
+  post: CollectionEntry<"posts">;
+  authorName: string;
+  authorSlug: string;
+};
+---
+
+<article class="group cursor-pointer text-center md:text-left">
+  <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-8 mb-4 justify-center md:justify-start">
+    <span class="text-[10px] uppercase tracking-[0.2em] font-medium text-stone-400 py-1">
+      {post.data.category}
+    </span>
+
+    <span class="hidden md:block w-8 h-[1px] bg-stone-100"></span>
+
+    <a
+      href={`/autor/${authorSlug}`}
+      class="text-xs font-light text-stone-400 hover:text-stone-800 transition-colors"
+    >
+      {authorName}
+    </a>
+
+  </div>
+
+  <a href={`/posts/${post.slug}`} class="block">
+    <h3 class="display-serif text-3xl md:text-5xl font-medium mb-6 group-hover:text-stone-500 transition-colors leading-tight">
+      {post.data.title}
+    </h3>
+  </a>
+
+  {post.data.excerpt && (
+    <p class="serif text-lg md:text-xl text-stone-500 leading-relaxed max-w-2xl mx-auto md:mx-0">
+      {post.data.excerpt}
+    </p>
+  )}
+</article>

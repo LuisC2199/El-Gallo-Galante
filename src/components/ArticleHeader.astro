@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+const { post, author } = Astro.props as {
+  post: CollectionEntry<"posts">;
+  author: CollectionEntry<"authors">;
+};
+
+const formattedDate = post.data.date.toLocaleDateString("es-ES", {
+  month: "long",
+  year: "numeric",
+});
+---
+
+<header class="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
+  <div class="flex flex-col items-center gap-6 mb-12">
+    <span class="text-[10px] tracking-[0.3em] uppercase font-bold text-stone-800 bg-stone-100 px-4 py-1">
+      {post.data.category}
+    </span>
+
+    <h1 class="display-serif text-4xl md:text-7xl font-bold leading-tight">
+      {post.data.title}
+    </h1>
+
+    <div class="flex items-center gap-4 text-sm text-stone-400 font-light">
+      <a
+        class="hover:text-stone-800 transition-colors underline underline-offset-4"
+        href={`/autor/${author.slug}`}
+      >
+        {author.data.name}
+      </a>
+      <span class="w-1 h-1 bg-stone-300 rounded-full"></span>
+      <span>{formattedDate}</span>
+    </div>
+  </div>
+
+  {post.data.featuredImage && (
+    <div class="w-screen relative left-1/2 -translate-x-1/2 mb-16 md:mb-24">
+      <img
+        src={post.data.featuredImage}
+        alt={post.data.title}
+        class="w-full h-[50vh] md:h-[70vh] object-cover"
+        loading="eager"
+      />
+    </div>
+  )}
+</header>
