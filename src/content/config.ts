@@ -18,7 +18,6 @@ const authors = defineCollection({
   type: "content",
   schema: z.object({
     name: z.string(),
-    bio: z.string(),
     birthYear: z.string(),
     birthPlace: z.string(),
     photo: z.string().optional(),

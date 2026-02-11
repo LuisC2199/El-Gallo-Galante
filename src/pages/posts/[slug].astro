@@ -13,7 +13,8 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props as { post: CollectionEntry<"posts"> };
 const author = await getEntry(post.data.author);
-const { Content } = await post.render();
+const { Content: PostContent } = await post.render();
+const { Content: AuthorContent } = await author.render();
 ---
 
 <Shell title={`${post.data.title} · El Gallo Galante`} description={post.data.excerpt}>
@@ -22,7 +23,7 @@ const { Content } = await post.render();
 
     <div class="max-w-2xl mx-auto">
       <div class="serif text-xl md:text-2xl leading-relaxed text-stone-800 space-y-8 whitespace-pre-line drop-cap">
-        <Content />
+        <PostContent />
       </div>
 
       <footer class="mt-24 pt-12 border-t border-stone-100 flex flex-col items-center gap-8">
@@ -31,7 +32,9 @@ const { Content } = await post.render();
             <img src={author.data.photo} class="w-25 h-30 rounded-full grayscale mb-2" alt={author.data.name} />
           )}
           <h4 class="text-xs uppercase tracking-widest font-bold">Sobre el autor</h4>
-          <p class="serif text-stone-500 italic">{author.data.bio}</p>
+          <p class="serif text-stone-500 italic">
+            <AuthorContent />
+          </p>
           <a
             href={`/autor/${author.slug}`}
             class="text-[10px] uppercase font-bold tracking-widest hover:text-stone-400 transition-colors"

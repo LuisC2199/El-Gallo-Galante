@@ -16,9 +16,10 @@ const { author } = Astro.props as { author: CollectionEntry<"authors"> };
 
 const posts: CollectionEntry<"posts">[] = await getCollection("posts");
 
+const { Content } = await author.render();
+
 // Resolve each post's author and match by slug (robust)
-const writtenWithAuthors: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }[] =
-  (
+const writtenWithAuthors: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }[] = (
     await Promise.all(
       posts.map(async (post: CollectionEntry<"posts">) => {
         const authorEntry = await getEntry(post.data.author);
@@ -33,21 +34,16 @@ const writtenWithAuthors: { post: CollectionEntry<"posts">; authorEntry: Collect
     } => x !== null
   );
 
-const written: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }[] =
-  writtenWithAuthors
-    .filter(
-      (x: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }) =>
-        x.authorEntry.slug === author.slug
-    )
-    .sort(
-      (
-        a: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> },
-        b: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }
-      ) => b.post.data.date.valueOf() - a.post.data.date.valueOf()
-    );
+const written: CollectionEntry<"posts">[] = posts
+  .filter((p: CollectionEntry<"posts">) => p.data.author.id === author.id)
+  .slice()
+  .sort(
+    (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
+      b.data.date.valueOf() - a.data.date.valueOf()
+  );
 ---
 
-<Shell title={`${author.data.name} · El Gallo Galante`} description={author.data.bio}>
+<Shell title={`${author.data.name} · El Gallo Galante`}>
   <div class="max-w-6xl mx-auto px-6">
     <header class="max-w-6xl mx-auto mb-16 md:mb-24">
       <div class="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-8 md:gap-10 items-start">
@@ -69,9 +65,9 @@ const written: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"a
             ({author.data.birthYear}) {author.data.birthPlace}
           </p>
 
-          <p class="serif text-lg md:text-xl text-stone-500 leading-relaxed italic max-w-2xl md:max-w-none mt-6">
-            {author.data.bio}
-          </p>
+          <div class="serif text-lg md:text-xl text-stone-500 leading-relaxed italic max-w-2xl md:max-w-none mt-6">
+            <Content />
+          </div>
 
           {author.data.social && (
             <div class="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-6 text-[10px] uppercase tracking-widest text-stone-400">
@@ -112,7 +108,7 @@ const written: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"a
     </header>
 
     <section class="space-y-20">
-      {written.map(({ post }) => (
+      {written.map((post: CollectionEntry<"posts">) => (
         <PostPreview post={post} authorName={author.data.name} authorSlug={author.slug} />
       ))}
     </section>
