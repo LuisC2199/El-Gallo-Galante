@@ -1,6 +1,7 @@
 ---
-name: "César Cruz "
-bio: "P"
-birthYear: "???"
-birthPlace: "?"
+name: 'César Cruz '
+bio: P
+birthYear: '???'
+birthPlace: '?'
 ---
+

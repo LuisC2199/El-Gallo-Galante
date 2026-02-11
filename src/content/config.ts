@@ -41,7 +41,7 @@ const posts = defineCollection({
     category: categoryEnum,
     author: reference("authors"),
     issue: reference("issues").optional(),
-    excerpt: z.string(),
+    excerpt: z.string().optional(),
     featuredImage: z.string().optional(),
   }),
 });
