@@ -23,9 +23,11 @@ const authors = defineCollection({
     photo: z.string().optional(),
     social: z
       .object({
-        website: z.string().url().optional(),
-        instagram: z.string().url().optional(),
-        x: z.string().url().optional(),
+        website: z.string().optional(),
+        instagram: z.string().optional(),
+        x: z.string().optional(),
+        facebook: z.string().optional(),
+        tiktok: z.string().optional(),
       })
       .optional(),
   }),

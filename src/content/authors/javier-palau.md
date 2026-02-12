@@ -2,7 +2,7 @@
 name: Javier Paláu Hernández
 birthYear: '1998'
 birthPlace: San Luis Potosí
-photo: /authors/javier-palau.jpeg
+photo: /authors/javier-palau.jpg
 social:
   instagram: 'https://www.instagram.com/caracteres_del_estrago/'
 ---

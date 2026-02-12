@@ -13,13 +13,11 @@ export async function getStaticPaths() {
 }
 
 const { author } = Astro.props as { author: CollectionEntry<"authors"> };
-
 const posts: CollectionEntry<"posts">[] = await getCollection("posts");
-
 const { Content } = await author.render();
 
-// Resolve each post's author and match by slug (robust)
-const writtenWithAuthors: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }[] = (
+const writtenWithAuthors: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }[] =
+  (
     await Promise.all(
       posts.map(async (post: CollectionEntry<"posts">) => {
         const authorEntry = await getEntry(post.data.author);
@@ -28,19 +26,24 @@ const writtenWithAuthors: { post: CollectionEntry<"posts">; authorEntry: Collect
       })
     )
   ).filter(
-    (x: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> } | null): x is {
-      post: CollectionEntry<"posts">;
-      authorEntry: CollectionEntry<"authors">;
-    } => x !== null
+    (
+      x: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> } | null
+    ): x is { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> } => x !== null
   );
 
-const written: CollectionEntry<"posts">[] = posts
-  .filter((p: CollectionEntry<"posts">) => p.data.author.id === author.id)
-  .slice()
-  .sort(
-    (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
-      b.data.date.valueOf() - a.data.date.valueOf()
-  );
+const written: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }[] =
+  writtenWithAuthors
+    .filter(
+      (x: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }) =>
+        x.authorEntry.slug === author.slug
+    )
+    .sort(
+      (
+        a: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> },
+        b: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }
+      ) => b.post.data.date.valueOf() - a.post.data.date.valueOf()
+    );
+
 ---
 
 <Shell title={`${author.data.name} · El Gallo Galante`}>
@@ -108,9 +111,9 @@ const written: CollectionEntry<"posts">[] = posts
     </header>
 
     <section class="space-y-20">
-      {written.map((post: CollectionEntry<"posts">) => (
-        <PostPreview post={post} authorName={author.data.name} authorSlug={author.slug} />
-      ))}
+    {written.map(({ post }) => (
+      <PostPreview post={post} authorName={author.data.name} authorSlug={author.slug} />
+    ))}
     </section>
   </div>
 </Shell>

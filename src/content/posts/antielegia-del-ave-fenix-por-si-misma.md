@@ -4,7 +4,7 @@ date: 2020-02-11T00:00:00.000Z
 category: Poesia
 author: javier-palau
 issue: 2019-primavera
-featuredImage: "/posts/antielegia-ave-fenix.jpg"
+featuredImage: "/posts/antielegia-del-ave-fenix-por-si-misma.jpg"
 ---
 
 Qué horrible se desgarra el viento  
