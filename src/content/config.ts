@@ -37,12 +37,13 @@ const posts = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    slug: z.string().optional(), // usually inferred from filename; optional
     date: z.date(),
-    category: categoryEnum,
+    category: z.enum(["Poesía", "Narrativa", "Crítica", "Ensayo", "Epistolario"]),
+    issue: z.string(),
     author: reference("authors"),
-    issue: reference("issues").optional(),
+    traductor: reference("authors").optional(),
     excerpt: z.string().optional(),
+    coverImage: z.string().optional(),
     featuredImage: z.string().optional(),
   }),
 });

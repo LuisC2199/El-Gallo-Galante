@@ -38,3 +38,11 @@ body {
 .author-photo:hover {
   filter: grayscale(0%);
 }
+
+.social-link svg {
+  transition: opacity 200ms ease;
+}
+
+.social-link:hover svg {
+  opacity: 1;
+}
