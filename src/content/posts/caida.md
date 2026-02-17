@@ -45,7 +45,7 @@ con firme mástil,
 surca las aguas.
 
 Como cambiante nube,  
-vuela el *martierra*,  
+vuela el _martierra_,  
 navega el aire.
 
 Como Ulises mañero,  
@@ -63,4 +63,3 @@ alado Yo.
 Poder no quiero,  
 la órfica lira no  
 soy, sino el viento.
-

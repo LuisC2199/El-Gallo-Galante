@@ -27,6 +27,3 @@ un difícil milagro con su venia,
 para hallarte borracho en la banqueta.
 
 ![](/posts/decepcionante.jpg)
-
-  
-

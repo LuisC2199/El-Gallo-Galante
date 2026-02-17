@@ -8,11 +8,11 @@ coverImage: /posts/hormiguero.jpg
 featuredImage: /posts/hormiguero.jpg
 ---
 
-*Hay canas en mi cabeza, hay en los prados escarcha,*  
-*mas yo prosigo soñando, pobre, incurable sonámbula,*  
-*con la eterna primavera de la vida que se apaga*  
-*y la perenne frescura de los campos y las almas,*  
-*aunque los unos se agostan y aunque las otras se abrasan.*  
+_Hay canas en mi cabeza, hay en los prados escarcha,_  
+_mas yo prosigo soñando, pobre, incurable sonámbula,_  
+_con la eterna primavera de la vida que se apaga_  
+_y la perenne frescura de los campos y las almas,_  
+_aunque los unos se agostan y aunque las otras se abrasan._  
 Rosalía de Castro
 
 En un prado alzado en siembra  
@@ -37,15 +37,14 @@ volaban sobre el señuelo
 que las nubes en suspiros  
 dejan en el pardo cielo.  
 Y yo era estatua en la arena  
-sucia del residuo viejo    
+sucia del residuo viejo  
 que deja en la tierra nueva  
 el polvo de un hongo quieto.  
 Era la imagen tranquila  
 de una estatua bajo el viento  
 como el delgado soporte  
-del cáncer sobre mi cuerpo. 
+del cáncer sobre mi cuerpo.
 
-  
 Y veía en mí la sombra  
 de ese cándido terreno  
 donde ahora estoy sentado;  
@@ -60,10 +59,10 @@ parcela, ejido sin dueño
 campo plantado, hormiguero,  
 jardín lleno de olmos negros  
 harto vergel por el trébol  
-sin suerte, estepa de frutos   
+sin suerte, estepa de frutos  
 con espina y caro huerto  
 con hormigas en la nuca y parvadas sobre el pelo.
 
 ![](/posts/hormiguero.jpg)
 
-Foto por Heather Smith de Pexels
+<span class="caption">Foto por Heather Smith de Pexels</span>

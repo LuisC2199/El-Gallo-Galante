@@ -16,8 +16,7 @@ que a aquella crea
 en sueño ufano.
 
 Surge la mano  
-\-duerme la idea- 
-escribe en vano  
+\-duerme la idea- escribe en vano  
 mas se recrea.
 
 ¡Cuán sopor tiene!  
@@ -37,4 +36,6 @@ emula mi dolor si es que lo creas.
 
 ![](/posts/dos-poemas-de-gabriel-reyes.jpg)
 
-[Esta foto](https://www.unfotografo.es/2011/noche-soledad-conceptual/fotografia-conceptual-soledad-2) de Autor desconocido está bajo licencia [CC BY-SA-NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+[Esta foto](https://www.unfotografo.es/2011/noche-soledad-conceptual/fotografia-conceptual-soledad-2)
+de Autor desconocido está bajo licencia
+[CC BY-SA-NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)

@@ -17,8 +17,7 @@ pétalo que se pierde
 en la hurí que eternamuere.
 
 Porque me ha parido el caos  
-¿o será el destino? 
-Cualquiera que me haya  
+¿o será el destino? Cualquiera que me haya  
 cedido la vida  
 sin el consentimiento mío.
 

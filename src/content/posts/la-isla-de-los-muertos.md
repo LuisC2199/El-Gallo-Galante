@@ -8,9 +8,7 @@ coverImage: /posts/la-isla-de-los-muertos.jpg
 featuredImage: /posts/la-isla-de-los-muertos.jpg
 ---
 
-  
-*A C.G.C.R.*  
-  
+_A C.G.C.R._
 
 El agua se mece en calma,  
 el remo la hiere en silencio.  
@@ -36,8 +34,8 @@ Ya mis memorias convoco,
 de mi vida los recuerdos,  
 con presteza, con temor,  
 llamo por morir contento.  
-«Ea, espíritu o criatura, -digo fingiendo coraje- 
-no sé yo qué responder, no conozco lo que peno.  
+«Ea, espíritu o criatura, -digo fingiendo coraje- no sé yo qué responder, no
+conozco lo que peno.  
 De mi tiempo de encarnado transitando por la tierra,  
 de mi vida pasajera do habitaba carne y hueso,  
 do comía, do lloraba, do reía, do gozaba,  
@@ -63,7 +61,7 @@ la luz me envuelve y padezco
 rompiendo mi voz en llantos,  
 pues por segunda vez muero.
 
-San Luis Potosí, 31 de diciembre de 2018  
+San Luis Potosí, 31 de diciembre de 2018
 
 <figure>
 
@@ -71,10 +69,9 @@ San Luis Potosí, 31 de diciembre de 2018
 
 <figcaption>
 
-  
-
 </figcaption>
 
 </figure>
 
-Arnold Böcklin_, La isla de los muertos I_ (1880), óleo sobre tabla, 74 x 122 cm, Museo Metropolitano de Arte, Reisinger Fund, Nueva York.
+Arnold Böcklin*, La isla de los muertos I* (1880), óleo sobre tabla, 74 x 122
+cm, Museo Metropolitano de Arte, Reisinger Fund, Nueva York.

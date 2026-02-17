@@ -14,7 +14,6 @@ Tu hermosura irradia afecciones
 que son pies vírgenes pisando blandos la arena;  
 descansan sobre mi pecho y dejan una huella luminosa.
 
-  
 Si tu plexo solar fuera una casa,  
 yo quisiera ir a habitar a ella.  
 Allí, sostenido en manos pródigas de bondad,  
@@ -24,12 +23,10 @@ Calentándome, querría meter siempre las manos al fuego.
 Dejaría de ser huérfano  
 tan sólo mirándote repartir el pan.
 
-  
 Haces que un minuto sea tan intenso  
 como lanza que el corazón atravesara.  
 Haces más ardientes las aguas de mi sangre.
 
-  
 Eres el oro que me hace avaro.  
 Pero si debiera recoger de tus manos la fortuna de mi vida,  
 una sola moneda me bastaría.
@@ -43,7 +40,6 @@ Y en ese deseo, el ritmo va nimbando dudas,
 noches en que la distancia entre tú y mi mano  
 se hace más gris: pequeña borrasca.
 
-  
 Acaso estarás otra vez entre mis brazos  
 y oleré tus cabellos  
 que tienen la juventud de todos los verdes.  
@@ -62,11 +58,9 @@ Y una hondonada insalvable se abra entre los dos
 cuando esta ciudad y lo poco que ofrece  
 dejen de tener sentido vital para ti.
 
-  
 Y entonces, ni celebraciones  
 ni caminatas juntos.
 
-  
 O acaso estemos siempre juntos  
 –yo amándote hasta el fin del amor en el cosmos–,  
 como dos átomos en una molécula indestructible.  
@@ -75,4 +69,7 @@ en este poema.
 
 ![](/posts/dos-poemas.jpg)
 
-Fotografía de [Ankush Chaudhary](https://www.instagram.com/elite_yog/) de [Pexels](https://www.pexels.com/@ankush2626?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
+<span class="caption">Fotografía de
+<a href="https://www.instagram.com/elite_yog/" target="_blank" rel="noreferrer">Ankush
+Chaudhary</a> de
+<a href="https://www.pexels.com/@ankush2626?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">Pexels</a></span>

@@ -22,4 +22,5 @@ yo lo hice.
 
 ![](/posts/salida-de-escuela.jpg)
 
-Fotografía de Allan Franco Carmo, de [Pexels](https://www.pexels.com/@allanfranca)
+<span class="caption">Fotografía de Allan Franco Carmo, de
+<a href="https://www.pexels.com/@allanfranca" target="_blank" rel="noreferrer">Pexels</a></span>

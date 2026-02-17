@@ -8,7 +8,7 @@ coverImage: /posts/iii.jpg
 featuredImage: /posts/iii.jpg
 ---
 
-*¿Qué es poesía? ¿Y tú me lo preguntas?*  
+_¿Qué es poesía? ¿Y tú me lo preguntas?_  
 Miles de versos corriendo por tu espalda,  
 plenos testigos de su propia voz  
 mientras te empegan.  
@@ -21,8 +21,11 @@ El aborrecer de Diana
 persiguiendo tu sangrante verbo.  
 Una pluma que se detiene sólo  
 cuando el verso se convierte en decreto.  
-*Poesía…* no querrás ser tú.
+_Poesía…_ no querrás ser tú.
 
 ![](/posts/iii.jpg)
 
-Fotografía de [Dương Nhân](https://www.instagram.com/christianduong/) de [Pexels](https://www.pexels.com/@d-ng-nhan-324384)
+<span class="caption">Fotografía de
+<a href="https://www.instagram.com/christianduong/" target="_blank" rel="noreferrer">Dương
+Nhân</a> de
+<a href="https://www.pexels.com/@d-ng-nhan-324384" target="_blank" rel="noreferrer">Pexels</a></span>

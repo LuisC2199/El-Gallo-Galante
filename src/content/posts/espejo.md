@@ -8,9 +8,9 @@ coverImage: /posts/espejo.jpg
 featuredImage: /posts/espejo.jpg
 ---
 
-I  
-  
-Entonces, si esto es real                                                                         
+I
+
+Entonces, si esto es real  
 el cristal distingue un rostro  
 aparición  
 cóncava o convexa  
@@ -21,8 +21,8 @@ en distintas partículas
 
 medusa petrificada
 
-II  
-  
+II
+
 Espejo  
 mundo inverso  
 de puntual simetría
@@ -41,20 +41,20 @@ quimera revelada
 y se va, blanco vidrio  
 hielo besando el cielo
 
-III  
-  
+III
+
 Fui,  
 fragmento de un artefacto  
 desligado del fondo
 
-misma geometría   
+misma geometría  
 misma diástole
 
 memoria hallada  
 mirada desleída
 
-IV  
-  
+IV
+
 Delante de sí, es parecido  
 palabra envuelta en reflejos
 
@@ -67,7 +67,7 @@ eclosionando.
 
 ![](/posts/espejo.jpg)
 
-Foto por [Emre Can](https://www.instagram.com/acer.emree/) de [Pexels](https://www.pexels.com/@emrecan)
-
-  
-
+<span class="caption">Foto por
+<a href="https://www.instagram.com/acer.emree/" target="_blank" rel="noreferrer">Emre
+Can</a> de
+<a href="https://www.pexels.com/@emrecan" target="_blank" rel="noreferrer">Pexels</a></span>

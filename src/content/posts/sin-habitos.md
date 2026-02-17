@@ -23,7 +23,6 @@ de aquellas hojas ancestrales,
 se interceptan y se roban  
 lo que queda de mi citadinitud.
 
-  
 La madera se lamenta cuando la mueven  
 aquellas manos solas y amargadas;  
 yo lloro por ellas,  
@@ -31,7 +30,6 @@ por lo que me fue vedado
 desde que partí  
 al lugar sin árboles.
 
-  
 Las flores del patio me llaman para contarme  
 todo lo que pasó en mi ausencia;  
 los árboles reclaman mi desentendimiento,  
@@ -39,18 +37,16 @@ mi partida, o peor, mi huida,
 pero entre más les ruego me perdonen,  
 más me provocan pesadillas.
 
-  
 Lo único que puedo hacer para compensar  
 mi egoísta apetito es aprender a reconstruir  
 lo que las manos de mi abuela  
 hicieron toda su vida de soltera,  
-de casada y de viuda.  
-  
+de casada y de viuda.
+
 Si pudiera regresaría todos los fines de semana,  
 pero ni yo tengo el tiempo ni ella el gusto  
 o la salud para enseñarme.
 
-  
 Mi abuela se esfuma  
 junto con el tronido de los chiles,  
 junto con el jitomate asado,  
@@ -64,4 +60,7 @@ con todos esos olores de nuevo.
 
 ![](/posts/sin-habitos.jpg)
 
-Fotografía por **[Juanjo Menta](https://www.instagram.com/juanjomenta)** de **[Pexels](//www.pexels.com/@juanjomenta?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexelss)**
+<span class="caption">Fotografía por
+**<a href="https://www.instagram.com/juanjomenta" target="_blank" rel="noreferrer">Juanjo
+Menta</a>** de
+**<a href="//www.pexels.com/@juanjomenta?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexelss" target="_blank" rel="noreferrer">Pexels</a>**</span>

@@ -7,7 +7,6 @@ author: sean-salas
 coverImage: /posts/esperanza-de-vida-en-siria.jpg
 featuredImage: /posts/esperanza-de-vida-en-siria.jpg
 ---
-  
 
 La esperanza de vida de una mosca  
 es de un día o menos.  
@@ -33,4 +32,6 @@ hay suficientes flores para todas.
 
 ![](/posts/esperanza-de-vida-en-siria.jpg)
 
-Fotografía de [Murtaza Azal Ch](https://www.instagram.com/murtazaazalch/)
+<span class="caption">Fotografía de
+<a href="https://www.instagram.com/murtazaazalch/" target="_blank" rel="noreferrer">Murtaza
+Azal Ch</a></span>

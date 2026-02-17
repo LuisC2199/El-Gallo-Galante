@@ -11,15 +11,15 @@ featuredImage: /posts/colibri.jpg
 COLIBRÍ  
 \- hilo temporal de mis recuerdos -
 
-*Este poemario es para ti*  
-*por tanto vuelo vivido*  
-*porque se me enraizó la nostalgia*  
-*porque este exilio*  
-*es la única posibilidad de reencuentro.*
+_Este poemario es para ti_  
+_por tanto vuelo vivido_  
+_porque se me enraizó la nostalgia_  
+_porque este exilio_  
+_es la única posibilidad de reencuentro._
 
 COLIBRÍ I
 
-*Acuérdate de mí bonito como cuando me querías.*
+_Acuérdate de mí bonito como cuando me querías._
 
 Cantaré al polvo  
 para no morir sola  
@@ -50,21 +50,21 @@ para que así yo muera menos.
 COLIBRÍ II
 
 Retrocede mi estancia  
-y se fija precisa   
+y se fija precisa  
 en la imagen de la fotografía  
 ¿qué podía ser yo a esa hora?  
 cuando hay tanta dicha que no se dice  
 para que no desaparezca  
 ¿qué podía ser yo?  
 me faltaba llorar para ser triste  
-y  me faltaba nombrar para que fuera.
+y me faltaba nombrar para que fuera.
 
 COLIBRÍ III
 
 De tu boca se despliegan acusaciones  
 el peor de los escándalos  
-de todas las lenguas mal habladas.  
-  
+de todas las lenguas mal habladas.
+
 Ahí donde chocan son su nombre las cosas  
 no hay duda:  
 ha terminado el sueño.
@@ -76,7 +76,6 @@ se entrevé el recuerdo de una presencia inabarcable
 mi lengua se remuerde en silencio  
 hasta que arriba a la raíz de mi voz tu nombre.
 
-  
 La certeza de tu recuerdo cae de mis ojos  
 en mi desmemoria yo estoy segura de que  
 caben todos los siglos entre esa noche  
@@ -125,7 +124,6 @@ sobre mis hombros.
 Llego a mi lecho,  
 tiemblo por caricias fragmentadas.
 
-  
 Me levanto, y a tientas  
 cierro la ventana,  
 no vaya a ser que por viento  
@@ -181,7 +179,6 @@ el tiempo
 confieso que esta noche no volverá nunca  
 por más veces que rehaga el recuerdo.
 
-  
 No puedo escuchar ahora  
 tengo tantas voces dentro del cuerpo  
 no sabré nunca si esta tarde  
@@ -226,7 +223,6 @@ en las orillas turbias del atardecer
 detenida en el limbo del aire  
 bajo la protección de tiempo.
 
-  
 Ella tenía un rostro inhumano  
 ignoraba el arte del sueño  
 me cubría los ojos de pesadillas.
@@ -286,4 +282,6 @@ siendo lo que fuimos ya sin serlo.
 
 ![](/posts/colibri.jpg)
 
-Ilustración de [Paulina Quezada](https://elgallogalante.com/2019/02/01/lina-quezada/)
+<span class="caption">Ilustración de
+<a href="https://elgallogalante.com/2019/02/01/lina-quezada/" target="_blank" rel="noreferrer">Paulina
+Quezada</a></span>

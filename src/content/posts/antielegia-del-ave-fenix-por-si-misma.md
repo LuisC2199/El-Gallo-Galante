@@ -37,8 +37,4 @@ y a pesar de matarme yo renazco.
 Es mi muerte tan breve como un sueño  
 y sueño solamente con la muerte.
 
-
-
-
-
 San Luis Potosí, a 07 de enero de 2020

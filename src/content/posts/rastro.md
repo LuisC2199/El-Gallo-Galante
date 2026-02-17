@@ -16,4 +16,4 @@ los capilares lirios de las cosas.
 
 ![](/posts/rastro.jpg)
 
-Fotografía de Davide Dalese
+<span class="caption">Fotografía de Davide Dalese</span>

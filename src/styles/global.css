@@ -70,12 +70,53 @@ body {
   margin-top: 1.25rem; /* separación entre estrofas */
 }
 
-.poetry p:has(img) {
-  margin-top: 2rem;
+/* Editorial figures across ALL categories */
+.entry-content figure {
+  margin: 2.5rem 0;
 }
 
-.poetry img {
+.entry-content figure img {
   width: 100%;
-  border-radius: 0.25rem;
   display: block;
+  border-radius: 0.25rem;
+}
+
+.entry-content figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: #78716c; /* stone-500 */
+  line-height: 1.45;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Optional: subtle divider vibe */
+.entry-content figcaption::before {
+  content: "— ";
+  opacity: 0.5;
+}
+
+.caption {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #78716c;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.caption a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(120, 113, 108, 0.4);
+  transition: color 150ms ease;
+}
+
+.caption a:hover {
+  color: #1c1917;
 }
