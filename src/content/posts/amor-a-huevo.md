@@ -1,11 +1,11 @@
 ---
-title: "Amor a huevo"
-date: 2019-02-01
-category: "Narrativa"
-author: "braulio-torres"
-issue: "2019-primavera"
+title: Amor a huevo
+date: 2019-02-01T00:00:00.000Z
+category: Narrativa
+author: braulio-alejandro-torres-ruiz
+issue: ano-1-numero-0
+coverImage: "/posts/amor-a-huevo.jpg"
 featuredImage: "/posts/amor-a-huevo.jpg"
-excerpt: "Ya se hizo noche, ya no pude mirarla otra vez. Si ustedes la conocieran, de seguro quisieran mirarla tanto como yo."
 ---
 
   

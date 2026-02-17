@@ -1,21 +1,14 @@
 ---
-title: "Carta a Lev Tolstói"
-date: 2019-10-12
-author: "casandra-cruz"
-categories: 
-  - "ano-1-numero-0"
-  - "epistolario"
-tags: 
-  - "carta"
-  - "destacado"
-  - "epistola"
-  - "leon-tolstoi"
-  - "lev-tolstoi"
-  - "tolstoi"
-coverImage: "0000017217.jpeg"
+title: Carta a Lev Tolstói
+date: 2019-10-12T00:00:00.000Z
+category: Epistolario
+issue: ano-1-numero-0
+author: casandra-cruz
+coverImage: /posts/epistola-a-lev-tolstoi.jpg
+featuredImage: /posts/epistola-a-lev-tolstoi.jpg
 ---
 
-_Guanajuato, Gto. a 30 de septiembre de 2019._
+*Guanajuato, Gto. a 30 de septiembre de 2019.*
 
 Mi querido conde:
 
@@ -31,14 +24,12 @@ Recurro a ti y de pronto se me acaban las palabras, qué ironía, pues tú fuist
 
 Siempre tuya,
 
-                                 Casandra
+                                 Casandra
 
-![](images/0000017217-1024x576.jpg)
+![](/posts/epistola-a-lev-tolstoi.jpg)
 
   
 
 * * *
 
 [\[1\]](#_ftnref1) Extracto de los Diarios (1847-1894), edición y traducción de Selma Ancira, Acantilado.
-
-![](images/Casminiatura.jpg)

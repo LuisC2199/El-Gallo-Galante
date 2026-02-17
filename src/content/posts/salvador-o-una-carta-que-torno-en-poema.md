@@ -1,16 +1,11 @@
 ---
-title: "Salvador o una carta que tornó en poema"
-date: 2020-10-31
-author: "jesus-rios-alcantar"
-categories: 
-  - "ano-1-numero-0"
-  - "epistolario"
-tags: 
-  - "carta"
-  - "destacado"
-  - "poema"
-  - "poesia-mexicana"
-coverImage: "novo.jpeg"
+title: Salvador o una carta que tornó en poema
+date: 2020-10-31T00:00:00.000Z
+category: Epistolario
+issue: ano-1-numero-0
+author: jesus-rios-alcantar
+coverImage: /posts/salvador-o-una-carta-que-torno-en-poema.jpg
+featuredImage: /posts/salvador-o-una-carta-que-torno-en-poema.jpg
 ---
 
 Abasolo, Gto., a 13 de septiembre del 2020
@@ -100,6 +95,6 @@ le haces falta a las jardineras;
 y yo vuelvo a ser yo,  
 vuelvo a ser triste.
 
-![](images/Novo.jpg)
+![](/posts/salvador-o-una-carta-que-torno-en-poema.jpg)
 
 Fotografía de Agustín Víctor Casasola, propiedad del INAH.

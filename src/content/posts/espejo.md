@@ -1,21 +1,16 @@
 ---
-title: "Espejo"
-date: 2020-05-16
-author: "betsabe-jimenez-carranza"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "espejo"
-  - "poema"
-  - "poesia-mexicana"
-coverImage: "pexels-emre-can-acer-2418435-1.jpg"
+title: Espejo
+date: 2020-05-16T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: betsabe-jimenez-carranza
+coverImage: /posts/espejo.jpg
+featuredImage: /posts/espejo.jpg
 ---
 
 I  
   
-Entonces, si esto es real                                                                         
+Entonces, si esto es real                                                                         
 el cristal distingue un rostro  
 aparición  
 cóncava o convexa  
@@ -52,7 +47,7 @@ Fui,
 fragmento de un artefacto  
 desligado del fondo
 
-misma geometría   
+misma geometría   
 misma diástole
 
 memoria hallada  
@@ -70,11 +65,9 @@ donde se desviste un cuerpo
 acariciando sus vértigos  
 eclosionando.
 
-![](images/espejo.jpeg)
+![](/posts/espejo.jpg)
 
 Foto por [Emre Can](https://www.instagram.com/acer.emree/) de [Pexels](https://www.pexels.com/@emrecan)
-
-![](images/betsaminiatura.jpg)
 
   
 

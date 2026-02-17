@@ -1,16 +1,11 @@
 ---
-title: "Sin hábitos"
-date: 2020-07-18
-author: "hilary-cruz"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "hilary-cruz"
-  - "mexico"
-  - "poesia-mexicana"
-coverImage: "silhouette-trees-on-stone-wall-during-golden-hour-2766532-2-scaled-1.jpeg"
+title: Sin hábitos
+date: 2020-07-18T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: hilary-cruz
+coverImage: /posts/sin-habitos.jpg
+featuredImage: /posts/sin-habitos.jpg
 ---
 
 _De nada sirve el cuidado propio  
@@ -67,8 +62,6 @@ y yo no puedo regresarla
 porque no sé cómo llenar la cocina  
 con todos esos olores de nuevo.
 
-![](images/silhouette-trees-on-stone-wall-during-golden-hour-2766532.jpg)
+![](/posts/sin-habitos.jpg)
 
-Fotografía por **[Juanjo Menta](https://www.instagram.com/juanjomenta)** de **[Pexels](//www.pexels.com/@juanjomenta?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexelss)**
-
-![](images/HilaryMiniatura.jpg)
+Fotografía por **[Juanjo Menta](https://www.instagram.com/juanjomenta)** de **[Pexels](//www.pexels.com/@juanjomenta?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexelss)**

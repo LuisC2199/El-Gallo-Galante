@@ -1,16 +1,13 @@
 ---
-title: "Cosas que antes no tomabas en cuenta o el arte de no morir del arte"
-date: 2019-04-24
-author: "cesar-cruz"
-categories: 
-  - "ano-1-numero-0"
-  - "narrativa"
-tags: 
-  - "arte"
-  - "destacado"
-  - "dialogo"
-  - "shakespeare"
-coverImage: "still-life-3665842_1920.jpg"
+title: Cosas que antes no tomabas en cuenta o el arte de no morir del arte
+date: 2019-04-24T00:00:00.000Z
+category: Narrativa
+issue: ano-1-numero-0
+author: cesar-cruz
+coverImage: >-
+  /posts/cosas-que-antes-no-tomabas-en-cuenta-o-el-arte-de-no-morir-del-arte.jpg
+featuredImage: >-
+  /posts/cosas-que-antes-no-tomabas-en-cuenta-o-el-arte-de-no-morir-del-arte.jpg
 ---
  
 A .J.P.H.
@@ -24,11 +21,11 @@ No importa que sea inútil, necesita ser bello. Sí pasa mucho cuando sucede la 
 
 <figure>
 
-![](images/still-life-3665842_1920.jpg)
+![](/posts/cosas-que-antes-no-tomabas-en-cuenta-o-el-arte-de-no-morir-del-arte.jpg)
 
 <figcaption>
 
- CC0 Dominio Público  
+ CC0 Dominio Público  
 
 </figcaption>
 

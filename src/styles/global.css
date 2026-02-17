@@ -16,6 +16,21 @@
   padding-top: 0.05em;
 }
 
+.dc-prefix {
+  float: left;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1em;
+  line-height: 1;
+  margin-right: 0.35em;
+  margin-top: 0.25em;
+  opacity: 0.85;
+}
+
+/* Ajuste cuando hay prefijo: el drop cap no necesita tanto padding */
+.drop-cap > p:first-child .dc-prefix + *::first-letter {
+  padding-right: 0.10em;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #fcfcfc;
@@ -45,4 +60,22 @@ body {
 
 .social-link:hover svg {
   opacity: 1;
+}
+
+.poetry p {
+  margin: 0rem;
+}
+
+.poetry p + p {
+  margin-top: 1.25rem; /* separación entre estrofas */
+}
+
+.poetry p:has(img) {
+  margin-top: 2rem;
+}
+
+.poetry img {
+  width: 100%;
+  border-radius: 0.25rem;
+  display: block;
 }

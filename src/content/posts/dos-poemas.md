@@ -1,14 +1,11 @@
 ---
-title: "Dos poemas"
-date: 2020-07-26
-author: "aleqs-garrigoz"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "poesia-mexicana"
-coverImage: "people-raising-hands-covered-by-grass-2102935-1.jpg"
+title: Dos poemas
+date: 2020-07-26T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: aleqs-garrigoz
+coverImage: /posts/dos-poemas.jpg
+featuredImage: /posts/dos-poemas.jpg
 ---
 
 Güerito
@@ -76,8 +73,6 @@ como dos átomos en una molécula indestructible.
 Como de hecho ya lo estamos,  
 en este poema.
 
-![](images/pexels-ankush-yogletics-2102935-840x1024.jpg)
+![](/posts/dos-poemas.jpg)
 
-Fotografía de [Ankush Chaudhary](https://www.instagram.com/elite_yog/) de [Pexels](https://www.pexels.com/@ankush2626?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
-
-![](images/alqminiatura.jpg)
+Fotografía de [Ankush Chaudhary](https://www.instagram.com/elite_yog/) de [Pexels](https://www.pexels.com/@ankush2626?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)

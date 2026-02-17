@@ -1,20 +1,14 @@
 ---
-title: "Carta a Guadalupe Dueñas"
-date: 2019-09-28
-author: "gabriela-trejo-valencia"
-categories: 
-  - "ano-1-numero-0"
-  - "epistolario"
-tags: 
-  - "carta"
-  - "destacado"
-  - "epistola"
-  - "guadalupe-duenas"
-  - "narrativa-mexicana"
-coverImage: "guadalupe-duec3b1as1.jpg"
+title: Carta a Guadalupe Dueñas
+date: 2019-09-28T00:00:00.000Z
+category: Epistolario
+issue: ano-1-numero-0
+author: gabriela-trejo-valencia
+coverImage: /posts/carta-a-guadalupe-duenas.jpg
+featuredImage: /posts/carta-a-guadalupe-duenas.jpg
 ---
 
-_Guanajuato, Gto, 28 de septiembre de 2019._
+*Guanajuato, Gto, 28 de septiembre de 2019.*
 
 Querida Pita:
 
@@ -22,7 +16,7 @@ Escribo desde la ciudad que tanto admirabas y a la que más de una vez dedicaste
 
 Hace varios días que quería escribirte unas cuantas líneas pero el grueso de las actividades cotidianas me lo impedía durante los horarios diurnos, el cansancio era el obstáculo principal cuando llegaba la noche. Sin embargo, me alegra haber postergado el pendiente porque heme aquí hoy, escribiéndote en plena conmemoración de un aniversario más de la Toma de la Alhóndiga, celebración muy guanajuatense que permite disfrutar de diferentes verbenas entre los callejones y las plazas que te llenaron los ojos y los oídos. Un día tan simbólico para la capital del Estado es el marco perfecto para entablar esta comunicación ficticia.
 
-A veces me pregunto cómo conociste la ciudad. ¿Te trajeron tus padres cuando eras una niña? Quizá nos visitaste cuando estudiabas en los colegios Teresianos aledaños al bajío, luego debiste venir con tu entrañable amiga Margarita López Portillo a hospedarte en la finca San Gabriel de Barrera. Aprovechando tu conocimiento del lugar, en 1975 Francisco Armida -dueño de la finca- te habrá pedido que hicieras un texto para publicitar la venta del icónico lugar. En uno de tus paseos seguro entraste al museo de las momias y guardaste el inusitado recuerdo para luego traducirlo en tu primera colección, específicamente en el cuento “Guía en la muerte”.  
+A veces me pregunto cómo conociste la ciudad. ¿Te trajeron tus padres cuando eras una niña? Quizá nos visitaste cuando estudiabas en los colegios Teresianos aledaños al bajío, luego debiste venir con tu entrañable amiga Margarita López Portillo a hospedarte en la finca San Gabriel de Barrera. Aprovechando tu conocimiento del lugar, en 1975 Francisco Armida -dueño de la finca- te habrá pedido que hicieras un texto para publicitar la venta del icónico lugar. En uno de tus paseos seguro entraste al museo de las momias y guardaste el inusitado recuerdo para luego traducirlo en tu primera colección, específicamente en el cuento “Guía en la muerte”.  
 
 Sólo estoy conjeturando un hilo conductor para ligarte con Guanajuato aunque lo sustantivo no es el cómo sino el qué, es decir, el cariño mostrado hacia esta tierra. Cuando te referías a la ciudad anteponías los adjetivos “leal y noble”[\[1\]](#_ftn1); tan encantada estabas con su gente hospitalaria que no dudaste en pasar por alto los severos picos de desigualdad y lo intrincado de su estructura social. Para ti fue toda una aventura recorrer las caprichosas calles, es más, debió parecerte un lujo “el ambiente de romance que satura las calles sonoras y empinadas”.
 
@@ -36,12 +30,6 @@ Tu fiel admiradora,
 
 Gabriela Trejo Valencia
 
-  
-
-![](images/Header-Guadalupe-Duenas-1024x536.jpg)
-
 * * *
 
-[\[1\]](#_ftnref1) Todas las referencias pertenecen al texto “San Gabriel de Barrera”, compilado en las _Obras completas_ (2017) de Guadalupe Dueñas, México: FCE (Letras Mexicanas), pp. 635-636.
-
-![](images/gabyminiatura.jpg)
+[\[1\]](#_ftnref1) Todas las referencias pertenecen al texto “San Gabriel de Barrera”, compilado en las *Obras completas* (2017) de Guadalupe Dueñas, México: FCE (Letras Mexicanas), pp. 635-636.

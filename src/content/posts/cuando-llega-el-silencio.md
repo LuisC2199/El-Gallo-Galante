@@ -1,17 +1,11 @@
 ---
-title: "Cuando llega el silencio"
-date: 2019-04-15
-author: "nelson-david-navarro-diaz"
-categories: 
-  - "ano-1-numero-0"
-  - "narrativa"
-tags: 
-  - "astrea"
-  - "colombia"
-  - "cuento-corto"
-  - "destacado"
-  - "microficcion"
-coverImage: "90s-blur-classic-1345630.jpg"
+title: Cuando llega el silencio
+date: 2019-04-15T00:00:00.000Z
+category: Narrativa
+issue: ano-1-numero-0
+author: nelson-david-navarro-diaz
+coverImage: /posts/cuando-llega-el-silencio.jpg
+featuredImage: /posts/cuando-llega-el-silencio.jpg
 ---
 
 A mí me da rabia que siempre los vecinos del apartamento de al lado llaman a la policía para que yo quite mi música, como si yo se la llamara para que les apagara el fogón cuando se ponen a hacer su changua que huele a perro mojado, o para que le den a su hijo un poquito de paico para que bote el parasito que lo tiene barrigón y con los ojos claritos. Todo porque no soy de acá, me la tienen montada, porque soy negrito y pongo mi musiquita sabrosona mientras estoy en mi casa. En la noche para que no molesten tanto la pongo suavecita, pero ellos joden mucho y siempre me toca hablar con la policía para que me dejen tranquilo.
@@ -24,11 +18,8 @@ Esa tarde me fui a mi cuarto, cogí un radio, lo escondí detrás de la puerta y
 
 Un día cuando yo pensé que tenía todo controlado mientras estaba en el colegio, en la mitad de un examen, se fue la luz; los equipos de sonido se apagaron y nosotros no podíamos hablar, pegó un silencio duro en el que ni los pájaros cantaron porque estaban sofocados por el calor del medio día. Yo estaba tranquilo porque mi radio seguía detrás de la puerta, pero cuando llegué a mi casa encontré a mi mamá llorando, me abrazo y me dijo que el abuelo había muerto; fui a mi cuarto y encontré mi radio en silencio, confirmando que tenía razón.
 
-![](images/90s-blur-classic-1345630.jpg)
+![](/posts/cuando-llega-el-silencio.jpg)
 
-Foto por [Nicholas Githiri](https://www.pexels.com/@githirinick?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) de [Pexels](https://www.pexels.com/photo/person-holding-volume-knob-1345630/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
-
-![](images/miniatura3.jpg)
-
+Foto por [Nicholas Githiri](https://www.pexels.com/@githirinick?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) de [Pexels](https://www.pexels.com/photo/person-holding-volume-knob-1345630/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
   
 

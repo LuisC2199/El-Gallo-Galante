@@ -1,17 +1,15 @@
 ---
-title: "La isla de los muertos"
-date: 2019-02-01
-author: "javier-palau"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-coverImage: "1200px-arnold_böcklin_-_die_toteninsel_i_metropolitan_museum_of_art.jpg"
+title: La isla de los muertos
+date: 2019-02-01T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: javier-palau
+coverImage: /posts/la-isla-de-los-muertos.jpg
+featuredImage: /posts/la-isla-de-los-muertos.jpg
 ---
 
   
-_A C.G.C.R._  
+*A C.G.C.R.*  
   
 
 El agua se mece en calma,  
@@ -69,7 +67,7 @@ San Luis Potosí, 31 de diciembre de 2018
 
 <figure>
 
-![](images/1200px-arnold_böcklin_-_die_toteninsel_i_metropolitan_museum_of_art-1.jpg)
+![](/posts/la-isla-de-los-muertos.jpg)
 
 <figcaption>
 
@@ -79,6 +77,4 @@ San Luis Potosí, 31 de diciembre de 2018
 
 </figure>
 
-Arnold Böcklin_, La isla de los muertos I_ (1880), óleo sobre tabla, 74 x 122 cm, Museo Metropolitano de Arte, Reisinger Fund, Nueva York.  
-
-![](images/Javiminatura.jpg)
+Arnold Böcklin_, La isla de los muertos I_ (1880), óleo sobre tabla, 74 x 122 cm, Museo Metropolitano de Arte, Reisinger Fund, Nueva York.

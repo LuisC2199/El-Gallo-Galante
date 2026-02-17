@@ -1,15 +1,11 @@
 ---
-title: "Decepcionante"
-date: 2020-02-05
-author: "emmanuel-de-los-robles"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "poesia-mexicana"
-  - "soneto"
-coverImage: "galaxy-74005_1920.jpg"
+title: Decepcionante
+date: 2020-02-05T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: emmanuel-de-los-robles
+coverImage: /posts/decepcionante.jpg
+featuredImage: /posts/decepcionante.jpg
 ---
 
 Pensar que eones antes, las estrellas  
@@ -30,9 +26,7 @@ Y pensar que para eso existes, grita
 un difícil milagro con su venia,  
 para hallarte borracho en la banqueta.
 
-![](images/galaxy-74005_1920-1024x819.jpg)
-
-![](images/emanuelminiatura-2.jpg)
+![](/posts/decepcionante.jpg)
 
   
 

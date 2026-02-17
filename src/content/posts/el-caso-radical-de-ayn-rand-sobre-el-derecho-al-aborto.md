@@ -1,20 +1,11 @@
 ---
-title: "El caso radical de Ayn Rand sobre el derecho al aborto"
-author: "ben-beyer"
-translator: "jonathan-mirus"
-date: 2020-03-08
-categories: 
-  - "ano-1-numero-0"
-  - "ensayo"
-tags: 
-  - "aborto"
-  - "ayn-rand"
-  - "ayn-rand-institute"
-  - "destacado"
-  - "filosofia"
-  - "indvidualismo"
-  - "objetivismo"
-coverImage: "ayn_rand_1920s_300_1280x640-1000x500-1.jpeg"
+title: El caso radical de Ayn Rand sobre el derecho al aborto
+date: 2020-03-08T00:00:00.000Z
+category: Ensayo
+issue: ano-1-numero-0
+author: ben-bayer
+coverImage: /posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg
+featuredImage: /posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg
 ---
 
 Ben Bayer  
@@ -34,15 +25,15 @@ En la perspectiva de Rand, los seres humanos tienen un derecho moral fundamental
 
 Ni el embrión o el feto están siquiera física o psicológicamente individualizados de la madre, como ella lo está de otras personas. En uno de sus primeros comentarios públicos en 1967 sobre el tema del aborto, después de la lectura “The Wreckage of the Consensus” (los restos del consenso), en una sesión de preguntas y respuestas, Rand señaló cuándo es que, para ella, la vida de un ser humano comienza:
 
- “El hecho de nacer es un absoluto —eso significa que, antes de ese momento, el niño no es un organismo vivo independiente. Es parte del cuerpo de la madre. Sin embargo, al nacer, un niño es un individuo y tiene los derechos inherentes en la naturaleza de un humano.”[\[1\]](#_ftn1)
+ “El hecho de nacer es un absoluto —eso significa que, antes de ese momento, el niño no es un organismo vivo independiente. Es parte del cuerpo de la madre. Sin embargo, al nacer, un niño es un individuo y tiene los derechos inherentes en la naturaleza de un humano.”[\[1\]](#_ftn1)
 
 Por esta razón, Rand tenía desprecio por la oposición al aborto en nombre de la “santidad de la vida”. De nuevo en “Of Living Death” explica por qué únicamente la mujer individual (y no el embrión o feto) tiene derecho a la vida:
 
-“Un embrión _no tiene derechos_, los derechos no pertenecen a un ser _potencial_, sólo a un ser concreto. Un niño no puede adquirir ningún derecho hasta que nace. Lo vivo tiene precedencia sobre lo que aún no está vivo (o lo no nacido).
+“Un embrión *no tiene derechos*, los derechos no pertenecen a un ser *potencial*, sólo a un ser concreto. Un niño no puede adquirir ningún derecho hasta que nace. Lo vivo tiene precedencia sobre lo que aún no está vivo (o lo no nacido).
 
 El aborto es un derecho moral — el cual debe ser otorgado exclusivamente a la elección de la mujer involucrada. Moralmente, nada más que su deseo debe ser considerado ¿Quién puede, acaso, tener el derecho de dictarle qué disposición debe realizar sobre el funcionamiento de su propio cuerpo? La Iglesia Católica es responsable de las vergonzosamente barbáricas leyes antiaborto en este país, las cuales deben ser repudiadas y abolidas.”[\[2\]](#_ftn2)
 
-En este pasaje, Rand declara que un niño no puede adquirir derechos _hasta qué este nace_, lo cual significa que el feto no tiene derechos, incluso en las etapas más tardías del embarazo.[\[3\]](#_ftn3) Ella desarrolla un punto similar en el último artículo de su publicación _The Ayn Rand Letter_:
+En este pasaje, Rand declara que un niño no puede adquirir derechos *hasta qué este nace*, lo cual significa que el feto no tiene derechos, incluso en las etapas más tardías del embarazo.[\[3\]](#_ftn3) Ella desarrolla un punto similar en el último artículo de su publicación *The Ayn Rand Letter*:
 
 “No importa el vicioso sinsentido de afirmar que un embrión tiene ‘derecho a la vida’. Una pieza de protoplasma no tiene derechos, ni vida en el sentido humano del término. Uno puede discutir sobre las últimas etapas de un embarazo, pero la cuestión esencial se refiere sólo a los primeros tres meses. equiparar un ser potencial con un ser real es vicioso; abogar por el sacrificio de este último por el primero, es indescriptible.”[\[4\]](#_ftn4)
 
@@ -50,7 +41,7 @@ Responsabilidad Personal
 
 Muchos conservadores se oponen al aborto en nombre de la “responsabilidad personal”, sin embargo, esto es un engaño. Evitar que una mujer termine un embarazo no deseado es privarla de tomar el control de su propia vida. "La tarea de criar a un niño", observa Rand, "es una responsabilidad tremenda y de por vida, que nadie debe asumir sin darse cuenta o sin tener la voluntad de hacerlo".[\[5\]](#_ftn5)
 
-Para Rand, el derecho al aborto protege a las mujeres que deciden no asumir la responsabilidad de criar a un hijo. En "The Age of Mediocrity" (La era de la mediocridad), su crítica de 1981 sobre el nulo apaciguamiento hacia los (en sus palabras) "místicos militantes" durante la administración de Reagan, explica cómo este derecho protege a las mujeres que desean llevar vidas _humanas_ reales, en lugar de soportar un estado de "muerte en vida":
+Para Rand, el derecho al aborto protege a las mujeres que deciden no asumir la responsabilidad de criar a un hijo. En "The Age of Mediocrity" (La era de la mediocridad), su crítica de 1981 sobre el nulo apaciguamiento hacia los (en sus palabras) "místicos militantes" durante la administración de Reagan, explica cómo este derecho protege a las mujeres que desean llevar vidas *humanas* reales, en lugar de soportar un estado de "muerte en vida":
 
 “Como he dicho antes, la crianza es una responsabilidad enorme; imposible para las personas jóvenes que son ambiciosas y que luchan, aunque sean pobres – particularmente si ellos son inteligentes y lo suficientemente conscientes para no abandonar a su hijo sobre los peldaños de una escalera o para entregarlo en adopción. Para personas tan jóvenes, el embarazo es literalmente una sentencia de muerte: la maternidad los obligará a renunciar a su futuro y condenarlos a una vida sin esperanza, de trabajos penosos, de esclavitud para las necesidades físicas y financieras del niño. La situación de una madre soltera, abandonada por su amante, es incluso peor”.[\[6\]](#_ftn6)
 
@@ -64,9 +55,9 @@ Anteriormente en el artículo, Rand indicó su opinión de que la oposición al 
 
 Es crucialmente importante que en “Of Living Death,” Rand sostiene que “un niño no puede adquirir ningún derecho hasta que nace.”[\[7\]](#_ftn7) Rand argumenta enérgicamente que la única función adecuada del gobierno es proteger los derechos. Un gobierno apropiado no tiene poder para aprobar leyes que protejan a los fetos que están en la última etapa de gestación: como entidades no nacidas que dependen de la madre, no tienen derechos.
 
-Al considerar también una breve nota que Rand escribió para _The Objectivist_, poco después de “Of Living Death” a propósito de la liberalización del aborto en Nueva York – unos 4 años antes del caso [Roe contra Wade](https://es.wikipedia.org/wiki/Caso_Roe_contra_Wade) – ella escribe lo siguiente:
+Al considerar también una breve nota que Rand escribió para *The Objectivist*, poco después de “Of Living Death” a propósito de la liberalización del aborto en Nueva York – unos 4 años antes del caso [Roe contra Wade](https://es.wikipedia.org/wiki/Caso_Roe_contra_Wade) – ella escribe lo siguiente:
 
-“_Una postura consistentemente adecuada sobre este tema requeriría la derogación total de la ley que prohíbe el aborto._ \[Énfasis del autor\] Es probable que esto no se apruebe actualmente, pero el tipo de leyes enmendadas que se han propuesto representaría un gran paso adelante, salvaría muchas vidas y aliviaría una cantidad incalculable de sufrimiento humano — con tal que incluyan una cláusula que permita el aborto legal cuando el embarazo pone en peligro la salud física o mental de una mujer. Tal cláusula protegería a una mujer de la desesperación de por vida y le daría la oportunidad de hacer valer sus derechos.
+“*Una postura consistentemente adecuada sobre este tema requeriría la derogación total de la ley que prohíbe el aborto.* \[Énfasis del autor\] Es probable que esto no se apruebe actualmente, pero el tipo de leyes enmendadas que se han propuesto representaría un gran paso adelante, salvaría muchas vidas y aliviaría una cantidad incalculable de sufrimiento humano — con tal que incluyan una cláusula que permita el aborto legal cuando el embarazo pone en peligro la salud física o mental de una mujer. Tal cláusula protegería a una mujer de la desesperación de por vida y le daría la oportunidad de hacer valer sus derechos.
 
 \[…\] Una cláusula que incluya la protección de la salud mental de una mujer es esencial para una reforma significativa de la ley del aborto. Sin ella, cualquier reforma aprobada sería peor que ninguna: sería un pretexto que podría retrasar la reforma real por otros 86 años.”[\[8\]](#_ftn8)
 
@@ -78,7 +69,7 @@ Debido a que Rand pensó que la mayoría de la oposición al derecho al aborto e
 
 En “Last Survey”, de 1976, ella instó a sus lectores a no apoyar la nominación de Ronald Reagan como candidato republicano a la presidencia debido a su oposición al derecho al aborto. En respuesta a otra pregunta sobre el aborto ese año, ella opinó sobre Reagan: "Si él no respeta ese derecho fundamental, no puede ser un defensor de ningún tipo de derechos."[\[11\]](#_ftn11) En un comentario separado sobre las elecciones al Senado de 1976 en el estado de Nueva York, Rand comentó sobre la plataforma antiabortista de James Buckley:
 
-“Cualquiera que niegue el derecho al aborto no puede ser un defensor de los derechos, punto. Lo que tienen en mente es esclavizar a todo ser humano que esté lo suficientemente vivo como para tener algún tipo de vida sexual, esclavizarlo a la procreación como el tipo de animal de granja más bajo, más bajo porque cuando los animales de granja son criados, al menos los criadores cuidan de ellos…  Pero aquí haces de los jóvenes, personas enamoradas, esclavos de la procreación involuntaria y no les dices qué hacer al respecto \[...\]
+“Cualquiera que niegue el derecho al aborto no puede ser un defensor de los derechos, punto. Lo que tienen en mente es esclavizar a todo ser humano que esté lo suficientemente vivo como para tener algún tipo de vida sexual, esclavizarlo a la procreación como el tipo de animal de granja más bajo, más bajo porque cuando los animales de granja son criados, al menos los criadores cuidan de ellos…  Pero aquí haces de los jóvenes, personas enamoradas, esclavos de la procreación involuntaria y no les dices qué hacer al respecto \[...\]
 
 Los conservadores religiosos están para destruir el sistema bipartidista en este país, están para destruir el Partido Republicano. Ahora el Partido Republicano, como cualquier "defensor" de la libre empresa en todo el mundo está muy ocupado intentando suicidarse. Los conservadores religiosos son puros fascistas. Ni siquiera les interesa la libre empresa; están para controlar, y lo que es peor, siempre para controlar espiritual, moral e intelectualmente. Oh sí, podrían dejarte un poco de libertad para trabajar por un tiempo; es la libertad intelectual lo que quieren cortar \[...\]
 
@@ -90,31 +81,31 @@ Rand mantuvo también esta posición durante las elecciones presidenciales de 19
 
 Si usted piensa sobre este tema, es posible que aún no esté de acuerdo con las opiniones de Rand sobre el aborto o con su evaluación de las personas y los políticos que se oponen (en su mayor parte, estoy de acuerdo con ella). Sea lo que sea que usted piense, es importante reconocer el punto de vista de Rand sobre lo que es: una defensa moral y de principios del derecho al aborto que no sólo está fundamentalmente en desacuerdo con los conservadores religiosos, sino también radicalmente diferente de lo que la mayoría de los demócratas y diversos "liberales" ofrecen hasta el día de hoy.
 
-![](images/ayn_rand_1920s_300_1280x640-1000x500-1.jpg)
+![](/posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg)
 
 Imagen: propiedad de Leonard Peikoff / Crédito: Ayn Rand Archives
 
-The Ayn Rand Institute has granted permission to _El Gallo Galante_ to translate this article in its entirety to Spanish from its original [English version](https://newideal.aynrand.org/ayn-rands-radical-views-on-abortion/), but cannot guarantee the reliability of the translation and does not necessarily endorse other content on this site.
+The Ayn Rand Institute has granted permission to *El Gallo Galante* to translate this article in its entirety to Spanish from its original [English version](https://newideal.aynrand.org/ayn-rands-radical-views-on-abortion/), but cannot guarantee the reliability of the translation and does not necessarily endorse other content on this site.
 
 * * *
 
 [\[1\]](#_ftnref1) Ayn Rand, sesión de preguntas y respuestas después de “The Wreckage of the Consensus” (Ford Hall Forum, 1967, edited transcript in Robert Mayhew (ed.), Ayn Rand Answers: The Best of Her Q&A (New York: New American Library, 2005, 126).
 
-[\[2\]](#_ftnref2) Ayn Rand, “Of Living Death,” part 2, The Objectivist, October 1968 (published December 1968), 534. Republished in The Voice of Reason: Essays in Objectivist Thought (New York: New American Library, 1990), 58–59. 
+[\[2\]](#_ftnref2) Ayn Rand, “Of Living Death,” part 2, The Objectivist, October 1968 (published December 1968), 534. Republished in The Voice of Reason: Essays in Objectivist Thought (New York: New American Library, 1990), 58–59. 
 
-[\[3\]](#_ftnref3) He elaborado las razones de Rand para esta perspectiva y como depende de su visión general de los derechos en mi ensayo “Science without Philosophy Can’t Resolve Abortion Debate” (La ciencia sin filosofía no puede resolver el debate del aborto) _New Ideal_ (August 27, 2018).
+[\[3\]](#_ftnref3) He elaborado las razones de Rand para esta perspectiva y como depende de su visión general de los derechos en mi ensayo “Science without Philosophy Can’t Resolve Abortion Debate” (La ciencia sin filosofía no puede resolver el debate del aborto) *New Ideal* (August 27, 2018).
 
-[\[4\]](#_ftnref4) Ayn Rand, “A Last Survey – Part I,” _The Ayn Rand Letter_ (December 1975): 383.
+[\[4\]](#_ftnref4) Ayn Rand, “A Last Survey – Part I,” *The Ayn Rand Letter* (December 1975): 383.
 
-[\[5\]](#_ftnref5) Rand, en _Ibid_.
+[\[5\]](#_ftnref5) Rand, en *Ibid*.
 
 [\[6\]](#_ftnref6) Ayn Rand, “The Age of Mediocrity,” (Ford Hall Forum, 1981, edited transcript in Harry Binswanger (ed.), The Objectivist Forum (June 1981): 3. Hay mucha evidencia de que lo dicho por Rand sobre el tema está en lo cierto. Ver Olga Khazan, “Why So Many Women Choose Abortion Over Adoption,” The Atlantic, May 20, 2019.
 
 [\[7\]](#_ftnref7) Ella lo repite en las preguntas y respuestas después de “The Wreckage of the Consensus” (Ford Hall Forum, 1967; Mayhew, Ayn Rand Answers, 126–27).
 
-[\[8\]](#_ftnref8) Ayn Rand, “A Suggestion,” _The Objectivist_ (February 1969): 595.
+[\[8\]](#_ftnref8) Ayn Rand, “A Suggestion,” *The Objectivist* (February 1969): 595.
 
-[\[9\]](#_ftnref9) En su apunte, Rand comenta el proyecto de ley con base en: Sydney H. Schanberg, “Albany Action on Abortion Reform Seen as Likely,” New Y_ork Times_, January 30, 1969. El eventual paso de la ley se discute en Richard Pérez-Peña, “’70 Abortion Law: New York Said Yes, Stunning the Nation,” _New York Times_, April 9, 2000.
+[\[9\]](#_ftnref9) En su apunte, Rand comenta el proyecto de ley con base en: Sydney H. Schanberg, “Albany Action on Abortion Reform Seen as Likely,” New Y_ork Times_, January 30, 1969. El eventual paso de la ley se discute en Richard Pérez-Peña, “’70 Abortion Law: New York Said Yes, Stunning the Nation,” *New York Times*, April 9, 2000.
 
 [\[10\]](#_ftnref10) La Ley de Salud Reproductiva, Proyecto de Ley del Senado de Nueva York S240 (2019-2020 sesión legislativa).
 
@@ -124,6 +115,4 @@ The Ayn Rand Institute has granted permission to _El Gallo Galante_ to translate
 
 [\[13\]](#_ftnref13) Sesión de preguntas y respuestas después de Leonard Peikoff, “Objective Communication,” Lecture 1 (1980, edited transcript in Mayhew, Ayn Rand Answers, 54).
 
-![](images/km62ma5kpjbcjshbf6aahpq0jj._SX450_.jpg)
-
-![](images/miniatura-1.jpg)
+![](/posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg)

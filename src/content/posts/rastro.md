@@ -1,15 +1,11 @@
 ---
-title: "Rastro"
-date: 2019-12-16
-author: "gabriel-reyes"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "poema"
-  - "poesia-mexicana"
-coverImage: "sea-2534384_1920.jpg"
+title: Rastro
+date: 2019-12-16T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: gabriel-reyes
+coverImage: /posts/rastro.jpg
+featuredImage: /posts/rastro.jpg
 ---
 
 Mis rosas dactilares se marchitan  
@@ -18,8 +14,6 @@ su tersura, que espinó hasta la piedra,
 con la espiral de la ceniza marca  
 los capilares lirios de las cosas.
 
-![](images/GRR-1024x683.jpg)
+![](/posts/rastro.jpg)
 
-Fotografía de Davide Dalese  
-
-![](images/Gabriel.jpg)
+Fotografía de Davide Dalese

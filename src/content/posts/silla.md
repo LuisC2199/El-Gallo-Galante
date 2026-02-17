@@ -1,14 +1,11 @@
 ---
-title: "Silla"
-date: 2019-04-29
-author: "pedro-mota"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "poema"
-coverImage: "d5vdo7bwkaadolu.jpg"
+title: Silla
+date: 2019-04-29T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: pedro-mota
+coverImage: /posts/silla.jpg
+featuredImage: /posts/silla.jpg
 ---
 
 Plena de misticismo,  
@@ -21,6 +18,4 @@ en la academia, en la comida, la bebida y hasta el juego.
 —En ocasiones—  
 móvil protagonista del cuerpo.
 
-![](images/d5vdo7bwkaadolu.jpg)
-
-![](images/pedromotaminiatura.jpg)
+![](/posts/silla.jpg)

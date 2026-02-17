@@ -1,14 +1,11 @@
 ---
-title: "Caída"
-date: 2019-03-11
-author: "jonathan-mirus"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "poema"
-coverImage: "4k-wallpaper-action-adventure-312105.jpg"
+title: Caída
+date: 2019-03-11T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: jonathan-mirus
+coverImage: /posts/caida.jpg
+featuredImage: /posts/caida.jpg
 ---
 
 Poder no tengo,  
@@ -48,7 +45,7 @@ con firme mástil,
 surca las aguas.
 
 Como cambiante nube,  
-vuela el _martierra_,  
+vuela el *martierra*,  
 navega el aire.
 
 Como Ulises mañero,  

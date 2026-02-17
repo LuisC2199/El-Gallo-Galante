@@ -1,16 +1,11 @@
 ---
-title: "Muerte del poeta"
-date: 2019-02-01
-author: "javier-palau"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "javier-palau"
-  - "poema"
-  - "poesia-mexicana"
-coverImage: "42861640_2498580837035048_10123040348176384_n.jpg"
+title: Muerte del poeta
+date: 2019-02-01T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: javier-palau
+coverImage: /posts/muerte-del-poeta.jpg
+featuredImage: /posts/muerte-del-poeta.jpg
 ---
 
 Musa ancestral, eterna diosa, canta  
@@ -32,6 +27,4 @@ Las lágrimas corrieron y abrasaron.
 
 Guanajuato, Gto, a 27 de agosto de 2018.
 
-![](images/42861640_2498580837035048_10123040348176384_n.jpg)
-
-![](images/Javiminatura.jpg)
+![](/posts/muerte-del-poeta.jpg)

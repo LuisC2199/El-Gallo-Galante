@@ -1,14 +1,11 @@
 ---
-title: "Mariposa negra"
-date: 2019-02-01
-author: "silvia-sanchez"
-categories: 
-  - "ano-1-numero-0"
-  - "narrativa"
-tags: 
-  - "cuento"
-  - "destacado"
-coverImage: "cem.jpg"
+title: Mariposa negra
+date: 2019-02-01T00:00:00.000Z
+category: Narrativa
+issue: ano-1-numero-0
+author: silvia-sanchez
+coverImage: /posts/mariposa-negra.jpg
+featuredImage: /posts/mariposa-negra.jpg
 ---
 
 Escuché el primer rumor en la tienda de don Sebas, envuelto en el zumbido de las moscas que revoloteaban entre el pan del medio día.
@@ -102,4 +99,4 @@ Ella me miró con unos ojos muy tristes, como de tierra seca y cansada.
 
 Y se alejó caminando despacio, entre los perros huesudos que buscaban entre las piedras algo que masticar.
 
-![](images/escáner_20190130.jpg)
+![](/posts/mariposa-negra.jpg)

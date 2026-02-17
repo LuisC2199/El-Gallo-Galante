@@ -1,10 +1,10 @@
 ---
-title: "Altar a Penuria"
-date: 2019-04-18
-category: "Poesía"
-author: "gerardo-szae"
-issue: "2019-primavera"
-excerpt: "Escuchar el quebrante azul del estío: enflacarme junto al miedo y devenir pétalo marchito."
+title: Altar a Penuria
+date: 2019-04-18T00:00:00.000Z
+category: Poesía
+author: gerardo-szae
+issue: ano-1-numero-0
+coverImage: "/posts/altar-a-penuria.jpg"
 featuredImage: "/posts/altar-a-penuria.jpg"
 ---
 

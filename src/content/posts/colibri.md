@@ -1,30 +1,25 @@
 ---
-title: "Colibrí"
-date: 2019-02-01
-author: "maritza-gonzalez-huitron"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "poema"
-  - "poemario"
-  - "poesia-mexicana"
-coverImage: "linacolibrícortado.jpg"
+title: Colibrí
+date: 2019-02-01T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: maritza-gonzalez-huitron
+coverImage: /posts/colibri.jpg
+featuredImage: /posts/colibri.jpg
 ---
 
 COLIBRÍ  
 \- hilo temporal de mis recuerdos -
 
-_Este poemario es para ti_  
-_por tanto vuelo vivido_  
-_porque se me enraizó la nostalgia_  
-_porque este exilio_  
-_es la única posibilidad de reencuentro._
+*Este poemario es para ti*  
+*por tanto vuelo vivido*  
+*porque se me enraizó la nostalgia*  
+*porque este exilio*  
+*es la única posibilidad de reencuentro.*
 
 COLIBRÍ I
 
-_Acuérdate de mí bonito como cuando me querías._
+*Acuérdate de mí bonito como cuando me querías.*
 
 Cantaré al polvo  
 para no morir sola  
@@ -55,14 +50,14 @@ para que así yo muera menos.
 COLIBRÍ II
 
 Retrocede mi estancia  
-y se fija precisa   
+y se fija precisa   
 en la imagen de la fotografía  
 ¿qué podía ser yo a esa hora?  
 cuando hay tanta dicha que no se dice  
 para que no desaparezca  
 ¿qué podía ser yo?  
 me faltaba llorar para ser triste  
-y  me faltaba nombrar para que fuera.
+y  me faltaba nombrar para que fuera.
 
 COLIBRÍ III
 
@@ -289,6 +284,6 @@ De nosotras ha de quedar lo que quisimos
 por eso es que nos reconocemos  
 siendo lo que fuimos ya sin serlo.
 
-![](images/linacolibrA_-1-775x1024.jpg)
+![](/posts/colibri.jpg)
 
 Ilustración de [Paulina Quezada](https://elgallogalante.com/2019/02/01/lina-quezada/)

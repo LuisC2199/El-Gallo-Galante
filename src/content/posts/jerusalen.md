@@ -1,18 +1,11 @@
 ---
-title: "Jerusalén"
-date: 2019-03-12
-author: "jorge-prinzo"
-categories: 
-  - "ano-1-numero-0"
-  - "narrativa"
-tags: 
-  - "argentina"
-  - "buenos-aires"
-  - "cuento"
-  - "destacado"
-  - "jerusalen"
-  - "texto-corto"
-coverImage: "atmosphere-cloud-clouds-67101.jpg"
+title: Jerusalén
+date: 2019-03-12T00:00:00.000Z
+category: Narrativa
+issue: ano-1-numero-0
+author: jorge-prinzo
+coverImage: /posts/jerusalen.jpg
+featuredImage: /posts/jerusalen.jpg
 ---
 
 Jerusalén, año 34 d. C.  
@@ -28,6 +21,6 @@ Dos mujeres conversan en la vereda.
 \-Por eso mi nene me hacía callar; decía que era una atrevida y le iba a arruinar el Evangelio. Apenas me dejaron una línea de diálogo en la boda de Caná. Pero la aproveché bien: es inolvidable. A las oportunidades hay que atraparlas; hay trenes que pasan sólo una vez.  
 \-¿Trenes? ¿Qué son trenes?
 
-![](images/atmosphere-cloud-clouds-67101.jpg)
+![](/posts/jerusalen.jpg)
 
-Foto por **[Torsten Dettlaff](https://www.pexels.com/@tdcat?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)** de **[Pexels](https://www.pexels.com/photo/clouds-weather-sunlight-sunrays-67101/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)**
+Foto por **[Torsten Dettlaff](https://www.pexels.com/@tdcat?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)** de **[Pexels](https://www.pexels.com/photo/clouds-weather-sunlight-sunrays-67101/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)**

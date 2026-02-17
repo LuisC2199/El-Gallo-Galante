@@ -10,55 +10,143 @@ const CATEGORIES = [
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-stone-50 border-t border-stone-100 py-20 px-6">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-    <div class="max-w-sm">
-      <h3 class="display-serif text-2xl font-bold mb-4">El Gallo Galante</h3>
-      <p class="serif text-stone-500 leading-relaxed italic">
-        Una plataforma para la pausa, la palabra y el encuentro literario. Desde el margen hacia el centro de la página.
-      </p>
-    </div>
+<footer class="border-t border-stone-100 bg-stone-50">
+  <div class="max-w-6xl mx-auto px-6 py-16 md:py-20">
 
-    <div class="grid grid-cols-2 gap-16">
-      <div>
-        <h4 class="text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-6">Mapa</h4>
-        <div class="flex flex-col gap-3 items-start">
-          {CATEGORIES.map((c) => (
-            <a
-              href={`/categoria/${c.slug}`}
-              class="text-sm hover:text-stone-500 transition-colors"
-            >
-              {c.label}
-            </a>
-          ))}
-          <a href="/contacto" class="text-sm hover:text-stone-500 transition-colors">
-            Contáctanos
-          </a>
-        </div>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-14 md:gap-20">
 
-      <div>
-        <h4 class="text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-6">Encuentro</h4>
-        <div class="flex flex-col gap-3">
-          <a class="text-sm text-stone-500 hover:text-stone-800 transition-colors" href="mailto:contacto@elgallogalante.com">
-            contacto@elgallogalante.com
-          </a>
-          <div class="flex flex-col gap-2">
-            <a class="text-sm text-stone-500 hover:text-stone-800 transition-colors" href="https://instagram.com/" target="_blank" rel="noreferrer">
-              Instagram
-            </a>
-            <a class="text-sm text-stone-500 hover:text-stone-800 transition-colors" href="https://x.com/" target="_blank" rel="noreferrer">
-              X (Twitter)
-            </a>
+      <!-- Marca + Licencia -->
+      <div class="max-w-xl">
+        <h3 class="display-serif text-2xl md:text-3xl font-bold tracking-tight text-stone-800">
+          El Gallo Galante
+        </h3>
+
+        <p class="serif text-stone-500 leading-relaxed italic mt-4">
+          Revista de curiosidad y de crítica
+        </p>
+
+        <!-- Licencia (sin caja blanca) -->
+        <div class="mt-12">
+          <div class="flex items-start gap-6">
+            <div>
+              <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 font-semibold mb-3">
+                Licencia
+              </p>
+
+              <p class="serif text-sm md:text-base text-stone-600 leading-relaxed">
+                La revista de curiosidad y de crítica <span class="italic">El Gallo Galante</span> está distribuida bajo una licencia
+                <span class="font-semibold"> CC BY-NC-SA</span>. Si usted planea comerciar con el contenido, le sugerimos contacte a la persona que ostenta los derechos patrimoniales de la obra.
+              </p>
+              <br>
+              <img
+                src="/assets/by-nc-sa.png"
+                alt="Licencia Creative Commons"
+                class="w-20 opacity-80 mt-1"
+                loading="lazy"
+              />
+            </div>
+
           </div>
         </div>
+
+        <!-- Colofón -->
+        <div class="mt-12 text-[10px] uppercase tracking-[0.3em] text-stone-400">
+          Guanajuato · Desde 2019
+        </div>
+
+      </div>
+
+      <!-- Navegación -->
+      <div class="grid grid-cols-2 gap-14">
+
+        <!-- Mapa -->
+        <div>
+          <h4 class="text-[10px] uppercase tracking-[0.3em] font-semibold text-stone-400 mb-6">
+            Mapa
+          </h4>
+
+          <nav class="flex flex-col gap-3">
+            {CATEGORIES.map((c) => (
+              <a
+                href={`/categoria/${c.slug}`}
+                class="text-sm text-stone-600 hover:text-stone-900 transition-colors"
+              >
+                {c.label}
+              </a>
+            ))}
+            <a
+              href="/contacto"
+              class="text-sm text-stone-600 hover:text-stone-900 transition-colors"
+            >
+              Contáctanos
+            </a>
+          </nav>
+        </div>
+
+        <!-- Encuentro -->
+        <div>
+          <h4 class="text-[10px] uppercase tracking-[0.3em] font-semibold text-stone-400 mb-6">
+            Encuentro
+          </h4>
+
+          <div class="flex flex-col gap-6">
+
+            <!-- Correo -->
+            <a
+              href="mailto:contacto@elgallogalante.com"
+              class="flex items-center gap-3 text-sm text-stone-600 hover:text-stone-900 transition-colors"
+            >
+              <svg class="w-4 h-4 opacity-70" viewBox="0 0 24 24" fill="none">
+                <path d="M4 7h16v10H4V7Z" stroke="currentColor" stroke-width="2"/>
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Correo electrónico
+            </a>
+
+            <!-- Instagram -->
+            <a
+              href="https://www.instagram.com/elgallogalante"
+              target="_blank"
+              rel="noreferrer"
+              class="flex items-center gap-3 text-sm text-stone-600 hover:text-stone-900 transition-colors"
+            >
+              <svg class="w-4 h-4 opacity-70" viewBox="0 0 24 24" fill="none">
+                <rect x="7" y="7" width="10" height="10" rx="3" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Instagram
+            </a>
+
+            <!-- X -->
+            <a
+              href="https://x.com/elgallogalante"
+              target="_blank"
+              rel="noreferrer"
+              class="flex items-center gap-3 text-sm text-stone-600 hover:text-stone-900 transition-colors"
+            >
+              <svg class="w-4 h-4 opacity-70" viewBox="0 0 24 24" fill="none">
+                <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              X (Twitter)
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="mt-2 pt-2 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-[10px] text-stone-400 uppercase tracking-[0.3em]">
+        © {year} El Gallo Galante. Todos los derechos reservados.
+      </p>
+
+      <div class="text-[10px] uppercase tracking-[0.3em] text-stone-400">
+        Hecho para leerse despacio.
       </div>
     </div>
-  </div>
 
-  <div class="max-w-6xl mx-auto mt-20 pt-10 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-4">
-    <p class="text-[10px] text-stone-400 uppercase tracking-widest">
-      © {year} El Gallo Galante. Todos los derechos reservados.
-    </p>
   </div>
 </footer>

@@ -1,19 +1,14 @@
 ---
-title: "III"
-date: 2021-02-12
-author: "hilary-cruz"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "hilary-cruz"
-  - "poema"
-  - "poesia-mexicana"
-coverImage: "pexels-duong-nhan-3543097-1.jpeg"
+title: III
+date: 2021-02-12T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: hilary-cruz
+coverImage: /posts/iii.jpg
+featuredImage: /posts/iii.jpg
 ---
 
-_¿Qué es poesía? ¿Y tú me lo preguntas?_  
+*¿Qué es poesía? ¿Y tú me lo preguntas?*  
 Miles de versos corriendo por tu espalda,  
 plenos testigos de su propia voz  
 mientras te empegan.  
@@ -26,10 +21,8 @@ El aborrecer de Diana
 persiguiendo tu sangrante verbo.  
 Una pluma que se detiene sólo  
 cuando el verso se convierte en decreto.  
-_Poesía…_ no querrás ser tú.
+*Poesía…* no querrás ser tú.
 
-![](images/pexels-duong-nhan-3543097-1-1024x683.jpg)
+![](/posts/iii.jpg)
 
 Fotografía de [Dương Nhân](https://www.instagram.com/christianduong/) de [Pexels](https://www.pexels.com/@d-ng-nhan-324384)
-
-![](images/HilaryMiniatura.jpg)

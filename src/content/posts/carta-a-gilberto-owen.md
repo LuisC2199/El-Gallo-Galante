@@ -1,22 +1,16 @@
 ---
-title: "Carta a Gilberto Owen"
-author: "mariana-del-vergel"
-date: 2019-10-05
-categories: 
-  - "ano-1-numero-0"
-  - "epistolario"
-tags: 
-  - "carta"
-  - "contemporaneos"
-  - "destacado"
-  - "gilberto-owen"
-  - "poesia"
-coverImage: "retrato_de_gilberto_owen_13451033713.jpg"
+title: Carta a Gilberto Owen
+date: 2019-10-05T00:00:00.000Z
+category: Epistolario
+issue: ano-1-numero-0
+author: mariana-del-vergel
+coverImage: /posts/carta-a-gilberto-owen.jpg
+featuredImage: /posts/carta-a-gilberto-owen.jpg
 ---
 
 24 de septiembre de 2019
 
-_Le escribo con el atrevimiento de sus nomeolvides y con la tinta verde que tanto le gustaba usar._
+*Le escribo con el atrevimiento de sus nomeolvides y con la tinta verde que tanto le gustaba usar.*
 
 G.O.:
 

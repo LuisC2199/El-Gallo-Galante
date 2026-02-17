@@ -1,10 +1,11 @@
 ---
 title: Antielegía del ave Fénix por sí misma
 date: 2020-02-11T00:00:00.000Z
-category: Poesia
+category: Poesía
 author: javier-palau
-issue: 2019-primavera
-featuredImage: "/posts/antielegia-del-ave-fenix-por-si-misma.jpg"
+issue: ano-1-numero-0
+coverImage: /posts/antielegia-del-ave-fenix-por-si-misma.jpg
+featuredImage: /posts/antielegia-del-ave-fenix-por-si-misma.jpg
 ---
 
 Qué horrible se desgarra el viento  

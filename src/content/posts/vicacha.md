@@ -1,17 +1,11 @@
 ---
-title: "Vicachá"
-date: 2020-12-11
-author: "jorge-arturo-poveda"
-categories: 
-  - "ano-1-numero-0"
-  - "narrativa"
-tags: 
-  - "colombia"
-  - "cuento"
-  - "cuento-corto"
-  - "destacado"
-  - "jorge-arturo-poveda"
-coverImage: "pexels-saidi-musiitwa-4618015-scaled-1.jpeg"
+title: Vicachá
+date: 2020-12-11T00:00:00.000Z
+category: Narrativa
+issue: ano-1-numero-0
+author: jorge-arturo-poveda
+coverImage: /posts/vicacha.jpg
+featuredImage: /posts/vicacha.jpg
 ---
 
 Ayer en la noche, un espíritu Muisca volvió a la sabana que un día acogió al pueblo de Bacatá. Durante casi medio milenio, había vagado entre los caminos enrevesados de la sangre y los gritos de dolor, un laberinto de suelo óseo teñido de ira. Sin embargo, la luna, con su piedad infinita, lo guió hacia el oriente, lugar en el que se alzaban los Padres Tutelares.
@@ -34,8 +28,6 @@ Bajo el camino de piedra estaba Vicachá. Sus aguas no se habían tornado caudal
   
 Entendió que lo que pisaba no era un camino sino una tumba. En este mundo, ya no existía un rumbo que encaminara a los muertos al lugar que merecían, no. Al final, las almas estaban condenadas a caminar sobre sus propios huesos.
 
-![](images/pexels-saidi-musiitwa-4618015-1024x683.jpg)
+![](/posts/vicacha.jpg)
 
 Fotografía de Saidi Musiitwa de [Pexels](https://www.pexels.com/@saidi-musiitwa-3046478)
-
-![](images/arturnominiatura.png)

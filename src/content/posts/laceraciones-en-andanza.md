@@ -1,15 +1,11 @@
 ---
-title: "Laceraciones en andanza"
-date: 2019-03-13
-author: "javier-palau"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "caminar"
-  - "destacado"
-  - "poema"
-coverImage: "42-15208174.jpg"
+title: Laceraciones en andanza
+date: 2019-03-13T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: javier-palau
+coverImage: /posts/laceraciones-en-andanza.jpg
+featuredImage: /posts/laceraciones-en-andanza.jpg
 ---
 
 Caminar sin perdón por el camino.  
@@ -43,6 +39,4 @@ Caminar, caminar y caminar.
 Caminar sin perdón por el camino,  
 caminar, condenado, caminar.
 
-![](images/42-15208174.jpg)
-
-![](images/Javiminatura.jpg)
+![](/posts/laceraciones-en-andanza.jpg)

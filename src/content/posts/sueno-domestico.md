@@ -1,14 +1,11 @@
 ---
-title: "Sueño doméstico"
-date: 2020-12-17
-author: "mariana-del-vergel"
-categories: 
-  - "ano-1-numero-0"
-  - "ensayo"
-tags: 
-  - "destacado"
-  - "mariana-del-vergel"
-coverImage: "whatsapp-image-2021-10-27-at-14.14.08.jpeg"
+title: Sueño doméstico
+date: 2020-12-17T00:00:00.000Z
+category: Ensayo
+issue: ano-1-numero-0
+author: mariana-del-vergel
+coverImage: /posts/sueno-domestico.jpg
+featuredImage: /posts/sueno-domestico.jpg
 ---
 
 Pienso en todas las casas que me han albergado y en la suma de sus cuatro techos divididos todos entre doce personas diferentes y bajo diversos tiempos. Pienso en las casas que he encerrado en un llavero de bolsillo (en una foto en miniatura) y pienso en las que me han encerrado –con un gesto simultáneo de asfixia y refugio– entre memorias específicas: las veces que el frío “llegaba hasta los huesos” y el cielo presumía su libertad por toda la calle; el día en que en plena persecución diurna, estuve a punto de ser asaltada; cuando buscaba un sitio para dos perdidos de la noche, estando frente a frente en un arranque de satisfacción. Casas arrendadas, la casa de mis padres, casas cuasicolectivas compartidas entre amigos, la casa de foráneos.
@@ -27,6 +24,4 @@ La cartografía de mi casa tendría un haz con doble norte: sería íntima y pú
 
 Hoy duermo otra vez en una gasolinera y me pongo nuevamente a soñar… Y cuando tenga una casa que desde la ventana, que desde la cocina mire a la calle, me sentaré a cantar las cosas que se cantan mientras se hornea. Contaré palabras al limpiar lentejas y pondré los frijoles a madurar su cubierta pálida con el calor del sol. Y cuando alguien pase por mi calle y se asomé por mi ventana, lo invitaré desde este distanciado sitio para que entre y conozca mi cocina, y para que juntos le hagamos compañía al exprimidor de naranjas o al refrigerador o a la estufa y nos pongamos así, a recitar desde nuestras distancias, poemas cantados por A. E. Quintero: “Tengo miedo de olvidarte a secas; así / sencillamente / como quien busca una silla y una ventana / y no recuerda para qué”.
 
-![](images/WhatsApp-Image-2021-10-27-at-14.14.08-1024x576.jpeg)
-
-![](images/Marianaminiatura.jpg)
+![](/posts/sueno-domestico.jpg)

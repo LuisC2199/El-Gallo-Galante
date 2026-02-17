@@ -1,22 +1,16 @@
 ---
-title: "Con los ojos abiertos: carta a Amparo Dávila"
-date: 2020-04-19
-author: "mariana-del-vergel"
-categories: 
-  - "ano-1-numero-0"
-  - "epistolario"
-tags: 
-  - "amparo-davila"
-  - "carta"
-  - "cuento"
-  - "destacado"
-  - "literatura-mexicana"
-coverImage: "dc3a1vila2.jpeg"
+title: 'Con los ojos abiertos: carta a Amparo Dávila'
+date: 2020-04-19T00:00:00.000Z
+category: Epistolario
+issue: ano-1-numero-0
+author: mariana-del-vergel
+coverImage: /posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg
+featuredImage: /posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg
 ---
 
 18 de abril de 2020
 
-Doña Amparo, le escribo desde la distancia. Hoy es un día triste del mes –no del abril de Machado, sino más bien del de Eliot. Mis líneas son un hilo desgajado entre agujas rectoras que se dejan conducir sin firmeza. Abro los ojos y hoy el cielo está obnubilante por muchas razones: algo se ha quebrado en alguna parte.  
+Doña Amparo, le escribo desde la distancia. Hoy es un día triste del mes –no del abril de Machado, sino más bien del de Eliot. Mis líneas son un hilo desgajado entre agujas rectoras que se dejan conducir sin firmeza. Abro los ojos y hoy el cielo está obnubilante por muchas razones: algo se ha quebrado en alguna parte.  
 
 Hace no mucho tiempo la conocí y sé que me siguió porque su gato –el peluso café de ojos cristalinos– se apareció en mi calle durante algunas noches. Entonces supe que a lo mejor algún ente taciturno vendría a buscar mi aldaba para encontrarme. Recuerdo apenas una carta que Julito le envió en el 59 y hago mi apunte mentalizado: sus relatos preferidos eran “Moisés y Gaspar”, “La celda” y “El espejo”. Recuerdo que el señorito Florecio le hablaba de “Árboles petrificados” como un poema y le expresaba cómo encontraba en su letra una fragancia secreta de Pieyre de Mandiargues. Le confieso que a mí me hubiese gustado que Julito mencionara algo de sus salmos o de la cordura o de sus personajes femeninos, pero reconozco en esas líneas la exclusividad y la intimidad epistolar a la que sólo usted y él tenían acceso. Me quedo con el tintineo que los unía, entre sus cuentos –espacio único para los juegos de la luz– y entre sus gatos.
 
@@ -28,8 +22,6 @@ Le mando con cariño esta carta. A lo mejor se encuentra en ese lugar edénicame
 
 Mariana del Vergel
 
-![](images/dc3a1vila2.jpg)
+![](/posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg)
 
-Archivo de _El Sol de Zacatecas_.
-
-![](images/Marianaminiatura.jpg)
+Archivo de *El Sol de Zacatecas*.

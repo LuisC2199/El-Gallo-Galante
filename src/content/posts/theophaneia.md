@@ -1,16 +1,11 @@
 ---
-title: "Theopháneia"
-date: 2021-02-17
-author: "javier-palau"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "javier-palau"
-  - "poema"
-  - "poesia-mexicana"
-coverImage: "theophania.jpeg"
+title: Theopháneia
+date: 2021-02-17T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: javier-palau
+coverImage: /posts/theophaneia.jpg
+featuredImage: /posts/theophaneia.jpg
 ---
 
 Soy el verbo que transcurre  
@@ -28,9 +23,8 @@ que retorna el espíritu a la gloria,
 y es mi presente lo que el verbo piensa  
 en la creación que he comenzado.
 
-  
+.
+
 Guanajuato, a 01 de julio de 2020
 
-![](images/WhatsApp-Image-2021-10-28-at-09.54.07-1-796x1024.jpeg)
-
-![](images/Javiminatura.jpg)
+![](/posts/theophaneia.jpg)

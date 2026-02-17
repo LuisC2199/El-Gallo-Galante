@@ -3,12 +3,8 @@ import path from "node:path";
 import matter from "gray-matter";
 
 const POSTS_DIR = path.join(process.cwd(), "src", "content", "posts");
-
-// Change if you store images elsewhere:
 const IMAGE_DIR = path.join(process.cwd(), "public", "posts");
-
-// Your preferred default (if no file exists yet)
-const DEFAULT_IMAGE_EXT = "jpeg";
+const DEFAULT_IMAGE_EXT = "jpg";
 
 function listMarkdownFiles(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -25,7 +21,6 @@ function slugFromFile(filePath) {
   return path.basename(filePath, path.extname(filePath));
 }
 
-/** WP category slugs -> your display labels */
 function mapCategorySlugToLabel(slug) {
   const s = String(slug || "").toLowerCase().trim();
   if (s === "poesia" || s === "poesía") return "Poesía";
@@ -53,21 +48,12 @@ function deriveIssueAndCategory(wpCategories) {
 
 function cleanBody(rawBody) {
   let body = String(rawBody ?? "");
-
-  // normalize newlines
   body = body.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
-
-  // WP NBSP / HTML nbsp
   body = body.replace(/\u00A0/g, " ").replace(/&nbsp;/g, " ");
-
-  // Convert HTML italics to Markdown
   body = body.replace(/<\s*em\s*>/gi, "*").replace(/<\s*\/\s*em\s*>/gi, "*");
   body = body.replace(/<\s*i\s*>/gi, "*").replace(/<\s*\/\s*i\s*>/gi, "*");
 
-  /**
-   * Convert _italics_ to *italics* (safe delimiter-based)
-   * Avoid underscores inside words.
-   */
+  // safe _italics_ -> *italics*
   body = body.replace(
     /(^|[\s([{"'“‘¡¿])_([^_\n][^_\n]*?)_([\s)\]}"'”’.,;:!?¡¿]|$)/g,
     (_m, p1, inner, p3) => `${p1}*${inner}*${p3}`
@@ -76,13 +62,8 @@ function cleanBody(rawBody) {
   return body;
 }
 
-/**
- * Find an existing image in /public/posts for this slug.
- * Supports jpg/jpeg/png/webp.
- * If not found, returns default /posts/<slug>.jpeg anyway.
- */
 function detectImagePath(slug) {
-  const exts = ["jpg", "jpeg", "png", "webp"];
+  const exts = ["jpg", "jpg", "png", "webp"];
   for (const ext of exts) {
     const full = path.join(IMAGE_DIR, `${slug}.${ext}`);
     if (fs.existsSync(full)) return `/posts/${slug}.${ext}`;
@@ -104,12 +85,12 @@ function main() {
     const slug = slugFromFile(file);
 
     const title = typeof data.title === "string" ? data.title.trim() : "";
-    const date = data.date; // keep as-is
+    const date = data.date;
     const author = typeof data.author === "string" ? data.author.trim() : "";
 
     const { issue, category } = deriveIssueAndCategory(data.categories);
 
-    // optional translator (only if WP file has it)
+    // Translator slug (optional)
     const traductor =
       typeof data.traductor === "string" && data.traductor.trim().length > 0
         ? data.traductor.trim()
@@ -137,12 +118,11 @@ function main() {
       title,
       date,
       category,
-      author,
-      ...(traductor ? { traductor } : {}),
       issue,
+      author, // reference("authors")
+      ...(traductor ? { traductor } : {}), // reference("authors").optional()
       coverImage: imgPath,
       featuredImage: imgPath,
-      // excerpt: optional — keep off for poetry if you want
     };
 
     const cleaned = cleanBody(body);

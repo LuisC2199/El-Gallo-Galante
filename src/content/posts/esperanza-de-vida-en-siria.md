@@ -1,14 +1,11 @@
 ---
-title: "Esperanza de vida en Siria"
-date: 2021-02-14
-author: "sean-salas"
-categories: 
-  - "ano-1-numero-0"
-  - "poesia"
-tags: 
-  - "destacado"
-  - "poema"
-coverImage: "optimized-pexels-murtaza-azal-5281482.jpeg"
+title: Esperanza de vida en Siria
+date: 2021-02-14T00:00:00.000Z
+category: Poesía
+issue: ano-1-numero-0
+author: sean-salas
+coverImage: /posts/esperanza-de-vida-en-siria.jpg
+featuredImage: /posts/esperanza-de-vida-en-siria.jpg
 ---
   
 
@@ -34,6 +31,6 @@ Durante su corta existencia,
 las moscas en Siria nunca están tristes,  
 hay suficientes flores para todas.
 
-![](images/Optimized-pexels-murtaza-azal-5281482-1024x664.jpg)
+![](/posts/esperanza-de-vida-en-siria.jpg)
 
 Fotografía de [Murtaza Azal Ch](https://www.instagram.com/murtazaazalch/)

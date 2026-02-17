@@ -12,9 +12,11 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props as { post: CollectionEntry<"posts"> };
+const isPoetry = post.data.category === "Poesía";
 const author = await getEntry(post.data.author);
 const { Content: PostContent } = await post.render();
 const { Content: AuthorContent } = await author.render();
+const traductor = post.data.traductor ? await getEntry(post.data.traductor) : null;
 ---
 
 <Shell title={`${post.data.title} · El Gallo Galante`} description={post.data.excerpt}>
@@ -22,7 +24,12 @@ const { Content: AuthorContent } = await author.render();
     <ArticleHeader post={post} author={author} />
 
     <div class="max-w-2xl mx-auto">
-      <div class="serif text-xl md:text-2xl leading-relaxed text-stone-800 space-y-8 whitespace-pre-line drop-cap">
+      <div
+        class:list={[
+          "serif text-xl md:text-2xl text-stone-800 drop-cap poetry",
+          isPoetry ? "leading-snug whitespace-normal" : "leading-relaxed space-y-8",
+        ]}
+      >
         <PostContent />
       </div>
 
@@ -41,6 +48,11 @@ const { Content: AuthorContent } = await author.render();
           >
             Ver todos los textos de {author.data.name}
           </a>
+          {traductor && (
+            <p class="text-sm text-stone-400 mt-2">
+              Traducción: <a class="underline underline-offset-4 hover:text-stone-800" href={`/autor/${traductor.slug}`}>{traductor.data.name}</a>
+            </p>
+          )}
         </div>
       </footer>
     </div>
