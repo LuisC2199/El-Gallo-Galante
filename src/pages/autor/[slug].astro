@@ -2,6 +2,7 @@
 import Shell from "../../layouts/Shell.astro";
 import PostPreview from "../../components/PostPreview.astro";
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import AuthorAvatar from "../../components/AuthorAvatar.astro";
 
 export async function getStaticPaths() {
   const authors: CollectionEntry<"authors">[] = await getCollection("authors");
@@ -50,15 +51,12 @@ const written: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"a
   <div class="max-w-6xl mx-auto px-6">
     <header class="max-w-6xl mx-auto mb-16 md:mb-24">
       <div class="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-8 md:gap-10 items-start">
-        {author.data.photo && (
-          <img
-            src={author.data.photo}
-            alt={author.data.name}
-            class="w-40 h-50 rounded-full grayscale object-cover"
-            loading="lazy"
-          />
-        )}
-
+        <AuthorAvatar
+          name={author.data.name}
+          photo={author.data.photo}
+          size="lg"
+          class="author-photo"
+        />
         <div class="text-center md:text-left">
           <h1 class="display-serif text-4xl md:text-7xl font-bold leading-tight">
             {author.data.name}
@@ -67,8 +65,10 @@ const written: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"a
           <p class="text-sm text-stone-400 font-light mt-4">
             ({author.data.birthYear}) {author.data.birthPlace}
           </p>
-
-          <div class="serif text-lg md:text-xl text-stone-500 leading-relaxed italic max-w-2xl md:max-w-none mt-6">
+          <p class="mt-3 text-[10px] uppercase tracking-[0.35em] text-stone-400">
+            {written.length} texto{written.length === 1 ? "" : "s"} 
+          </p>
+          <div class="serif text-lg md:text-xl text-stone-500 leading-relaxed italic mt-6 max-w-prose">
             <Content />
           </div>
 
@@ -134,11 +134,20 @@ const written: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"a
         </div>
       </div>
     </header>
-
-    <section class="space-y-20">
-    {written.map(({ post }) => (
-      <PostPreview post={post} authorName={author.data.name} authorSlug={author.slug} />
-    ))}
-    </section>
+    <div class="mt-10 mb-14 h-px bg-stone-100"></div>
+    <p class="text-[10px] uppercase tracking-[0.35em] text-stone-400 mb-10 text-center md:text-left">
+      Textos publicados
+    </p>
+    {written.length === 0 ? (
+      <p class="serif text-stone-500 italic text-center md:text-left">
+        Aún no hay textos publicados en esta página.
+      </p>
+    ) : (
+      <section class="space-y-20">
+        {written.map(({ post }) => (
+          <PostPreview post={post} authorName={author.data.name} authorSlug={author.slug} />
+        ))}
+      </section>
+    )}
   </div>
 </Shell>

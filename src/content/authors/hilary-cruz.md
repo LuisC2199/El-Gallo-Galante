@@ -2,7 +2,7 @@
 name: Hilary Cruz
 birthYear: '1999'
 birthPlace: Estado de México
-photo: /authors/hilary-cruz.jpg
+photo: '/authors/hilary-cruz.jpg'
 social:
   website: ''
   instagram: ''

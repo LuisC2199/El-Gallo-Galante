@@ -2,6 +2,7 @@
 import Shell from "../../layouts/Shell.astro";
 import ArticleHeader from "../../components/ArticleHeader.astro";
 import { getEntry, getCollection, type CollectionEntry } from "astro:content";
+import AuthorAvatar from "../../components/AuthorAvatar.astro";
 
 export async function getStaticPaths() {
   const posts: CollectionEntry<"posts">[] = await getCollection("posts");
@@ -35,9 +36,12 @@ const traductor = post.data.traductor ? await getEntry(post.data.traductor) : nu
 
       <footer class="mt-24 pt-12 border-t border-stone-100 flex flex-col items-center gap-8">
         <div class="flex flex-col items-center gap-4 text-center max-w-sm">
-          {author.data.photo && (
-            <img src={author.data.photo} class="w-25 h-30 rounded-full grayscale mb-2" alt={author.data.name} />
-          )}
+          <AuthorAvatar
+            name={author.data.name}
+            photo={author.data.photo}
+            size="md"
+            class="author-photo"
+          />
           <h4 class="text-xs uppercase tracking-widest font-bold">Sobre el autor</h4>
           <p class="serif text-stone-500 italic">
             <AuthorContent />

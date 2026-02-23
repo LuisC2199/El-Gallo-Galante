@@ -1,0 +1,60 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+type Size = "sm" | "md" | "lg";
+
+const {
+  name,
+  photo,
+  size = "md",
+  class: className = "",
+} = Astro.props as {
+  name: string;
+  photo?: string | null;
+  size?: Size;
+  class?: string;
+};
+
+const photoUrl = typeof photo === "string" ? photo : null;
+
+const photoExists =
+  typeof photoUrl === "string" &&
+  photoUrl.startsWith("/") &&
+  fs.existsSync(path.join(process.cwd(), "public", photoUrl));
+
+const initials = name
+  .split(" ")
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((n) => n.charAt(0).toUpperCase())
+  .join("");
+
+const sizeMap: Record<Size, { box: string; text: string }> = {
+  sm: { box: "w-16 h-16", text: "text-2xl" },
+  md: { box: "w-25 h-30", text: "text-3xl" },
+  lg: { box: "w-40 h-50", text: "text-6xl" },
+};
+
+const box = sizeMap[size].box;
+const text = sizeMap[size].text;
+---
+
+{photoExists ? (
+  <img
+    src={photoUrl}
+    alt={name}
+    class={`${box} rounded-full object-cover grayscale author-photo ${className}`}
+    loading="lazy"
+  />
+) : (
+  <div
+    class={`${box} rounded-full border border-stone-200 bg-white flex items-center justify-center ${className}`}
+    aria-label={name}
+    role="img"
+  >
+    <span class={`display-serif font-light text-stone-400 tracking-tight ${text}`}>
+      {initials}
+    </span>
+  </div>
+)}
