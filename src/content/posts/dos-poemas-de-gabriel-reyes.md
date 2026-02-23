@@ -36,6 +36,12 @@ emula mi dolor si es que lo creas.
 
 ![](/posts/dos-poemas-de-gabriel-reyes.jpg)
 
-[Esta foto](https://www.unfotografo.es/2011/noche-soledad-conceptual/fotografia-conceptual-soledad-2)
+<span class="caption">
+<a href="https://www.unfotografo.es/2011/noche-soledad-conceptual/fotografia-conceptual-soledad-2" target="_blank" rel="noreferrer">
+Esta foto
+</a>
 de Autor desconocido está bajo licencia
-[CC BY-SA-NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="noreferrer">
+CC BY-SA-NC
+</a>
+</span>

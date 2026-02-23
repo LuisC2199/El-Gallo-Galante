@@ -68,10 +68,9 @@ San Luis Potosí, 31 de diciembre de 2018
 ![](/posts/la-isla-de-los-muertos.jpg)
 
 <figcaption>
-
+<em>Arnold Böcklin</em>, <strong>La isla de los muertos I</strong> (1880),
+óleo sobre tabla, 74 × 122 cm, Museo Metropolitano de Arte,
+Reisinger Fund, Nueva York.
 </figcaption>
 
 </figure>
-
-Arnold Böcklin*, La isla de los muertos I* (1880), óleo sobre tabla, 74 x 122
-cm, Museo Metropolitano de Arte, Reisinger Fund, Nueva York.

@@ -51,7 +51,7 @@ para mí, dentro de aquel cosmos literario hilvanado de decires.
 
 Siempre tuya,
 
-                                 Casandra
+Casandra
 
 ![](/posts/epistola-a-lev-tolstoi.jpg)
 

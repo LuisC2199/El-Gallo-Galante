@@ -231,65 +231,47 @@ también radicalmente diferente de lo que la mayoría de los demócratas y diver
 <span class="caption">Imagen: propiedad de Leonard Peikoff / Crédito: Ayn Rand
 Archives</span>
 
-The Ayn Rand Institute has granted permission to _El Gallo Galante_ to translate
-this article in its entirety to Spanish from its original
-[English version](https://newideal.aynrand.org/ayn-rands-radical-views-on-abortion/),
-but cannot guarantee the reliability of the translation and does not necessarily
-endorse other content on this site.
+<div class="editorial-note">
 
----
+The Ayn Rand Institute has granted permission to <em>El Gallo Galante</em> 
+to translate this article in its entirety from its original 
+<a href="https://newideal.aynrand.org/ayn-rands-radical-views-on-abortion/" target="_blank">
+English version
+</a>.  
 
-[\[1\]](#_ftnref1) Ayn Rand, sesión de preguntas y respuestas después de “The
-Wreckage of the Consensus” (Ford Hall Forum, 1967, edited transcript in Robert
-Mayhew (ed.), Ayn Rand Answers: The Best of Her Q&A (New York: New American
-Library, 2005, 126).
+The Institute cannot guarantee the reliability of the translation and does not 
+necessarily endorse other content on this site.
 
-[\[2\]](#_ftnref2) Ayn Rand, “Of Living Death,” part 2, The Objectivist, October
-1968 (published December 1968), 534. Republished in The Voice of Reason: Essays
-in Objectivist Thought (New York: New American Library, 1990), 58–59.
+</div>
 
-[\[3\]](#_ftnref3) He elaborado las razones de Rand para esta perspectiva y como
-depende de su visión general de los derechos en mi ensayo “Science without
-Philosophy Can’t Resolve Abortion Debate” (La ciencia sin filosofía no puede
-resolver el debate del aborto) _New Ideal_ (August 27, 2018).
+<div class="footnotes">
 
-[\[4\]](#_ftnref4) Ayn Rand, “A Last Survey – Part I,” _The Ayn Rand Letter_
-(December 1975): 383.
+<p><sup>1</sup> Ayn Rand, sesión de preguntas y respuestas después de “The Wreckage of the Consensus” (Ford Hall Forum, 1967), en Robert Mayhew (ed.), <em>Ayn Rand Answers: The Best of Her Q&A</em> (New York: New American Library, 2005), 126.</p>
 
-[\[5\]](#_ftnref5) Rand, en _Ibid_.
+<p><sup>2</sup> Ayn Rand, “Of Living Death,” part 2, <em>The Objectivist</em>, October 1968 (published December 1968), 534. Reimpreso en <em>The Voice of Reason: Essays in Objectivist Thought</em> (New York: New American Library, 1990), 58–59.</p>
 
-[\[6\]](#_ftnref6) Ayn Rand, “The Age of Mediocrity,” (Ford Hall Forum, 1981,
-edited transcript in Harry Binswanger (ed.), The Objectivist Forum (June
-1981): 3. Hay mucha evidencia de que lo dicho por Rand sobre el tema está en lo
-cierto. Ver Olga Khazan, “Why So Many Women Choose Abortion Over Adoption,” The
-Atlantic, May 20, 2019.
+<p><sup>3</sup> He elaborado las razones de Rand para esta perspectiva y su relación con su teoría general de los derechos en mi ensayo “Science without Philosophy Can’t Resolve Abortion Debate” (La ciencia sin filosofía no puede resolver el debate del aborto), <em>New Ideal</em>, August 27, 2018.</p>
 
-[\[7\]](#_ftnref7) Ella lo repite en las preguntas y respuestas después de “The
-Wreckage of the Consensus” (Ford Hall Forum, 1967; Mayhew, Ayn Rand Answers,
-126–27).
+<p><sup>4</sup> Ayn Rand, “A Last Survey – Part I,” <em>The Ayn Rand Letter</em> (December 1975): 383.</p>
 
-[\[8\]](#_ftnref8) Ayn Rand, “A Suggestion,” _The Objectivist_ (February
-1969): 595.
+<p><sup>5</sup> Ayn Rand, en <em>Ibid.</em></p>
 
-[\[9\]](#_ftnref9) En su apunte, Rand comenta el proyecto de ley con base en:
-Sydney H. Schanberg, “Albany Action on Abortion Reform Seen as Likely,” New
-Y*ork Times*, January 30, 1969. El eventual paso de la ley se discute en Richard
-Pérez-Peña, “’70 Abortion Law: New York Said Yes, Stunning the Nation,” _New
-York Times_, April 9, 2000.
+<p><sup>6</sup> Ayn Rand, “The Age of Mediocrity” (Ford Hall Forum, 1981), edited transcript in Harry Binswanger (ed.), <em>The Objectivist Forum</em> (June 1981): 3. Véase también Olga Khazan, “Why So Many Women Choose Abortion Over Adoption,” <em>The Atlantic</em>, May 20, 2019.</p>
 
-[\[10\]](#_ftnref10) La Ley de Salud Reproductiva, Proyecto de Ley del Senado de
-Nueva York S240 (2019-2020 sesión legislativa).
+<p><sup>7</sup> Ayn Rand, sesión de preguntas y respuestas después de “The Wreckage of the Consensus” (Ford Hall Forum, 1967); Mayhew (ed.), <em>Ayn Rand Answers</em>, 126–27.</p>
 
-[\[11\]](#_ftnref11) Sesión de preguntas y respuestas después de “The Moral
-Factor” (Ford Hall Forum, 1976, edited transcript in Mayhew, Ayn Rand Answers,
-17).
+<p><sup>8</sup> Ayn Rand, “A Suggestion,” <em>The Objectivist</em> (February 1969): 595.</p>
 
-[\[12\]](#_ftnref12) Sesión de preguntas y respuestas después de Leonard
-Peikoff, “The Philosophy of Objectivism,” Lecture 5 (1976, edited transcript in
-Mayhew, Ayn Rand Answers, 66–68).
+<p><sup>9</sup> En su apunte, Rand comenta el proyecto de ley con base en Sydney H. Schanberg, “Albany Action on Abortion Reform Seen as Likely,” <em>New York Times</em>, January 30, 1969. El eventual paso de la ley se discute en Richard Pérez-Peña, “’70 Abortion Law: New York Said Yes, Stunning the Nation,” <em>New York Times</em>, April 9, 2000.</p>
 
-[\[13\]](#_ftnref13) Sesión de preguntas y respuestas después de Leonard
-Peikoff, “Objective Communication,” Lecture 1 (1980, edited transcript in
-Mayhew, Ayn Rand Answers, 54).
+<p><sup>10</sup> La Ley de Salud Reproductiva, Proyecto de Ley del Senado de Nueva York S240 (2019–2020 sesión legislativa).</p>
+
+<p><sup>11</sup> Ayn Rand, sesión de preguntas y respuestas después de “The Moral Factor” (Ford Hall Forum, 1976), edited transcript in Mayhew (ed.), <em>Ayn Rand Answers</em>, 17.</p>
+
+<p><sup>12</sup> Sesión de preguntas y respuestas después de Leonard Peikoff, “The Philosophy of Objectivism,” Lecture 5 (1976), edited transcript in Mayhew (ed.), <em>Ayn Rand Answers</em>, 66–68.</p>
+
+<p><sup>13</sup> Sesión de preguntas y respuestas después de Leonard Peikoff, “Objective Communication,” Lecture 1 (1980), edited transcript in Mayhew (ed.), <em>Ayn Rand Answers</em>, 54.</p>
+
+</div>
 
 ![](/posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg)

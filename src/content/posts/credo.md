@@ -31,12 +31,12 @@ instante en que la nada deba acogernos en su seno.
 ![](/posts/credo.jpg)
 
 <span class="caption">
-    Fotografía por
-    <a href="https://www.instagram.com/hhnam__/" target="_blank" rel="noreferrer">
-        Sheep
-    </a>
-    de
-    <a href="https://www.pexels.com/@sheep-556180" target="_blank" rel="noreferrer">
-        Pexels
-    </a> 
+Fotografía por
+<a href="https://www.instagram.com/hhnam__/" target="_blank" rel="noreferrer">
+Sheep
+</a>
+de
+<a href="https://www.pexels.com/@sheep-556180" target="_blank" rel="noreferrer">
+Pexels
+</a>
 </span>

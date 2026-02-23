@@ -23,7 +23,7 @@ terminado de escribir su _Inventario_, dedicado a su gran amigo Juan Gelman,
 dijo Laura Emilia entre lágrimas. Fue un triste y miserable domingo. Como suelen
 ser los domingos: miserables, grises.
 
-         El 30 de junio de 2019, José Emilio Pacheco debía cumplir 80 años. Y aquella noche del 2014, luego de que anunciaran que había muerto, escribí los párrafos que a continuación el lector encontrará. Los he desempolvado luego de que los editores de *El* _Gallo Galante_ me pidieron que escribiera algo sobre los 80 años del autor de *Tarde o temprano*. Debo reconocer, con mucho pudor, que volver a leerlos hizo que me volviera a pasar por el corazón lo dolorosa que fue su muerte, pero también, me ha vuelto a pasar por el corazón “el momento de la rosa y el momento del ciprés”, para decirlo con su traducción de un par de versos de “Little Gidding” de los *Four Quartets* en la bellísima edición publicada en 2017 por El Colegio Nacional y Era.
+El 30 de junio de 2019, José Emilio Pacheco debía cumplir 80 años. Y aquella noche del 2014, luego de que anunciaran que había muerto, escribí los párrafos que a continuación el lector encontrará. Los he desempolvado luego de que los editores de *El* _Gallo Galante_ me pidieron que escribiera algo sobre los 80 años del autor de *Tarde o temprano*. Debo reconocer, con mucho pudor, que volver a leerlos hizo que me volviera a pasar por el corazón lo dolorosa que fue su muerte, pero también, me ha vuelto a pasar por el corazón “el momento de la rosa y el momento del ciprés”, para decirlo con su traducción de un par de versos de “Little Gidding” de los *Four Quartets* en la bellísima edición publicada en 2017 por El Colegio Nacional y Era.
 
 Cómo llega uno a querer tanto a una persona por los poemas que ha escrito. Cómo
 llega uno a llorar, por la noticia de la muerte de alguien lejano, alguien con
@@ -81,7 +81,7 @@ cuenta_ de que nada dura, de que nada durará, y eso es terrible, atroz. Pero
 también, en ese trance feroz, podemos _caer en cuenta_ de lo dulce e hilarante
 que resultan, “el momento de la rosa o el momento del ciprés”.
 
-            En “III. Sobre las olas”, un poema en homenaje a Juventino Rosas, de *El silencio de la luna* (1985-1996), escribe Pacheco:
+En “III. Sobre las olas”, un poema en homenaje a Juventino Rosas, de *El silencio de la luna* (1985-1996), escribe Pacheco:
 
 ALABANZA
 
@@ -111,9 +111,9 @@ las islas a la deriva, los trabajos del mar, en mirar la tierra, en hacer de la
 memoria una ciudad, en nombrar el silencio de la luna, la arena errante, en ser
 _como la lluvia_, en suma: la afirmación de la vida.
 
-            Y la natural contracara de la vida es, también, una de las predilecciones y obsesiones del también autor de *Las batallas en el desierto* (1981).
+Y la natural contracara de la vida es, también, una de las predilecciones y obsesiones del también autor de *Las batallas en el desierto* (1981).
 
-            José Emilio Pacheco era –sigue siendo– un insuperable conversador con los muertos. Su idea de conversación literaria consiste en, cual hurraca ladrona, robar la joya, la piedra más preciada de la obra de los poetas y pensadores que fueron sus maestros, para llevarlos a su propio nido, a su propio poema. Es copiosa la apropiación, reelaboración y *puesta en circulación* de momentos de la obra de Ramón López Velarde, Federico García Lorca, Luis Cardoza y Aragón, por mencionar a sólo tres, con quienes Pacheco *conversa* en *Tarde o temprano*, el libro que reúne su obra escrita en verso desde 1958 a 2009.
+José Emilio Pacheco era –sigue siendo– un insuperable conversador con los muertos. Su idea de conversación literaria consiste en, cual hurraca ladrona, robar la joya, la piedra más preciada de la obra de los poetas y pensadores que fueron sus maestros, para llevarlos a su propio nido, a su propio poema. Es copiosa la apropiación, reelaboración y *puesta en circulación* de momentos de la obra de Ramón López Velarde, Federico García Lorca, Luis Cardoza y Aragón, por mencionar a sólo tres, con quienes Pacheco *conversa* en *Tarde o temprano*, el libro que reúne su obra escrita en verso desde 1958 a 2009.
 
 Los _Inventarios_, publicados en una antología de tres tomos en 2017, descubren
 esa predilección por la conversación entre los muertos. En el apartado dedicado
@@ -123,7 +123,7 @@ Ramírez, “El Nigromante”) y “Amado Nervo y Ramón López Velarde: Diálog
 muertos”. En las dos crónicas concurren dos de las grandes pasiones de Pacheco:
 el ya señalado diálogo con los muertos y los escritores mexicanos del siglo XIX.
 
-            “Caverna” de *Islas a la deriva*, escrito entre 1973 y 1975, inicia con la siguiente tirada de versos:
+“Caverna” de *Islas a la deriva*, escrito entre 1973 y 1975, inicia con la siguiente tirada de versos:
 
 Es verdad que los muertos tampoco duran.  
 Ni siquiera la muerte permanece.  

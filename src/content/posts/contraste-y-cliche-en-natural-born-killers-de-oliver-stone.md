@@ -83,5 +83,8 @@ respeto merece el juez, si comete el mismo crimen del criminal?»
 **<a href="https://www.pexels.com/@vijay-putra-13676?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">Vijay
 Putra</a>** </span>
 
-\[1\] Datos revisados el día 11 de octubre de 2019, en el sitio _Rotten
-Tomatoes_: https://www.rottentomatoes.com/m/natural\_born\_killers
+<p class="footnote">
+[1] Datos consultados el 11 de octubre de 2019 en 
+<em>Rotten Tomatoes</em>: 
+https://www.rottentomatoes.com/m/natural_born_killers
+</p>

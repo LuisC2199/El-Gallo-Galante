@@ -120,3 +120,45 @@ body {
 .caption a:hover {
   color: #1c1917;
 }
+
+.footnote {
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 0.8rem;
+  margin-top: 3rem;
+  line-height: 1.5;
+}
+.footnote a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.editorial-note {
+  font-size: 0.8rem;
+  color: #555;
+  background: #f7f7f7;
+  padding: 1rem;
+  margin: 3rem 0;
+  border-left: 3px solid #ccc;
+  line-height: 1.6;
+}
+
+.section-divider {
+  margin: 4rem 0;
+  border: none;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footnotes {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 4rem;
+  line-height: 1.6;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 2rem;
+}
+
+.footnotes p {
+  margin-bottom: 1rem;
+}

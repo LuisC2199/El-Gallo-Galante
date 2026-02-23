@@ -10,7 +10,6 @@ featuredImage: >-
   /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
 ---
 
-\[Traducción de Jonathan Mirus\]
 
 En 1936 —quizás el año más oscuro de su vida— F. Scott Fitzgerald estaba
 convaleciente en un hotel en Asheville, Carolina del Norte, cuando ofreció a su
@@ -88,10 +87,15 @@ lectura requerida."
 
 22. Poesía completa de John Keats y Percy Bysshe Shelley
 
-Original de
-[http://www.openculture.com/2013/08/f-scott-fitzgerald-creates-a-list-of-22-essential-books-1936.html](http://www.openculture.com/2013/08/f-scott-fitzgerald-creates-a-list-of-22-essential-books-1936.html)
-tomando el 28 de enero de 2019.
+<div class="footnote">
+Original publicado en
+<a href="http://www.openculture.com/2013/08/f-scott-fitzgerald-creates-a-list-of-22-essential-books-1936.html" target="_blank">
+Open Culture
+</a>.
+Consultado el 28 de enero de 2019.
+Traducción de Jonathan Mirus.
+</div>
 
 ![](/posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg)
 
-<span class="caption">Fotografía deCarl Van Vechten \[Dominio público\]</span>
+<span class="caption">Fotografía de Carl Van Vechten \[Dominio público\]</span>
