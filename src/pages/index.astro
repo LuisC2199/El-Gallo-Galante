@@ -1,6 +1,5 @@
 ---
 import Shell from "../layouts/Shell.astro";
-import PostPreview from "../components/PostPreview.astro";
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
 
 const issues: CollectionEntry<"issues">[] = await getCollection("issues");
@@ -14,61 +13,270 @@ const latestIssue: CollectionEntry<"issues"> | undefined = issues
 
 const posts: CollectionEntry<"posts">[] = await getCollection("posts");
 
-const issuePosts: CollectionEntry<"posts">[] = latestIssue
-  ? posts
-      .filter((p: CollectionEntry<"posts">) => p.data.issue?.id === latestIssue.id)
-      .slice()
-      .sort(
-        (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
-          b.data.date.valueOf() - a.data.date.valueOf()
-      )
+// Get one featured post from three different categories
+const issueSlug = latestIssue?.id.replace(/\.md$/, '');
+const issuePosts = latestIssue
+  ? posts.filter((p: CollectionEntry<"posts">) => {
+      return p.data.issue === issueSlug;
+    })
   : [];
 
-const issuePostsWithAuthors: { post: CollectionEntry<"posts">; author: CollectionEntry<"authors"> }[] =
+// Select one from each category: Narrativa, Poesía, Ensayo
+const getFeaturedByCategory = (category: string): CollectionEntry<"posts"> | undefined => {
+  return issuePosts.find((p) => p.data.category === category);
+};
+
+const featuredWorks = [
+  getFeaturedByCategory("Narrativa"),
+  getFeaturedByCategory("Poesía"),
+  getFeaturedByCategory("Ensayo"),
+].filter((p): p is CollectionEntry<"posts"> => p !== undefined);
+
+const featuredWorksWithAuthors: { post: CollectionEntry<"posts">; author: CollectionEntry<"authors"> }[] =
   await Promise.all(
-    issuePosts.map(async (post: CollectionEntry<"posts">) => {
+    featuredWorks.map(async (post: CollectionEntry<"posts">) => {
       const author = await getEntry(post.data.author);
       if (!author) throw new Error(`Author not found for post: ${post.slug}`);
       return { post, author };
     })
   );
+
+const formatDate = (date: Date): string => {
+  return new Intl.DateTimeFormat("es-MX", {
+    year: "numeric",
+    month: "long",
+  }).format(date);
+};
 ---
 
 <Shell title="El Gallo Galante">
-  <div class="max-w-6xl mx-auto px-6">
-    {latestIssue ? (
-      <>
-        <header class="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
-          <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-stone-800 bg-stone-100 inline-block px-4 py-1">
-            Última edición
+  {latestIssue ? (
+    <>
+      {/* Full-Screen Hero Section */}
+      <section class="min-h-screen flex items-center justify-center px-6 py-20 hero-fade-in">
+        <div class="max-w-5xl text-center">
+          <h1 class="display-serif text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-stone-900 mb-8">
+            El Gallo Galante
+          </h1>
+          
+          <p class="text-sm md:text-base uppercase tracking-[0.4em] text-stone-500 mb-12 font-light">
+            La palabra debe hendir el mundo
           </p>
 
-          <h1 class="display-serif text-4xl md:text-7xl font-bold leading-tight mt-6">
-            {latestIssue.data.title}
-          </h1>
-
           {latestIssue.data.description && (
-            <p class="serif text-lg md:text-xl text-stone-500 leading-relaxed max-w-2xl mx-auto mt-6">
+            <p class="serif text-2xl md:text-4xl lg:text-5xl leading-relaxed text-stone-700 font-light max-w-4xl mx-auto">
               {latestIssue.data.description}
             </p>
           )}
-        </header>
 
-        <section class="space-y-20">
-			{issuePostsWithAuthors.map(({ post, author }) => (
-			<PostPreview
-				post={post}
-				authorName={author.data.name}
-				authorSlug={author.slug}
-			/>
-			))}
-        </section>
-      </>
-    ) : (
-      <div class="max-w-2xl mx-auto text-center py-20">
-        <h1 class="display-serif text-4xl md:text-6xl font-bold leading-tight">El Gallo Galante</h1>
-        <p class="serif text-stone-500 italic mt-6">Aún no hay ediciones publicadas.</p>
+          <div class="mt-16">
+            <a
+              href="#featured"
+              class="inline-block text-stone-400 hover:text-stone-600 transition-colors animate-bounce-slow"
+            >
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Works Section */}
+      <section id="featured" class="py-24 md:py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-xs uppercase tracking-[0.4em] text-stone-400 mb-16 text-center font-light">
+            Lecturas destacadas
+          </h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            {featuredWorksWithAuthors.map(({ post, author }) => (
+              <a 
+                href={`/posts/${post.slug}`}
+                class="group block space-y-6 featured-card"
+              >
+                {/* Category */}
+                <div class="text-[10px] uppercase tracking-[0.35em] text-stone-400 font-light">
+                  {post.data.category}
+                </div>
+
+                {/* Title */}
+                <h3 class="display-serif text-3xl md:text-4xl font-bold leading-tight text-stone-900 group-hover:underline decoration-2 underline-offset-8 transition-all">
+                  {post.data.title}
+                </h3>
+
+                {/* Author */}
+                <p class="text-sm tracking-wide text-stone-600">
+                  {author.data.name}
+                </p>
+
+                {/* Excerpt */}
+                {post.data.excerpt && (
+                  <p class="serif text-lg leading-relaxed text-stone-600 line-clamp-3">
+                    {post.data.excerpt}
+                  </p>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Current Issue Section */}
+      <section class="py-24 md:py-32 px-6 bg-stone-50">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Cover Image */}
+            {latestIssue.data.coverImage && (
+              <div class="order-2 lg:order-1">
+                <img
+                  src={latestIssue.data.coverImage}
+                  alt={latestIssue.data.title}
+                  class="w-full h-auto shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+            )}
+
+            {/* Issue Info */}
+            <div class="order-1 lg:order-2 space-y-8">
+              <div>
+                <p class="text-xs uppercase tracking-[0.4em] text-stone-400 mb-4 font-light">
+                  Número actual
+                </p>
+                <h2 class="display-serif text-5xl md:text-6xl font-bold leading-tight text-stone-900 mb-6">
+                  {latestIssue.data.title}
+                </h2>
+                <p class="text-sm tracking-wide text-stone-500 mb-8">
+                  {formatDate(latestIssue.data.date)} · {latestIssue.data.number}
+                </p>
+              </div>
+
+              <a
+                href={`/numeros/${latestIssue.id.replace(/\.md$/, '')}`}
+                class="inline-block px-8 py-4 bg-stone-900 text-white text-xs uppercase tracking-[0.3em] hover:bg-stone-800 transition-colors font-light"
+              >
+                Leer número
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Preamble Section */}
+      <section class="py-24 md:py-32 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="display-serif text-4xl md:text-5xl font-bold mb-16 text-stone-900">
+            Preámbulo
+          </h2>
+
+          <div class="serif text-lg md:text-xl leading-loose text-stone-700 space-y-8 text-left">
+            <p>
+              <strong class="font-semibold text-stone-900">El Gallo Galante</strong> es aquel que escupe sin escrúpulos, escupitajo siempre directo, pero sin perder el temple. Cuando se atora el gallo hay que sacarlo, dejarlo cacarear, que se suelten los picotazos, pero siempre con plena conciencia de lo que suscita.
+            </p>
+
+            <p>
+              <strong class="font-semibold text-stone-900">El Gallo Galante</strong> no significa lucha en el sentido más ideológico, sería una traición a lo que pretende, sino que lucha desde su frente; contamos con una única arma: la palabra. Diría Revueltas que ésta «debe hendir el mundo» y así lo pretendemos.
+            </p>
+
+            <p>
+              Partiendo desde lo literario—pues al cabo de eso venimos—las plumas de este Gallo escribirán sobre diversos temas de la cultura y las artes. Cada una de ellas es de distinto matiz y gusto, lo que nos convierte en un solícito Gallo polícromo, atento a las novedades y extrañezas de nuestro tiempo.
+            </p>
+
+            <p>
+              <strong class="font-semibold text-stone-900">El Gallo Galante</strong> se complace en anunciarse a sí mismo, y en presentar este proyecto de estudiantes que en sus esporádicos tiempos libres buscan acercar la cultura, a través de la palabra, a todo aquel a quien su curiosidad anime a leer estas páginas.
+            </p>
+
+            <div class="my-12 py-8 border-t border-b border-stone-200 italic text-stone-600 space-y-3">
+              <p>Hasta aquí escribimos, lector,</p>
+              <p>
+                Y adiós, que esto no es más de<br />
+                darte la muestra del paño;<br />
+                si no te agrada la pieza,<br />
+                no desenvuelvas el fardo. <sup class="text-xs">[1]</sup>
+              </p>
+            </div>
+
+            <p class="text-right font-semibold text-stone-900 not-italic">
+              Los editores
+            </p>
+
+            <p class="text-sm text-stone-500 pt-8 mt-8 text-center border-t border-stone-100 not-italic">
+              [1] Sor Juana Inés de la Cruz, 1690.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* All Issues CTA */}
+      <section class="py-20 px-6 text-center border-t border-stone-100">
+        <a
+          href="/numeros"
+          class="inline-block text-xs uppercase tracking-[0.4em] text-stone-400 hover:text-stone-900 transition-colors font-light"
+        >
+          Ver todos los números →
+        </a>
+      </section>
+    </>
+  ) : (
+    <div class="min-h-screen flex items-center justify-center px-6">
+      <div class="text-center">
+        <h1 class="display-serif text-6xl md:text-8xl font-bold text-stone-900 mb-6">
+          El Gallo Galante
+        </h1>
+        <p class="text-sm uppercase tracking-[0.4em] text-stone-400 font-light">
+          Próximamente
+        </p>
       </div>
-    )}
-  </div>
+    </div>
+  )}
+
+  <style>
+    .hero-fade-in {
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-bounce-slow {
+      animation: bounce 3s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .featured-card {
+      transition: transform 0.3s ease;
+    }
+
+    .featured-card:hover {
+      transform: scale(1.02);
+    }
+
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </Shell>
