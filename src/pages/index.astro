@@ -91,10 +91,8 @@ const formatDate = (date: Date, issueId?: string): string => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </div>
-            <div class="overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-6 md:pb-8 hide-scrollbar [-webkit-overflow-scrolling:touch]">
-            <div class="flex w-max gap-3 md:gap-4">
-              {/* left spacer: (50vw - halfCardWidth) */}
-              <div class="flex-none w-[calc(50vw-120px)] md:w-[calc(50vw-160px)]" aria-hidden="true"></div>
+            <div class="overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-6 md:pb-8 hide-scrollbar [-webkit-overflow-scrolling:touch] [scroll-padding-inline:calc(50vw-120px)] md:[scroll-padding-inline:calc(50vw-160px)]">
+            <div class="flex w-max gap-3 md:gap-4 px-[calc(50vw-120px)] md:px-[calc(50vw-160px)]">
 
                 {latestPostsWithAuthors.map(({ post, author }) => (
                   <a
@@ -123,7 +121,6 @@ const formatDate = (date: Date, issueId?: string): string => {
                     </div>
                   </a>
                 ))}
-                <div class="flex-none w-[calc(50vw-120px)] md:w-[calc(50vw-160px)]" aria-hidden="true"></div>
               </div>
             </div>
           </div>
