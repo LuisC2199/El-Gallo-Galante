@@ -5,8 +5,11 @@ number: "No. 01"
 coverImage: "/covers/ano-1-numero-0.jpg"
 description: "[Insertar descripción del número aquí]"
 featuredPostSlugs:
-  - "antielegia-del-ave-fenix-por-si-misma"
-  - "theophaneia"
-  - "la-isla-de-los-muertos"
+  - "carta-a-virgilio-pinera"
+  - "para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco"
+  - "el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto"
+  - "altar-a-penuria"
+  - "sueno-domestico"
+  - "amor-a-huevo"
 ---
 

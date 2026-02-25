@@ -13,24 +13,34 @@ const latestIssue: CollectionEntry<"issues"> | undefined = issues
 
 const posts: CollectionEntry<"posts">[] = await getCollection("posts");
 
-// Get one featured post from three different categories
-const issueSlug = latestIssue?.id.replace(/\.md$/, '');
-const issuePosts = latestIssue
-  ? posts.filter((p: CollectionEntry<"posts">) => {
-      return p.data.issue === issueSlug;
-    })
+// Get featured posts from featuredPostSlugs in order
+const featuredWorks: CollectionEntry<"posts">[] = latestIssue?.data.featuredPostSlugs
+  ? await Promise.all(
+      latestIssue.data.featuredPostSlugs.map(async (slug: string) => {
+        const post = posts.find((p) => p.slug === slug);
+        if (!post) throw new Error(`Featured post not found: ${slug}`);
+        return post;
+      })
+    )
   : [];
 
-// Select one from each category: Narrativa, Poesía, Ensayo
-const getFeaturedByCategory = (category: string): CollectionEntry<"posts"> | undefined => {
-  return issuePosts.find((p) => p.data.category === category);
-};
+// Get 5 latest posts for carousel
+const issueSlug = latestIssue?.id.replace(/\.md$/, '');
+const latestPosts: CollectionEntry<"posts">[] = latestIssue
+  ? posts
+      .filter((p: CollectionEntry<"posts">) => p.data.issue === issueSlug)
+      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+      .slice(0, 5)
+  : [];
 
-const featuredWorks = [
-  getFeaturedByCategory("Narrativa"),
-  getFeaturedByCategory("Poesía"),
-  getFeaturedByCategory("Ensayo"),
-].filter((p): p is CollectionEntry<"posts"> => p !== undefined);
+const latestPostsWithAuthors: { post: CollectionEntry<"posts">; author: CollectionEntry<"authors"> }[] =
+  await Promise.all(
+    latestPosts.map(async (post: CollectionEntry<"posts">) => {
+      const author = await getEntry(post.data.author);
+      if (!author) throw new Error(`Author not found for post: ${post.slug}`);
+      return { post, author };
+    })
+  );
 
 const featuredWorksWithAuthors: { post: CollectionEntry<"posts">; author: CollectionEntry<"authors"> }[] =
   await Promise.all(
@@ -53,7 +63,7 @@ const formatDate = (date: Date): string => {
   {latestIssue ? (
     <>
       {/* Full-Screen Hero Section */}
-      <section class="min-h-screen flex items-center justify-center px-6 py-20 hero-fade-in">
+      <section class="min-h-screen flex items-center justify-center px-6 py-20 md:py-20 pt-32 md:pt-20 hero-fade-in">
         <div class="max-w-5xl text-center">
           <h1 class="display-serif text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-stone-900 mb-8">
             El Gallo Galante
@@ -63,11 +73,58 @@ const formatDate = (date: Date): string => {
             La palabra debe hendir el mundo
           </p>
 
-          {latestIssue.data.description && (
-            <p class="serif text-2xl md:text-4xl lg:text-5xl leading-relaxed text-stone-700 font-light max-w-4xl mx-auto">
-              {latestIssue.data.description}
-            </p>
-          )}
+          {/* Carousel with latest 5 posts */}
+          <div class="mt-12 mb-16">
+            {/* Label with scroll hint */}
+            <div class="flex items-center justify-center gap-3 mb-6">
+              <svg class="w-4 h-4 text-stone-400 animate-bounce-horizontal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+              <p class="text-xs uppercase tracking-[0.4em] text-stone-400 font-light">
+                Entradas recientes
+              </p>
+              <svg class="w-4 h-4 text-stone-400 animate-bounce-horizontal-reverse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+
+            <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 -mx-6 px-6 hide-scrollbar">
+              {latestPostsWithAuthors.map(({ post, author }) => (
+                <a 
+                  href={`/posts/${post.slug}`}
+                  class="flex-shrink-0 w-[280px] md:w-[320px] snap-center group"
+                >
+                  <div class="relative overflow-hidden rounded-lg h-[400px] shadow-lg hover:shadow-2xl transition-all duration-300">
+                    {/* Background Image */}
+                    {post.data.coverImage && (
+                      <img
+                        src={post.data.coverImage}
+                        alt={post.data.title}
+                        class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        loading="lazy"
+                      />
+                    )}
+                    
+                    {/* Overlay */}
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                    
+                    {/* Content */}
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <div class="text-[10px] uppercase tracking-[0.35em] text-white/70 mb-2">
+                        {post.data.category}
+                      </div>
+                      <h3 class="display-serif text-xl font-bold leading-tight mb-2 group-hover:opacity-90 transition-opacity">
+                        {post.data.title}
+                      </h3>
+                      <p class="text-sm text-white/80">
+                        {author.data.name}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
 
           <div class="mt-16">
             <a
@@ -89,33 +146,48 @@ const formatDate = (date: Date): string => {
             Lecturas destacadas
           </h2>
 
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
             {featuredWorksWithAuthors.map(({ post, author }) => (
               <a 
                 href={`/posts/${post.slug}`}
-                class="group block space-y-6 featured-card"
+                class="group block featured-card overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                {/* Category */}
-                <div class="text-[10px] uppercase tracking-[0.35em] text-stone-400 font-light">
-                  {post.data.category}
-                </div>
-
-                {/* Title */}
-                <h3 class="display-serif text-3xl md:text-4xl font-bold leading-tight text-stone-900 group-hover:underline decoration-2 underline-offset-8 transition-all">
-                  {post.data.title}
-                </h3>
-
-                {/* Author */}
-                <p class="text-sm tracking-wide text-stone-600">
-                  {author.data.name}
-                </p>
-
-                {/* Excerpt */}
-                {post.data.excerpt && (
-                  <p class="serif text-lg leading-relaxed text-stone-600 line-clamp-3">
-                    {post.data.excerpt}
-                  </p>
+                {/* Cover Image */}
+                {post.data.coverImage && (
+                  <div class="relative h-[300px] md:h-[350px] overflow-hidden">
+                    <img
+                      src={post.data.coverImage}
+                      alt={post.data.title}
+                      class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    
+                    {/* Category Badge */}
+                    <div class="absolute top-4 left-4 text-[10px] uppercase tracking-[0.35em] text-white bg-black/30 backdrop-blur-sm px-3 py-1 font-light">
+                      {post.data.category}
+                    </div>
+                  </div>
                 )}
+
+                {/* Content */}
+                <div class="p-6 space-y-4 bg-white">
+                  {/* Title */}
+                  <h3 class="display-serif text-2xl md:text-3xl font-bold leading-tight text-stone-900 group-hover:text-stone-600 transition-colors">
+                    {post.data.title}
+                  </h3>
+
+                  {/* Author */}
+                  <p class="text-sm tracking-wide text-stone-600">
+                    {author.data.name}
+                  </p>
+
+                  {/* Excerpt */}
+                  {post.data.excerpt && (
+                    <p class="serif text-base leading-relaxed text-stone-600 line-clamp-3">
+                      {post.data.excerpt}
+                    </p>
+                  )}
+                </div>
               </a>
             ))}
           </div>
@@ -185,9 +257,9 @@ const formatDate = (date: Date): string => {
             <p>
               <strong class="font-semibold text-stone-900">El Gallo Galante</strong> se complace en anunciarse a sí mismo, y en presentar este proyecto de estudiantes que en sus esporádicos tiempos libres buscan acercar la cultura, a través de la palabra, a todo aquel a quien su curiosidad anime a leer estas páginas.
             </p>
-
-            <div class="my-12 py-8 border-t border-b border-stone-200 italic text-stone-600 space-y-3">
-              <p>Hasta aquí escribimos, lector,</p>
+            <p>Hasta aquí escribimos, lector,</p>
+            <div class="my-6 py-8 italic text-stone-600 space-y-3">
+              
               <p>
                 Y adiós, que esto no es más de<br />
                 darte la muestra del paño;<br />
@@ -200,7 +272,7 @@ const formatDate = (date: Date): string => {
               Los editores
             </p>
 
-            <p class="text-sm text-stone-500 pt-8 mt-8 text-center border-t border-stone-100 not-italic">
+            <p class="text-sm text-stone-500 pt-8 mt-8 text-left border-t border-stone-100 not-italic">
               [1] Sor Juana Inés de la Cruz, 1690.
             </p>
           </div>
@@ -259,12 +331,42 @@ const formatDate = (date: Date): string => {
       }
     }
 
+    .animate-bounce-horizontal {
+      animation: bounceHorizontal 2s infinite;
+    }
+
+    .animate-bounce-horizontal-reverse {
+      animation: bounceHorizontalReverse 2s infinite;
+    }
+
+    @keyframes bounceHorizontal {
+      0%, 100% {
+        transform: translateX(0);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateX(-8px);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceHorizontalReverse {
+      0%, 100% {
+        transform: translateX(0);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateX(8px);
+        opacity: 1;
+      }
+    }
+
     .featured-card {
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .featured-card:hover {
-      transform: scale(1.02);
+      transform: translateY(-4px);
     }
 
     .line-clamp-3 {
@@ -272,6 +374,15 @@ const formatDate = (date: Date): string => {
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
 
     /* Smooth scroll behavior */
