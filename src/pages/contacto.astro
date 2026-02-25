@@ -84,154 +84,117 @@ import Shell from "../layouts/Shell.astro";
               </a>
             </div>
           </div>
-
-          <div class="text-[10px] uppercase tracking-[0.35em] text-stone-400">
-            Guanajuato · Desde 2019
-          </div>
         </aside>
 
         <!-- Right: now much wider -->
-        <section class="space-y-12 max-w-none">
-          <div class="max-w-3xl">
-            <p class="text-[10px] uppercase tracking-[0.35em] text-stone-400 font-semibold">
-              Convocatoria editorial
-            </p>
+        <section class="space-y-8 max-w-none">
+          <div class="max-w-4xl">
+            <div class="mb-8">
+              <h2 class="display-serif text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+                Bases de publicación
+              </h2>
+              <p class="serif text-lg text-stone-600 leading-relaxed">
+                El Gallo Galante se honra en compartir sus bases de publicación:
+              </p>
+            </div>
 
-            <h2 class="display-serif text-2xl md:text-4xl font-semibold leading-tight mt-4 text-stone-900">
-              Enviar textos
-            </h2>
-
-            <p class="serif text-lg text-stone-500 leading-relaxed mt-6">
-              Recibimos colaboraciones en <span class="italic">Poesía, Narrativa, Crítica, Ensayo</span> y <span class="italic">Epistolario</span>.
-              Leemos con calma: lo que llega aquí entra a un cuarto silencioso.
-            </p>
-          </div>
-
-          <div class="border border-stone-100 bg-white/60 p-10 md:p-12">
-            <details class="group">
-              <summary class="list-none cursor-pointer select-none">
-                <div class="flex items-start justify-between gap-8">
-                  <div class="max-w-3xl">
-                    <p class="text-[10px] uppercase tracking-[0.35em] text-stone-400 font-semibold">
-                      Bases de publicación
-                    </p>
-
-                    <h3 class="display-serif text-2xl md:text-3xl font-semibold leading-tight mt-3 text-stone-900">
-                      Convocatoria y condiciones editoriales
-                    </h3>
-
-                    <p class="serif text-stone-600 leading-relaxed mt-4">
-                      Si vas a enviar un texto, aquí están los criterios, formatos y condiciones. Léelo como una carta de entrada.
-                    </p>
-                  </div>
-
-                  <div class="mt-1 shrink-0">
-                    <svg
-                      class="w-5 h-5 text-stone-400 transition-transform duration-300 group-open:rotate-180"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="mt-6 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.35em] text-stone-400">
-                  <span class="group-open:hidden">Abrir</span>
-                  <span class="hidden group-open:inline">Cerrar</span>
-                  <span class="w-10 h-[1px] bg-stone-200"></span>
-                </div>
-              </summary>
-
-              <div class="mt-10 pt-8 border-t border-stone-100">
-                <p class="serif text-stone-600 leading-relaxed">
-                  El Gallo Galante se honra en compartir sus bases de publicación:
-                </p>
-
-                <ol class="mt-8 space-y-8">
-                  <li class="grid grid-cols-[24px_1fr] gap-4">
-                    <span class="text-[10px] font-semibold text-stone-400 tracking-[0.3em]">1</span>
-                    <div class="serif text-stone-600 leading-relaxed">
+            <div class="space-y-10">
+              <div class="border-l-2 border-stone-200 pl-8">
+                <ol class="space-y-10">
+                  <li class="relative">
+                    <span class="absolute -left-12 top-1 text-sm font-bold text-stone-300 tracking-wider">01</span>
+                    <div class="serif text-base text-stone-700 leading-relaxed">
                       Se recibirán colaboraciones para dictamen a partir de la convocatoria de un nuevo número. Si el fallo es favorable, los trabajos serán publicados en la revista. La decisión es inapelable. A todos los remitentes se responderá acuse de recibido, pero no necesariamente se seguirá la correspondencia. Si después de 1 mes no se les contesta se sobreentenderá que el texto no fue aceptado.
                     </div>
                   </li>
-                  <li class="grid grid-cols-[24px_1fr] gap-4">
-                    <span class="text-[10px] font-semibold text-stone-400 tracking-[0.3em]">2</span>
-                    <div class="serif text-stone-600 leading-relaxed">
-                      <p class="font-semibold text-stone-700">Extensión</p>
-                      <p class="mt-3">
+                  <li class="relative">
+                    <span class="absolute -left-12 top-1 text-sm font-bold text-stone-300 tracking-wider">02</span>
+                    <div class="serif text-base text-stone-700 leading-relaxed">
+                      <p class="font-semibold text-stone-900 mb-3">Extensión</p>
+                      <p>
                         Máximo 10 cuartillas para textos de narrativa, ensayo y crítica y de 1 a 10 poemas con un máximo de 300 versos en su conjunto, debiendo presentarse en formatos compatibles con Microsoft Word como .doc y .docx a interlineado doble, en letra Times New Roman de 12 puntos.
                       </p>
                     </div>
                   </li>
-                  <li class="grid grid-cols-[24px_1fr] gap-4">
-                    <span class="text-[10px] font-semibold text-stone-400 tracking-[0.3em]">3</span>
-                    <div class="serif text-stone-600 leading-relaxed">
+                  <li class="relative">
+                    <span class="absolute -left-12 top-1 text-sm font-bold text-stone-300 tracking-wider">03</span>
+                    <div class="serif text-base text-stone-700 leading-relaxed">
                       Todas las colaboraciones deberán ir acompañadas de una fotografía del autor y una breve semblanza que incluirá los siguientes datos y formato: Nombre del autor (lugar y año de nacimiento), estudios, publicaciones, talleres o cualquier otro dato de interés (consignando editorial, ciudad y año, así como premios, becas o residencias que haya obtenido).
                     </div>
                   </li>
-                  <li class="grid grid-cols-[24px_1fr] gap-4">
-                    <span class="text-[10px] font-semibold text-stone-400 tracking-[0.3em]">4</span>
-                    <div class="serif text-stone-600 leading-relaxed">
-                      Los textos deberán remitirse al correo electrónico:
-                      <a class="underline underline-offset-4 hover:text-stone-900 transition-colors" href="mailto:elgallogalante@gmail.com">
+                  <li class="relative">
+                    <span class="absolute -left-12 top-1 text-sm font-bold text-stone-300 tracking-wider">04</span>
+                    <div class="serif text-base text-stone-700 leading-relaxed">
+                      Los textos deberán remitirse al correo electrónico
+                      <a class="inline-flex items-baseline gap-1 font-semibold text-stone-900 underline underline-offset-4 hover:text-stone-600 transition-colors" href="mailto:elgallogalante@gmail.com">
                         elgallogalante@gmail.com
-                      </a>,
-                      indicando en el asunto lo siguiente: Número de convocatoria y sección. Ejemplo: NÚMERO 5, EPISTOLARIO.
+                      </a>, indicando en el asunto lo siguiente: Número de convocatoria y sección. Ejemplo: <span class="font-semibold">NÚMERO 5, EPISTOLARIO</span>.
                     </div>
                   </li>
-                  <li class="grid grid-cols-[24px_1fr] gap-4">
-                    <span class="text-[10px] font-semibold text-stone-400 tracking-[0.3em]">5</span>
-                    <div class="serif text-stone-600 leading-relaxed">
-                      En el archivo, el documento deberá tener la estructura Nombre_Apellido_NombreDelTexto.
+                  <li class="relative">
+                    <span class="absolute -left-12 top-1 text-sm font-bold text-stone-300 tracking-wider">05</span>
+                    <div class="serif text-base text-stone-700 leading-relaxed">
+                      En el archivo, el documento deberá tener la estructura <span class="font-mono text-sm bg-stone-100 px-2 py-0.5 rounded">Nombre_Apellido_NombreDelTexto</span>.
                     </div>
                   </li>
-                  <li class="grid grid-cols-[24px_1fr] gap-4">
-                    <span class="text-[10px] font-semibold text-stone-400 tracking-[0.3em]">6</span>
-                    <div class="serif text-stone-600 leading-relaxed">
+                  <li class="relative">
+                    <span class="absolute -left-12 top-1 text-sm font-bold text-stone-300 tracking-wider">06</span>
+                    <div class="serif text-base text-stone-700 leading-relaxed">
                       Los textos que lo requieran deberán seguir la forma de citación latino.
                     </div>
                   </li>
-                  <li class="grid grid-cols-[24px_1fr] gap-4">
-                    <span class="text-[10px] font-semibold text-stone-400 tracking-[0.3em]">7</span>
-                    <div class="serif text-stone-600 leading-relaxed">
+                  <li class="relative">
+                    <span class="absolute -left-12 top-1 text-sm font-bold text-stone-300 tracking-wider">07</span>
+                    <div class="serif text-base text-stone-700 leading-relaxed">
                       Si usted manda una colaboración fuera de tiempo de convocatoria nos reservamos el derecho de contestar, ya que posiblemente no tengamos el tiempo necesario para leer su material.
                     </div>
                   </li>
                 </ol>
+              </div>
 
-                <div class="mt-12 pt-10 border-t border-stone-100">
-                  <p class="text-[10px] uppercase tracking-[0.35em] text-stone-400 font-semibold">
-                    Condiciones de publicación
+              <div class="pt-10 mt-12 border-t border-stone-200">
+                <h3 class="text-sm uppercase tracking-[0.3em] text-stone-900 font-bold mb-6">
+                  Condiciones de publicación
+                </h3>
+
+                <ul class="space-y-4 serif text-base text-stone-700 leading-relaxed">
+                  <li class="flex gap-4">
+                    <span class="mt-2 w-1.5 h-1.5 bg-stone-400 rounded-full shrink-0"></span>
+                    <p>Los textos deben ser inéditos y no estar en proceso de dictamen en otra publicación.</p>
+                  </li>
+                  <li class="flex gap-4">
+                    <span class="mt-2 w-1.5 h-1.5 bg-stone-400 rounded-full shrink-0"></span>
+                    <p>El autor conserva todos los derechos sobre su obra y autoriza su publicación en El Gallo Galante.</p>
+                  </li>
+                  <li class="flex gap-4">
+                    <span class="mt-2 w-1.5 h-1.5 bg-stone-400 rounded-full shrink-0"></span>
+                    <p>La revista se reserva el derecho de editar los textos por cuestiones de estilo y formato.</p>
+                  </li>
+                </ul>
+
+                <div class="mt-10 pt-8 border-t border-stone-100">
+                  <p class="serif text-base text-stone-700 leading-relaxed italic">
+                    El Gallo Galante es una revista independiente cuya existencia depende del bolsillo de los editores. Lamentablemente no nos encontramos en posibilidades de remunerar las colaboraciones.
                   </p>
-
-                  <ul class="mt-6 space-y-4 text-stone-600">
-                    {[ /* igual que antes */ ].map((t) => (
-                      <li class="flex gap-3">
-                        <span class="mt-2 w-2 h-2 bg-stone-300 rounded-full shrink-0"></span>
-                        <p class="serif leading-relaxed">{t}</p>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div class="mt-10 pt-8 border-t border-stone-100">
-                    <p class="serif text-stone-600 leading-relaxed">
-                      El Gallo Galante es una revista independiente cuya existencia depende del bolsillo de los editores. Lamentablemente no nos encontramos en posibilidades de remunerar las colaboraciones.
-                    </p>
-                  </div>
                 </div>
               </div>
-            </details>
+            </div>
           </div>
 
-          <div class="border border-stone-100 bg-white/60 p-10 md:p-12 max-w-4xl">
-            <h3 class="text-[10px] uppercase tracking-[0.35em] text-stone-400 font-semibold">
-              Nota
-            </h3>
-            <p class="serif text-stone-600 leading-relaxed mt-4">
-              Por el tipo de publicaciones que recibimos, las respuestas pueden tomar tiempo.
-              Agradecemos la paciencia: es otra forma de lectura.
-            </p>
+          <div class="bg-stone-50 border border-stone-200 p-8 md:p-10 max-w-2xl rounded-lg">
+            <div class="flex gap-4">
+              <svg class="w-5 h-5 text-stone-400 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div>
+                <h3 class="text-sm uppercase tracking-[0.3em] text-stone-900 font-bold mb-3">
+                  Nota
+                </h3>
+                <p class="serif text-base text-stone-700 leading-relaxed">
+                  Por el tipo de publicaciones que recibimos, las respuestas pueden tomar tiempo. Agradecemos la paciencia: es otra forma de lectura.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
