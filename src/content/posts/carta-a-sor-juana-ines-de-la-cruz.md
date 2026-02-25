@@ -114,4 +114,6 @@ Javier Paláu Hernández
 
 ![](/posts/carta-a-sor-juana-ines-de-la-cruz.jpg)
 
+<p class="footnote">
 Retrato de sor Juana Inés de la Cruz, Miguel Cabrera (circa 1750).
+</p>

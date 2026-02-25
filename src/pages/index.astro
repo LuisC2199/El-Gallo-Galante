@@ -51,7 +51,11 @@ const featuredWorksWithAuthors: { post: CollectionEntry<"posts">; author: Collec
     })
   );
 
-const formatDate = (date: Date): string => {
+const formatDate = (date: Date, issueId?: string): string => {
+  // Special case for the first issue (2018-2025)
+  if (issueId && (issueId === 'ano-1-numero-0.md' || issueId === 'ano-1-numero-0')) {
+    return '2018–2025';
+  }
   return new Intl.DateTimeFormat("es-MX", {
     year: "numeric",
     month: "long",
@@ -63,7 +67,7 @@ const formatDate = (date: Date): string => {
   {latestIssue ? (
     <>
       {/* Full-Screen Hero Section */}
-      <section class="flex items-center justify-center px-6 py-16 md:py-20 md:min-h-screen hero-fade-in">
+      <section class="flex items-center justify-center px-6 pt-24 pb-16 md:py-20 md:min-h-screen hero-fade-in">
         <div class="max-w-5xl text-center">
           <h1 class="display-serif text-4xl md:text-8xl lg:text-9xl font-bold tracking-tight text-stone-900 mb-6 md:mb-8">
             El Gallo Galante
@@ -88,16 +92,13 @@ const formatDate = (date: Date): string => {
               </svg>
             </div>
 
-            <div class="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 md:pb-8 hide-scrollbar">
-              {latestPostsWithAuthors.map(({ post, author }, index) => (
-                <a 
-                  href={`/posts/${post.slug}`}
-                  class:list={[
-                    "flex-shrink-0 w-[240px] md:w-[320px] snap-start group",
-                    index === 0 && "ml-6",
-                    index === latestPostsWithAuthors.length - 1 && "mr-6"
-                  ]}
-                >
+            <div class="overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 md:pb-8 hide-scrollbar">
+              <div class="flex gap-3 md:gap-4 px-6">
+                {latestPostsWithAuthors.map(({ post, author }, index) => (
+                  <a 
+                    href={`/posts/${post.slug}`}
+                    class="flex-shrink-0 w-[240px] md:w-[320px] snap-start group"
+                  >
                   <div class="relative overflow-hidden rounded-lg h-[320px] md:h-[400px] shadow-lg hover:shadow-2xl transition-all duration-300">
                     {/* Background Image */}
                     {post.data.coverImage && (
@@ -127,6 +128,7 @@ const formatDate = (date: Date): string => {
                   </div>
                 </a>
               ))}
+              </div>
             </div>
           </div>
 
@@ -223,7 +225,7 @@ const formatDate = (date: Date): string => {
                   {latestIssue.data.title}
                 </h2>
                 <p class="text-sm tracking-wide text-stone-500 mb-8">
-                  {formatDate(latestIssue.data.date)} · {latestIssue.data.number}
+                  {formatDate(latestIssue.data.date, latestIssue.id)} · {latestIssue.data.number}
                 </p>
               </div>
 
@@ -268,7 +270,7 @@ const formatDate = (date: Date): string => {
                 Y adiós, que esto no es más de<br />
                 darte la muestra del paño;<br />
                 si no te agrada la pieza,<br />
-                no desenvuelvas el fardo. <sup class="text-xs">[1]</sup>
+                no desenvuelvas el fardo. <sup class="text-xs non-italic">[1]</sup>
               </p>
             </div>
 

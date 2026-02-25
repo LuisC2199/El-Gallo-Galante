@@ -79,7 +79,8 @@ Tu fiel admiradora,
 Gabriela Trejo Valencia
 
 ---
-
-[\[1\]](#_ftnref1) Todas las referencias pertenecen al texto “San Gabriel de
+<p class="footnote">
+[\[1\]] Todas las referencias pertenecen al texto “San Gabriel de
 Barrera”, compilado en las _Obras completas_ (2017) de Guadalupe Dueñas, México:
 FCE (Letras Mexicanas), pp. 635-636.
+</p>

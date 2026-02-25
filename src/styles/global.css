@@ -162,3 +162,7 @@ body {
 .footnotes p {
   margin-bottom: 1rem;
 }
+
+.non-italic {
+  font-style: normal;
+}

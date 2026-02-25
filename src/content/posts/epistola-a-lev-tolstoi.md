@@ -56,6 +56,7 @@ Casandra
 ![](/posts/epistola-a-lev-tolstoi.jpg)
 
 ---
-
-[\[1\]](#_ftnref1) Extracto de los Diarios (1847-1894), edición y traducción de
+<p class="footnote">
+[1] Extracto de los Diarios (1847-1894), edición y traducción de
 Selma Ancira, Acantilado.
+</p>

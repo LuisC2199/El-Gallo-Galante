@@ -38,7 +38,11 @@ const issuePostsWithAuthors: { post: CollectionEntry<"posts">; author: Collectio
     })
   );
 
-const formatDate = (date: Date): string => {
+const formatDate = (date: Date, issueSlug?: string): string => {
+  // Special case for the first issue (2018-2025)
+  if (issueSlug === 'ano-1-numero-0') {
+    return '2018–2025';
+  }
   return new Intl.DateTimeFormat("es-MX", {
     year: "numeric",
     month: "long",
@@ -71,7 +75,7 @@ const formatDate = (date: Date): string => {
       </h1>
 
       <p class="mt-4 text-sm md:text-base text-stone-500 tracking-wide serif">
-        {formatDate(issue.data.date)}
+        {formatDate(issue.data.date, Astro.params.slug)}
       </p>
 
       {issue.data.description && (

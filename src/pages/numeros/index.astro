@@ -11,7 +11,11 @@ const sortedIssues: CollectionEntry<"issues">[] = issues
       b.data.date.valueOf() - a.data.date.valueOf()
   );
 
-const formatDate = (date: Date): string => {
+const formatDate = (date: Date, issueId?: string): string => {
+  // Special case for the first issue (2018-2025)
+  if (issueId === 'ano-1-numero-0.md' || issueId === 'ano-1-numero-0') {
+    return '2018–2025';
+  }
   return new Intl.DateTimeFormat("es-MX", {
     year: "numeric",
     month: "long",
@@ -72,7 +76,7 @@ const formatDate = (date: Date): string => {
 
             {/* Date */}
             <p class="mt-4 text-sm md:text-base text-white/80 tracking-wide serif">
-              {formatDate(issue.data.date)}
+              {formatDate(issue.data.date, issue.id)}
             </p>
 
             {/* Description */}
