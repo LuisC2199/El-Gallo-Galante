@@ -67,7 +67,7 @@ const formatDate = (date: Date, issueId?: string): string => {
   {latestIssue ? (
     <>
       {/* Full-Screen Hero Section */}
-      <section class="flex items-center justify-center px-6 pt-24 pb-16 md:py-20 md:min-h-screen hero-fade-in">
+      <section class="flex items-center overflow-x-hidden justify-center px-6 pt-24 pb-16 md:py-20 md:min-h-screen hero-fade-in">
         <div class="max-w-5xl text-center">
           <h1 class="display-serif text-4xl md:text-8xl lg:text-9xl font-bold tracking-tight text-stone-900 mb-6 md:mb-8">
             El Gallo Galante
@@ -91,43 +91,39 @@ const formatDate = (date: Date, issueId?: string): string => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </div>
+            <div class="overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-6 md:pb-8 hide-scrollbar [-webkit-overflow-scrolling:touch]">
+            <div class="flex w-max gap-3 md:gap-4">
+              {/* left spacer: (50vw - halfCardWidth) */}
+              <div class="flex-none w-[calc(50vw-120px)] md:w-[calc(50vw-160px)]" aria-hidden="true"></div>
 
-            <div class="overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 md:pb-8 hide-scrollbar">
-              <div class="flex gap-3 md:gap-4 px-6">
-                {latestPostsWithAuthors.map(({ post, author }, index) => (
-                  <a 
+                {latestPostsWithAuthors.map(({ post, author }) => (
+                  <a
                     href={`/posts/${post.slug}`}
-                    class="flex-shrink-0 w-[240px] md:w-[320px] snap-start group"
+                    class="flex-none w-[240px] md:w-[320px] snap-center group"
                   >
-                  <div class="relative overflow-hidden rounded-lg h-[320px] md:h-[400px] shadow-lg hover:shadow-2xl transition-all duration-300">
-                    {/* Background Image */}
-                    {post.data.coverImage && (
-                      <img
-                        src={post.data.coverImage}
-                        alt={post.data.title}
-                        class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        loading="lazy"
-                      />
-                    )}
-                    
-                    {/* Overlay */}
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-                    
-                    {/* Content */}
-                    <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white">
-                      <div class="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.35em] text-white/70 mb-1 md:mb-2">
-                        {post.data.category}
+                    <div class="relative overflow-hidden rounded-lg h-[320px] md:h-[400px] shadow-lg hover:shadow-2xl transition-all duration-300">
+                      {post.data.coverImage && (
+                        <img
+                          src={post.data.coverImage}
+                          alt={post.data.title}
+                          class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                          loading="lazy"
+                        />
+                      )}
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+                      <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white">
+                        <div class="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.35em] text-white/70 mb-1 md:mb-2">
+                          {post.data.category}
+                        </div>
+                        <h3 class="display-serif text-lg md:text-xl font-bold leading-tight mb-1 md:mb-2 group-hover:opacity-90 transition-opacity">
+                          {post.data.title}
+                        </h3>
+                        <p class="text-xs md:text-sm text-white/80">{author.data.name}</p>
                       </div>
-                      <h3 class="display-serif text-lg md:text-xl font-bold leading-tight mb-1 md:mb-2 group-hover:opacity-90 transition-opacity">
-                        {post.data.title}
-                      </h3>
-                      <p class="text-xs md:text-sm text-white/80">
-                        {author.data.name}
-                      </p>
                     </div>
-                  </div>
-                </a>
-              ))}
+                  </a>
+                ))}
+                <div class="flex-none w-[calc(50vw-120px)] md:w-[calc(50vw-160px)]" aria-hidden="true"></div>
               </div>
             </div>
           </div>
