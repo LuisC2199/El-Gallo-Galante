@@ -1,6 +1,6 @@
 ---
 title: "Año 1 número 0"
-date: 2018-2025
+date: 2018-01-01
 number: "No. 01"
 coverImage: "/covers/ano-1-numero-0.jpg"
 description: "[Insertar descripción del número aquí]"
