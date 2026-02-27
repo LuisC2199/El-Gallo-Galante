@@ -3,6 +3,7 @@ name: Ben Bayer
 birthYear: ''
 birthPlace: ''
 photo: /authors/ben-bayer.jpg
+gender: true
 social:
   website: ''
   instagram: ''

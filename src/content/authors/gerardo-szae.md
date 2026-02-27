@@ -3,6 +3,7 @@ name: Gerardo Szae
 birthYear: '1997'
 birthPlace: Guanajuato
 photo: /authors/gerardo-szae.jpg
+gender: true
 social:
   website: ''
   instagram: ''

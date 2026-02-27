@@ -3,6 +3,7 @@ name: Betsabé Jiménez Carranza
 birthYear: '1983'
 birthPlace: Jalisco
 photo: /authors/betsabe-jimenez-carranza.jpg
+gender: false
 social:
   website: ''
   instagram: ''

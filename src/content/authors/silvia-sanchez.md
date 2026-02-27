@@ -3,6 +3,7 @@ name: Silvia Sánchez Madrid
 birthYear: '1977'
 birthPlace: 'Edo de Mex. - S.L.P.'
 photo: /authors/silvia-sanchez.jpg
+gender: false
 social:
   website: ''
   instagram: ''

@@ -3,6 +3,7 @@ name: Nelson David Navarro Díaz
 birthYear: '1996'
 birthPlace: Astrea
 photo: /authors/nelson-david-navarro-diaz.jpg
+gender: true
 social:
   website: ''
   instagram: ''

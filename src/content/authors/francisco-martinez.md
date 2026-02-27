@@ -3,6 +3,7 @@ name: Francisco Martínez
 birthYear: '1996'
 birthPlace: Guanajuato
 photo: /authors/francisco-martinez.jpg
+gender: true
 social:
   website: ''
   instagram: ''

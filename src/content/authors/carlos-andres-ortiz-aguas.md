@@ -3,6 +3,7 @@ name: Carlos Andrés Ortiz Aguas
 birthYear: '1986'
 birthPlace: Cartagena
 photo: /authors/carlos-andres-ortiz-aguas.jpg
+gender: true
 social:
   website: ''
   instagram: ''

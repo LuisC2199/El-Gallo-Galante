@@ -3,6 +3,7 @@ name: Mateo Mansilla Moya
 birthYear: '1994'
 birthPlace: 'Ciudad de México'
 photo: /authors/mateo-mansilla-moya.jpg
+gender: true
 social:
   website: ''
   instagram: ''

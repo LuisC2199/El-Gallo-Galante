@@ -3,6 +3,7 @@ name: Jesús Ríos Alcántar
 birthYear: '2000'
 birthPlace: 'Guanajuato'
 photo: /authors/jesus-rios-alcantar.jpg
+gender: true
 social:
   website: ''
   instagram: ''

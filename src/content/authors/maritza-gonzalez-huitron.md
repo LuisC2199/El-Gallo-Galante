@@ -3,6 +3,7 @@ name: Maritza González Huitrón
 birthYear: '1995'
 birthPlace: 'Estado de México'
 photo: /authors/maritza-gonzalez-huitron.jpg
+gender: false
 social:
   website: ''
   instagram: ''

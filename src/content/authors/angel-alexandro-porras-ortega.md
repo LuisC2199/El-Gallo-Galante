@@ -3,6 +3,7 @@ name: Ángel Alexandro Porras Ortega
 birthYear: '1995'
 birthPlace: Ciudad de México
 photo: /authors/angel-alexandro-porras-ortega.jpg
+gender: true
 social:
   website: ''
   instagram: ''

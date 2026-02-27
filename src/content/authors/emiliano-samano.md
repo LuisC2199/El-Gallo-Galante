@@ -3,6 +3,7 @@ name: Emiliano Sámano
 birthYear: '1994'
 birthPlace: Guanajuato
 photo: /authors/emiliano-samano.jpg
+gender: true
 social:
   website: ''
   instagram: ''

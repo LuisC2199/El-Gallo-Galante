@@ -3,6 +3,7 @@ name: Aleqs Garrigóz
 birthYear: 1986 - 2025
 birthPlace: Jalisco
 photo: /authors/aleqs-garrigoz.jpg
+gender: true
 social:
   website: ''
   instagram: ''

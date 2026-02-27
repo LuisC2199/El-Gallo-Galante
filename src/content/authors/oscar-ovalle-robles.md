@@ -3,6 +3,7 @@ name: Óscar Ovalle Robles
 birthYear: '1977'
 birthPlace: Guanajuato
 photo: /authors/oscar-ovalle-robles.jpg
+gender: true
 social:
   website: ''
   instagram: ''

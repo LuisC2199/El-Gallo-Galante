@@ -3,6 +3,7 @@ name: Casandra Cruz Vázquez
 birthYear: '1998'
 birthPlace: Guanajuato
 photo: /authors/casandra-cruz.jpg
+gender: false
 social:
   website: ''
   instagram: ''

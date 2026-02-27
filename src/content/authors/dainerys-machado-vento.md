@@ -3,6 +3,7 @@ name: Dainerys Machado Vento
 birthYear: '1986'
 birthPlace: La Habana
 photo: /authors/dainerys-machado-vento.jpg
+gender: false
 social:
   website: ''
   instagram: ''

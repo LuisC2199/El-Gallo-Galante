@@ -3,6 +3,7 @@ name: Jorge Arturo Poveda
 birthYear: '1981'
 birthPlace: Bogotá
 photo: /authors/jorge-arturo-poveda.jpg
+gender: true
 social:
   website: ''
   instagram: ''

@@ -3,6 +3,7 @@ name: Braulio Alejandro Torres Ruiz
 birthYear: '1992'
 birthPlace: Jalisco
 photo: /authors/braulio-alejandro-torres-ruiz.jpg
+gender: true
 social:
   website: ''
   instagram: ''

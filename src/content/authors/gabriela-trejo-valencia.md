@@ -3,6 +3,7 @@ name: Gabriela Trejo Valencia
 birthYear: '1987'
 birthPlace: Guanajuato
 photo: /authors/gabriela-trejo-valencia.jpg
+gender: false
 social:
   website: ''
   instagram: ''

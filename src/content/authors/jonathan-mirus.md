@@ -3,6 +3,7 @@ name: Jonathan Mirus
 birthYear: '1993'
 birthPlace: Guanajuato
 photo: /authors/jonathan-mirus.jpg
+gender: true
 social:
   website: ''
   instagram: ''

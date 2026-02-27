@@ -3,6 +3,7 @@ name: Lilia Solórzano Esqueda
 birthYear: '1966'
 birthPlace: Guanajuato
 photo: /authors/lilia-solorzano-esqueda.jpg
+gender: false
 social:
   website: ''
   instagram: ''

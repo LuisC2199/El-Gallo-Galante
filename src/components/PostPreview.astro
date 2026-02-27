@@ -20,7 +20,11 @@ const categorySlug = post.data.category
     <img
       src={post.data.coverImage}
       alt={post.data.title}
-      class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+      class:list={[
+        "absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700",
+        post.data.imagePosition === "top" && "object-top",
+        post.data.imagePosition === "bottom" && "object-bottom",
+      ]}
       loading="lazy"
     />
   )}

@@ -3,6 +3,7 @@ name: Carlos Ulises Mata
 birthYear: '1970'
 birthPlace: Guanajuato
 photo: /authors/carlos-ulises-mata.jpg
+gender: true
 social:
   website: ''
   instagram: ''

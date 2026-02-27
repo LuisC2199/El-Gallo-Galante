@@ -21,6 +21,7 @@ const authors = defineCollection({
     birthYear: z.string(),
     birthPlace: z.string(),
     photo: z.string().optional(),
+    gender: z.boolean().optional(), // true = male, false = female
     social: z
       .object({
         website: z.string().optional(),
@@ -45,6 +46,7 @@ const posts = defineCollection({
     excerpt: z.string().optional(),
     coverImage: z.string().optional(),
     featuredImage: z.string().optional(),
+    imagePosition: z.enum(["top", "center", "bottom"]).optional(),
   }),
 });
 

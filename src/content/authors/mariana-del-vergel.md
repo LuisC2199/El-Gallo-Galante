@@ -3,6 +3,7 @@ name: Mariana del Vergel
 birthYear: '1998'
 birthPlace: Aguascalientes
 photo: /authors/mariana-del-vergel.jpg
+gender: false
 social:
   website: ''
   instagram: ''

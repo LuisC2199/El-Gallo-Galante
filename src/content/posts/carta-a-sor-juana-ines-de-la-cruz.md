@@ -6,6 +6,7 @@ issue: ano-1-numero-0
 author: javier-palau
 coverImage: /posts/carta-a-sor-juana-ines-de-la-cruz.jpg
 featuredImage: /posts/carta-a-sor-juana-ines-de-la-cruz.jpg
+imagePosition: top
 ---
 
 Muy ilustre Madre Juana Inés de la Cruz:

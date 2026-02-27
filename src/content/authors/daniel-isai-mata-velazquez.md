@@ -3,6 +3,7 @@ name: Daniel Isaí Mata Velázquez
 birthYear: '2000'
 birthPlace: Aguascalientes
 photo: /authors/daniel-isai-mata-velazquez.jpg
+gender: true
 social:
   website: ''
   instagram: ''

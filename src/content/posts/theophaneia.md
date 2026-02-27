@@ -6,6 +6,7 @@ issue: ano-1-numero-0
 author: javier-palau
 coverImage: /posts/theophaneia.jpg
 featuredImage: /posts/theophaneia.jpg
+imagePosition: top
 ---
 
 Soy el verbo que transcurre  

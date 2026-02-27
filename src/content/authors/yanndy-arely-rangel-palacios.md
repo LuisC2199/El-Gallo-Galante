@@ -3,6 +3,7 @@ name: Yanndy Arely Rangel Palacios
 birthYear: '1999'
 birthPlace: Guanajuato
 photo: /authors/yanndy-arely-rangel-palacios.jpg
+gender: false
 social:
   website: ''
   instagram: ''

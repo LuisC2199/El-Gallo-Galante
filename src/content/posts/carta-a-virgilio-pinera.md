@@ -6,6 +6,7 @@ issue: ano-1-numero-0
 author: dainerys-machado-vento
 coverImage: /posts/carta-a-virgilio-pinera.jpg
 featuredImage: /posts/carta-a-virgilio-pinera.jpg
+imagePosition: top
 ---
 
 _Buenos Aires, 15 de octubre de 2019_

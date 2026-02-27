@@ -39,7 +39,11 @@ const formattedDate = post.data.date.toLocaleDateString("es-ES", {
       <img
         src={post.data.featuredImage}
         alt={post.data.title}
-        class="w-full h-[50vh] md:h-[70vh] object-cover"
+        class:list={[
+          "w-full h-[50vh] md:h-[70vh] object-cover",
+          post.data.imagePosition === "top" && "object-top",
+          post.data.imagePosition === "bottom" && "object-bottom",
+        ]}
         loading="eager"
       />
     </div>

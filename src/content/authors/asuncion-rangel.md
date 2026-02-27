@@ -3,6 +3,7 @@ name: Asunción Rangel
 birthYear: 1981 - 2023
 birthPlace: Aguascalientes - Guanajuato
 photo: /authors/asuncion-rangel.jpg
+gender: false
 social:
   website: ''
   instagram: ''

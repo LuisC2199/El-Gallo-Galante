@@ -6,6 +6,7 @@ issue: ano-1-numero-0
 author: mateo-mansilla-moya
 coverImage: /posts/carta-a-nellie-campobello.jpg
 featuredImage: /posts/carta-a-nellie-campobello.jpg
+imagePosition: top
 ---
 
 Ciudad de México a 21 de octubre de 2020

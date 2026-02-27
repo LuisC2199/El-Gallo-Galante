@@ -3,6 +3,7 @@ name: Sean Salas
 birthYear: '1997'
 birthPlace: 'Heredia, Costa Rica'
 photo: /authors/sean-salas.jpg
+gender: true
 social:
   website: ''
   instagram: ''

@@ -3,6 +3,7 @@ name: Daniela Guerrero
 birthYear: '1999'
 birthPlace: Guanajuato
 photo: /authors/daniela-guerrero.jpg
+gender: false
 social:
   website: ''
   instagram: ''

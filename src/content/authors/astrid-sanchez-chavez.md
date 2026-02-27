@@ -3,6 +3,7 @@ name: Astrid Sánchez Chávez
 birthYear: '1999'
 birthPlace: Guanajuato
 photo: /authors/astrid-sanchez-chavez.jpg
+gender: false
 social:
   website: ''
   instagram: ''
