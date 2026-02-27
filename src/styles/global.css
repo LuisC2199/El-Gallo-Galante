@@ -166,3 +166,13 @@ body {
 .non-italic {
   font-style: normal;
 }
+
+.poem-signature {
+  margin-top: 3rem;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #78716c;
+  text-align: right;
+  opacity: 0.85;
+}

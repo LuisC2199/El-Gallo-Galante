@@ -61,7 +61,7 @@ la luz me envuelve y padezco
 rompiendo mi voz en llantos,  
 pues por segunda vez muero.
 
-San Luis Potosí, 31 de diciembre de 2018
+<p class="poem-signature">San Luis Potosí, 31 de diciembre de 2018</p>
 
 <figure>
 
