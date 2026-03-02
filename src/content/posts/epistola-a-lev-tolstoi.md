@@ -29,7 +29,7 @@ pugnabas por la versatilidad de la mente, que condenabas la unilateralidad.
 Mente incandescente. Tú, filósofo de la vida, quien a tus diecinueve años
 atreviste a decir lo siguiente: «Es más fácil escribir diez volúmenes de
 filosofía que llevar a la práctica una sola regla, no importa
-cuál.»[\[1\]](#_ftn1)
+cuál.»<sup class="text-xs non-italic">[1]</sup>
 
 Irreverente, te siento en lo más hondo de mis miedos e inconsistencias, en mi
 flaqueza de ánimo y a la vez en las pasiones más cálidas, en la entrega, en el
@@ -57,6 +57,6 @@ Casandra
 
 ---
 <p class="footnote">
-[1] Extracto de los Diarios (1847-1894), edición y traducción de
+<sup class="text-xs non-italic">[1]</sup> Extracto de los Diarios (1847-1894), edición y traducción de
 Selma Ancira, Acantilado.
 </p>

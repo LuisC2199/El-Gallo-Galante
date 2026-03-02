@@ -4,6 +4,7 @@ date: 2020-03-08T00:00:00.000Z
 category: Ensayo
 issue: ano-1-numero-0
 author: ben-bayer
+traductor: jonathan-mirus
 coverImage: /posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg
 featuredImage: /posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg
 ---
@@ -51,7 +52,7 @@ ser humano comienza:
 “El hecho de nacer es un absoluto —eso significa que, antes de ese momento, el
 niño no es un organismo vivo independiente. Es parte del cuerpo de la madre. Sin
 embargo, al nacer, un niño es un individuo y tiene los derechos inherentes en la
-naturaleza de un humano.”[\[1\]](#_ftn1)
+naturaleza de un humano."<sup class="text-xs non-italic">[1]</sup>
 
 Por esta razón, Rand tenía desprecio por la oposición al aborto en nombre de la
 “santidad de la vida”. De nuevo en “Of Living Death” explica por qué únicamente
@@ -67,11 +68,11 @@ elección de la mujer involucrada. Moralmente, nada más que su deseo debe ser
 considerado ¿Quién puede, acaso, tener el derecho de dictarle qué disposición
 debe realizar sobre el funcionamiento de su propio cuerpo? La Iglesia Católica
 es responsable de las vergonzosamente barbáricas leyes antiaborto en este país,
-las cuales deben ser repudiadas y abolidas.”[\[2\]](#_ftn2)
+las cuales deben ser repudiadas y abolidas."<sup class="text-xs non-italic">[2]</sup>
 
 En este pasaje, Rand declara que un niño no puede adquirir derechos _hasta qué
 este nace_, lo cual significa que el feto no tiene derechos, incluso en las
-etapas más tardías del embarazo.[\[3\]](#_ftn3) Ella desarrolla un punto similar
+etapas más tardías del embarazo.<sup class="text-xs non-italic">[3]</sup> Ella desarrolla un punto similar
 en el último artículo de su publicación _The Ayn Rand Letter_:
 
 “No importa el vicioso sinsentido de afirmar que un embrión tiene ‘derecho a la
@@ -79,7 +80,7 @@ vida’. Una pieza de protoplasma no tiene derechos, ni vida en el sentido human
 del término. Uno puede discutir sobre las últimas etapas de un embarazo, pero la
 cuestión esencial se refiere sólo a los primeros tres meses. equiparar un ser
 potencial con un ser real es vicioso; abogar por el sacrificio de este último
-por el primero, es indescriptible.”[\[4\]](#_ftn4)
+por el primero, es indescriptible."<sup class="text-xs non-italic">[4]</sup>
 
 Responsabilidad Personal
 
@@ -88,7 +89,7 @@ personal”, sin embargo, esto es un engaño. Evitar que una mujer termine un
 embarazo no deseado es privarla de tomar el control de su propia vida. "La tarea
 de criar a un niño", observa Rand, "es una responsabilidad tremenda y de por
 vida, que nadie debe asumir sin darse cuenta o sin tener la voluntad de
-hacerlo".[\[5\]](#_ftn5)
+hacerlo".<sup class="text-xs non-italic">[5]</sup>
 
 Para Rand, el derecho al aborto protege a las mujeres que deciden no asumir la
 responsabilidad de criar a un hijo. En "The Age of Mediocrity" (La era de la
@@ -105,7 +106,7 @@ adopción. Para personas tan jóvenes, el embarazo es literalmente una sentencia
 de muerte: la maternidad los obligará a renunciar a su futuro y condenarlos a
 una vida sin esperanza, de trabajos penosos, de esclavitud para las necesidades
 físicas y financieras del niño. La situación de una madre soltera, abandonada
-por su amante, es incluso peor”.[\[6\]](#_ftn6)
+por su amante, es incluso peor".<sup class="text-xs non-italic">[6]</sup>
 
 Rand sugiere que aquellos que condenarían a una persona al "horror" de esta vida
 de trabajo pesado están motivados "no \[por\] amor a los embriones, lo cual es
@@ -133,7 +134,7 @@ necesariamente por mala voluntad. Aun así, esto no significa que ella piense qu
 la oposición al aborto en etapas avanzadas de gestación es correcta.
 
 Es crucialmente importante que en “Of Living Death,” Rand sostiene que “un niño
-no puede adquirir ningún derecho hasta que nace.”[\[7\]](#_ftn7) Rand argumenta
+no puede adquirir ningún derecho hasta que nace."<sup class="text-xs non-italic">[7]</sup> Rand argumenta
 enérgicamente que la única función adecuada del gobierno es proteger los
 derechos. Un gobierno apropiado no tiene poder para aprobar leyes que protejan a
 los fetos que están en la última etapa de gestación: como entidades no nacidas
@@ -157,16 +158,16 @@ desesperación de por vida y le daría la oportunidad de hacer valer sus derecho
 \[…\] Una cláusula que incluya la protección de la salud mental de una mujer es
 esencial para una reforma significativa de la ley del aborto. Sin ella,
 cualquier reforma aprobada sería peor que ninguna: sería un pretexto que podría
-retrasar la reforma real por otros 86 años.”[\[8\]](#_ftn8)
+retrasar la reforma real por otros 86 años."<sup class="text-xs non-italic">[8]</sup>
 
 El proyecto de ley en cuestión, cuya versión finalmente se aprobó en 1970,
-permitía abortos hasta las 24 semanas.[\[9\]](#_ftn9) Esta ley estuvo vigente
+permitía abortos hasta las 24 semanas.<sup class="text-xs non-italic">[9]</sup> Esta ley estuvo vigente
 hasta hace muy poco en Nueva York. Es significativo que Rand considerara este
 proyecto de ley de 1970 como una medida a medias en el camino hacia la
 derogación total de las leyes que prohíben el aborto. Podría decirse que la ley
 que recientemente se aprobó en Nueva York que legaliza todos los abortos después
 de las 24 semanas es el proyecto de ley que Rand habría
-apoyado.[\[10\]](#_ftn10)
+apoyado.<sup class="text-xs non-italic">[10]</sup>
 
 “Probablemente el asunto más importante”
 
@@ -179,7 +180,7 @@ En “Last Survey”, de 1976, ella instó a sus lectores a no apoyar la nominac
 de Ronald Reagan como candidato republicano a la presidencia debido a su
 oposición al derecho al aborto. En respuesta a otra pregunta sobre el aborto ese
 año, ella opinó sobre Reagan: "Si él no respeta ese derecho fundamental, no
-puede ser un defensor de ningún tipo de derechos."[\[11\]](#_ftn11) En un
+puede ser un defensor de ningún tipo de derechos."<sup class="text-xs non-italic">[11]</sup> En un
 comentario separado sobre las elecciones al Senado de 1976 en el estado de Nueva
 York, Rand comentó sobre la plataforma antiabortista de James Buckley:
 
@@ -202,7 +203,7 @@ intelectual lo que quieren cortar \[...\]
 
 Un "aliado" quien se acerca a ti, pero que comienza desde premisas opuestas es
 mucho más peligroso que un enemigo leve. Yo votaría por un liberal sobre Buckley
-en cualquier momento.”[\[12\]](#_ftn12)
+en cualquier momento."<sup class="text-xs non-italic">[12]</sup>
 
 Rand mantuvo también esta posición durante las elecciones presidenciales
 de 1980. Ella dijo que, aunque a menudo votaría por los republicanos, no votaría
@@ -215,7 +216,7 @@ seres humanos, sólo en los embriones; y porque quieren atar una familia humana 
 la reproducción de una granja de animales. Eso es lo que una criatura como
 Reagan \[quiere\]: él sale para dictar a los jóvenes lo que van a hacer con su
 vida. ¿Van a tener la oportunidad de una carrera o van a ser animales
-reproductores? No puedo comunicar lo despreciable que es”.[\[13\]](#_ftn13)
+reproductores? No puedo comunicar lo despreciable que es".<sup class="text-xs non-italic">[13]</sup>
 
 Si usted piensa sobre este tema, es posible que aún no esté de acuerdo con las
 opiniones de Rand sobre el aborto o con su evaluación de las personas y los

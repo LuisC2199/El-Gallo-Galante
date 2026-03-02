@@ -1,7 +1,7 @@
 ---
-name: Gabriel Reyes
+name: Gabriel Alfonso Pérez Reyes
 birthYear: '1996'
-birthPlace: Guanajuato
+birthPlace: León, Guanajuato
 photo: /authors/gabriel-reyes.jpg
 gender: true
 social:
@@ -11,4 +11,4 @@ social:
   facebook: ''
   tiktok: ''
 ---
-Maestro en Literatura Hispanoamericana por la Universidad de Guanajuato. Ha colaborado con textos poéticos en revistas impresas y digitales como *De-Lirio*, *Punto de Partida*, *Revista Golfa*, *Página Salmón*, *Ruleta Rusa*, *Campos de Plumas*, *Los Demonios y los Días* y *Letras Libres*.
+ Actualmente cursa el doctorado en Literatura hispánica en el Colegio de San Luis, México. Becario del PECDA en el 2023, cuenta con publicaciones en revistas como Punto de Partida, Campos de plumas, Letras Libres.

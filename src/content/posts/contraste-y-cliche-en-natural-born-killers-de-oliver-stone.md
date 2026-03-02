@@ -17,7 +17,7 @@ Born Killers_ (1994) del director Oliver Stone; parece ser que, incluso para
 esta época, la relación con el mundo de la crítica sigue siendo distante. Por
 ejemplo, se tiene que el sitio _Rotten Tomatoes_ le da 47% de aprobación basado
 en 38 críticas, por otra parte, entre el público general goza de un 81% de
-aprobación basado en 217,280 _raitings_ \[1\]. Lo último resulta sugerente, pues
+aprobación basado en 217,280 _raitings_ <sup class="text-xs non-italic">[1]</sup>. Lo último resulta sugerente, pues
 la cinta ha ido ganando adeptos con cada generación que pasa, y es,
 precisamente, considerada por muchos como una cinta de culto.
 
@@ -84,7 +84,7 @@ respeto merece el juez, si comete el mismo crimen del criminal?»
 Putra</a>** </span>
 
 <p class="footnote">
-[1] Datos consultados el 11 de octubre de 2019 en 
+<sup class="text-xs non-italic">[1]</sup> Datos consultados el 11 de octubre de 2019 en 
 <em>Rotten Tomatoes</em>: 
 https://www.rottentomatoes.com/m/natural_born_killers
 </p>
