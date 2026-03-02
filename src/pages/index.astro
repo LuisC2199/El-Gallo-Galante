@@ -67,7 +67,7 @@ const formatDate = (date: Date, issueId?: string): string => {
   {latestIssue ? (
     <>
       {/* Full-Screen Hero Section */}
-      <section class="flex items-center overflow-x-hidden justify-center px-6 pt-16 pb-12 md:py-20 md:min-h-screen hero-fade-in">
+      <section class="flex items-center overflow-x-hidden justify-center px-6 pt-10 pb-8 md:py-20 md:min-h-screen hero-fade-in">
         <div class="max-w-5xl text-center">
           <h1 class="display-serif text-4xl md:text-8xl lg:text-9xl font-bold tracking-tight text-stone-900 mb-6 md:mb-8">
             El Gallo Galante
@@ -92,14 +92,17 @@ const formatDate = (date: Date, issueId?: string): string => {
               </svg>
             </div>
             <div 
-              class="overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-6 md:pb-8 hide-scrollbar px-6"
+              class="overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-6 md:pb-8 hide-scrollbar"
               style="-webkit-overflow-scrolling: touch;"
             >
-              <div class="flex w-max gap-3 md:gap-4">
-                {latestPostsWithAuthors.map(({ post, author }, index) => (
+              <div class="flex gap-3 md:gap-4">
+                {/* Spacer at start */}
+                <div class="flex-none w-6" aria-hidden="true"></div>
+                
+                {latestPostsWithAuthors.map(({ post, author }) => (
                   <a
                     href={`/posts/${post.slug}`}
-                    class={`flex-none w-[240px] md:w-[320px] snap-start group ${index === 0 ? 'ml-0' : ''} ${index === latestPostsWithAuthors.length - 1 ? 'mr-0' : ''}`}
+                    class="flex-none w-[240px] md:w-[320px] snap-center group"
                   >
                     <div class="relative overflow-hidden rounded-lg h-[320px] md:h-[400px] shadow-lg hover:shadow-2xl transition-all duration-300">
                       {post.data.coverImage && (
@@ -123,6 +126,9 @@ const formatDate = (date: Date, issueId?: string): string => {
                     </div>
                   </a>
                 ))}
+                
+                {/* Spacer at end */}
+                <div class="flex-none w-6" aria-hidden="true"></div>
               </div>
             </div>
           </div>
@@ -141,7 +147,7 @@ const formatDate = (date: Date, issueId?: string): string => {
       </section>
 
       {/* Featured Works Section */}
-      <section id="featured" class="py-12 md:py-2 px-6">
+      <section id="featured" class="py-6 md:py-2 px-6">
         <div class="max-w-7xl mx-auto">
           <h2 class="text-xs uppercase tracking-[0.4em] text-stone-400 mb-16 text-center font-light">
             Lecturas destacadas
