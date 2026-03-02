@@ -78,7 +78,7 @@ const formatDate = (date: Date, issueId?: string): string => {
           </p>
 
           {/* Carousel with latest 5 posts */}
-          <div class="mt-8 md:mt-12 mb-12 md:mb-16">
+          <div class="mt-8 md:mt-12 mb-8 md:mb-16">
             {/* Label with scroll hint */}
             <div class="flex items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6">
               <svg class="w-3 h-3 md:w-4 md:h-4 text-stone-400 animate-bounce-horizontal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,7 +95,8 @@ const formatDate = (date: Date, issueId?: string): string => {
               class="carousel-container overflow-x-scroll overflow-y-hidden pb-6 md:pb-8"
               style="-webkit-overflow-scrolling: touch;"
             >
-              <div class="carousel-track flex gap-3 md:gap-4 pl-6 pr-6">
+              <div class="carousel-track inline-flex gap-3 md:gap-4">
+                <div class="flex-shrink-0 w-6"></div>
                 {latestPostsWithAuthors.map(({ post, author }) => (
                   <a
                     href={`/posts/${post.slug}`}
@@ -123,11 +124,12 @@ const formatDate = (date: Date, issueId?: string): string => {
                     </div>
                   </a>
                 ))}
+                <div class="flex-shrink-0 w-6"></div>
               </div>
             </div>
           </div>
 
-          <div class="mt-4 md:mt-8">
+          <div class="mt-0 md:mt-8">
             <a
               href="#featured"
               class="inline-block text-stone-400 hover:text-stone-600 transition-colors animate-bounce-slow"
@@ -381,21 +383,27 @@ const formatDate = (date: Date, issueId?: string): string => {
     .carousel-container {
       scrollbar-width: none;
       -ms-overflow-style: none;
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
+      position: relative;
     }
     
     .carousel-container::-webkit-scrollbar {
       display: none;
+      width: 0;
+      height: 0;
     }
 
     .carousel-track {
-      /* Ensure proper scrolling on iOS */
-      min-width: min-content;
+      /* Force horizontal layout and prevent wrapping */
+      white-space: nowrap;
+      display: inline-flex;
     }
 
     .carousel-item {
-      /* Prevent flex shrinking issues on iOS */
+      /* Prevent any shrinking on iOS */
       flex: 0 0 auto;
+      display: inline-block;
+      white-space: normal;
     }
 
     /* Smooth scroll behavior */
