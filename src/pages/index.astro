@@ -93,11 +93,11 @@ const formatDate = (date: Date, issueId?: string): string => {
             </div>
             <div 
               class="overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-6 md:pb-8 hide-scrollbar"
-              style="-webkit-overflow-scrolling: touch; scroll-padding-inline: var(--carousel-padding);"
+              style="-webkit-overflow-scrolling: touch;"
             >
               <div 
                 class="flex w-max gap-3 md:gap-4"
-                style="padding-inline: var(--carousel-padding);"
+                style="padding-inline: 1.5rem;"
               >
                 {latestPostsWithAuthors.map(({ post, author }) => (
                   <a
@@ -307,16 +307,6 @@ const formatDate = (date: Date, issueId?: string): string => {
   )}
 
   <style>
-    :root {
-      --carousel-padding: max(1.5rem, calc(50vw - 120px));
-    }
-
-    @media (min-width: 768px) {
-      :root {
-        --carousel-padding: calc(50vw - 160px);
-      }
-    }
-
     .hero-fade-in {
       animation: fadeIn 1.2s ease-out;
     }
