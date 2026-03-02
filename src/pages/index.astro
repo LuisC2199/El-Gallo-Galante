@@ -78,9 +78,9 @@ const formatDate = (date: Date, issueId?: string): string => {
           </p>
 
           {/* Carousel with latest 5 posts */}
-          <div class="mt-8 md:mt-12 mb-12 md:mb-16 -mx-6">
+          <div class="mt-8 md:mt-12 mb-12 md:mb-16">
             {/* Label with scroll hint */}
-            <div class="flex items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6 px-6">
+            <div class="flex items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6">
               <svg class="w-3 h-3 md:w-4 md:h-4 text-stone-400 animate-bounce-horizontal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
               </svg>
@@ -92,17 +92,14 @@ const formatDate = (date: Date, issueId?: string): string => {
               </svg>
             </div>
             <div 
-              class="overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-6 md:pb-8 hide-scrollbar"
+              class="carousel-container overflow-x-scroll overflow-y-hidden pb-6 md:pb-8"
               style="-webkit-overflow-scrolling: touch;"
             >
-              <div class="flex gap-3 md:gap-4">
-                {/* Spacer at start */}
-                <div class="flex-none w-6" aria-hidden="true"></div>
-                
+              <div class="carousel-track flex gap-3 md:gap-4 pl-6 pr-6">
                 {latestPostsWithAuthors.map(({ post, author }) => (
                   <a
                     href={`/posts/${post.slug}`}
-                    class="flex-none w-[240px] md:w-[320px] snap-center group"
+                    class="carousel-item flex-shrink-0 w-[240px] md:w-[320px]"
                   >
                     <div class="relative overflow-hidden rounded-lg h-[320px] md:h-[400px] shadow-lg hover:shadow-2xl transition-all duration-300">
                       {post.data.coverImage && (
@@ -126,9 +123,6 @@ const formatDate = (date: Date, issueId?: string): string => {
                     </div>
                   </a>
                 ))}
-                
-                {/* Spacer at end */}
-                <div class="flex-none w-6" aria-hidden="true"></div>
               </div>
             </div>
           </div>
@@ -383,18 +377,25 @@ const formatDate = (date: Date, issueId?: string): string => {
       overflow: hidden;
     }
 
-    .hide-scrollbar::-webkit-scrollbar {
-      display: none;
+    /* Carousel styles for iOS Safari compatibility */
+    .carousel-container {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-behavior: smooth;
     }
     
-    .hide-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .carousel-container::-webkit-scrollbar {
+      display: none;
     }
 
-    /* Ensure proper scroll snap alignment on mobile */
-    .snap-start {
-      scroll-snap-align: start;
+    .carousel-track {
+      /* Ensure proper scrolling on iOS */
+      min-width: min-content;
+    }
+
+    .carousel-item {
+      /* Prevent flex shrinking issues on iOS */
+      flex: 0 0 auto;
     }
 
     /* Smooth scroll behavior */
