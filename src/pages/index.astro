@@ -67,8 +67,7 @@ const formatDate = (date: Date, issueId?: string): string => {
   {latestIssue ? (
     <>
       {/* Full-Screen Hero Section */}
-      <section class="flex items-center overflow-x-hidden justify-center px-6 pt-10 pb-8 md:py-20 md:min-h-screen hero-fade-in">
-        <div class="max-w-5xl text-center">
+      <section class="flex items-center justify-center px-6 pt-10 pb-8 md:py-20 md:min-h-screen hero-fade-in">        <div class="max-w-5xl text-center">
           <h1 class="display-serif text-4xl md:text-8xl lg:text-9xl font-bold tracking-tight text-stone-900 mb-6 md:mb-8">
             El Gallo Galante
           </h1>
@@ -77,6 +76,7 @@ const formatDate = (date: Date, issueId?: string): string => {
             La palabra debe hendir el mundo
           </p>
 
+
           {/* Carousel with latest 5 posts */}
           <div class="mt-8 md:mt-12 mb-8 md:mb-16">
             {/* Label with scroll hint */}
@@ -84,51 +84,65 @@ const formatDate = (date: Date, issueId?: string): string => {
               <svg class="w-3 h-3 md:w-4 md:h-4 text-stone-400 animate-bounce-horizontal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
               </svg>
+
               <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em] text-stone-400 font-light">
                 Entradas recientes
               </p>
+
               <svg class="w-3 h-3 md:w-4 md:h-4 text-stone-400 animate-bounce-horizontal-reverse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </div>
-            <div 
-              class="carousel-container overflow-x-scroll overflow-y-hidden pb-6 md:pb-8"
-              style="-webkit-overflow-scrolling: touch;"
-            >
-              <div class="carousel-track inline-flex gap-3 md:gap-4">
-                <div class="flex-shrink-0 w-6"></div>
-                {latestPostsWithAuthors.map(({ post, author }) => (
-                  <a
-                    href={`/posts/${post.slug}`}
-                    class="carousel-item flex-shrink-0 w-[240px] md:w-[320px]"
-                  >
-                    <div class="relative overflow-hidden rounded-lg h-[320px] md:h-[400px] shadow-lg hover:shadow-2xl transition-all duration-300">
-                      {post.data.coverImage && (
-                        <img
-                          src={post.data.coverImage}
-                          alt={post.data.title}
-                          class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                          loading="lazy"
-                        />
-                      )}
-                      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-                      <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white">
-                        <div class="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.35em] text-white/70 mb-1 md:mb-2">
-                          {post.data.category}
+
+            {/* ✅ FULL-BLEED wrapper: escapes max-w-5xl */}
+            <div class="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
+              <div
+                class="overflow-x-auto overflow-y-hidden pb-6 md:pb-8 overscroll-x-contain snap-x snap-mandatory"
+                style="-webkit-overflow-scrolling: touch; touch-action: pan-x;"
+              >
+                {/* ✅ real padding for the viewport edges */}
+                <div class="flex w-max gap-3 md:gap-4 px-6 md:px-0">
+                  {/* ✅ transparent spacers so first/last card can fully center */}
+                  <div aria-hidden="true" class="w-[calc((100vw-240px)/2)] md:w-0 shrink-0"></div>
+
+                  {latestPostsWithAuthors.map(({ post, author }) => (
+                    <a
+                      href={`/posts/${post.slug}`}
+                      class="flex-shrink-0 w-[240px] md:w-[320px] snap-center"
+                    >
+                      <div class="relative overflow-hidden rounded-lg h-[320px] md:h-[400px] shadow-lg hover:shadow-2xl transition-all duration-300">
+                        {post.data.coverImage && (
+                          <img
+                            src={post.data.coverImage}
+                            alt={post.data.title}
+                            class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            loading="lazy"
+                          />
+                        )}
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white">
+                          <div class="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.35em] text-white/70 mb-1 md:mb-2">
+                            {post.data.category}
+                          </div>
+
+                          <h3 class="display-serif text-lg md:text-xl font-bold leading-tight mb-1 md:mb-2 group-hover:opacity-90 transition-opacity">
+                            {post.data.title}
+                          </h3>
+
+                          <p class="text-xs md:text-sm text-white/80">{author.data.name}</p>
                         </div>
-                        <h3 class="display-serif text-lg md:text-xl font-bold leading-tight mb-1 md:mb-2 group-hover:opacity-90 transition-opacity">
-                          {post.data.title}
-                        </h3>
-                        <p class="text-xs md:text-sm text-white/80">{author.data.name}</p>
                       </div>
-                    </div>
-                  </a>
-                ))}
-                <div class="flex-shrink-0 w-6"></div>
+                    </a>
+                  ))}
+
+                  <div aria-hidden="true" class="w-[calc((100vw-240px)/2)] md:w-0 shrink-0"></div>
+                </div>
               </div>
             </div>
           </div>
-
+          
           <div class="mt-0 md:mt-8">
             <a
               href="#featured"
