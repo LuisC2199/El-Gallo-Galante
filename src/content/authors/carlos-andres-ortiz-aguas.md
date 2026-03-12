@@ -6,9 +6,9 @@ photo: /authors/carlos-andres-ortiz-aguas.jpg
 gender: true
 social:
   website: ''
-  instagram: ''
+  instagram: 'https://www.instagram.com/carlosortizaguas/'
   x: ''
-  facebook: ''
+  facebook: 'https://www.facebook.com/carlosortizaguas'
   tiktok: ''
 ---
 Maestro en Diversidad Cultural por parte de la Universidad Nacional de Tres de Febrero. Sus textos han sido publicados por revistas como *Linotipia*, *Tlacuache*, *Hispanic Culture Review* y *Awen*. Fue coordinador editorial de la publicación Casa Cuentos (Secretaría de Cultura, Gobernación del Atlántico, Colombia) (2017-19). *Disonancias* (2021) es su primer libro publicado.

@@ -11,4 +11,4 @@ social:
   facebook: ''
   tiktok: ''
 ---
-Maestro en Salud Pública. textos suyos han aparecido en revistas como *Bitácora Pública*, *Golfa* y *Monociclo*. Actualmente prepara su primer poemario.
+Maestro en Salud Pública. textos suyos han aparecido en revistas como *Bitácora Pública*, *Golfa* y *Monociclo*.

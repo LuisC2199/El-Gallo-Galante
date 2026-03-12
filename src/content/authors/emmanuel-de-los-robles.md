@@ -6,7 +6,7 @@ photo: /authors/emmanuel-de-los-robles.jpg
 gender: true
 social:
   website: ''
-  instagram: ''
+  instagram: 'https://www.instagram.com/elbardobastardo/'
   x: ''
   facebook: ''
   tiktok: ''

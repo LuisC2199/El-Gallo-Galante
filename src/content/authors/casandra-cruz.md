@@ -6,8 +6,8 @@ photo: /authors/casandra-cruz.jpg
 gender: false
 social:
   website: ''
-  instagram: ''
-  x: ''
+  instagram: 'https://www.instagram.com/casandraacv_/'
+  x: 'https://www.instagram.com/_Casandraacv'
   facebook: ''
   tiktok: ''
 ---

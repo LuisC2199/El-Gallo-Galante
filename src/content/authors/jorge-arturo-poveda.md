@@ -6,7 +6,7 @@ photo: /authors/jorge-arturo-poveda.jpg
 gender: true
 social:
   website: ''
-  instagram: ''
+  instagram: 'https://www.instagram.com/jorgearturoterror/'
   x: ''
   facebook: ''
   tiktok: ''

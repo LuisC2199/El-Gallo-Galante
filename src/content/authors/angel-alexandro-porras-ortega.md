@@ -8,7 +8,7 @@ social:
   website: ''
   instagram: ''
   x: ''
-  facebook: ''
+  facebook: 'https://www.facebook.com/angel.porrasortega'
   tiktok: ''
 ---
-Licenciado en Lengua y Literaturas Hispánicas por la UNAM. En 2012 fue ganador del 13° Concurso Universitario de Cuento Letras Muertas, mientras que en 2017 recibió mención honorífica en el IX Concurso Nacional de Narrativa Elena Poniatowska. Ha sido publicado en revistas como *Tlacuache* y *Marabunta*. Asimismo, colabora ocasionalmente en la revista de arquitectura *Mejores Acabados*.
+Maestro en Literatura Mexicana Contemporánea por la UAM-Azcapotzalco. Ha participado en distintos coloquios y congresos de investigación. Actualmente cursa el Doctorado en Literatura en la UNAM. Ha colaborado en distintas revistas y publicaciones. Ganador en la categoría de narrativa de los Juegos Florales Ramón López Velarde, 2022.

@@ -6,9 +6,10 @@ photo: /authors/gerardo-szae.jpg
 gender: true
 social:
   website: ''
-  instagram: ''
+  instagram: 'https://www.instagram.com/szaeta/'
   x: ''
-  facebook: ''
+  facebook: 'https://www.facebook.com/deltragaluz'
   tiktok: ''
 ---
-Poeta mexicano. Miembro y cocreador de la revista El Conjuro de las Ranas. Lector de la generación Beat, los surrealistas franceses, los Contemporáneos y el Creacionismo latinoamericano.
+ Poeta. Es autor de la plaquette *Fanta C Brew y la Trilogía Resplandeciente* compuesta por los poemarios *Think Pink*, *Sutra Blues* y
+ *HVPPY*. Su principal interés radica en la experimentación poética y en la música underground de los años 60s y 70s.

@@ -11,4 +11,4 @@ social:
   facebook: ''
   tiktok: ''
 ---
-Estudiante de Letras Españolas en la Universidad de Guanajuato. Su principal interés radica en la relación de la literatura con las artes visuales.
+Licenciada en Letras Españolas por parte de la Universidad de Guanajauto. Actualmente se desempeña como correctora de textos. Su principal interés radica en la relación de la literatura con las artes visuales.

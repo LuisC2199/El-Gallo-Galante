@@ -176,3 +176,13 @@ body {
   text-align: right;
   opacity: 0.85;
 }
+
+.author-content a {
+  color: #1e40af; /* Example: blue */
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.author-content a:hover {
+  color: #0e1a4f; /* Darker on hover */
+}
