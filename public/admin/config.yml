@@ -311,6 +311,12 @@ collections:
           - { label: "Sin letra capitular", value: "none" }
           - { label: "Manual", value: "manual" }
 
+      - label: "Firma / Lugar y fecha"
+        name: "signature"
+        widget: "string"
+        required: false
+        hint: "Texto que aparece al final del contenido, alineado a la derecha en cursiva. Ej. 'San Luis Potosí, a 07 de enero de 2020'. Úsalo para firmas de poemas o cartas en lugar de insertar HTML en el cuerpo."
+
       - label: "Imagen de portada"
         name: "coverImage"
         widget: "image"
@@ -337,4 +343,4 @@ collections:
       - label: "Contenido"
         name: "body"
         widget: "markdown"
-        hint: "Cuerpo del texto. Para poesía: usa saltos de línea (Enter) entre versos y líneas vacías entre estrofas. Para HTML especial como firmas, usa <p class=\"poem-signature\">Texto</p>."
+        hint: "Cuerpo del texto. Para poesía: usa saltos de línea (Enter) entre versos y líneas vacías entre estrofas. Para firmas y fechas al final, usa el campo 'Firma / Lugar y fecha' en vez de HTML."
