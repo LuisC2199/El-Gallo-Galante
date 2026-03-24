@@ -40,9 +40,9 @@
 # ---------------------------------------------------------------------------
 backend:
   name: github
-  repo: OWNER/el-gallo-galante       # TODO: replace OWNER with GitHub org/user
+  repo: LuisC2199/el-gallo-galante       # TODO: replace OWNER with GitHub org/user
   branch: main
-  # base_url: https://your-oauth-proxy.workers.dev  # TODO: external OAuth proxy
+  base_url: https://el-gallo-galante.luiscs210699.workers.dev  # TODO: external OAuth proxy
   # site_url: https://el-gallo-galante.pages.dev    # TODO: Cloudflare Pages URL
   # display_url: https://el-gallo-galante.pages.dev
 
