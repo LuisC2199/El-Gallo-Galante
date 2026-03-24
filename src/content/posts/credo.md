@@ -7,8 +7,7 @@ author: angel-alexandro-porras-ortega
 coverImage: /posts/credo.jpg
 featuredImage: /posts/credo.jpg
 ---
-
-_A Fabián Espejel_
+*A Fabián Espejel*
 
 Creo en el verso, verdadero emblema de la omnipresencia en el inicio. Creo en el
 verso, creador absoluto de las cosas: su voz acariciante dijo tiempo, dijo luz y
