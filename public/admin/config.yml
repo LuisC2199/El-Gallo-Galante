@@ -300,22 +300,53 @@ collections:
         required: false
         hint: "Resumen breve que aparece en las vistas previas. Si se deja vacío, no se muestra extracto."
 
-      - label: "Letra capitular"
-        name: "dropCapMode"
-        widget: "select"
+      - label: "Presentación"
+        name: "presentacion"
+        widget: "object"
         required: false
-        default: "auto"
-        hint: "Controla la letra decorativa grande al inicio del texto. 'Automática' aplica el estilo al primer párrafo. 'Manual' permite colocarla donde se desee usando el componente 'Letra capitular' del editor."
-        options:
-          - { label: "Automática", value: "auto" }
-          - { label: "Sin letra capitular", value: "none" }
-          - { label: "Manual", value: "manual" }
+        collapsed: true
+        hint: "Controles de presentación visual del texto. Abre esta sección para ajustar la letra capitular, dedicatorias, epígrafes y firmas."
+        fields:
+          - label: "Letra capitular"
+            name: "dropCapMode"
+            widget: "select"
+            required: false
+            default: "auto"
+            hint: "Controla la letra decorativa grande al inicio del texto."
+            options:
+              - { label: "Automática", value: "auto" }
+              - { label: "Sin letra capitular", value: "none" }
+              - { label: "Manual", value: "manual" }
 
-      - label: "Firma / Lugar y fecha"
-        name: "signature"
-        widget: "string"
-        required: false
-        hint: "Texto que aparece al final del contenido, alineado a la derecha en cursiva. Ej. 'San Luis Potosí, a 07 de enero de 2020'. Úsalo para firmas de poemas o cartas en lugar de insertar HTML en el cuerpo."
+          - label: "Dedicatoria"
+            name: "dedicatoria"
+            widget: "string"
+            required: false
+            hint: 'Línea de dedicatoria antes del texto. Ej. "Para mi madre", "A la manera de Neruda"'
+
+          - label: "Epígrafe"
+            name: "epigrafe"
+            widget: "text"
+            required: false
+            hint: "Cita o epígrafe que aparece antes del texto principal."
+
+          - label: "Autor del epígrafe"
+            name: "epigrafeAutor"
+            widget: "string"
+            required: false
+            hint: 'Atribución del epígrafe. Ej. "Octavio Paz", "Borges, El Aleph"'
+
+          - label: "Metadato epistolar"
+            name: "metaEpistolar"
+            widget: "string"
+            required: false
+            hint: 'Lugar y fecha al inicio del texto. Ej. "Ciudad de México, 15 de enero de 2024". Solo para cartas y epistolario.'
+
+          - label: "Firma / Lugar y fecha"
+            name: "firma"
+            widget: "string"
+            required: false
+            hint: 'Texto al final del contenido, en cursiva a la derecha. Ej. "San Luis Potosí, a 07 de enero de 2020"'
 
       - label: "Imagen de portada"
         name: "coverImage"

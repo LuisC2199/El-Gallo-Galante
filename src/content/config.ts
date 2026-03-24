@@ -44,8 +44,16 @@ const posts = defineCollection({
     author: reference("authors"),
     traductor: reference("authors").optional(),
     excerpt: z.string().optional(),
-    dropCapMode: z.enum(["auto", "none", "manual"]).default("auto"),
-    signature: z.string().optional(),
+    presentacion: z
+      .object({
+        dropCapMode: z.enum(["auto", "none", "manual"]).default("auto"),
+        dedicatoria: z.string().optional(),
+        epigrafe: z.string().optional(),
+        epigrafeAutor: z.string().optional(),
+        metaEpistolar: z.string().optional(),
+        firma: z.string().optional(),
+      })
+      .default({}),
     coverImage: z.string().optional(),
     featuredImage: z.string().optional(),
     imagePosition: z.enum(["top", "center", "bottom"]).optional(),
