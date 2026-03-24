@@ -98,6 +98,25 @@ body {
   opacity: 0.5;
 }
 
+/* Editorial layout classes (used via Decap CMS editor components) */
+.entry-content .text-justify {
+  text-align: justify;
+}
+
+.entry-content .text-right {
+  text-align: right;
+}
+
+.entry-content .signature {
+  text-align: right;
+  font-style: italic;
+}
+
+.entry-content .epistolary-meta {
+  text-align: right;
+  opacity: 0.8;
+}
+
 .caption {
   display: block;
   margin-top: 0.75rem;

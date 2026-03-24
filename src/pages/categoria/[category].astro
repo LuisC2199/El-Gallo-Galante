@@ -56,14 +56,6 @@ const filteredWithAuthors: { post: CollectionEntry<"posts">; author: CollectionE
         {label}
       </h1>
 
-      <p class="serif text-lg md:text-xl text-stone-500 leading-relaxed mt-6 max-w-2xl mx-auto">
-        {label === "Poesía" && "Una constelación de voces. Fragmentos para leer despacio."}
-        {label === "Narrativa" && "Relatos, escenas y memoria. Historias para habitar."}
-        {label === "Crítica" && "Lecturas, preguntas y fricción. Pensar con el texto."}
-        {label === "Ensayo" && "Ideas en movimiento. Escribir para entender."}
-        {label === "Epistolario" && "Cartas y correspondencias. La intimidad como forma."}
-      </p>
-
       <div class="mt-10 text-[10px] uppercase tracking-[0.3em] text-stone-400">
         {filteredWithAuthors.length} textos · Más recientes primero
       </div>
