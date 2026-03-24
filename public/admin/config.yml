@@ -300,6 +300,17 @@ collections:
         required: false
         hint: "Resumen breve que aparece en las vistas previas. Si se deja vacío, no se muestra extracto."
 
+      - label: "Letra capitular"
+        name: "dropCapMode"
+        widget: "select"
+        required: false
+        default: "auto"
+        hint: "Controla la letra decorativa grande al inicio del texto. 'Automática' aplica el estilo al primer párrafo. 'Manual' permite colocarla donde se desee usando el componente 'Letra capitular' del editor."
+        options:
+          - { label: "Automática", value: "auto" }
+          - { label: "Sin letra capitular", value: "none" }
+          - { label: "Manual", value: "manual" }
+
       - label: "Imagen de portada"
         name: "coverImage"
         widget: "image"

@@ -16,6 +16,15 @@
   padding-top: 0.05em;
 }
 
+.dropcap {
+  float: left;
+  font-family: "Playfair Display", serif;
+  font-size: 3.5em;
+  line-height: 0.9;
+  padding-right: 0.12em;
+  padding-top: 0.05em;
+}
+
 .dc-prefix {
   float: left;
   font-family: "Playfair Display", serif;

@@ -44,6 +44,7 @@ const posts = defineCollection({
     author: reference("authors"),
     traductor: reference("authors").optional(),
     excerpt: z.string().optional(),
+    dropCapMode: z.enum(["auto", "none", "manual"]).default("auto"),
     coverImage: z.string().optional(),
     featuredImage: z.string().optional(),
     imagePosition: z.enum(["top", "center", "bottom"]).optional(),
