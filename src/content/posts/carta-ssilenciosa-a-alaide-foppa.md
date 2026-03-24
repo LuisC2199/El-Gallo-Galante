@@ -1,5 +1,5 @@
 ---
-title: Carta ssilenciosa a Alaíde Foppa
+title: Carta silenciosa a Alaíde Foppa
 date: 2020-02-08
 category: Epistolario
 issue: ano-1-numero-0
