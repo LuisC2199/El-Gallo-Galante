@@ -4,6 +4,8 @@ date: 2021-02-17T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: javier-palau
+presentacion: 
+  firma: "Guanajuato, a 01 de julio de 2020"
 coverImage: /posts/theophaneia.jpg
 featuredImage: /posts/theophaneia.jpg
 imagePosition: top
