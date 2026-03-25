@@ -4,12 +4,10 @@ date: 2019-02-01T00:00:00.000Z
 category: Crítica
 issue: ano-1-numero-0
 author: jonathan-mirus
-coverImage: >-
-  /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
-featuredImage: >-
-  /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
+coverImage: /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
+featuredImage: /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
+imagePosition: top
 ---
-
 
 En 1936 —quizás el año más oscuro de su vida— F. Scott Fitzgerald estaba
 convaleciente en un hotel en Asheville, Carolina del Norte, cuando ofreció a su
