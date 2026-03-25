@@ -6,7 +6,7 @@ issue: ano-1-numero-0
 author: jonathan-mirus
 coverImage: /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
 featuredImage: /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
-imagePosition: bottom
+imagePosition: top
 ---
 
 En 1936 —quizás el año más oscuro de su vida— F. Scott Fitzgerald estaba
