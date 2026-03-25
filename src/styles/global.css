@@ -107,6 +107,14 @@ body {
   opacity: 0.5;
 }
 
+/* Image block alignment (inserted via admin editor) */
+.entry-content .image-block.align-center { text-align: center; }
+.entry-content .image-block.align-left { text-align: left; }
+.entry-content .image-block.align-left figcaption { text-align: left; }
+.entry-content .image-block.align-right { text-align: right; }
+.entry-content .image-block.align-right img { margin-left: auto; }
+.entry-content .image-block.align-right figcaption { text-align: right; }
+
 /* Editorial layout classes (used via Decap CMS editor components) */
 .entry-content .text-justify {
   text-align: justify;

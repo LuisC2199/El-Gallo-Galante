@@ -14,14 +14,24 @@
   "dependencies": {
     "@astrojs/check": "^0.9.8",
     "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/react": "^5.0.1",
+    "@milkdown/ctx": "^7.19.2",
+    "@milkdown/kit": "^7.19.2",
+    "@milkdown/react": "^7.19.2",
+    "@milkdown/theme-nord": "^7.19.2",
     "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "astro": "^5.17.1",
+    "gray-matter": "^4.0.3",
+    "marked": "^17.0.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@types/node": "^25.2.3",
-    "gray-matter": "^4.0.3",
     "prettier": "^3.8.1",
     "wrangler": "^4.68.1"
   }

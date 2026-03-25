@@ -1,0 +1,144 @@
+// ---------------------------------------------------------------------------
+// Admin – list of authors with search and sorting
+// ---------------------------------------------------------------------------
+import { useEffect, useState, useMemo } from "react";
+import type { AuthorSummary } from "../../lib/admin/types";
+
+type SortMode = "az" | "za";
+
+interface AuthorListProps {
+  selectedSlug: string | null;
+  onSelect: (slug: string) => void;
+  refreshKey?: number;
+  onNew?: () => void;
+}
+
+export default function AuthorList({ selectedSlug, onSelect, refreshKey = 0, onNew }: AuthorListProps) {
+  const [authors, setAuthors] = useState<AuthorSummary[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const [query, setQuery] = useState("");
+  const [sort, setSort] = useState<SortMode>("az");
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+
+    fetch("/api/admin/authors")
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json() as Promise<AuthorSummary[]>;
+      })
+      .then((data) => { if (!cancelled) setAuthors(data); })
+      .catch((err) => {
+        if (!cancelled) setError(err instanceof Error ? err.message : "Failed to load authors");
+      })
+      .finally(() => { if (!cancelled) setLoading(false); });
+
+    return () => { cancelled = true; };
+  }, [refreshKey]);
+
+  const filtered = useMemo(() => {
+    const q = query.toLowerCase().trim();
+    let list = authors;
+
+    if (q) {
+      list = list.filter(
+        (a) =>
+          a.name.toLowerCase().includes(q) ||
+          a.slug.toLowerCase().includes(q),
+      );
+    }
+
+    const sorted = [...list];
+    if (sort === "az") {
+      sorted.sort((a, b) => a.name.localeCompare(b.name, "es"));
+    } else {
+      sorted.sort((a, b) => b.name.localeCompare(a.name, "es"));
+    }
+    return sorted;
+  }, [authors, query, sort]);
+
+  if (loading) {
+    return (
+      <div className="w-72 border-r border-stone-200 shrink-0 p-4 text-sm text-stone-400">
+        Loading authors…
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="w-72 border-r border-stone-200 shrink-0 p-4 text-sm text-red-600">
+        {error}
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-72 border-r border-stone-200 flex flex-col shrink-0">
+      {/* Header */}
+      <div className="px-4 py-3 border-b border-stone-100 flex items-center justify-between shrink-0">
+        <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400">
+          Authors ({filtered.length}/{authors.length})
+        </h2>
+        {onNew && (
+          <button
+            onClick={onNew}
+            className="text-xs font-medium text-stone-500 hover:text-stone-800 transition-colors"
+          >
+            + New
+          </button>
+        )}
+      </div>
+
+      {/* Search + sort */}
+      <div className="px-3 py-2 border-b border-stone-100 space-y-1.5 shrink-0">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search authors…"
+          className="w-full text-xs rounded border border-stone-200 bg-white px-2.5 py-1.5 text-stone-700 placeholder:text-stone-300 focus:outline-none focus:ring-1 focus:ring-stone-300"
+        />
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value as SortMode)}
+          className="w-full text-[11px] rounded border border-stone-200 bg-white px-1.5 py-1 text-stone-600 focus:outline-none focus:ring-1 focus:ring-stone-300"
+        >
+          <option value="az">A → Z</option>
+          <option value="za">Z → A</option>
+        </select>
+      </div>
+
+      {/* List */}
+      {filtered.length === 0 ? (
+        <div className="p-4 text-xs text-stone-400">
+          {authors.length === 0 ? "No authors found." : "No authors match search."}
+        </div>
+      ) : (
+        <ul className="flex-1 overflow-y-auto divide-y divide-stone-100">
+          {filtered.map((a) => (
+            <li key={a.slug}>
+              <button
+                onClick={() => onSelect(a.slug)}
+                className={`w-full text-left px-4 py-3 transition-colors ${
+                  selectedSlug === a.slug ? "bg-stone-100" : "hover:bg-stone-50"
+                }`}
+              >
+                <p className="text-sm font-medium text-stone-800 truncate">
+                  {a.name}
+                </p>
+                {a.birthPlace && (
+                  <p className="text-xs text-stone-400 mt-0.5">{a.birthPlace}</p>
+                )}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}

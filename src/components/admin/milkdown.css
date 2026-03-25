@@ -1,0 +1,185 @@
+/* ---------------------------------------------------------------------------
+ * Milkdown / ProseMirror editor styles for the admin panel.
+ *
+ * These are intentionally minimal — just enough to make the editor
+ * look clean inside the admin shell without importing the full
+ * @milkdown/theme-nord (which ships its own Tailwind reset).
+ * --------------------------------------------------------------------------- */
+
+/* ---- Container ---- */
+.milkdown-wrapper .ProseMirror {
+  min-height: 24rem;
+  padding: 1.25rem 1.5rem;
+  outline: none;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: #292524; /* stone-800 */
+}
+
+.milkdown-wrapper .ProseMirror:focus {
+  outline: none;
+}
+
+/* ---- Typography ---- */
+.milkdown-wrapper .ProseMirror h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #1c1917; /* stone-900 */
+}
+
+.milkdown-wrapper .ProseMirror h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1c1917;
+}
+
+.milkdown-wrapper .ProseMirror h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #1c1917;
+}
+
+.milkdown-wrapper .ProseMirror h4,
+.milkdown-wrapper .ProseMirror h5,
+.milkdown-wrapper .ProseMirror h6 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 1rem;
+  margin-bottom: 0.375rem;
+  color: #1c1917;
+}
+
+.milkdown-wrapper .ProseMirror p {
+  margin-bottom: 0.75rem;
+}
+
+.milkdown-wrapper .ProseMirror p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Links ---- */
+.milkdown-wrapper .ProseMirror a {
+  color: #57534e; /* stone-600 */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---- Bold / italic ---- */
+.milkdown-wrapper .ProseMirror strong {
+  font-weight: 600;
+}
+
+/* ---- Blockquote ---- */
+.milkdown-wrapper .ProseMirror blockquote {
+  border-left: 3px solid #d6d3d1; /* stone-300 */
+  padding-left: 1rem;
+  margin: 0.75rem 0;
+  color: #57534e; /* stone-600 */
+  font-style: italic;
+}
+
+/* ---- Lists ---- */
+.milkdown-wrapper .ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.milkdown-wrapper .ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.milkdown-wrapper .ProseMirror li {
+  margin-bottom: 0.25rem;
+}
+
+.milkdown-wrapper .ProseMirror li > p {
+  margin-bottom: 0.25rem;
+}
+
+/* ---- Horizontal rule ---- */
+.milkdown-wrapper .ProseMirror hr {
+  border: none;
+  border-top: 1px solid #d6d3d1; /* stone-300 */
+  margin: 1.5rem 0;
+}
+
+/* ---- Code (inline) ---- */
+.milkdown-wrapper .ProseMirror code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: #f5f5f4; /* stone-100 */
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+  color: #44403c; /* stone-700 */
+}
+
+/* ---- Code block ---- */
+.milkdown-wrapper .ProseMirror pre {
+  background: #f5f5f4; /* stone-100 */
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.milkdown-wrapper .ProseMirror pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+/* ---- HTML node (opaque block rendered by commonmark html schema) ---- */
+.milkdown-wrapper .ProseMirror div[data-type="html"] {
+  background: #fafaf9; /* stone-50 */
+  border: 1px dashed #d6d3d1; /* stone-300 */
+  border-radius: 0.375rem;
+  padding: 0.75rem 0.75rem 0.5rem;
+  margin: 0.75rem 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  color: #78716c; /* stone-500 */
+  position: relative;
+}
+
+/* ---- Selection / gapcursor ---- */
+.milkdown-wrapper .ProseMirror-selectednode {
+  outline: 2px solid #a8a29e; /* stone-400 */
+  border-radius: 2px;
+}
+
+.milkdown-wrapper .ProseMirror .ProseMirror-gapcursor:after {
+  border-top: 1px solid #292524;
+}
+
+/* ---- Placeholder ---- */
+.milkdown-wrapper .ProseMirror p.is-editor-empty:first-child::before {
+  content: "Start writing…";
+  color: #a8a29e; /* stone-400 */
+  pointer-events: none;
+  float: left;
+  height: 0;
+}
+
+/* ---- Image ---- */
+.milkdown-wrapper .ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+}

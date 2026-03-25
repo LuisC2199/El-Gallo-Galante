@@ -1,0 +1,22 @@
+---
+export const prerender = false;
+import AdminShell from "../../components/admin/AdminShell";
+import "../../styles/global.css";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin · El Gallo Galante</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="m-0 font-sans">
+    <AdminShell client:load />
+  </body>
+</html>
