@@ -33,6 +33,7 @@ export const GET: APIRoute = async ({ locals }) => {
             title: data.title as string | undefined,
             date: data.date ? new Date(data.date as string).toISOString() : undefined,
             category: data.category as string | undefined,
+            status: (data.status as string | undefined) ?? "published",
             author: data.author as string | undefined,
             issue: data.issue as string | undefined,
             sha: f.sha,

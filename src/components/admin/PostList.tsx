@@ -8,6 +8,18 @@ type SortMode = "newest" | "oldest" | "az" | "za";
 
 const CATEGORIES = ["Poesía", "Narrativa", "Crítica", "Ensayo", "Epistolario"];
 
+const STATUS_OPTIONS = [
+  { value: "published", label: "Published", dotColor: "bg-emerald-400" },
+  { value: "review", label: "Review", dotColor: "bg-blue-400" },
+  { value: "draft", label: "Draft", dotColor: "bg-amber-400" },
+];
+
+const STATUS_DOT: Record<string, string> = {
+  draft: "bg-amber-400",
+  review: "bg-blue-400",
+  published: "bg-emerald-400",
+};
+
 interface PostListProps {
   selectedSlug: string | null;
   onSelect: (slug: string) => void;
@@ -34,6 +46,7 @@ export default function PostList({
   // Search & filter state
   const [query, setQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
   const [authorFilter, setAuthorFilter] = useState("");
   const [issueFilter, setIssueFilter] = useState("");
   const [sort, setSort] = useState<SortMode>("newest");
@@ -70,6 +83,7 @@ export default function PostList({
       );
     }
     if (categoryFilter) list = list.filter((p) => p.category === categoryFilter);
+    if (statusFilter) list = list.filter((p) => (p.status ?? "published") === statusFilter);
     if (authorFilter) list = list.filter((p) => p.author === authorFilter);
     if (issueFilter) list = list.filter((p) => p.issue === issueFilter);
 
@@ -97,13 +111,14 @@ export default function PostList({
         break;
     }
     return sorted;
-  }, [posts, query, categoryFilter, authorFilter, issueFilter, sort]);
+  }, [posts, query, categoryFilter, statusFilter, authorFilter, issueFilter, sort]);
 
-  const hasActiveFilters = categoryFilter || authorFilter || issueFilter;
+  const hasActiveFilters = categoryFilter || statusFilter || authorFilter || issueFilter;
 
   const clearFilters = useCallback(() => {
     setQuery("");
     setCategoryFilter("");
+    setStatusFilter("");
     setAuthorFilter("");
     setIssueFilter("");
   }, []);
@@ -179,6 +194,12 @@ export default function PostList({
           </select>
         </div>
         <div className="flex gap-1.5">
+          <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className={selectClass}>
+            <option value="">All statuses</option>
+            {STATUS_OPTIONS.map((s) => (
+              <option key={s.value} value={s.value}>{s.label}</option>
+            ))}
+          </select>
           {usedAuthors.length > 0 && (
             <select value={authorFilter} onChange={(e) => setAuthorFilter(e.target.value)} className={selectClass}>
               <option value="">All authors</option>
@@ -227,6 +248,9 @@ export default function PostList({
                   {p.title ?? p.slug}
                 </p>
                 <div className="flex items-center gap-2 mt-0.5">
+                  {p.status && p.status !== "published" && (
+                    <span className={`inline-block w-1.5 h-1.5 rounded-full shrink-0 ${STATUS_DOT[p.status] ?? ""}`} title={p.status} />
+                  )}
                   {p.date && (
                     <span className="text-xs text-stone-400">
                       {new Date(p.date).toLocaleDateString("es-MX", {

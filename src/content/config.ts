@@ -34,12 +34,15 @@ const authors = defineCollection({
   }),
 });
 
+const postStatus = z.enum(["draft", "review", "published"]).default("published");
+
 const posts = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
     date: z.date(),
     category: z.enum(["Poesía", "Narrativa", "Crítica", "Ensayo", "Epistolario"]),
+    status: postStatus,
     issue: z.string(),
     author: reference("authors"),
     traductor: reference("authors").optional(),

@@ -2,75 +2,210 @@
 // Admin – Literary formatting toolbar for the Milkdown editor
 // ---------------------------------------------------------------------------
 //
-// Renders formatting buttons above the Milkdown editor.  Must be rendered
-// inside <MilkdownProvider> so that useInstance() can access the editor.
+// Dropdown-based toolbar grouped by category.  Must be rendered inside
+// <MilkdownProvider> so that useInstance() can access the editor.
 // ---------------------------------------------------------------------------
 
-import { useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, Fragment } from "react";
 import { useInstance } from "@milkdown/react";
 import { editorViewCtx } from "@milkdown/kit/core";
 import { insert } from "@milkdown/kit/utils";
-import { LITERARY_FORMATS, type LiteraryFormat } from "./literary-formats";
+import {
+  getGroupedFormats,
+  type LiteraryFormat,
+  type LiteraryGroup,
+} from "./literary-formats";
 
-// Group order for visual separation in the toolbar
-const GROUP_ORDER = ["presentacion", "notas", "estructura", "formato"] as const;
+// ---------------------------------------------------------------------------
+// Props
+// ---------------------------------------------------------------------------
 
-export default function LiteraryToolbar() {
+interface Props {
+  /** Called when a format with editable fields is selected. */
+  onEditRequest: (
+    format: LiteraryFormat,
+    values: Record<string, string>,
+  ) => void;
+}
+
+// ---------------------------------------------------------------------------
+// Main component
+// ---------------------------------------------------------------------------
+
+export default function LiteraryToolbar({ onEditRequest }: Props) {
   const [loading, getEditor] = useInstance();
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const groups = getGroupedFormats();
 
-  const handleClick = useCallback(
+  /** Read currently-selected text from the editor. */
+  const getSelectedText = useCallback((): string => {
+    const editor = getEditor();
+    if (!editor) return "";
+    let text = "";
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      const { from, to } = view.state.selection;
+      if (from !== to) {
+        text = view.state.doc.textBetween(from, to, "\n");
+      }
+    });
+    return text;
+  }, [getEditor]);
+
+  /** Handle a format item selection from a dropdown. */
+  const handleSelect = useCallback(
     (format: LiteraryFormat) => {
-      const editor = getEditor();
-      if (!editor) return;
+      setOpenMenu(null);
 
-      // Read currently-selected text (synchronous action)
-      let selectedText = "";
-      editor.action((ctx) => {
-        const view = ctx.get(editorViewCtx);
-        const { from, to } = view.state.selection;
-        if (from !== to) {
-          selectedText = view.state.doc.textBetween(from, to, "\n");
+      // Formats with no fields (e.g. separator) → insert directly
+      if (format.fields.length === 0) {
+        const editor = getEditor();
+        if (editor) {
+          editor.action(insert(`\n\n${format.template({})}\n\n`));
         }
+        return;
+      }
+
+      // Pre-fill default values; put any selected text in the first field
+      const selectedText = getSelectedText();
+      const values: Record<string, string> = {};
+      format.fields.forEach((field, i) => {
+        values[field.key] =
+          i === 0 && selectedText ? selectedText : field.default;
       });
 
-      // Build the HTML block from template
-      const html = format.template(selectedText || format.placeholder);
-
-      // Insert the HTML block at the cursor / replace selection.
-      // Wrap with blank lines so the markdown parser recognises it as
-      // a standalone HTML block.
-      editor.action(insert(`\n\n${html}\n\n`));
+      onEditRequest(format, values);
     },
-    [getEditor],
+    [getEditor, getSelectedText, onEditRequest],
   );
 
-  // Group formats
-  const groups = GROUP_ORDER.map((g) => ({
-    key: g,
-    formats: LITERARY_FORMATS.filter((f) => f.group === g),
-  }));
+  return (
+    <div className="flex items-center gap-0.5 relative">
+      {groups.map(({ group, formats }, gi) => (
+        <Fragment key={group.id}>
+          {gi > 0 && (
+            <span className="mx-0.5 h-4 w-px bg-stone-200 shrink-0" />
+          )}
+          <DropdownMenu
+            group={group}
+            formats={formats}
+            isOpen={openMenu === group.id}
+            onToggle={() =>
+              setOpenMenu(openMenu === group.id ? null : group.id)
+            }
+            onClose={() => setOpenMenu(null)}
+            onSelect={handleSelect}
+            disabled={loading}
+          />
+        </Fragment>
+      ))}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Dropdown menu
+// ---------------------------------------------------------------------------
+
+interface DropdownProps {
+  group: LiteraryGroup;
+  formats: LiteraryFormat[];
+  isOpen: boolean;
+  onToggle: () => void;
+  onClose: () => void;
+  onSelect: (format: LiteraryFormat) => void;
+  disabled: boolean;
+}
+
+function DropdownMenu({
+  group,
+  formats,
+  isOpen,
+  onToggle,
+  onClose,
+  onSelect,
+  disabled,
+}: DropdownProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Close on click outside
+  useEffect(() => {
+    if (!isOpen) return;
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        onClose();
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [isOpen, onClose]);
 
   return (
-    <>
-      {groups.map((group, gi) => (
-        <div key={group.key} className="flex items-center gap-0.5">
-          {gi > 0 && (
-            <span className="mx-1 h-4 w-px bg-stone-200 shrink-0" />
-          )}
-          {group.formats.map((format) => (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={onToggle}
+        disabled={disabled}
+        className={`
+          inline-flex items-center gap-1 px-2 py-1 rounded text-[11px] font-medium
+          transition-colors whitespace-nowrap select-none
+          ${
+            isOpen
+              ? "bg-stone-200 text-stone-800"
+              : "text-stone-500 hover:bg-stone-100 hover:text-stone-700"
+          }
+          disabled:opacity-40
+        `}
+      >
+        <span className="opacity-60">{group.icon}</span>
+        {group.label}
+        <Chevron open={isOpen} />
+      </button>
+
+      {isOpen && (
+        <div className="absolute left-0 top-full mt-1 z-50 min-w-[210px] bg-white border border-stone-200 rounded-lg shadow-lg py-1 animate-fade-in">
+          {formats.map((format) => (
             <button
               key={format.id}
               type="button"
-              onClick={() => handleClick(format)}
-              disabled={loading}
-              title={format.title}
-              className="px-2 py-1 rounded text-stone-600 hover:bg-stone-200 hover:text-stone-800 disabled:opacity-40 transition-colors whitespace-nowrap"
+              onClick={() => onSelect(format)}
+              className="w-full text-left px-3 py-2 hover:bg-stone-50 transition-colors flex items-start gap-2.5"
             >
-              {format.label}
+              <span className="text-stone-400 text-sm w-5 text-center shrink-0 pt-px">
+                {format.icon}
+              </span>
+              <div className="min-w-0">
+                <div className="text-[13px] text-stone-700 leading-snug">
+                  {format.label}
+                </div>
+                <div className="text-[11px] text-stone-400 leading-tight mt-0.5">
+                  {format.description}
+                </div>
+              </div>
             </button>
           ))}
         </div>
-      ))}
-    </>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Tiny chevron icon
+// ---------------------------------------------------------------------------
+
+function Chevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`}
+      viewBox="0 0 12 12"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 4.5L6 7.5L9 4.5" />
+    </svg>
   );
 }

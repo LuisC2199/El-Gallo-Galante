@@ -14,7 +14,9 @@ export async function getStaticPaths() {
 }
 
 const { author } = Astro.props as { author: CollectionEntry<"authors"> };
-const posts: CollectionEntry<"posts">[] = await getCollection("posts");
+const posts: CollectionEntry<"posts">[] = await getCollection("posts",
+  (p: CollectionEntry<"posts">) => (p.data.status ?? "published") === "published",
+);
 const { Content } = await author.render();
 
 const writtenWithAuthors: { post: CollectionEntry<"posts">; authorEntry: CollectionEntry<"authors"> }[] =

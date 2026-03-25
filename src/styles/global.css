@@ -115,7 +115,7 @@ body {
 .entry-content .image-block.align-right img { margin-left: auto; }
 .entry-content .image-block.align-right figcaption { text-align: right; }
 
-/* Editorial layout classes (used via Decap CMS editor components) */
+/* Editorial layout classes (used via admin literary toolbar) */
 .entry-content .text-justify {
   text-align: justify;
 }

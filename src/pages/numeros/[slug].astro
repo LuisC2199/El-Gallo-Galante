@@ -15,7 +15,9 @@ export async function getStaticPaths() {
 const { issue } = Astro.props as { issue: CollectionEntry<"issues"> };
 
 // Load all posts and filter to this issue
-const allPosts: CollectionEntry<"posts">[] = await getCollection("posts");
+const allPosts: CollectionEntry<"posts">[] = await getCollection("posts",
+  (p: CollectionEntry<"posts">) => (p.data.status ?? "published") === "published",
+);
 
 // Use issue slug (without .md extension) to match posts
 const issueSlug = issue.id.replace(/\.md$/, '');

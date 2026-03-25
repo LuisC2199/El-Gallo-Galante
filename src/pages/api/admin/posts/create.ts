@@ -47,6 +47,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       title: String(body.title).trim(),
       date: String(body.date),
       category: String(body.category),
+      status: "draft",
       issue: body.issue ? String(body.issue) : undefined,
       author: String(body.author),
       traductor: body.traductor ? String(body.traductor) : undefined,

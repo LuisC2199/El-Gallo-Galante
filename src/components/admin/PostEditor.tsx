@@ -5,6 +5,7 @@ import { useEffect, useState, useCallback, lazy, Suspense } from "react";
 import type {
   FilePayload,
   PostCategory,
+  PostStatus,
   SavePostRequest,
   SavePostResponse,
   AuthorSummary,
@@ -35,6 +36,12 @@ const CATEGORIES: PostCategory[] = [
   "Crítica",
   "Ensayo",
   "Epistolario",
+];
+
+const STATUSES: { value: PostStatus; label: string; color: string }[] = [
+  { value: "draft", label: "Draft", color: "bg-amber-100 text-amber-700 border-amber-200" },
+  { value: "review", label: "Review", color: "bg-blue-100 text-blue-700 border-blue-200" },
+  { value: "published", label: "Published", color: "bg-emerald-100 text-emerald-700 border-emerald-200" },
 ];
 
 const IMAGE_POSITIONS = ["top", "center", "bottom"] as const;
@@ -389,6 +396,29 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
             </select>
           </Field>
 
+          {/* Status */}
+          <Field label="Status">
+            <div className="flex items-center gap-3">
+              <select
+                value={String(fm.status ?? "published")}
+                onChange={(e) => updateField("status", e.target.value)}
+                className={fieldClass()}
+              >
+                {STATUSES.map((s) => (
+                  <option key={s.value} value={s.value}>{s.label}</option>
+                ))}
+              </select>
+              {(() => {
+                const current = STATUSES.find((s) => s.value === (fm.status ?? "published"));
+                return current ? (
+                  <span className={`text-[11px] font-medium px-2 py-0.5 rounded border ${current.color}`}>
+                    {current.label}
+                  </span>
+                ) : null;
+              })()}
+            </div>
+          </Field>
+
           {/* Issue */}
           <Field label="Issue">
             <select
@@ -479,6 +509,96 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
                 <option key={p} value={p}>{p}</option>
               ))}
             </select>
+          </Field>
+        </section>
+
+        {/* ---- Presentación ---- */}
+        <section className="mb-8 space-y-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
+            Presentación
+          </h3>
+
+          {/* Drop cap mode */}
+          <Field label="Capitular (drop cap)" hint="auto = first letter, none = disabled, manual = via literary block">
+            <select
+              value={String((fm.presentacion as Record<string, unknown> | undefined)?.dropCapMode ?? "auto")}
+              onChange={(e) => {
+                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
+                updateField("presentacion", { ...pres, dropCapMode: e.target.value });
+              }}
+              className={fieldClass()}
+            >
+              <option value="auto">Auto</option>
+              <option value="none">Ninguna</option>
+              <option value="manual">Manual</option>
+            </select>
+          </Field>
+
+          {/* Dedicatoria */}
+          <Field label="Dedicatoria" hint="Optional dedication">
+            <input
+              type="text"
+              value={String((fm.presentacion as Record<string, unknown> | undefined)?.dedicatoria ?? "")}
+              onChange={(e) => {
+                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
+                updateField("presentacion", { ...pres, dedicatoria: e.target.value || undefined });
+              }}
+              className={fieldClass()}
+              placeholder="Para…"
+            />
+          </Field>
+
+          {/* Epígrafe */}
+          <Field label="Epígrafe" hint="Optional epigraph quote">
+            <textarea
+              value={String((fm.presentacion as Record<string, unknown> | undefined)?.epigrafe ?? "")}
+              onChange={(e) => {
+                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
+                updateField("presentacion", { ...pres, epigrafe: e.target.value || undefined });
+              }}
+              rows={2}
+              className={fieldClass() + " resize-y"}
+            />
+          </Field>
+
+          {/* Epígrafe autor */}
+          <Field label="Epígrafe — autor">
+            <input
+              type="text"
+              value={String((fm.presentacion as Record<string, unknown> | undefined)?.epigrafeAutor ?? "")}
+              onChange={(e) => {
+                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
+                updateField("presentacion", { ...pres, epigrafeAutor: e.target.value || undefined });
+              }}
+              className={fieldClass()}
+            />
+          </Field>
+
+          {/* Meta epistolar */}
+          <Field label="Meta epistolar" hint="Epistolary header (location, date)">
+            <input
+              type="text"
+              value={String((fm.presentacion as Record<string, unknown> | undefined)?.metaEpistolar ?? "")}
+              onChange={(e) => {
+                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
+                updateField("presentacion", { ...pres, metaEpistolar: e.target.value || undefined });
+              }}
+              className={fieldClass()}
+              placeholder="Ciudad, fecha"
+            />
+          </Field>
+
+          {/* Firma */}
+          <Field label="Firma" hint="Signature line at end of post">
+            <input
+              type="text"
+              value={String((fm.presentacion as Record<string, unknown> | undefined)?.firma ?? "")}
+              onChange={(e) => {
+                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
+                updateField("presentacion", { ...pres, firma: e.target.value || undefined });
+              }}
+              className={fieldClass()}
+            />
           </Field>
         </section>
 

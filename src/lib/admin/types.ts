@@ -18,6 +18,8 @@ export interface CollectionItemSummary {
   sha: string;
   /** Post category (Poesía, Narrativa, etc.). */
   category?: string;
+  /** Publication status (draft, review, published). */
+  status?: string;
   /** Author slug from frontmatter. */
   author?: string;
   /** Issue slug from frontmatter. */
@@ -76,10 +78,13 @@ export type PostCategory =
   | "Ensayo"
   | "Epistolario";
 
+export type PostStatus = "draft" | "review" | "published";
+
 export interface PostFrontmatter {
   title: string;
   date: string;
   category: PostCategory;
+  status?: PostStatus;
   issue: string;
   author: string;
   traductor?: string;

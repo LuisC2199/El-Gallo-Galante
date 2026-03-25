@@ -11,7 +11,9 @@ const latestIssue: CollectionEntry<"issues"> | undefined = issues
       b.data.date.valueOf() - a.data.date.valueOf()
   )[0];
 
-const posts: CollectionEntry<"posts">[] = await getCollection("posts");
+const posts: CollectionEntry<"posts">[] = await getCollection("posts",
+  (p: CollectionEntry<"posts">) => (p.data.status ?? "published") === "published",
+);
 
 // Get featured posts from featuredPostSlugs in order
 const featuredWorks: CollectionEntry<"posts">[] = latestIssue?.data.featuredPostSlugs

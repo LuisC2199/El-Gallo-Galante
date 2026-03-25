@@ -11,6 +11,7 @@ const POST_KEY_ORDER = [
   "title",
   "date",
   "category",
+  "status",
   "issue",
   "author",
   "traductor",

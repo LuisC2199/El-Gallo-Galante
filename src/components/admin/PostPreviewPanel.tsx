@@ -110,6 +110,16 @@ body {
   padding-top: 0.05em;
 }
 
+/* Manual drop cap via <span class="dropcap"> */
+.dropcap {
+  float: left;
+  font-family: "Playfair Display", serif;
+  font-size: 3.5em;
+  line-height: 0.9;
+  padding-right: 0.12em;
+  padding-top: 0.05em;
+}
+
 /* ---- Poetry ---- */
 .poetry p { margin: 0; }
 .poetry p + p { margin-top: 1.25rem; }
@@ -278,6 +288,7 @@ export default function PostPreviewPanel({
   authors,
 }: PostPreviewPanelProps) {
   const html = useMemo(() => {
+    try {
     const fm = frontmatter;
     const title = String(fm.title ?? "Untitled");
     const category = String(fm.category ?? "");
@@ -301,12 +312,19 @@ export default function PostPreviewPanel({
     const dropCapMode = String(pres.dropCapMode ?? "auto");
 
     // Convert markdown body → HTML
-    const bodyHtml = marked.parse(body, { async: false }) as string;
+    let bodyHtml: string;
+    try {
+      bodyHtml = marked.parse(body, { async: false }) as string;
+    } catch {
+      bodyHtml = `<p style="color:red">Error rendering Markdown body.</p><pre>${escapeHtml(body)}</pre>`;
+    }
 
     // Build entry-content class list (mirrors [slug].astro)
     const bodyClasses = [
       "entry-content serif text-stone-800",
       dropCapMode === "auto" && "drop-cap",
+      // "manual" mode: no auto drop-cap class — relies on <span class="dropcap"> in body
+      // "none" mode: no drop-cap styling at all
       isPoetry
         ? "text-base sm:text-lg md:text-xl leading-snug whitespace-pre-line overflow-x-auto poetry"
         : "text-xl md:text-2xl leading-relaxed space-y-8 text-justify",
@@ -379,6 +397,9 @@ export default function PostPreviewPanel({
   </div>
 </body>
 </html>`;
+    } catch {
+      return `<html><body><p style="color:red">Error generating preview.</p></body></html>`;
+    }
   }, [frontmatter, body, authors]);
 
   return (
