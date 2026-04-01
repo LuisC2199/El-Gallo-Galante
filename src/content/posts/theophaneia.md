@@ -27,6 +27,6 @@ que retorna el espíritu a la gloria,
 y es mi presente lo que el verbo piensa\
 en la creación que he comenzado.
 
-<p class="poem-signature">Guanajuato, a 01 de julio de 2020</p>
+*Guanajuato, a 01 de julio de 2020*
 
 ![](/posts/theophaneia.jpg)
