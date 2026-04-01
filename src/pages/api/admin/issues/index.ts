@@ -56,6 +56,7 @@ export const GET: APIRoute = async ({ locals }) => {
     });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Unknown error";
+    console.error("[api/admin/issues] 500:", message, err instanceof Error ? err.stack : "");
     return new Response(JSON.stringify({ error: message }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
