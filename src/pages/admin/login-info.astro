@@ -2,7 +2,7 @@
 export const prerender = false;
 import "../../styles/global.css";
 
-type Reason = "missing-access-jwt" | "invalid-access-jwt" | "unauthorized" | "unknown";
+type Reason = "missing-access-jwt" | "invalid-access-jwt" | "unauthorized" | "auth-not-configured" | "unknown";
 
 const reason = (Astro.url.searchParams.get("reason") ?? "unknown") as Reason;
 
@@ -21,6 +21,11 @@ const messages: Record<Reason, { heading: string; body: string; hint: string }> 
     heading: "Sin permiso de acceso",
     body: "Tu identidad fue verificada, pero tu cuenta no tiene permisos para acceder al panel de administración.",
     hint: "Solicita al administrador del sitio que agregue tu correo a la política de acceso en Cloudflare Zero Trust.",
+  },
+  "auth-not-configured": {
+    heading: "Autenticación no configurada",
+    body: "Las variables de entorno CLOUDFLARE_ACCESS_AUD y/o CLOUDFLARE_ACCESS_TEAM_DOMAIN no están definidas en el Worker.",
+    hint: "Ve a Cloudflare Dashboard → Workers & Pages → tu Worker → Settings → Variables y Secrets, y asegúrate de que ambos secretos estén configurados.",
   },
   "unknown": {
     heading: "Acceso requerido",
@@ -69,7 +74,7 @@ const msg = messages[reason] ?? messages["unknown"];
         {msg.hint}
       </p>
 
-      {reason !== "unauthorized" && (
+      {reason !== "unauthorized" && reason !== "auth-not-configured" && (
         <a
           href="/admin"
           class="inline-block px-5 py-2 text-sm font-medium text-white bg-stone-800 rounded-lg hover:bg-stone-700 transition-colors"

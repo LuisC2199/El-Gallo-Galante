@@ -159,7 +159,7 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
         { status: 401, headers: { "Content-Type": "application/json" } },
       );
     }
-    return context.redirect("/admin/login-info?reason=missing-access-jwt");
+    return context.redirect("/admin/login-info?reason=auth-not-configured");
   }
 
   const user = await getAccessUser(context.request, {
