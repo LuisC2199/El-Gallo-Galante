@@ -95,7 +95,12 @@ function detectActiveState(view: any): ActiveState {
     }
   }
 
-  return { bold, italic, heading, bulletList, orderedList, blockquote, link, textAlign, fontSize };
+  // Normalize: null means default left alignment.  The toolbar always shows
+  // one of the four alignment buttons as active; if no explicit attr is set
+  // we default to "left" so the left button appears pressed.
+  // After a save+reload, :::align-left::: is never emitted (left is the
+  // default) so textAlign comes back as null → "left" again.  Consistent.
+  return { bold, italic, heading, bulletList, orderedList, blockquote, link, textAlign: textAlign ?? "left", fontSize };
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
@@ -235,7 +240,13 @@ export default function FormattingToolbar() {
     });
   }, [getEditor]);
 
-  // Text alignment: set textAlign attr on the current block node
+  // Text alignment: set textAlign attr on the current block node.
+  //
+  // "left" is the default alignment – it is never serialized with a prefix in
+  // toMarkdown (emitting :::align-left::: would be a no-op on reload).
+  // Treating "left" as null here keeps the PM attr and the serialized form
+  // in sync: clicking "left" removes any explicit alignment, which is
+  // visually identical and survives a save+reload without toolbar flicker.
   const setTextAlign = useCallback(
     (align: string | null) => {
       const editor = getEditor();
@@ -245,10 +256,14 @@ export default function FormattingToolbar() {
         const { state, dispatch } = view;
         const { $from, $to } = state.selection;
 
-        // Apply to all block nodes in the selection range
+        // Map "left" → null: left is the default, never needs an explicit attr.
+        const effectiveAlign = align === "left" ? null : align;
+
+        // Apply to all block nodes in the selection range.
+        // Toggle: if the block already has this alignment, remove it (set null).
         state.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
           if (node.type.name === "paragraph" || node.type.name === "heading") {
-            const newAlign = node.attrs.textAlign === align ? null : align;
+            const newAlign = node.attrs.textAlign === effectiveAlign ? null : effectiveAlign;
             dispatch(
               state.tr.setNodeMarkup(pos, undefined, {
                 ...node.attrs,

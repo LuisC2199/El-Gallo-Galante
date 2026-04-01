@@ -312,9 +312,26 @@ export default function PostPreviewPanel({
     const dropCapMode = String(pres.dropCapMode ?? "auto");
 
     // Convert markdown body → HTML
+    // After marked renders, :::align-TYPE::: prefixes emitted by the editor's
+    // toMarkdown serializer appear as literal text at the start of <p> and
+    // <hN> tags.  Replace them with inline style attributes so the preview
+    // reflects actual alignment.  The same transformation is applied on the
+    // public site via the remarkAlignPublic remark plugin.
+    // :::align-TYPE::: contains only colons and word chars → never HTML-escaped.
     let bodyHtml: string;
     try {
-      bodyHtml = marked.parse(body, { async: false }) as string;
+      const rawHtml = marked.parse(body, { async: false }) as string;
+      bodyHtml = rawHtml
+        // Paragraphs: <p>:::align-right:::…  →  <p style="text-align:right">…
+        .replace(
+          /<p>(:::align-(left|center|right|justify):::)/g,
+          (_m, _prefix, align) => `<p style="text-align:${align}">`,
+        )
+        // Headings: <h2>:::align-center:::…  →  <h2 style="text-align:center">…
+        .replace(
+          /<(h[1-6])>(:::align-(left|center|right|justify):::)/g,
+          (_m, tag, _prefix, align) => `<${tag} style="text-align:${align}">`,
+        );
     } catch {
       bodyHtml = `<p style="color:red">Error rendering Markdown body.</p><pre>${escapeHtml(body)}</pre>`;
     }
