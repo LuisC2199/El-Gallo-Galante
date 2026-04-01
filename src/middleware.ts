@@ -1,45 +1,43 @@
 // ---------------------------------------------------------------------------
-// Astro middleware – hostname-aware routing + Cloudflare Access auth
+// Astro middleware – hostname canonicalization + Cloudflare Access auth
 // ---------------------------------------------------------------------------
 //
 // HOSTNAME ROUTING
 // ─────────────────
-// This app is served from a single Cloudflare Worker under two hostnames:
+// This app is served from a single Cloudflare Worker. The canonical host for
+// all traffic — both public and admin — is:
 //
-//   admin.elgallogalante.com  →  admin panel (Cloudflare Access protected)
-//   elgallogalante.com / www  →  public magazine site
+//   elgallogalante.com
 //
-// Rules enforced here:
-//   1. admin.elgallogalante.com  /         → redirect to /admin
-//   2. admin.elgallogalante.com  /admin*   → serve admin (after JWT check)
-//   3. admin.elgallogalante.com  /api/admin/* → serve API (after JWT check)
-//   4. www/main domain           /admin*   → redirect to admin subdomain
-//   5. www/main domain           /*        → pass through (public site)
+// Other hostnames are redirected to the canonical host:
 //
-// CANONICAL ADMIN URL: https://admin.elgallogalante.com/admin
+//   www.elgallogalante.com   →  redirect to elgallogalante.com (same path)
+//   admin.elgallogalante.com →  redirect to elgallogalante.com
+//                               (/ and /admin* → /admin, other paths preserved)
+//
+// CANONICAL ADMIN URL: https://elgallogalante.com/admin
+//
+// Admin routes on the canonical host:
+//   elgallogalante.com /admin          → admin panel (Cloudflare Access JWT check)
+//   elgallogalante.com /admin/*        → admin panel (Cloudflare Access JWT check)
+//   elgallogalante.com /api/admin/*    → admin API   (Cloudflare Access JWT check)
 //
 // CLOUDFLARE ACCESS
 // ──────────────────
-// Cloudflare Access (configured in the dashboard) is the primary gate.
-// This middleware adds defense-in-depth by cryptographically verifying
-// the Cf-Access-Jwt-Assertion JWT on every protected request.
+// Cloudflare Access is configured on:
+//   Application domain: elgallogalante.com
+//   Path:               /admin*   (and /api/admin/* if desired)
 //
-// REQUIRED ENV VARS (set in Cloudflare dashboard + .dev.vars):
-//   CLOUDFLARE_ACCESS_AUD         – Application Audience (AUD) tag from Access
+// This middleware adds defense-in-depth by cryptographically verifying the
+// Cf-Access-Jwt-Assertion JWT on every admin request that reaches the Worker.
+//
+// REQUIRED ENV VARS (Cloudflare dashboard + .dev.vars):
+//   CLOUDFLARE_ACCESS_AUD         – Application Audience tag from Access
 //   CLOUDFLARE_ACCESS_TEAM_DOMAIN – e.g. "myteam.cloudflareaccess.com"
-//
-// CLOUDFLARE DASHBOARD SETUP:
-//   1. Zero Trust > Access > Applications > Add Self-Hosted Application
-//   2. Application domain: admin.elgallogalante.com  (hostname only, path "/")
-//   3. Identity providers: Google
-//   4. Policy: Allow → Emails matching your editors' addresses
-//   5. Copy the "Application Audience (AUD) Tag" → CLOUDFLARE_ACCESS_AUD
-//   6. Your team domain is shown in Zero Trust > Settings > Custom Pages
 //
 // WORKERS.DEV BYPASS RISK:
 //   workers.dev is disabled in wrangler.jsonc ("workers_dev": false).
-//   This middleware verifies the JWT server-side regardless of hostname,
-//   so even direct Worker URL access is blocked.
+//   The JWT check below guards all hostnames regardless.
 // ---------------------------------------------------------------------------
 
 import type { MiddlewareHandler } from "astro";
@@ -49,33 +47,45 @@ import { getAccessUser } from "./lib/auth/cloudflare-access";
 // Constants
 // ---------------------------------------------------------------------------
 
-const ADMIN_HOST = "admin.elgallogalante.com";
-const MAIN_HOSTS = new Set(["elgallogalante.com", "www.elgallogalante.com"]);
+const CANONICAL_HOST = "elgallogalante.com";
+const WWW_HOST = "www.elgallogalante.com";
+const LEGACY_ADMIN_HOST = "admin.elgallogalante.com";
 
 // ---------------------------------------------------------------------------
-// Route helpers (exported for tests / other modules if needed)
+// Route helpers
 // ---------------------------------------------------------------------------
 
-/** True when the request is on the dedicated admin subdomain. */
-export function isAdminHost(hostname: string): boolean {
-  return hostname === ADMIN_HOST;
+/** True when the request is already on the canonical host. */
+export function isCanonicalHost(hostname: string): boolean {
+  return hostname === CANONICAL_HOST;
 }
 
-/** True when the request is on the public-facing main domain. */
-export function isMainSiteHost(hostname: string): boolean {
-  return MAIN_HOSTS.has(hostname);
+/** True for the www variant that should be redirected to canonical. */
+export function isWwwHost(hostname: string): boolean {
+  return hostname === WWW_HOST;
 }
 
-/** True when the pathname is an admin page or API route. */
+/** True for the legacy admin subdomain that is no longer the primary entry. */
+export function isLegacyAdminHost(hostname: string): boolean {
+  return hostname === LEGACY_ADMIN_HOST;
+}
+
+/** True when the pathname is an admin page route. */
 export function isAdminPath(pathname: string): boolean {
-  return (
-    pathname === "/admin" ||
-    pathname.startsWith("/admin/") ||
-    pathname.startsWith("/api/admin/")
-  );
+  return pathname === "/admin" || pathname.startsWith("/admin/");
 }
 
-/** True for API routes (JSON responses rather than HTML redirects). */
+/** True when the pathname is an admin API route. */
+export function isAdminApiPath(pathname: string): boolean {
+  return pathname.startsWith("/api/admin/");
+}
+
+/** True for any admin page or API path. */
+function isProtectedPath(pathname: string): boolean {
+  return isAdminPath(pathname) || isAdminApiPath(pathname);
+}
+
+/** True for API routes (return JSON errors, not HTML redirects). */
 function isApiRoute(pathname: string): boolean {
   return pathname.startsWith("/api/");
 }
@@ -91,33 +101,31 @@ function isAuthExempt(pathname: string): boolean {
 
 export const onRequest: MiddlewareHandler = async (context, next) => {
   const url = new URL(context.request.url);
-  const { pathname, hostname } = url;
+  const { pathname, hostname, search } = url;
 
-  // ── 1. Hostname routing ──────────────────────────────────────────────────
+  // ── 1. Canonicalize hostname ─────────────────────────────────────────────
 
-  if (isMainSiteHost(hostname)) {
-    // Redirect any attempt to reach /admin* on the public domain to the
-    // canonical admin subdomain, preserving the path.
-    if (isAdminPath(pathname)) {
-      const adminUrl = new URL(pathname, `https://${ADMIN_HOST}`);
-      return context.redirect(adminUrl.toString(), 301);
-    }
-    // All other public routes pass through untouched.
-    return next();
+  // www → canonical (preserve full path + query string)
+  if (isWwwHost(hostname)) {
+    const canonical = new URL(`https://${CANONICAL_HOST}${pathname}${search}`);
+    return context.redirect(canonical.toString(), 301);
   }
 
-  if (isAdminHost(hostname)) {
-    // Redirect bare root "/" to the admin panel.
-    if (pathname === "/" || pathname === "") {
-      return context.redirect("/admin", 302);
-    }
-    // Non-admin paths on the admin subdomain (e.g. someone typed a public
-    // route directly) are not valid — return 404 via normal routing.
+  // Legacy admin subdomain → canonical
+  if (isLegacyAdminHost(hostname)) {
+    // Bare root and explicit /admin both land on the canonical admin page.
+    // Any other path (e.g. /admin/login-info, /api/admin/*) is preserved.
+    const targetPath =
+      pathname === "/" || pathname === "" ? "/admin" : pathname;
+    const canonical = new URL(
+      `https://${CANONICAL_HOST}${targetPath}${search}`,
+    );
+    return context.redirect(canonical.toString(), 301);
   }
 
   // ── 2. Auth-exempt paths pass through ────────────────────────────────────
 
-  if (!isAdminPath(pathname) || isAuthExempt(pathname)) {
+  if (!isProtectedPath(pathname) || isAuthExempt(pathname)) {
     return next();
   }
 
@@ -131,7 +139,9 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
   // without exposing token contents.
   if (import.meta.env.DEV) {
     const hasJwt = !!context.request.headers.get("Cf-Access-Jwt-Assertion");
-    const hasEmail = !!context.request.headers.get("Cf-Access-Authenticated-User-Email");
+    const hasEmail = !!context.request.headers.get(
+      "Cf-Access-Authenticated-User-Email",
+    );
     // eslint-disable-next-line no-console
     console.debug(
       `[auth] ${pathname} — Cf-Access-Jwt-Assertion: ${hasJwt}, Cf-Access-Authenticated-User-Email: ${hasEmail}`,
