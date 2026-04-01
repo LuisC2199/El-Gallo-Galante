@@ -7,23 +7,19 @@
 // handled by the parent keying this component on the slug).
 // ---------------------------------------------------------------------------
 
-import { useRef, useCallback, useState, useEffect, Component, type ReactNode } from "react";
-import { Editor, defaultValueCtx, rootCtx, editorViewCtx } from "@milkdown/kit/core";
+import { useRef, useCallback, Component, type ReactNode } from "react";
+import { Editor, defaultValueCtx, rootCtx } from "@milkdown/kit/core";
 import { commonmark } from "@milkdown/kit/preset/commonmark";
 import { history } from "@milkdown/kit/plugin/history";
 import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
 import { indent } from "@milkdown/kit/plugin/indent";
 import { trailing } from "@milkdown/kit/plugin/trailing";
-import { insert } from "@milkdown/kit/utils";
-import { Milkdown, MilkdownProvider, useEditor, useInstance } from "@milkdown/react";
+import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react";
 import "@milkdown/kit/prose/view/style/prosemirror.css";
 import "./milkdown.css";
-import LiteraryToolbar from "./LiteraryToolbar";
 import FormattingToolbar from "./FormattingToolbar";
 import ImageInsertButton from "./ImageInsertButton";
-import { literaryPlugin, setLiteraryEditCallback } from "./literary-plugin";
-import EditLiteraryBlockModal, { type EditModalState } from "./EditLiteraryBlockModal";
-import type { LiteraryFormat } from "./literary-formats";
+import { textAlignPlugins } from "./text-align-plugin";
 
 // ---------------------------------------------------------------------------
 // Inner component – must be inside MilkdownProvider
@@ -56,11 +52,11 @@ function MilkdownInner({ initialValue, onChange }: InnerProps) {
             });
         })
         .use(commonmark)
+        .use(textAlignPlugins)
         .use(listener)
         .use(history)
         .use(indent)
-        .use(trailing)
-        .use(literaryPlugin),
+        .use(trailing),
     // Only recreate editor if the initial value identity changes
     // (parent should key this component on slug so it remounts entirely).
     [],
@@ -100,80 +96,16 @@ class EditorErrorBoundary extends Component<EBProps, EBState> {
 }
 
 // ---------------------------------------------------------------------------
-// Inner toolbar wrapper – needs useInstance() inside MilkdownProvider
+// Toolbar – needs to be inside MilkdownProvider
 // ---------------------------------------------------------------------------
 
-function ToolbarWithModal() {
-  const [_, getEditor] = useInstance();
-  const [editModal, setEditModal] = useState<EditModalState | null>(null);
-
-  // Register the callback so the literary NodeView can trigger editing
-  useEffect(() => {
-    setLiteraryEditCallback((pos, html, format) => {
-      setEditModal({
-        format,
-        values: format.extract(html),
-        mode: "edit",
-        nodePos: pos,
-      });
-    });
-    return () => setLiteraryEditCallback(null);
-  }, []);
-
-  // Called by LiteraryToolbar when a format with fields is selected
-  const handleEditRequest = useCallback(
-    (format: LiteraryFormat, values: Record<string, string>) => {
-      setEditModal({ format, values, mode: "insert" });
-    },
-    [],
-  );
-
-  // Save handler for the editing modal
-  const handleSave = useCallback(
-    (html: string, mode: "insert" | "edit", nodePos?: number) => {
-      const editor = getEditor();
-      if (!editor) return;
-
-      if (mode === "insert") {
-        editor.action(insert(`\n\n${html}\n\n`));
-      } else if (mode === "edit" && nodePos != null) {
-        editor.action((ctx) => {
-          const view = ctx.get(editorViewCtx);
-          const { state } = view;
-          const node = state.doc.nodeAt(nodePos);
-          if (node && node.type.name === "html") {
-            const tr = state.tr.setNodeMarkup(nodePos, undefined, {
-              ...node.attrs,
-              value: html,
-            });
-            view.dispatch(tr);
-          }
-        });
-      }
-
-      setEditModal(null);
-    },
-    [getEditor],
-  );
-
+function Toolbar() {
   return (
-    <>
-      <div className="flex flex-wrap items-center gap-1 px-3 py-1.5 bg-stone-50 border-b border-stone-200 text-[11px]">
-        <FormattingToolbar />
-        <span className="mx-1 h-4 w-px bg-stone-200 shrink-0" />
-        <LiteraryToolbar onEditRequest={handleEditRequest} />
-        <span className="mx-1 h-4 w-px bg-stone-200 shrink-0" />
-        <ImageInsertButton />
-      </div>
-
-      {editModal && (
-        <EditLiteraryBlockModal
-          state={editModal}
-          onSave={handleSave}
-          onClose={() => setEditModal(null)}
-        />
-      )}
-    </>
+    <div className="flex flex-wrap items-center gap-1 px-3 py-1.5 bg-stone-50 border-b border-stone-200 text-[11px]">
+      <FormattingToolbar />
+      <span className="mx-1 h-4 w-px bg-stone-200 shrink-0" />
+      <ImageInsertButton />
+    </div>
   );
 }
 
@@ -202,7 +134,7 @@ export default function MilkdownEditor({ value, onChange }: MilkdownEditorProps)
     <EditorErrorBoundary>
       <div className="milkdown-wrapper rounded-lg border border-stone-200 bg-white overflow-hidden">
         <MilkdownProvider>
-          <ToolbarWithModal />
+          <Toolbar />
           <MilkdownInner initialValue={value} onChange={stableOnChange} />
         </MilkdownProvider>
       </div>

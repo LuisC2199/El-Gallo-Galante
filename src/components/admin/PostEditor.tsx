@@ -38,13 +38,19 @@ const CATEGORIES: PostCategory[] = [
   "Epistolario",
 ];
 
-const STATUSES: { value: PostStatus; label: string; color: string }[] = [
-  { value: "draft", label: "Draft", color: "bg-amber-100 text-amber-700 border-amber-200" },
-  { value: "review", label: "Review", color: "bg-blue-100 text-blue-700 border-blue-200" },
-  { value: "published", label: "Published", color: "bg-emerald-100 text-emerald-700 border-emerald-200" },
+const STATUSES = [
+  { value: "draft", label: "Borrador", color: "bg-amber-100 text-amber-700 border-amber-200" },
+  { value: "review", label: "En revisión", color: "bg-blue-100 text-blue-700 border-blue-200" },
+  { value: "published", label: "Publicado", color: "bg-emerald-100 text-emerald-700 border-emerald-200" },
 ];
 
 const IMAGE_POSITIONS = ["top", "center", "bottom"] as const;
+
+const IMAGE_POSITION_LABELS: Record<string, string> = {
+  top: "Arriba",
+  center: "Centro",
+  bottom: "Abajo",
+};
 
 interface PostEditorProps {
   slug: string;
@@ -66,9 +72,9 @@ interface ValidationErrors {
 
 function validate(fm: Record<string, unknown>): ValidationErrors {
   const errors: ValidationErrors = {};
-  if (!fm.title || String(fm.title).trim() === "") errors.title = "Title is required";
-  if (!fm.date || String(fm.date).trim() === "") errors.date = "Date is required";
-  if (!fm.category || String(fm.category).trim() === "") errors.category = "Category is required";
+  if (!fm.title || String(fm.title).trim() === "") errors.title = "El título es obligatorio";
+  if (!fm.date || String(fm.date).trim() === "") errors.date = "La fecha es obligatoria";
+  if (!fm.category || String(fm.category).trim() === "") errors.category = "La categoría es obligatoria";
   return errors;
 }
 
@@ -155,7 +161,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           setSha(data.sha);
         }
       } catch (err) {
-        if (!cancelled) setLoadError(err instanceof Error ? err.message : "Failed to load post");
+        if (!cancelled) setLoadError(err instanceof Error ? err.message : "Error al cargar el post");
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -223,7 +229,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
       setDirty(false);
       setSaveSuccess(true);
     } catch (err) {
-      setSaveError(err instanceof Error ? err.message : "Save failed");
+      setSaveError(err instanceof Error ? err.message : "Error al guardar");
     } finally {
       setSaving(false);
     }
@@ -245,7 +251,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
       setShowDeleteConfirm(false);
       onDelete?.();
     } catch (err) {
-      setSaveError(err instanceof Error ? err.message : "Delete failed");
+      setSaveError(err instanceof Error ? err.message : "Error al eliminar");
       setShowDeleteConfirm(false);
     } finally {
       setActionBusy(false);
@@ -269,7 +275,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
       const result: CreateItemResponse = await res.json();
       onDuplicate?.(result.slug);
     } catch (err) {
-      setSaveError(err instanceof Error ? err.message : "Duplicate failed");
+      setSaveError(err instanceof Error ? err.message : "Error al duplicar");
     } finally {
       setActionBusy(false);
     }
@@ -303,7 +309,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
                     : "text-stone-500 hover:text-stone-700"
                 }`}
               >
-                Edit
+                Editar
               </button>
               <button
                 onClick={() => setViewMode("preview")}
@@ -313,32 +319,32 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
                     : "text-stone-500 hover:text-stone-700"
                 }`}
               >
-                Preview
+                Vista previa
               </button>
             </div>
             <button
               onClick={() => setShowHistory(true)}
               disabled={actionBusy || saving}
               className="px-3 py-1.5 text-xs font-medium text-stone-600 bg-stone-100 rounded hover:bg-stone-200 disabled:opacity-50 transition-colors"
-              title="View version history"
+              title="Ver historial de versiones"
             >
-              History
+              Historial
             </button>
             <button
               onClick={handleDuplicate}
               disabled={actionBusy || saving}
               className="px-3 py-1.5 text-xs font-medium text-stone-600 bg-stone-100 rounded hover:bg-stone-200 disabled:opacity-50 transition-colors"
-              title="Duplicate this post"
+              title="Duplicar est publicación"
             >
-              Duplicate
+              Duplicar
             </button>
             <button
               onClick={() => setShowDeleteConfirm(true)}
               disabled={actionBusy || saving}
               className="px-3 py-1.5 text-xs font-medium text-red-600 bg-red-50 rounded hover:bg-red-100 disabled:opacity-50 transition-colors"
-              title="Delete this post"
+              title="Eliminar esta publicación"
             >
-              Delete
+              Eliminar
             </button>
           </>
         }
@@ -356,11 +362,11 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
         {/* ---- Frontmatter fields ---- */}
         <section className="mb-8 space-y-4">
           <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
-            Frontmatter
+            Información de la publicación
           </h3>
 
           {/* Title */}
-          <Field label="Title" error={showValidation ? validationErrors.title : undefined}>
+          <Field label="Título" error={showValidation ? validationErrors.title : undefined}>
             <input
               type="text"
               value={String(fm.title ?? "")}
@@ -370,7 +376,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Date */}
-          <Field label="Date" error={showValidation ? validationErrors.date : undefined}>
+          <Field label="Fecha" error={showValidation ? validationErrors.date : undefined}>
             <input
               type="date"
               value={toDateInput(fm.date)}
@@ -383,13 +389,13 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Category */}
-          <Field label="Category" error={showValidation ? validationErrors.category : undefined}>
+          <Field label="Categoría" error={showValidation ? validationErrors.category : undefined}>
             <select
               value={String(fm.category ?? "")}
               onChange={(e) => updateField("category", e.target.value)}
               className={fieldClass(showValidation && !!validationErrors.category)}
             >
-              <option value="">— select —</option>
+              <option value="">— seleccionar —</option>
               {CATEGORIES.map((c) => (
                 <option key={c} value={c}>{c}</option>
               ))}
@@ -397,7 +403,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Status */}
-          <Field label="Status">
+          <Field label="Estado">
             <div className="flex items-center gap-3">
               <select
                 value={String(fm.status ?? "published")}
@@ -420,13 +426,13 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Issue */}
-          <Field label="Issue">
+          <Field label="Número">
             <select
               value={String(fm.issue ?? "")}
               onChange={(e) => updateField("issue", e.target.value || undefined)}
               className={fieldClass()}
             >
-              <option value="">— none —</option>
+              <option value="">— ninguno —</option>
               {issues.map((i) => (
                 <option key={i.slug} value={i.slug}>
                   {i.number ? `${i.number} — ` : ""}{i.title}
@@ -436,13 +442,13 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Author (slug) */}
-          <Field label="Author">
+          <Field label="Autor">
             <select
               value={String(fm.author ?? "")}
               onChange={(e) => updateField("author", e.target.value)}
               className={fieldClass()}
             >
-              <option value="">— select —</option>
+              <option value="">— seleccionar —</option>
               {authors.map((a) => (
                 <option key={a.slug} value={a.slug}>
                   {a.name}
@@ -452,13 +458,13 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Traductor (slug) */}
-          <Field label="Traductor" hint="Optional translator">
+          <Field label="Traductor" hint="Traductor opcional">
             <select
               value={String(fm.traductor ?? "")}
               onChange={(e) => updateField("traductor", e.target.value || undefined)}
               className={fieldClass()}
             >
-              <option value="">— none —</option>
+              <option value="">— ninguno —</option>
               {authors.map((a) => (
                 <option key={a.slug} value={a.slug}>
                   {a.name}
@@ -468,7 +474,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Excerpt */}
-          <Field label="Excerpt">
+          <Field label="Extracto" hint="Extracto para mostrar en la vista previa de la publicación">
             <textarea
               value={String(fm.excerpt ?? "")}
               onChange={(e) => updateField("excerpt", e.target.value || undefined)}
@@ -478,7 +484,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Cover image */}
-          <Field label="Cover Image">
+          <Field label="Imagen de portada">
             <ImageUploadField
               value={String(fm.coverImage ?? "")}
               onChange={(v) => updateField("coverImage", v || undefined)}
@@ -488,7 +494,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Featured image */}
-          <Field label="Featured Image">
+          <Field label="Imagen destacada">
             <ImageUploadField
               value={String(fm.featuredImage ?? "")}
               onChange={(v) => updateField("featuredImage", v || undefined)}
@@ -498,16 +504,18 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </Field>
 
           {/* Image position */}
-          <Field label="Image Position">
+          <Field label="Posición de imagen" hint="Qué parte de la imagen quieres que se vea dentro del espacio">
             <select
               value={String(fm.imagePosition ?? "")}
               onChange={(e) => updateField("imagePosition", e.target.value || undefined)}
               className={fieldClass()}
             >
-              <option value="">— default —</option>
-              {IMAGE_POSITIONS.map((p) => (
-                <option key={p} value={p}>{p}</option>
-              ))}
+              <option value="">— por defecto —</option>
+                {IMAGE_POSITIONS.map((p) => (
+                  <option key={p} value={p}>
+                    {IMAGE_POSITION_LABELS[p]}
+                  </option>
+                ))}
             </select>
           </Field>
         </section>
@@ -519,7 +527,7 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
           </h3>
 
           {/* Drop cap mode */}
-          <Field label="Capitular (drop cap)" hint="auto = first letter, none = disabled, manual = via literary block">
+          <Field label="Capitular" hint="auto = primera letra, ninguna = desactivado, manual = selección manual">
             <select
               value={String((fm.presentacion as Record<string, unknown> | undefined)?.dropCapMode ?? "auto")}
               onChange={(e) => {
@@ -528,89 +536,23 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
               }}
               className={fieldClass()}
             >
-              <option value="auto">Auto</option>
-              <option value="none">Ninguna</option>
-              <option value="manual">Manual</option>
+              <option value="auto">automático</option>
+              <option value="none">ninguna</option>
+              <option value="manual">manual</option>
             </select>
           </Field>
 
-          {/* Dedicatoria */}
-          <Field label="Dedicatoria" hint="Optional dedication">
-            <input
-              type="text"
-              value={String((fm.presentacion as Record<string, unknown> | undefined)?.dedicatoria ?? "")}
-              onChange={(e) => {
-                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
-                updateField("presentacion", { ...pres, dedicatoria: e.target.value || undefined });
-              }}
-              className={fieldClass()}
-              placeholder="Para…"
-            />
-          </Field>
-
-          {/* Epígrafe */}
-          <Field label="Epígrafe" hint="Optional epigraph quote">
-            <textarea
-              value={String((fm.presentacion as Record<string, unknown> | undefined)?.epigrafe ?? "")}
-              onChange={(e) => {
-                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
-                updateField("presentacion", { ...pres, epigrafe: e.target.value || undefined });
-              }}
-              rows={2}
-              className={fieldClass() + " resize-y"}
-            />
-          </Field>
-
-          {/* Epígrafe autor */}
-          <Field label="Epígrafe — autor">
-            <input
-              type="text"
-              value={String((fm.presentacion as Record<string, unknown> | undefined)?.epigrafeAutor ?? "")}
-              onChange={(e) => {
-                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
-                updateField("presentacion", { ...pres, epigrafeAutor: e.target.value || undefined });
-              }}
-              className={fieldClass()}
-            />
-          </Field>
-
-          {/* Meta epistolar */}
-          <Field label="Meta epistolar" hint="Epistolary header (location, date)">
-            <input
-              type="text"
-              value={String((fm.presentacion as Record<string, unknown> | undefined)?.metaEpistolar ?? "")}
-              onChange={(e) => {
-                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
-                updateField("presentacion", { ...pres, metaEpistolar: e.target.value || undefined });
-              }}
-              className={fieldClass()}
-              placeholder="Ciudad, fecha"
-            />
-          </Field>
-
-          {/* Firma */}
-          <Field label="Firma" hint="Signature line at end of post">
-            <input
-              type="text"
-              value={String((fm.presentacion as Record<string, unknown> | undefined)?.firma ?? "")}
-              onChange={(e) => {
-                const pres = (fm.presentacion ?? {}) as Record<string, unknown>;
-                updateField("presentacion", { ...pres, firma: e.target.value || undefined });
-              }}
-              className={fieldClass()}
-            />
-          </Field>
         </section>
 
         {/* ---- Body ---- */}
         <section>
           <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
-            Markdown body
+            Contenido (Markdown)
           </h3>
           <Suspense
             fallback={
               <div className="h-96 border border-stone-200 rounded-lg flex items-center justify-center text-sm text-stone-400">
-                Loading editor…
+                Cargando editor…
               </div>
             }
           >
@@ -623,9 +565,9 @@ export default function PostEditor({ slug, onDirtyChange, onDelete, onDuplicate 
 
       {showDeleteConfirm && (
         <ConfirmDialog
-          title="Delete post"
-          message={`Are you sure you want to delete "${frontmatter.title ?? slug}"?\n\nThis action cannot be undone.`}
-          confirmLabel="Delete"
+          title="Eliminar publicación"
+          message={`¿Estás seguro de que quieres eliminar "${frontmatter.title ?? slug}"?\n\nEsta acción no se puede deshacer.`}
+          confirmLabel="Eliminar"
           confirmVariant="danger"
           busy={actionBusy}
           onConfirm={handleDelete}

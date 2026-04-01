@@ -6,6 +6,9 @@
     "global_fetch_strictly_public",
     "nodejs_compat"
   ],
+  // Disable workers.dev route to prevent Cloudflare Access bypass.
+  // All traffic should go through the custom domain where Access is configured.
+  "workers_dev": false,
   "assets": {
     "binding": "ASSETS",
     "directory": "dist"

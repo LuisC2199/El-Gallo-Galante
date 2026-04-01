@@ -64,7 +64,7 @@ export default function AuthorList({ selectedSlug, onSelect, refreshKey = 0, onN
   if (loading) {
     return (
       <div className="w-72 border-r border-stone-200 shrink-0 p-4 text-sm text-stone-400">
-        Loading authors…
+        Cargando autores…
       </div>
     );
   }
@@ -82,14 +82,14 @@ export default function AuthorList({ selectedSlug, onSelect, refreshKey = 0, onN
       {/* Header */}
       <div className="px-4 py-3 border-b border-stone-100 flex items-center justify-between shrink-0">
         <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400">
-          Authors ({filtered.length}/{authors.length})
+          Autores ({filtered.length}/{authors.length})
         </h2>
         {onNew && (
           <button
             onClick={onNew}
             className="text-xs font-medium text-stone-500 hover:text-stone-800 transition-colors"
           >
-            + New
+            + Nuevo
           </button>
         )}
       </div>
@@ -100,7 +100,7 @@ export default function AuthorList({ selectedSlug, onSelect, refreshKey = 0, onN
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search authors…"
+          placeholder="Buscar autores…"
           className="w-full text-xs rounded border border-stone-200 bg-white px-2.5 py-1.5 text-stone-700 placeholder:text-stone-300 focus:outline-none focus:ring-1 focus:ring-stone-300"
         />
         <select

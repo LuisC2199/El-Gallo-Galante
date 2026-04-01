@@ -2,6 +2,12 @@
 export const prerender = false;
 import AdminShell from "../../components/admin/AdminShell";
 import "../../styles/global.css";
+
+// Editor identity is set by middleware after JWT verification
+const editor = (Astro.locals as any).editor ?? null;
+const editorJson = editor
+  ? JSON.stringify({ email: editor.email, name: editor.name })
+  : "null";
 ---
 
 <!doctype html>
@@ -15,6 +21,9 @@ import "../../styles/global.css";
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script define:vars={{ editorJson }}>
+      window.__EDITOR__ = JSON.parse(editorJson);
+    </script>
   </head>
   <body class="m-0 font-sans">
     <AdminShell client:load />

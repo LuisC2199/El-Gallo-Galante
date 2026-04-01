@@ -9,9 +9,9 @@ type SortMode = "newest" | "oldest" | "az" | "za";
 const CATEGORIES = ["Poesía", "Narrativa", "Crítica", "Ensayo", "Epistolario"];
 
 const STATUS_OPTIONS = [
-  { value: "published", label: "Published", dotColor: "bg-emerald-400" },
-  { value: "review", label: "Review", dotColor: "bg-blue-400" },
-  { value: "draft", label: "Draft", dotColor: "bg-amber-400" },
+  { value: "published", label: "Publicado", dotColor: "bg-emerald-400" },
+  { value: "review", label: "En revisión", dotColor: "bg-blue-400" },
+  { value: "draft", label: "Borrador", dotColor: "bg-amber-400" },
 ];
 
 const STATUS_DOT: Record<string, string> = {
@@ -137,7 +137,7 @@ export default function PostList({
   if (loading) {
     return (
       <div className="w-72 border-r border-stone-200 shrink-0 p-4 text-sm text-stone-400">
-        Loading posts…
+        Cargando publicaciones…
       </div>
     );
   }
@@ -158,14 +158,14 @@ export default function PostList({
       {/* Header */}
       <div className="px-4 py-3 border-b border-stone-100 flex items-center justify-between shrink-0">
         <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400">
-          Posts ({filtered.length}/{posts.length})
+          Publicaciones ({filtered.length}/{posts.length})
         </h2>
         {onNew && (
           <button
             onClick={onNew}
             className="text-xs font-medium text-stone-500 hover:text-stone-800 transition-colors"
           >
-            + New
+            + Crear
           </button>
         )}
       </div>
@@ -176,18 +176,18 @@ export default function PostList({
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search posts…"
+          placeholder="Buscar publicaciones…"
           className="w-full text-xs rounded border border-stone-200 bg-white px-2.5 py-1.5 text-stone-700 placeholder:text-stone-300 focus:outline-none focus:ring-1 focus:ring-stone-300"
         />
         <div className="flex gap-1.5">
           <select value={sort} onChange={(e) => setSort(e.target.value as SortMode)} className={selectClass}>
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
+            <option value="newest">Más reciente</option>
+            <option value="oldest">Más viejo</option>
             <option value="az">A → Z</option>
             <option value="za">Z → A</option>
           </select>
           <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className={selectClass}>
-            <option value="">All categories</option>
+            <option value="">Todas las categorías</option>
             {CATEGORIES.map((c) => (
               <option key={c} value={c}>{c}</option>
             ))}
@@ -195,14 +195,14 @@ export default function PostList({
         </div>
         <div className="flex gap-1.5">
           <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className={selectClass}>
-            <option value="">All statuses</option>
+            <option value="">Estado</option>
             {STATUS_OPTIONS.map((s) => (
               <option key={s.value} value={s.value}>{s.label}</option>
             ))}
           </select>
           {usedAuthors.length > 0 && (
             <select value={authorFilter} onChange={(e) => setAuthorFilter(e.target.value)} className={selectClass}>
-              <option value="">All authors</option>
+              <option value="">Autor</option>
               {usedAuthors.map((a) => (
                 <option key={a.slug} value={a.slug}>{a.name}</option>
               ))}
@@ -210,7 +210,7 @@ export default function PostList({
           )}
           {usedIssues.length > 0 && (
             <select value={issueFilter} onChange={(e) => setIssueFilter(e.target.value)} className={selectClass}>
-              <option value="">All issues</option>
+              <option value="">Número</option>
               {usedIssues.map((i) => (
                 <option key={i.slug} value={i.slug}>
                   {i.number ? `#${i.number}` : i.title}
@@ -224,7 +224,7 @@ export default function PostList({
             onClick={clearFilters}
             className="text-[10px] text-stone-400 hover:text-stone-600 transition-colors"
           >
-            Clear filters
+            Borrar filtros
           </button>
         )}
       </div>
@@ -232,7 +232,7 @@ export default function PostList({
       {/* List */}
       {filtered.length === 0 ? (
         <div className="p-4 text-xs text-stone-400">
-          {posts.length === 0 ? "No posts found." : "No posts match filters."}
+          {posts.length === 0 ? "Ninguna publicación encontrada." : "Ninguna publicación coincide con los filtros."}
         </div>
       ) : (
         <ul className="flex-1 overflow-y-auto divide-y divide-stone-100">

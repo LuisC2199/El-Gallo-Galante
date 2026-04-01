@@ -8,9 +8,9 @@ interface SidebarProps {
 }
 
 const collections = [
-  { id: "posts", label: "Posts" },
-  { id: "authors", label: "Authors" },
-  { id: "issues", label: "Issues" },
+  { id: "posts", label: "Publicaciones" },
+  { id: "authors", label: "Autores" },
+  { id: "issues", label: "Números" },
 ] as const;
 
 export default function Sidebar({ activeCollection, onCollectionChange }: SidebarProps) {
@@ -18,7 +18,7 @@ export default function Sidebar({ activeCollection, onCollectionChange }: Sideba
     <aside className="w-56 border-r border-stone-200 bg-stone-50 flex flex-col shrink-0">
       <div className="px-4 py-4">
         <p className="text-[11px] font-semibold uppercase tracking-wider text-stone-400 mb-2">
-          Collections
+          Colecciones
         </p>
         <nav className="flex flex-col gap-0.5">
           {collections.map((c) => (

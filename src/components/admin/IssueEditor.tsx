@@ -332,10 +332,10 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
           {/* ---- Core fields ---- */}
           <section className="mb-8 space-y-4">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
-              Issue info
+              Información del número
             </h3>
 
-            <Field label="Title" error={showValidation ? validationErrors.title : undefined}>
+            <Field label="Título" error={showValidation ? validationErrors.title : undefined}>
               <input
                 type="text"
                 value={String(fm.title ?? "")}
@@ -345,7 +345,7 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
             </Field>
 
             <div className="grid grid-cols-2 gap-4">
-              <Field label="Date" error={showValidation ? validationErrors.date : undefined}>
+              <Field label="Fecha" error={showValidation ? validationErrors.date : undefined}>
                 <input
                   type="date"
                   value={toDateInput(fm.date)}
@@ -357,7 +357,7 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
                 />
               </Field>
 
-              <Field label="Number" hint='e.g. "No. 01"'>
+              <Field label="Número" hint='e.g. "No. 01"'>
                 <input
                   type="text"
                   value={String(fm.number ?? "")}
@@ -368,7 +368,7 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
               </Field>
             </div>
 
-            <Field label="Description">
+            <Field label="Descripción">
               <textarea
                 value={String(fm.description ?? "")}
                 onChange={(e) => updateField("description", e.target.value || undefined)}
@@ -377,7 +377,7 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
               />
             </Field>
 
-            <Field label="Cover Image">
+            <Field label="Imagen de portada">
               <ImageUploadField
                 value={String(fm.coverImage ?? "")}
                 onChange={(v) => updateField("coverImage", v || undefined)}
@@ -390,7 +390,7 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
           {/* ---- Featured posts ---- */}
           <section className="mb-8">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
-              Featured posts
+              Publicaciones destacadas
             </h3>
 
             {/* Currently selected — ordered list */}

@@ -50,7 +50,7 @@ export default function ImageUploadField({
         const data: MediaUploadResponse = await res.json();
         onChange(data.publicPath);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Upload failed");
+        setError(err instanceof Error ? err.message : "Error al subir");
       } finally {
         setUploading(false);
         // Reset file input so the same file can be re-selected
@@ -87,7 +87,7 @@ export default function ImageUploadField({
           onClick={() => fileRef.current?.click()}
           className="shrink-0 px-3 py-2 text-sm font-medium rounded-md border border-stone-200 bg-stone-50 text-stone-700 hover:bg-stone-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
-          {uploading ? "Uploading…" : "Upload"}
+          {uploading ? "Subiendo" : "Subir"}
         </button>
         <input
           ref={fileRef}

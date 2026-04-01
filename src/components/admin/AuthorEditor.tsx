@@ -278,10 +278,10 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
           {/* ---- Core fields ---- */}
           <section className="mb-8 space-y-4">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
-              Author info
+              Información del autor
             </h3>
 
-            <Field label="Name" error={showValidation ? validationErrors.name : undefined}>
+            <Field label="Nombre" error={showValidation ? validationErrors.name : undefined}>
               <input
                 type="text"
                 value={String(fm.name ?? "")}
@@ -291,7 +291,7 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
             </Field>
 
             <div className="grid grid-cols-2 gap-4">
-              <Field label="Birth Year">
+              <Field label="Año de nacimiento" hint="Opcional año de defunción en mismo campo">
                 <input
                   type="text"
                   value={String(fm.birthYear ?? "")}
@@ -301,7 +301,7 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
                 />
               </Field>
 
-              <Field label="Birth Place">
+              <Field label="Lugar de nacimiento">
                 <input
                   type="text"
                   value={String(fm.birthPlace ?? "")}
@@ -312,7 +312,7 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
               </Field>
             </div>
 
-            <Field label="Gender" hint="true = male, false = female, empty = unspecified">
+            <Field label="Género" hint="true = male, false = female, empty = unspecified">
               <select
                 value={fm.gender === true ? "true" : fm.gender === false ? "false" : ""}
                 onChange={(e) => {
@@ -321,13 +321,14 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
                 }}
                 className={fieldClass()}
               >
-                <option value="">— unspecified —</option>
+                
                 <option value="true">Male</option>
                 <option value="false">Female</option>
+                <option value="">No especificado</option>
               </select>
             </Field>
 
-            <Field label="Photo">
+            <Field label="Foto">
               <ImageUploadField
                 value={String(fm.photo ?? "")}
                 onChange={(v) => updateField("photo", v || undefined)}
@@ -340,7 +341,7 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
           {/* ---- Social links ---- */}
           <section className="mb-8 space-y-4">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
-              Social links
+              Redes sociales
             </h3>
 
             {(["website", "instagram", "x", "facebook", "tiktok"] as const).map((key) => (
@@ -349,7 +350,7 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
                   type="text"
                   value={String(social[key] ?? "")}
                   onChange={(e) => updateSocial(key, e.target.value)}
-                  placeholder={key === "website" ? "https://…" : `@handle or URL`}
+                  placeholder={key === "website" ? "https://…" : `@usuario or URL`}
                   className={fieldClass()}
                 />
               </Field>
@@ -359,7 +360,7 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
           {/* ---- Biography (markdown body) ---- */}
           <section>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
-              Biography
+              Semblanza
             </h3>
             <textarea
               value={body}
