@@ -5,16 +5,20 @@
 // Extends paragraph and heading schemas with `textAlign` and `fontSize`
 // attributes.
 //
-// Styled paragraphs are serialised to markdown as HTML blocks, e.g.
-//   <p style="text-align: center; font-size: 1.35rem">some text</p>
+// SERIALIZATION POLICY
+// ─────────────────────
+// textAlign and fontSize are EDITOR-VISUAL-ONLY.  They are never written as
+// raw HTML into the saved markdown source.  `toMarkdown` always emits plain
+// markdown regardless of whether the node carries style attrs.
 //
-// A companion remark plugin converts those HTML blocks back to paragraphs
-// on load so they remain editable (round-trip).
+// On load, the `remarkAlignPlugin` converts any `<p style="...">` or
+// `<h1-6 style="...">` html blocks that already exist in the file back into
+// proper paragraph/heading nodes (with the attrs set), so the editor displays
+// them styled.  On the next save those nodes are written back as plain
+// markdown – this is the one-way migration path for legacy HTML content.
 // ---------------------------------------------------------------------------
 
 import { $node, $remark } from "@milkdown/kit/utils";
-import { schemaCtx, editorViewCtx } from "@milkdown/kit/core";
-import { DOMSerializer } from "@milkdown/kit/prose/model";
 import {
   paragraphAttr,
   headingAttr,
@@ -64,22 +68,8 @@ function fontSizeFromRem(rem: string | undefined | null): FontSizeKey | null {
 }
 
 // ---------------------------------------------------------------------------
-// Helper – serialise ProseMirror fragment to an HTML string
-// ---------------------------------------------------------------------------
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-function fragmentToHtml(ctx: any, node: any): string {
-  const schema = ctx.get(schemaCtx);
-  const serializer = DOMSerializer.fromSchema(schema);
-  const frag = serializer.serializeFragment(node.content);
-  const div = document.createElement("div");
-  div.appendChild(frag);
-  return div.innerHTML;
-}
-/* eslint-enable @typescript-eslint/no-explicit-any */
-
-// ---------------------------------------------------------------------------
 // Remark plugin – convert aligned HTML blocks back to paragraph/heading nodes
+// (migration / load-time only; the toMarkdown serializers never emit HTML)
 // ---------------------------------------------------------------------------
 //
 // When Milkdown (remark) parses markdown that contains e.g.
@@ -201,10 +191,6 @@ function buildStyle(node: any): string {
   return parts.join("; ");
 }
 
-function hasCustomStyle(node: any): boolean {
-  return !!(node.attrs.textAlign || node.attrs.fontSize);
-}
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const alignedParagraph = $node("paragraph", (ctx) => ({
   content: "inline*",
@@ -243,30 +229,14 @@ export const alignedParagraph = $node("paragraph", (ctx) => ({
   },
   toMarkdown: {
     match: (node: any) => node.type.name === "paragraph",
+    // ⚠ Always emit plain markdown – never raw HTML.
+    // textAlign/fontSize attrs are visual-only and intentionally dropped here.
     runner: (state: any, node: any) => {
-      if (hasCustomStyle(node)) {
-        const html = fragmentToHtml(ctx, node);
-        const style = buildStyle(node);
-        state.addNode(
-          "html",
-          undefined,
-          `<p style="${style}">${html}</p>`,
-        );
-      } else {
-        state.openNode("paragraph");
-        // Replicate the default empty-line-preservation behaviour
-        if (!node.content || node.content.size === 0) {
-          try {
-            const lastNode = ctx.get(editorViewCtx).state?.doc.lastChild;
-            if (node !== lastNode) state.addNode("html", undefined, "<br />");
-          } catch {
-            /* noop */
-          }
-        } else {
-          state.next(node.content);
-        }
-        state.closeNode();
+      state.openNode("paragraph");
+      if (node.content && node.content.size > 0) {
+        state.next(node.content);
       }
+      state.closeNode();
     },
   },
 }));
@@ -327,22 +297,14 @@ export const alignedHeading = $node("heading", (ctx) => {
     },
     toMarkdown: {
       match: (node: any) => node.type.name === "heading",
+      // ⚠ Always emit plain markdown – never raw HTML.
+      // textAlign/fontSize attrs are visual-only and intentionally dropped here.
       runner: (state: any, node: any) => {
-        if (hasCustomStyle(node)) {
-          const html = fragmentToHtml(ctx, node);
-          const style = buildStyle(node);
-          state.addNode(
-            "html",
-            undefined,
-            `<h${node.attrs.level} style="${style}">${html}</h${node.attrs.level}>`,
-          );
-        } else {
-          state.openNode("heading", undefined, {
-            depth: node.attrs.level,
-          });
-          state.next(node.content);
-          state.closeNode();
-        }
+        state.openNode("heading", undefined, {
+          depth: node.attrs.level,
+        });
+        state.next(node.content);
+        state.closeNode();
       },
     },
   };
