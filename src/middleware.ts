@@ -127,6 +127,17 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
   const aud = env.CLOUDFLARE_ACCESS_AUD;
   const teamDomain = env.CLOUDFLARE_ACCESS_TEAM_DOMAIN;
 
+  // Development diagnostics – log presence of Cloudflare Access headers
+  // without exposing token contents.
+  if (import.meta.env.DEV) {
+    const hasJwt = !!context.request.headers.get("Cf-Access-Jwt-Assertion");
+    const hasEmail = !!context.request.headers.get("Cf-Access-Authenticated-User-Email");
+    // eslint-disable-next-line no-console
+    console.debug(
+      `[auth] ${pathname} — Cf-Access-Jwt-Assertion: ${hasJwt}, Cf-Access-Authenticated-User-Email: ${hasEmail}`,
+    );
+  }
+
   // Fail closed when env vars are absent.
   if (!aud || !teamDomain) {
     if (isApiRoute(pathname)) {
@@ -138,7 +149,7 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
         { status: 401, headers: { "Content-Type": "application/json" } },
       );
     }
-    return context.redirect("/admin/login-info");
+    return context.redirect("/admin/login-info?reason=missing-access-jwt");
   }
 
   const user = await getAccessUser(context.request, {
@@ -153,7 +164,13 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
         headers: { "Content-Type": "application/json" },
       });
     }
-    return context.redirect("/admin/login-info");
+    // Distinguish between a completely missing token and an invalid one so
+    // the login-info page can show a contextual message.
+    const hasToken =
+      !!context.request.headers.get("Cf-Access-Jwt-Assertion") ||
+      !!context.request.headers.get("Cookie")?.includes("CF_Authorization");
+    const reason = hasToken ? "invalid-access-jwt" : "missing-access-jwt";
+    return context.redirect(`/admin/login-info?reason=${reason}`);
   }
 
   // Attach verified editor to locals for downstream use.

@@ -1,6 +1,35 @@
 ---
 export const prerender = false;
 import "../../styles/global.css";
+
+type Reason = "missing-access-jwt" | "invalid-access-jwt" | "unauthorized" | "unknown";
+
+const reason = (Astro.url.searchParams.get("reason") ?? "unknown") as Reason;
+
+const messages: Record<Reason, { heading: string; body: string; hint: string }> = {
+  "missing-access-jwt": {
+    heading: "Sesión no iniciada",
+    body: "No se encontró una sesión de Cloudflare Access válida. Para acceder al panel, debes iniciar sesión con tu cuenta de Google a través de Cloudflare Access.",
+    hint: "Al hacer clic en el botón de abajo, Cloudflare Access debería solicitarte que inicies sesión con Google. Si el botón te regresa aquí sin mostrar una pantalla de inicio de sesión, hay un problema de configuración en Cloudflare Access — contacta al administrador.",
+  },
+  "invalid-access-jwt": {
+    heading: "Sesión inválida o expirada",
+    body: "Tu sesión de Cloudflare Access expiró o no pudo verificarse. Intenta acceder de nuevo para renovar tu sesión.",
+    hint: "Si el problema persiste después de iniciar sesión nuevamente, es posible que tu cuenta no esté en la lista de editores autorizados.",
+  },
+  "unauthorized": {
+    heading: "Sin permiso de acceso",
+    body: "Tu identidad fue verificada, pero tu cuenta no tiene permisos para acceder al panel de administración.",
+    hint: "Solicita al administrador del sitio que agregue tu correo a la política de acceso en Cloudflare Zero Trust.",
+  },
+  "unknown": {
+    heading: "Acceso requerido",
+    body: "El panel de administración está protegido. Para acceder, inicia sesión con tu cuenta de Google a través de Cloudflare Access.",
+    hint: "Si el problema persiste, contacta al administrador del sitio.",
+  },
+};
+
+const msg = messages[reason] ?? messages["unknown"];
 ---
 
 <!doctype html>
@@ -29,25 +58,31 @@ import "../../styles/global.css";
       <div class="my-6 h-px bg-stone-100"></div>
 
       <h2 class="text-base font-medium mb-3 text-stone-700">
-        Acceso requerido
+        {msg.heading}
       </h2>
 
       <p class="text-sm text-stone-500 leading-relaxed mb-4">
-        El panel de administración está protegido. Para acceder, inicia sesión
-        con tu cuenta de Google a través de Cloudflare Access.
+        {msg.body}
       </p>
 
-      <p class="text-sm text-stone-500 leading-relaxed mb-6">
-        Si ya iniciaste sesión y ves esta página, es posible que tu sesión haya
-        expirado o que tu cuenta no tenga permisos de editor.
+      <p class="text-sm text-stone-400 leading-relaxed mb-6 italic text-xs">
+        {msg.hint}
       </p>
 
-      <a
-        href="/admin"
-        class="inline-block px-5 py-2 text-sm font-medium text-white bg-stone-800 rounded-lg hover:bg-stone-700 transition-colors"
-      >
-        Intentar acceder
-      </a>
+      {reason !== "unauthorized" && (
+        <a
+          href="/admin"
+          class="inline-block px-5 py-2 text-sm font-medium text-white bg-stone-800 rounded-lg hover:bg-stone-700 transition-colors"
+        >
+          Iniciar sesión con Google
+        </a>
+      )}
+
+      {reason === "unauthorized" && (
+        <p class="inline-block px-5 py-2 text-sm font-medium text-stone-400 bg-stone-100 rounded-lg cursor-not-allowed">
+          Acceso denegado
+        </p>
+      )}
 
       <p class="mt-6 text-xs text-stone-400">
         ¿Necesitas acceso? Contacta al administrador del sitio.
