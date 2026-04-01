@@ -251,7 +251,7 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
               className="px-3 py-1.5 text-xs font-medium text-stone-600 bg-stone-100 rounded hover:bg-stone-200 disabled:opacity-50 transition-colors"
               title="View version history"
             >
-              History
+              Historial
             </button>
             <button
               onClick={handleDuplicate}
@@ -259,7 +259,7 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
               className="px-3 py-1.5 text-xs font-medium text-stone-600 bg-stone-100 rounded hover:bg-stone-200 disabled:opacity-50 transition-colors"
               title="Duplicate this author"
             >
-              Duplicate
+              Duplicar
             </button>
             <button
               onClick={() => setShowDeleteConfirm(true)}
@@ -267,7 +267,7 @@ export default function AuthorEditor({ slug, onDirtyChange, onDelete, onDuplicat
               className="px-3 py-1.5 text-xs font-medium text-red-600 bg-red-50 rounded hover:bg-red-100 disabled:opacity-50 transition-colors"
               title="Delete this author"
             >
-              Delete
+              Eliminar
             </button>
           </>
         }

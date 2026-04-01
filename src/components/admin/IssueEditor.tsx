@@ -305,7 +305,7 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
               className="px-3 py-1.5 text-xs font-medium text-stone-600 bg-stone-100 rounded hover:bg-stone-200 disabled:opacity-50 transition-colors"
               title="View version history"
             >
-              History
+              Historial
             </button>
             <button
               onClick={handleDuplicate}
@@ -313,7 +313,7 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
               className="px-3 py-1.5 text-xs font-medium text-stone-600 bg-stone-100 rounded hover:bg-stone-200 disabled:opacity-50 transition-colors"
               title="Duplicate this issue"
             >
-              Duplicate
+              Duplicar
             </button>
             <button
               onClick={() => setShowDeleteConfirm(true)}
@@ -321,7 +321,7 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
               className="px-3 py-1.5 text-xs font-medium text-red-600 bg-red-50 rounded hover:bg-red-100 disabled:opacity-50 transition-colors"
               title="Delete this issue"
             >
-              Delete
+              Eliminar
             </button>
           </>
         }

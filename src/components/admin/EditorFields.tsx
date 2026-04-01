@@ -81,14 +81,14 @@ export function EditorTopBar({
         </span>
         {dirty && (
           <span className="text-[10px] font-medium text-amber-600 shrink-0">
-            unsaved changes
+            cambios no guardados
           </span>
         )}
       </div>
       <div className="flex items-center gap-3 shrink-0">
         {extra}
         {saveSuccess && (
-          <span className="text-xs text-emerald-600 font-medium">Saved</span>
+          <span className="text-xs text-emerald-600 font-medium">Guardado</span>
         )}
         {saveError && (
           <span className="text-xs text-red-600 max-w-xs truncate" title={saveError}>
@@ -100,7 +100,7 @@ export function EditorTopBar({
           disabled={saving}
           className="px-4 py-1.5 bg-stone-800 text-white text-sm font-medium rounded hover:bg-stone-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
-          {saving ? "Saving…" : "Save"}
+          {saving ? "Guardando…" : "Guardar"}
         </button>
       </div>
     </div>
