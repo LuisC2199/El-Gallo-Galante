@@ -22,9 +22,10 @@ const author = await getEntry(post.data.author);
 const { Content: PostContent } = await post.render();
 const { Content: AuthorContent } = await author.render();
 const traductor = post.data.traductor ? await getEntry(post.data.traductor) : null;
+const ogImage = post.data.coverImage ?? post.data.featuredImage;
 ---
 
-<Shell title={`${post.data.title} · El Gallo Galante`} description={post.data.excerpt}>
+<Shell title={`${post.data.title} · El Gallo Galante`} description={post.data.excerpt} ogImage={ogImage} ogType="article">
   <article class="max-w-screen-xl mx-auto px-6">
     <ArticleHeader post={post} author={author} />
 

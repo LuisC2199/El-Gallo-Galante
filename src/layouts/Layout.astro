@@ -1,6 +1,15 @@
 ---
-const { title = "El Gallo Galante", description = "Revista digital" } = Astro.props;
+const {
+  title = "El Gallo Galante",
+  description = "Revista digital",
+  ogImage,
+  ogType = "website",
+} = Astro.props;
 import "../styles/global.css";
+
+const siteOrigin = Astro.site?.origin ?? Astro.url.origin;
+const canonicalUrl = Astro.url.href;
+const ogImageUrl = new URL(ogImage ?? "/assets/logo.jpg", siteOrigin + "/").href;
 ---
 
 <!doctype html>
@@ -16,6 +25,20 @@ import "../styles/global.css";
     <link rel="apple-touch-icon" href="/assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="El Gallo Galante" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={title} />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
   </head>
   <body class="min-h-screen antialiased">
     <slot />

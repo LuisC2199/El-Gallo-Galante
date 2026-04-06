@@ -8,6 +8,7 @@ import { remarkAlignPublic } from './src/lib/remark-align-public.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://elgallogalante.com",
   vite: {
     plugins: [tailwindcss()]
   },
