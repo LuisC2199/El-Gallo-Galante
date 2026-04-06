@@ -15,16 +15,16 @@ imagePosition: top
 :::ls-compact:::Soy el verbo que transcurre\
 la creación permanente del mensaje;
 
-suspenso en el presente de los siglos de los siglos,\
+:::ls-compact:::suspenso en el presente de los siglos de los siglos,\
 por mí que soy mi propia esencia incorruptible,\
 sé los segundos que perduran transcurriendo\
 en el instante que no acaba:
 
-es mi verbo conmigo en el principio\
+:::ls-compact:::es mi verbo conmigo en el principio\
 hecho hombre en propia esencia\
 que retorna el espíritu a la gloria,
 
-y es mi presente lo que el verbo piensa\
+:::ls-compact:::y es mi presente lo que el verbo piensa\
 en la creación que he comenzado.
 
 :::align-right:::*Guanajuato, a 01 de julio de 2020*
