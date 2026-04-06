@@ -27,6 +27,8 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #fcfcfc;
   color: #1a1a1a;
+  /* Prevent horizontal scrollbar caused by full-bleed image (w-screen + translate) */
+  overflow-x: hidden;
 }
 .serif { font-family: 'Crimson Pro', serif; }
 .display-serif { font-family: 'Playfair Display', serif; }
@@ -83,7 +85,15 @@ body {
 .object-bottom { object-position: bottom; }
 .whitespace-pre-line { white-space: pre-line; }
 .overflow-x-auto { overflow-x: auto; }
+.overflow-x-hidden { overflow-x: hidden; }
 .space-y-8 > * + * { margin-top: 2rem; }
+/* Position utilities — required for full-bleed featured image */
+.relative { position: relative; }
+.left-1\/2 { left: 50%; }
+.-translate-x-1\/2 { transform: translateX(-50%); }
+/* Link/text decoration utilities */
+.underline { text-decoration-line: underline; }
+.underline-offset-4 { text-underline-offset: 4px; }
 .selection\\:bg-stone-200 *::selection,
 .selection\\:bg-stone-200::selection { background-color: #e7e5e4; }
 .h-\\[50vh\\] { height: 50vh; }
@@ -120,9 +130,25 @@ body {
   padding-top: 0.05em;
 }
 
+/* Inline prefix that precedes a drop-cap letter (e.g. "La " before "P") */
+.dc-prefix {
+  float: left;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1em;
+  line-height: 1;
+  margin-right: 0.35em;
+  margin-top: 0.25em;
+  opacity: 0.85;
+}
+/* When a dc-prefix is present, the following letter needs less padding */
+.drop-cap > p:first-child .dc-prefix + *::first-letter {
+  padding-right: 0.10em;
+}
+
 /* ---- Poetry ---- */
-.poetry p { margin: 0; }
-.poetry p + p { margin-top: 1.25rem; }
+/* Matches global.css exactly: 0.1rem base margin, 1rem stanza gap */
+.poetry p { margin: 0.1rem; }
+.poetry p + p { margin-top: 1rem; }
 
 /* ---- Entry content ---- */
 .entry-content figure { margin: 2.5rem 0; }
@@ -421,14 +447,15 @@ export default function PostPreviewPanel({
             ${category ? `<span class="text-[10px] tracking-[0.3em] uppercase font-bold text-stone-800 bg-stone-100 px-4 py-1">${escapeHtml(category)}</span>` : ""}
             <h1 class="display-serif text-4xl md:text-7xl font-bold leading-tight">${escapeHtml(title)}</h1>
             <div class="flex items-center gap-4 text-sm text-stone-400 font-light">
-              ${authorName ? `<span>${escapeHtml(authorName)}</span>` : ""}
+              ${authorName ? `<span class="underline underline-offset-4">${escapeHtml(authorName)}</span>` : ""}
               ${authorName && date ? '<span class="w-1 h-1 bg-stone-300 rounded-full"></span>' : ""}
               ${date ? `<span>${escapeHtml(date)}</span>` : ""}
             </div>
           </div>
           ${
             featuredImage
-              ? `<div class="w-full mb-16 md:mb-24">
+              /* Full-bleed image — mirrors ArticleHeader.astro: w-screen relative left-1/2 -translate-x-1/2 */
+              ? `<div class="w-screen relative left-1/2 -translate-x-1/2 mb-16 md:mb-24">
               <img src="${escapeHtml(featuredImage)}" alt="${escapeHtml(title)}" class="w-full h-[50vh] md:h-[70vh] object-cover ${imgPosClass}" />
             </div>`
               : ""
