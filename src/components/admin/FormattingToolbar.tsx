@@ -23,7 +23,7 @@ import {
   toggleLinkCommand,
 } from "@milkdown/kit/preset/commonmark";
 import { undoCommand, redoCommand } from "@milkdown/kit/plugin/history";
-import { FONT_SIZE_LABELS, FONT_SIZE_MAP, type FontSizeKey } from "./text-align-plugin";
+import { FONT_SIZE_LABELS, FONT_SIZE_MAP, LINE_SPACING_LABELS, LINE_SPACING_MAP, type FontSizeKey, type LineSpacingKey } from "./text-align-plugin";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -37,7 +37,8 @@ interface ActiveState {
   orderedList: boolean;
   blockquote: boolean;
   link: boolean;
-  textAlign: string | null; // "left" | "center" | "right" | "justify" | null
+  textAlign: string | null;    // "left" | "center" | "right" | "justify" | null
+  lineSpacing: LineSpacingKey | null; // "compact" | "normal" | "relaxed" | "loose" | null
   fontSize: FontSizeKey | null;
 }
 
@@ -50,6 +51,7 @@ const EMPTY_STATE: ActiveState = {
   blockquote: false,
   link: false,
   textAlign: null,
+  lineSpacing: null,
   fontSize: null,
 };
 
@@ -74,6 +76,7 @@ function detectActiveState(view: any): ActiveState {
   let orderedList = false;
   let blockquote = false;
   let textAlign: string | null = null;
+  let lineSpacing: LineSpacingKey | null = null;
   let fontSize: FontSizeKey | null = null;
 
   for (let d = $from.depth; d > 0; d--) {
@@ -81,11 +84,13 @@ function detectActiveState(view: any): ActiveState {
     const name = node.type.name;
     if (name === "heading") {
       heading = node.attrs.level || 0;
-      if (!textAlign && node.attrs.textAlign) textAlign = node.attrs.textAlign;
-      if (!fontSize && node.attrs.fontSize) fontSize = node.attrs.fontSize;
+      if (!textAlign   && node.attrs.textAlign)   textAlign   = node.attrs.textAlign;
+      if (!lineSpacing && node.attrs.lineSpacing) lineSpacing = node.attrs.lineSpacing;
+      if (!fontSize    && node.attrs.fontSize)    fontSize    = node.attrs.fontSize;
     } else if (name === "paragraph") {
-      if (!textAlign && node.attrs.textAlign) textAlign = node.attrs.textAlign;
-      if (!fontSize && node.attrs.fontSize) fontSize = node.attrs.fontSize;
+      if (!textAlign   && node.attrs.textAlign)   textAlign   = node.attrs.textAlign;
+      if (!lineSpacing && node.attrs.lineSpacing) lineSpacing = node.attrs.lineSpacing;
+      if (!fontSize    && node.attrs.fontSize)    fontSize    = node.attrs.fontSize;
     } else if (name === "bullet_list") {
       bulletList = true;
     } else if (name === "ordered_list") {
@@ -95,12 +100,9 @@ function detectActiveState(view: any): ActiveState {
     }
   }
 
-  // Normalize: null means default left alignment.  The toolbar always shows
-  // one of the four alignment buttons as active; if no explicit attr is set
-  // we default to "left" so the left button appears pressed.
-  // After a save+reload, :::align-left::: is never emitted (left is the
-  // default) so textAlign comes back as null → "left" again.  Consistent.
-  return { bold, italic, heading, bulletList, orderedList, blockquote, link, textAlign: textAlign ?? "left", fontSize };
+  // Normalize: null means default.  Show one button as active at all times.
+  // After save+reload "left" / "normal" come back as null → same result.
+  return { bold, italic, heading, bulletList, orderedList, blockquote, link, textAlign: textAlign ?? "left", lineSpacing: lineSpacing ?? "normal", fontSize };
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
@@ -115,6 +117,8 @@ export default function FormattingToolbar() {
   const headingRef = useRef<HTMLDivElement>(null);
   const [fontSizeOpen, setFontSizeOpen] = useState(false);
   const fontSizeRef = useRef<HTMLDivElement>(null);
+  const [lineSpacingOpen, setLineSpacingOpen] = useState(false);
+  const lineSpacingRef = useRef<HTMLDivElement>(null);
 
   // Poll active state on selection/content changes
   useEffect(() => {
@@ -169,6 +173,18 @@ export default function FormattingToolbar() {
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, [fontSizeOpen]);
+
+  // Close line-spacing menu on outside click
+  useEffect(() => {
+    if (!lineSpacingOpen) return;
+    function handleClick(e: MouseEvent) {
+      if (lineSpacingRef.current && !lineSpacingRef.current.contains(e.target as Node)) {
+        setLineSpacingOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [lineSpacingOpen]);
 
   // ---- Command helpers ----
 
@@ -308,6 +324,43 @@ export default function FormattingToolbar() {
     [getEditor],
   );
 
+  // Line spacing: set lineSpacing attr on the current block node.
+  //
+  // "normal" is the default spacing – it is never serialized with a prefix in
+  // toMarkdown (emitting :::ls-normal::: would be a no-op on reload).
+  // Treating "normal" as null keeps the PM attr and the serialized form
+  // in sync: clicking "normal" removes any explicit spacing setting.
+  const setLineSpacing = useCallback(
+    (spacing: LineSpacingKey | null) => {
+      setLineSpacingOpen(false);
+      const editor = getEditor();
+      if (!editor) return;
+      editor.action((ctx) => {
+        const view = ctx.get(editorViewCtx);
+        const { state, dispatch } = view;
+        const { $from, $to } = state.selection;
+
+        // Map "normal" → null: normal is the default, never needs an explicit attr.
+        const effectiveSpacing = spacing === "normal" ? null : spacing;
+
+        state.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
+          if (node.type.name === "paragraph" || node.type.name === "heading") {
+            const newSpacing = node.attrs.lineSpacing === effectiveSpacing ? null : effectiveSpacing;
+            dispatch(
+              state.tr.setNodeMarkup(pos, undefined, {
+                ...node.attrs,
+                lineSpacing: newSpacing,
+              }),
+            );
+            return false;
+          }
+          return true;
+        });
+      });
+    },
+    [getEditor],
+  );
+
   const disabled = loading;
 
   const headingLabels: Record<number, string> = {
@@ -391,6 +444,35 @@ export default function FormattingToolbar() {
       <ToolBtn title="Justificar" onClick={() => setTextAlign("justify")} active={active.textAlign === "justify"} disabled={disabled}>
         <SvgAlignJustify />
       </ToolBtn>
+
+      <Sep />
+
+      {/* Line spacing dropdown */}
+      <div ref={lineSpacingRef} className="relative">
+        <ToolBtn
+          title="Interlineado"
+          onClick={() => setLineSpacingOpen(!lineSpacingOpen)}
+          active={active.lineSpacing !== "normal" && active.lineSpacing != null}
+          disabled={disabled}
+          className="min-w-[2rem] text-[11px] font-mono"
+        >
+          <SvgLineSpacing />
+          <ChevronDown />
+        </ToolBtn>
+        {lineSpacingOpen && (
+          <div className="absolute left-0 top-full mt-1 z-50 bg-white border border-stone-200 rounded-lg shadow-lg py-1 min-w-[7rem]">
+            {(Object.keys(LINE_SPACING_MAP) as LineSpacingKey[]).map((key) => (
+              <HeadingOption
+                key={key}
+                label={LINE_SPACING_LABELS[key]}
+                tag={LINE_SPACING_MAP[key] || "—"}
+                onClick={() => setLineSpacing(key === "normal" ? null : key)}
+                active={active.lineSpacing === key || (key === "normal" && (active.lineSpacing == null || active.lineSpacing === "normal"))}
+              />
+            ))}
+          </div>
+        )}
+      </div>
 
       <Sep />
 
@@ -579,6 +661,21 @@ function SvgAlignJustify() {
     <svg className={iconClass} {...iconProps}>
       <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
       <line x1="3" y1="14" x2="21" y2="14" /><line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  );
+}
+
+function SvgLineSpacing() {
+  return (
+    <svg className={iconClass} {...iconProps}>
+      {/* Three text lines */}
+      <line x1="3" y1="6" x2="17" y2="6" />
+      <line x1="3" y1="12" x2="17" y2="12" />
+      <line x1="3" y1="18" x2="17" y2="18" />
+      {/* Up/down arrows on the right */}
+      <polyline points="20,4 22,6 20,8" />
+      <polyline points="20,16 22,18 20,20" />
+      <line x1="21" y1="6" x2="21" y2="18" />
     </svg>
   );
 }

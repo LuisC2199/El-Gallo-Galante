@@ -2,34 +2,41 @@
 // Admin – Block-styling plugin for Milkdown
 // ---------------------------------------------------------------------------
 //
-// Extends paragraph and heading schemas with `textAlign` and `fontSize`
-// attributes.
+// Extends paragraph and heading schemas with `textAlign`, `lineSpacing`,
+// and `fontSize` attributes.
 //
 // SERIALIZATION POLICY
 // ─────────────────────
-// textAlign is serialized as an inline prefix at the very start of the
-// block's text content:
+// textAlign and lineSpacing are serialized as an inline prefix at the very
+// start of the block's text content:
 //
-//   :::align-right:::*Guanajuato, a 01 de julio de 2020*
-//   :::align-center:::Centered content
+//   :::align-right:::*italic text*
+//   :::align-center ls-relaxed:::Centered + relaxed spacing
+//   :::ls-compact:::Compact-spaced, default alignment
+//
+// Grammar:  :::[TOKEN[ TOKEN]]:::
+//   align tokens:   align-left | align-center | align-right | align-justify
+//   spacing tokens: ls-compact | ls-normal  | ls-relaxed  | ls-loose
+// Tokens are space-separated; by convention align comes before ls.
 //
 // Round-trip:
-//   toMarkdown  → opens paragraph, addNode("text", ":::align-TYPE:::"),
-//                 then state.next(inline content), closeNode
-//   remark-parse → paragraph whose first child is text(":::align-TYPE:::")
-//   remarkAlignPlugin → strips prefix, sets data.textAlign
-//   parseMarkdown.runner → sets ProseMirror textAlign attr
-//   toDOM → applies style="text-align:TYPE"
+//   toMarkdown  → buildBlockPrefix(align, ls) → text node, then inline content
+//   remark-parse → first text child is ":::{tokens}:::[rest]"
+//   remarkAlignPlugin → parseBlockPrefix strips prefix, sets data.textAlign
+//                       and data.lineSpacing on the mdast node
+//   parseMarkdown.runner → sets ProseMirror textAlign + lineSpacing attrs
+//   toDOM → applies style="text-align:X; line-height:Y"
 //
-// "left" is the default; it is NOT serialized with a prefix (saving
-// `:::align-left:::` would be no-op on reload since left is default).
+// Defaults NOT serialized (omitting them is a no-op on reload):
+//   textAlign   = "left"   → align token omitted
+//   lineSpacing = "normal" → ls token omitted
 //
 // fontSize is EDITOR-VISUAL-ONLY – never written to the markdown file.
 //
 // LEGACY SUPPORT
 // ──────────────
 // Existing <p style="text-align:..."> HTML blocks are still loaded
-// correctly and will be converted to :::align-TYPE::: on next save.
+// correctly and will be converted to the new prefix syntax on next save.
 // ---------------------------------------------------------------------------
 
 import { $node, $remark } from "@milkdown/kit/utils";
@@ -63,95 +70,124 @@ export const FONT_SIZE_LABELS: Record<FontSizeKey, string> = {
   xl: "XL",
 };
 
+// Line spacing tokens → CSS line-height values.
+// "normal" is the default and is NEVER serialized to markdown (analogous to
+// how "left" is never serialized for textAlign).
+export type LineSpacingKey = "compact" | "normal" | "relaxed" | "loose";
+export const LINE_SPACING_MAP: Record<LineSpacingKey, string> = {
+  compact: "1.2",
+  normal:  "",      // default – no inline style
+  relaxed: "1.75",
+  loose:   "2.0",
+};
+export const LINE_SPACING_LABELS: Record<LineSpacingKey, string> = {
+  compact: "Compacto",
+  normal:  "Normal",
+  relaxed: "Relajado",
+  loose:   "Amplio",
+};
+
 const remToKey = new Map(Object.entries(FONT_SIZE_MAP).filter(([, v]) => v).map(([k, v]) => [v, k]));
+// Maps raw CSS line-height strings back to LineSpacingKey (for legacy HTML migration).
+const lineHeightToKey = new Map<string, LineSpacingKey>([
+  ["1.2",  "compact"],
+  ["1.75", "relaxed"],
+  ["2",    "loose"],
+  ["2.0",  "loose"],
+]);
 
 // ---------------------------------------------------------------------------
-// Alignment prefix constant
+// Block-style prefix – combined serialization of alignment + line spacing
 // ---------------------------------------------------------------------------
 //
-// SYNTAX:   :::align-(left|center|right|justify):::
-// POSITION: very first inline node of a paragraph or heading in saved markdown
-//
-// WHY NOT raw HTML:
-//   A previous implementation emitted <p style="text-align:...">. This caused
-//   the full paragraph to be serialized as raw HTML, which meant bold/italic
-//   marks also became HTML (<strong>, <em>) and the file lost clean markdown
-//   formatting.  The prefix approach keeps all inline content in standard
-//   CommonMark; only the alignment token is non-standard, and only at the
-//   very start of the block.
-//
-// DUPLICATE PREFIX safety:
-//   The ProseMirror document never contains :::align-TYPE::: as text,
-//   because remarkAlignPlugin always strips the prefix BEFORE parseMarkdown
-//   runner runs.  So the text nodes in PM are always clean.  The prefix is
-//   only ever added again by toMarkdown – it cannot be duplicated.
-//
-// SWITCHING ALIGNMENT (right → center, right → left, etc.):
-//   setTextAlign() calls setNodeMarkup to update the PM textAlign attr.
-//   The next toMarkdown run emits the new prefix (or omits it for left/null).
-//   The old prefix was never in the PM text nodes, so no cleanup is needed.
-//
-// REMOVING ALIGNMENT (right → none):
-//   setTextAlign("left") sets the effectiveAlign to null (see FormattingToolbar).
-//   toMarkdown omits the prefix entirely for null/left.  Clean markdown.
-//
-// EMPTY BLOCKS:
-//   A block with alignment but no content serializes as just ":::align-TYPE:::"
-//   on its own line.  On reload stripAlignPrefix removes it, leaving an empty
-//   children array.  parseMarkdown.runner produces an empty PM node.  Safe.
-//
-// COPY/PASTE in editor:
-//   ProseMirror copies the textAlign attr with the node.  Pasted aligned
-//   paragraphs retain their alignment.  The prefix is only in the saved file,
-//   never in the ProseMirror DOM, so paste never introduces a raw prefix.
-//
-// TYPING THE LITERAL PREFIX:
-//   If an author manually types ":::align-right:::" into the editor it becomes
-//   a plain text node (no textAlign attr).  On save no prefix is prepended
-//   (the attr is null), so the file contains ":::align-right:::" as literal
-//   text.  On reload remarkAlignPlugin then treats the paragraph as right-
-//   aligned.  This is an unlikely but acknowledged edge case; it is consistent
-//   and reversible (delete the text, save again).
+// SYNTAX:    :::[TOKEN[ TOKEN]]:::
+// POSITION:  very first text child of a paragraph or heading
+// TOKENS:    align-TYPE and/or ls-KEY, space-separated
 //
 // FORMAT CONTRACT (must stay in sync with remark-align-public.mjs and
 //                   PostPreviewPanel.tsx):
-//   /^:::align-(left|center|right|justify):::/
-//   "left" is never serialized (it is the default).
+//   Match regex: /^:::([^:]+):::/   (colons never appear inside the brackets)
+//   Align tokens:   align-left | align-center | align-right | align-justify
+//   Spacing tokens: ls-compact | ls-normal  | ls-relaxed  | ls-loose
+//
+// BACKWARD COMPATIBILITY:
+//   Old files with :::align-TYPE::: (no ls token) match BLOCK_PREFIX_RE and
+//   produce lineSpacing = null.  No migration needed.
+//
+// COEXISTENCE (align + lineSpacing):
+//   Both attrs are encoded in one prefix node.  Changing one only rebuilds
+//   the prefix from the live ProseMirror attrs – the old text was never in PM.
+//
+// DUPLICATE PREFIX: impossible.  Prefix is stripped before PM sees the text.
+//   toMarkdown re-adds it once from node.attrs.  Cannot accumulate.
+//
+// REMOVING a setting:
+//   Setting align → "left" or lineSpacing → "normal" removes that token.
+//   If both are default, no prefix is emitted at all.  Clean markdown.
 // ---------------------------------------------------------------------------
-const ALIGN_PREFIX_RE = /^:::align-(left|center|right|justify):::/;
+const BLOCK_PREFIX_RE = /^:::([^:]+):::/;
+
+/** @internal */
+interface BlockStyle {
+  align: string | null;
+  lineSpacing: string | null;
+}
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**
- * If the first text child of a paragraph/heading mdast node begins with
- * :::align-TYPE:::, strip the prefix and return the alignment string.
- * Returns null when no prefix is present.
+ * Parse and strip the block-style prefix from the first text child of a
+ * paragraph or heading mdast node.
+ *
+ * Returns { align, lineSpacing } from the parsed tokens (both may be null).
+ * Returns null when no prefix is present at all.
+ *
+ * Mutates node.children in place so the remaining inline content is clean
+ * for parseMarkdown.
  */
-function stripAlignPrefix(node: any): string | null {
+function parseBlockPrefix(node: any): BlockStyle | null {
   const children: any[] = node.children;
   if (!children || children.length === 0) return null;
 
   const first = children[0];
   if (first.type !== "text") return null;
 
-  const match = ALIGN_PREFIX_RE.exec(first.value as string);
+  const match = BLOCK_PREFIX_RE.exec(first.value as string);
   if (!match) return null;
+
+  const tokens = match[1].trim().split(/\s+/);
+  let align: string | null = null;
+  let lineSpacing: string | null = null;
+
+  for (const token of tokens) {
+    if (token.startsWith("align-")) {
+      const v = token.slice(6);
+      if (VALID_ALIGNS.has(v)) align = v;
+    } else if (token.startsWith("ls-")) {
+      const v = token.slice(3);
+      if (v in LINE_SPACING_MAP) lineSpacing = v;
+    }
+  }
 
   const remaining = (first.value as string).slice(match[0].length);
   if (remaining === "") {
-    // Prefix was the only content of the first child – remove it entirely
     children.splice(0, 1);
   } else {
-    // Trim just the prefix from the first child's value
     children[0] = { ...first, value: remaining };
   }
-  return match[1];
+  return { align, lineSpacing };
 }
 
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
 function sanitizeAlign(value: unknown): TextAlign | null {
   if (typeof value === "string" && VALID_ALIGNS.has(value)) return value as TextAlign;
+  return null;
+}
+
+function sanitizeLineSpacing(value: unknown): LineSpacingKey | null {
+  if (typeof value === "string" && value in LINE_SPACING_MAP && value !== "normal")
+    return value as LineSpacingKey;
   return null;
 }
 
@@ -164,6 +200,11 @@ function fontSizeFromRem(rem: string | undefined | null): FontSizeKey | null {
   if (!rem) return null;
   const key = remToKey.get(rem);
   return key ? (key as FontSizeKey) : null;
+}
+
+function lineSpacingFromCss(lh: string | undefined | null): LineSpacingKey | null {
+  if (!lh) return null;
+  return lineHeightToKey.get(lh.trim()) ?? null;
 }
 
 // ---------------------------------------------------------------------------
@@ -187,15 +228,21 @@ const STYLED_P_RE =
 const STYLED_H_RE =
   /^<h([1-6])\s+style="([^"]+)">[\s\S]*?<\/h\1>$/i;
 
-function parseStyleString(style: string): { textAlign: string | null; fontSize: FontSizeKey | null } {
+function parseStyleString(style: string): {
+  textAlign: string | null;
+  fontSize: FontSizeKey | null;
+  lineSpacing: LineSpacingKey | null;
+} {
   let textAlign: string | null = null;
   let fontSize: FontSizeKey | null = null;
+  let lineSpacing: LineSpacingKey | null = null;
   for (const part of style.split(";")) {
     const [prop, val] = part.split(":").map(s => s.trim());
     if (prop === "text-align" && val && VALID_ALIGNS.has(val)) textAlign = val;
     if (prop === "font-size" && val) fontSize = fontSizeFromRem(val);
+    if (prop === "line-height" && val) lineSpacing = lineSpacingFromCss(val);
   }
-  return { textAlign, fontSize };
+  return { textAlign, fontSize, lineSpacing };
 }
 
 function extractInnerHtml(tag: string, html: string): string {
@@ -251,15 +298,19 @@ export const remarkAlignPlugin = $remark("remarkAlign", () => () => (tree: any) 
   for (let i = 0; i < tree.children.length; i++) {
     const node = tree.children[i];
 
-    // 1. New format: :::align-TYPE::: prefix on paragraph or heading node.
-    //    remark-parse already resolved these into proper block nodes; we just
-    //    need to strip the prefix text and attach the alignment as data.
+    // 1. New format: :::[tokens]::: prefix on paragraph or heading node.
+    //    remark-parse resolved these into block nodes; we parse + strip the
+    //    prefix and attach textAlign / lineSpacing as data for parseMarkdown.
     if (node.type === "paragraph" || node.type === "heading") {
-      const align = stripAlignPrefix(node);
-      if (align) {
-        node.data = { ...(node.data ?? {}), textAlign: align };
+      const style = parseBlockPrefix(node);
+      if (style) {
+        node.data = {
+          ...(node.data ?? {}),
+          ...(style.align       ? { textAlign: style.align }             : {}),
+          ...(style.lineSpacing ? { lineSpacing: style.lineSpacing }     : {}),
+        };
       }
-      continue; // no further processing needed for these node types
+      continue; // no further processing needed for paragraph/heading nodes
     }
 
     // 2. Legacy format: raw HTML blocks emitted by the old serializer.
@@ -268,12 +319,12 @@ export const remarkAlignPlugin = $remark("remarkAlign", () => () => (tree: any) 
 
     const pMatch = STYLED_P_RE.exec(node.value);
     if (pMatch) {
-      const { textAlign, fontSize } = parseStyleString(pMatch[1]);
-      if (textAlign || fontSize) {
+      const { textAlign, fontSize, lineSpacing } = parseStyleString(pMatch[1]);
+      if (textAlign || fontSize || lineSpacing) {
         tree.children[i] = {
           type: "paragraph",
           children: htmlToMdastChildren(extractInnerHtml("p", node.value)),
-          data: { textAlign, fontSize },
+          data: { textAlign, fontSize, lineSpacing },
         };
         continue;
       }
@@ -281,13 +332,13 @@ export const remarkAlignPlugin = $remark("remarkAlign", () => () => (tree: any) 
 
     const hMatch = STYLED_H_RE.exec(node.value);
     if (hMatch) {
-      const { textAlign, fontSize } = parseStyleString(hMatch[2]);
-      if (textAlign || fontSize) {
+      const { textAlign, fontSize, lineSpacing } = parseStyleString(hMatch[2]);
+      if (textAlign || fontSize || lineSpacing) {
         tree.children[i] = {
           type: "heading",
           depth: Number(hMatch[1]),
           children: htmlToMdastChildren(extractInnerHtml(`h${hMatch[1]}`, node.value)),
-          data: { textAlign, fontSize },
+          data: { textAlign, fontSize, lineSpacing },
         };
       }
     }
@@ -299,13 +350,34 @@ export const remarkAlignPlugin = $remark("remarkAlign", () => () => (tree: any) 
 // Extended paragraph schema – adds textAlign + fontSize attrs
 // ---------------------------------------------------------------------------
 
-// Helper to build inline style string from attrs
+/**
+ * Build the inline CSS style string for editor visual rendering (toDOM only).
+ * Includes text-align, line-height, and font-size when set.
+ * An inline style on the block element overrides any class-level leading on
+ * the prose wrapper – this is the desired behaviour.
+ * ⚠ NOT used in toMarkdown serialization.
+ */
 function buildStyle(node: any): string {
   const parts: string[] = [];
-  if (node.attrs.textAlign) parts.push(`text-align: ${node.attrs.textAlign}`);
+  if (node.attrs.textAlign)
+    parts.push(`text-align: ${node.attrs.textAlign}`);
+  if (node.attrs.lineSpacing && LINE_SPACING_MAP[node.attrs.lineSpacing as LineSpacingKey])
+    parts.push(`line-height: ${LINE_SPACING_MAP[node.attrs.lineSpacing as LineSpacingKey]}`);
   if (node.attrs.fontSize && FONT_SIZE_MAP[node.attrs.fontSize as FontSizeKey])
     parts.push(`font-size: ${FONT_SIZE_MAP[node.attrs.fontSize as FontSizeKey]}`);
   return parts.join("; ");
+}
+
+/**
+ * Build the serialized block-prefix token string for toMarkdown.
+ * Returns "" when both align and lineSpacing are at their defaults → no prefix.
+ * ⚠ NOT used for visual rendering.
+ */
+function buildBlockPrefix(align: string | null, lineSpacing: string | null): string {
+  const tokens: string[] = [];
+  if (align && align !== "left") tokens.push(`align-${align}`);
+  if (lineSpacing && lineSpacing !== "normal") tokens.push(`ls-${lineSpacing}`);
+  return tokens.length > 0 ? `:::${tokens.join(" ")}:::` : "";
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -313,15 +385,17 @@ export const alignedParagraph = $node("paragraph", (ctx) => ({
   content: "inline*",
   group: "block",
   attrs: {
-    textAlign: { default: null },
-    fontSize: { default: null },
+    textAlign:   { default: null },
+    lineSpacing: { default: null },
+    fontSize:    { default: null },
   },
   parseDOM: [
     {
       tag: "p",
       getAttrs: (dom: any) => ({
-        textAlign: sanitizeAlign(dom?.style?.textAlign),
-        fontSize: fontSizeFromRem(dom?.style?.fontSize),
+        textAlign:   sanitizeAlign(dom?.style?.textAlign),
+        lineSpacing: lineSpacingFromCss(dom?.style?.lineHeight),
+        fontSize:    fontSizeFromRem(dom?.style?.fontSize),
       }),
     },
   ],
@@ -336,9 +410,10 @@ export const alignedParagraph = $node("paragraph", (ctx) => ({
   parseMarkdown: {
     match: (node: any) => node.type === "paragraph",
     runner: (state: any, node: any, type: any) => {
-      const textAlign = sanitizeAlign(node.data?.textAlign);
-      const fontSize = sanitizeFontSize(node.data?.fontSize);
-      state.openNode(type, { textAlign, fontSize });
+      const textAlign   = sanitizeAlign(node.data?.textAlign);
+      const lineSpacing = sanitizeLineSpacing(node.data?.lineSpacing);
+      const fontSize    = sanitizeFontSize(node.data?.fontSize);
+      state.openNode(type, { textAlign, lineSpacing, fontSize });
       if (node.children) state.next(node.children);
       else state.addText(node.value || "");
       state.closeNode();
@@ -346,17 +421,17 @@ export const alignedParagraph = $node("paragraph", (ctx) => ({
   },
   toMarkdown: {
     match: (node: any) => node.type.name === "paragraph",
-    // Alignment is persisted as a :::align-TYPE::: prefix at the start of the
-    // paragraph's inline content.  remark-parse treats it as plain text, so
-    // it survives the round-trip.  On reload, remarkAlignPlugin strips it and
-    // sets data.textAlign, which parseMarkdown.runner maps to the PM attr.
+    // Per-block styling is persisted as a :::[tokens]::: prefix at the start
+    // of the paragraph's inline content.  remark-parse treats it as plain
+    // text so it survives the round-trip.  On reload, remarkAlignPlugin
+    // parses and strips it, setting data.textAlign / data.lineSpacing;
+    // parseMarkdown.runner maps those to ProseMirror attrs.
     // ⚠ Do NOT change this to raw HTML – that was the original bug.
     runner: (state: any, node: any) => {
-      const align: string | null = node.attrs.textAlign;
+      const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing);
       state.openNode("paragraph");
-      // Emit prefix only for non-default (non-left) alignment
-      if (align && align !== "left") {
-        state.addNode("text", undefined, `:::align-${align}:::`);
+      if (prefix) {
+        state.addNode("text", undefined, prefix);
       }
       if (node.content && node.content.size > 0) {
         state.next(node.content);
@@ -377,10 +452,11 @@ export const alignedHeading = $node("heading", (ctx) => {
     group: "block",
     defining: true,
     attrs: {
-      id: { default: "" },
-      level: { default: 1 },
-      textAlign: { default: null },
-      fontSize: { default: null },
+      id:          { default: "" },
+      level:       { default: 1 },
+      textAlign:   { default: null },
+      lineSpacing: { default: null },
+      fontSize:    { default: null },
     },
     parseDOM: HEADING_LEVELS.map((x) => ({
       tag: `h${x}`,
@@ -388,10 +464,11 @@ export const alignedHeading = $node("heading", (ctx) => {
         if (!(dom instanceof HTMLElement))
           throw new TypeError("Expected HTMLElement");
         return {
-          level: x,
-          id: dom.id,
-          textAlign: sanitizeAlign(dom.style?.textAlign),
-          fontSize: fontSizeFromRem(dom.style?.fontSize),
+          level:       x,
+          id:          dom.id,
+          textAlign:   sanitizeAlign(dom.style?.textAlign),
+          lineSpacing: lineSpacingFromCss(dom.style?.lineHeight),
+          fontSize:    fontSizeFromRem(dom.style?.fontSize),
         };
       },
     })),
@@ -413,28 +490,28 @@ export const alignedHeading = $node("heading", (ctx) => {
     parseMarkdown: {
       match: ({ type }: any) => type === "heading",
       runner: (state: any, node: any, type: any) => {
-        const textAlign = sanitizeAlign(node.data?.textAlign);
-        const fontSize = sanitizeFontSize(node.data?.fontSize);
-        state.openNode(type, { level: node.depth, textAlign, fontSize });
+        const textAlign   = sanitizeAlign(node.data?.textAlign);
+        const lineSpacing = sanitizeLineSpacing(node.data?.lineSpacing);
+        const fontSize    = sanitizeFontSize(node.data?.fontSize);
+        state.openNode(type, { level: node.depth, textAlign, lineSpacing, fontSize });
         state.next(node.children);
         state.closeNode();
       },
     },
     toMarkdown: {
       match: (node: any) => node.type.name === "heading",
-      // Same :::align-TYPE::: prefix strategy as paragraphs.
+      // Same :::[tokens]::: prefix strategy as paragraphs.
       // ⚠ Do NOT change this to raw HTML.
       runner: (state: any, node: any) => {
-        const align: string | null = node.attrs.textAlign;
+        const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing);
         state.openNode("heading", undefined, {
           depth: node.attrs.level,
         });
-        if (align && align !== "left") {
-          state.addNode("text", undefined, `:::align-${align}:::`);
+        if (prefix) {
+          state.addNode("text", undefined, prefix);
         }
-        // Guard matches the paragraph runner – calling state.next on an empty
-        // ProseMirror fragment is a no-op in practice, but the explicit check
-        // makes the intent clear and avoids any version-specific edge cases.
+        // Guard: calling state.next on an empty fragment is a no-op, but
+        // being explicit avoids any version-specific edge cases.
         if (node.content && node.content.size > 0) {
           state.next(node.content);
         }

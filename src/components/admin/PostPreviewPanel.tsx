@@ -258,6 +258,45 @@ body {
 // Helpers
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Block-style prefix helpers (mirrors remark-align-public.mjs logic)
+// ---------------------------------------------------------------------------
+//
+// The Milkdown editor serializes textAlign and lineSpacing as an inline prefix
+// at the very start of a paragraph or heading:
+//
+//   :::align-right:::text          →  text-align: right
+//   :::ls-relaxed:::text           →  line-height: 1.75
+//   :::align-center ls-compact:::text  →  both
+//
+// After marked.parse() the prefix appears as literal text inside the opening
+// tag: <p>:::align-right:::...  This helper converts that to an inline style.
+// The same transformation is applied on the public site via remarkAlignPublic.
+// ---------------------------------------------------------------------------
+
+const PREVIEW_LINE_SPACING_CSS: Record<string, string> = {
+  compact: "1.2",
+  relaxed: "1.75",
+  loose:   "2.0",
+};
+const PREVIEW_VALID_ALIGNS = new Set(["left", "center", "right", "justify"]);
+
+/** Convert a raw token string (e.g. "align-right ls-relaxed") to a CSS style string. */
+function blockPrefixToStyle(tokenStr: string): string {
+  const tokens = tokenStr.trim().split(/\s+/);
+  const styles: string[] = [];
+  for (const token of tokens) {
+    if (token.startsWith("align-")) {
+      const v = token.slice(6);
+      if (PREVIEW_VALID_ALIGNS.has(v) && v !== "left") styles.push(`text-align:${v}`);
+    } else if (token.startsWith("ls-")) {
+      const v = token.slice(3);
+      if (PREVIEW_LINE_SPACING_CSS[v]) styles.push(`line-height:${PREVIEW_LINE_SPACING_CSS[v]}`);
+    }
+  }
+  return styles.join("; ");
+}
+
 function formatDate(value: unknown): string {
   if (!value) return "";
   try {
@@ -312,25 +351,31 @@ export default function PostPreviewPanel({
     const dropCapMode = String(pres.dropCapMode ?? "auto");
 
     // Convert markdown body → HTML
-    // After marked renders, :::align-TYPE::: prefixes emitted by the editor's
+    // After marked renders, :::TOKEN::: prefixes emitted by the editor's
     // toMarkdown serializer appear as literal text at the start of <p> and
     // <hN> tags.  Replace them with inline style attributes so the preview
-    // reflects actual alignment.  The same transformation is applied on the
-    // public site via the remarkAlignPublic remark plugin.
-    // :::align-TYPE::: contains only colons and word chars → never HTML-escaped.
+    // reflects the actual per-block styling (alignment + line-height).
+    // The same transformation is applied on the public site via remarkAlignPublic.
+    // :::TOKEN::: contains only colons and word chars → never HTML-escaped.
     let bodyHtml: string;
     try {
       const rawHtml = marked.parse(body, { async: false }) as string;
       bodyHtml = rawHtml
-        // Paragraphs: <p>:::align-right:::…  →  <p style="text-align:right">…
+        // Paragraphs: <p>:::TOKEN:::…  →  <p style="…">…
         .replace(
-          /<p>(:::align-(left|center|right|justify):::)/g,
-          (_m, _prefix, align) => `<p style="text-align:${align}">`,
+          /<p>(:::([^:]+):::)/g,
+          (_m, _prefix, tokens) => {
+            const s = blockPrefixToStyle(tokens);
+            return s ? `<p style="${s}">` : "<p>";
+          },
         )
-        // Headings: <h2>:::align-center:::…  →  <h2 style="text-align:center">…
+        // Headings: <h2>:::TOKEN:::…  →  <h2 style="…">…
         .replace(
-          /<(h[1-6])>(:::align-(left|center|right|justify):::)/g,
-          (_m, tag, _prefix, align) => `<${tag} style="text-align:${align}">`,
+          /<(h[1-6])>(:::([^:]+):::)/g,
+          (_m, tag, _prefix, tokens) => {
+            const s = blockPrefixToStyle(tokens);
+            return s ? `<${tag} style="${s}">` : `<${tag}>`;
+          },
         );
     } catch {
       bodyHtml = `<p style="color:red">Error rendering Markdown body.</p><pre>${escapeHtml(body)}</pre>`;
