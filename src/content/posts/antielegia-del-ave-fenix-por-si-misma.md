@@ -5,7 +5,7 @@ category: Poesía
 author: javier-palau
 issue: ano-1-numero-0
 coverImage: /posts/antielegia-del-ave-fenix-por-si-misma.jpg
-featuredImage: /posts/antielegia-del-ave-fenix-por-si-misma.
+featuredImage: /posts/antielegia-del-ave-fenix-por-si-misma.jpg
 jpgimagePosition: top
 ---
 
