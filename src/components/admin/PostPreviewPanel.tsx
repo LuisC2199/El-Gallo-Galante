@@ -150,7 +150,44 @@ body {
 .poetry p { margin: 0.1rem; }
 .poetry p + p { margin-top: 1rem; }
 
-/* ---- Entry content ---- */
+/* ---- Entry content: base typography (mirrors global.css) ----
+ *
+ * Font-size, line-height, and paragraph rhythm are CSS rules here rather
+ * than Tailwind utilities on the wrapper class.  This keeps bodyClasses
+ * structurally neutral and matches the architecture of the public page.
+ *
+ * INTENTIONALLY ABSENT: text-align on .entry-content.
+ * If a paragraph is justified, centered, etc., it is because the editor
+ * emitted an inline style for that specific block — not a blanket wrapper. */
+
+/* Prose */
+.entry-content:not(.poetry) p,
+.entry-content:not(.poetry) li {
+  font-size: 1.25rem;
+  line-height: 1.625;
+}
+@media (min-width: 768px) {
+  .entry-content:not(.poetry) p,
+  .entry-content:not(.poetry) li {
+    font-size: 1.5rem;
+  }
+}
+
+/* Prose vertical rhythm — replaces space-y-8 on wrapper */
+.entry-content:not(.poetry) > * + * {
+  margin-top: 2rem;
+}
+
+/* Poetry font sizing (line-height left at browser default) */
+.entry-content.poetry p { font-size: 1rem; }
+@media (min-width: 640px) {
+  .entry-content.poetry p { font-size: 1.125rem; }
+}
+@media (min-width: 768px) {
+  .entry-content.poetry p { font-size: 1.25rem; }
+}
+
+/* ---- Entry content: figures and editorial classes ---- */
 .entry-content figure { margin: 2.5rem 0; }
 .entry-content figure img { width: 100%; display: block; border-radius: 0.25rem; }
 .entry-content figcaption {
@@ -407,15 +444,17 @@ export default function PostPreviewPanel({
       bodyHtml = `<p style="color:red">Error rendering Markdown body.</p><pre>${escapeHtml(body)}</pre>`;
     }
 
-    // Build entry-content class list (mirrors [slug].astro)
+    // Build entry-content class list — mirrors [slug].astro exactly.
+    // Font-size, line-height, and paragraph spacing come from PREVIEW_CSS
+    // (.entry-content rules), keeping these classes purely structural.
     const bodyClasses = [
       "entry-content serif text-stone-800",
       dropCapMode === "auto" && "drop-cap",
-      // "manual" mode: no auto drop-cap class — relies on <span class="dropcap"> in body
+      // "manual" mode: no auto drop-cap — relies on <span class="dropcap"> in body
       // "none" mode: no drop-cap styling at all
-      isPoetry
-        ? "text-base sm:text-lg md:text-xl leading-snug whitespace-pre-line overflow-x-auto poetry"
-        : "text-xl md:text-2xl leading-relaxed space-y-8 text-justify",
+      // Poetry: whitespace-pre-line/overflow-x-auto are structurally required;
+      // poetry provides stanza spacing. Font-size/line-height in PREVIEW_CSS.
+      isPoetry && "whitespace-pre-line overflow-x-auto poetry",
     ]
       .filter(Boolean)
       .join(" ");

@@ -79,6 +79,58 @@ body {
   margin-top: 1rem; /* separación entre estrofas */
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   Entry content: base typography
+   ──────────────────────────────────────────────────────────────────────────
+   Font-size, line-height, and paragraph rhythm are declared here as explicit
+   CSS rules rather than as Tailwind utilities on the wrapper element in
+   [slug].astro.  This keeps the page renderer structurally neutral: only
+   semantic/layout classes (entry-content, serif, drop-cap, poetry) remain on
+   the <div> wrapper.
+
+   INTENTIONALLY ABSENT: text-align.
+   Paragraph justification, centering, or right-alignment must come from the
+   editor (via the toolbar or the :::align-xxx::: prefix syntax).  No paragraph
+   is ever auto-justified by a page-level CSS rule.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Prose: paragraphs and list items */
+.entry-content:not(.poetry) p,
+.entry-content:not(.poetry) li {
+  font-size: 1.25rem;   /* = text-xl  */
+  line-height: 1.625;   /* = leading-relaxed */
+}
+@media (min-width: 768px) {
+  .entry-content:not(.poetry) p,
+  .entry-content:not(.poetry) li {
+    font-size: 1.5rem;  /* = md:text-2xl */
+  }
+}
+
+/* Prose paragraph vertical rhythm — replaces Tailwind `space-y-8` on wrapper */
+.entry-content:not(.poetry) > * + * {
+  margin-top: 2rem;
+}
+
+/* Poetry: responsive font sizing only.
+   Line-height is left at the browser natural default — not forced to
+   leading-snug — so each poem's cadence reads at its own natural rhythm.
+   white-space and overflow-x are wrapper classes (not here) because they
+   must be on the scroll-container element, not the individual paragraph. */
+.entry-content.poetry p {
+  font-size: 1rem;
+}
+@media (min-width: 640px) {
+  .entry-content.poetry p {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 768px) {
+  .entry-content.poetry p {
+    font-size: 1.25rem;
+  }
+}
+
 /* Editorial figures across ALL categories */
 .entry-content figure {
   margin: 2.5rem 0;
