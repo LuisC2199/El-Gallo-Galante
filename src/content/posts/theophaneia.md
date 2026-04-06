@@ -12,7 +12,7 @@ featuredImage: /posts/theophaneia.jpg
 imagePosition: top
 ---
 
-Soy el verbo que transcurre\
+:::ls-compact:::Soy el verbo que transcurre\
 la creación permanente del mensaje;
 
 suspenso en el presente de los siglos de los siglos,\
