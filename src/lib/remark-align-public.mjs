@@ -57,9 +57,6 @@ const LINE_SPACING_CSS = {
   loose:   "2.0",
 };
 
-/**
- * @returns {import('unified').Plugin}
- */
 export function remarkAlignPublic() {
   return function (tree) {
     if (!tree.children) return;

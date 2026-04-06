@@ -72,11 +72,11 @@ body {
 }
 
 .poetry p {
-  margin: 0rem;
+  margin: 0.1rem;
 }
 
 .poetry p + p {
-  margin-top: 1.25rem; /* separación entre estrofas */
+  margin-top: 1rem; /* separación entre estrofas */
 }
 
 /* Editorial figures across ALL categories */
