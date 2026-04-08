@@ -10,8 +10,8 @@ coverImage: /posts/carta-a-david-huerta.jpg
 featuredImage: /posts/carta-a-david-huerta.jpg
 ---
 
-:::align-right:::En Guanajuato y 2019\
-(a la manera de Lezama Lima)
+:::align-right:::*En Guanajuato y 2019*\
+*(a la manera de Lezama Lima)*
 
 :::align-justify:::<span class="dropcap">Q</span>uerido David Huerta:
 
