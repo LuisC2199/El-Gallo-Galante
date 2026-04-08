@@ -14,7 +14,7 @@ featuredImage: /posts/carta-a-tomas-segovia.jpg
 
 <span class="dropcap">Q</span>uerido Tomás:
 
-Ya casi se cumplirán 8 años desde que tu corazón finalmente dijo hasta aquí
+:::align-justify:::Ya casi se cumplirán 8 años desde que tu corazón finalmente dijo hasta aquí
 llegamos compañero. Te soltó la mano el tiempo con el que tan íntimamente
 habitaste. Qué raro es el paso del tiempo. A veces, como suele decir mi madre,
 se pasa volando; se nos va en un suspiro. También tu colega Xirau decía algo
