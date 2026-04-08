@@ -4,14 +4,16 @@ date: 2019-10-19T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: carlos-ulises-mata
+presentacion: 
+  dropCapMode: manual
 coverImage: /posts/carta-a-david-huerta.jpg
 featuredImage: /posts/carta-a-david-huerta.jpg
 ---
 
-_En Guanajuato y 2019  
-(a la manera de Lezama Lima)_
+:::align-right:::En Guanajuato y 2019\
+(a la manera de Lezama Lima)
 
-Querido David Huerta:
+<span class="dropcap">Q</span>uerido David Huerta:
 
 Qué bueno que no te gusta escribir por Whatsapp (otra coincidencia espiritual),
 qué malo que una vez más extravié la dirección “física” de tu casa en CDMX (en
@@ -86,7 +88,7 @@ regresos”.
 Y como los recuerdos podrían alargarse sin fin, enlisto ahora los lamentos,
 puestos aquí (ya te decía) como recordatorios:
 
-\-Me quedé sin mostrarte un ejemplar de la _Revista de la Universidad de
+-Me quedé sin mostrarte un ejemplar de la _Revista de la Universidad de
 Guanajuato_ de abril de 1970 en el que se publicaron seis poemas tuyos, como
 parte de una selección de jóvenes escritores que incluyó también a Mariano
 Flores Castro, Alejandro Patiño y Mario del Valle, en calidad de “poetas que se
@@ -102,14 +104,14 @@ ya estaban entonces en tus poemas las presencias tutelares de Eliot y Borges,
 los territorios urbanos y del sueño. Y, a cada paso, las imágenes sustantivas:
 “dagas, puñales soberbios / afilados / en la herrería de la luz”
 
-\-Me quedé sin presentarte a unos alumnos de Valenciana que te habrían hecho
+-Me quedé sin presentarte a unos alumnos de Valenciana que te habrían hecho
 recordar a tus mejores de la UNAM y la UACM: lectores dedicados, perspicaces y
 en varios idiomas. Andan haciendo una revista llamada _El Gallo Galante_ (la
 doble mayúscula supongo que da idea de su arrojo); valdría la pena que un día
 les dieras alguna primicia que viniera a reabrir el ciclo de las publicadas aquí
 hace medio siglo.
 
-\-Me quedé sin mostrarte mis ejemplares deshojados de _La música de lo que pasa_
+-Me quedé sin mostrarte mis ejemplares deshojados de _La música de lo que pasa_
 (CNCA, 1997) y de _Hacia la superficie_ (filodecaballos, 2002), el uno a causa
 de tanto empeñarme en entender —ay, sin éxito— cómo la poesía puede cifrarse en
 el título del poema que lo inaugura (“Sharp as a razor blade”: “Básteme pedirle
@@ -120,7 +122,7 @@ en una repisa de mi librero apenas leía los libros / pero naturalmente
 adivinaron leía las piedras”, el cual entre otras cosas es una lección magistral
 sobre la inutilidad de la puntuación.
 
-\-Me quedé sin llevarte al altar en que se ha convertido la repisa del librero
+-Me quedé sin llevarte al altar en que se ha convertido la repisa del librero
 que ocupan los dieciséis tomos de “La canción de la Tierra”. Todos me los has
 regalado tú y en todos tuvo algo que ver Guillermo Fernández, el poeta
 asesinado, quien ya cumple siete años de impunidad y tendría 87 de vida.
