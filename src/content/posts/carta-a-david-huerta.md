@@ -13,7 +13,7 @@ featuredImage: /posts/carta-a-david-huerta.jpg
 :::align-right:::En Guanajuato y 2019\
 (a la manera de Lezama Lima)
 
-<span class="dropcap">Q</span>uerido David Huerta:
+:::align-justify:::<span class="dropcap">Q</span>uerido David Huerta:
 
 Qué bueno que no te gusta escribir por Whatsapp (otra coincidencia espiritual),
 qué malo que una vez más extravié la dirección “física” de tu casa en CDMX (en
