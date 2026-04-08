@@ -4,6 +4,8 @@ date: 2021-02-14T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: sean-salas
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/esperanza-de-vida-en-siria.jpg
 featuredImage: /posts/esperanza-de-vida-en-siria.jpg
 ---
