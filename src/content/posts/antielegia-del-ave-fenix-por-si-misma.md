@@ -2,8 +2,10 @@
 title: Antielegía del ave Fénix por sí misma
 date: 2020-02-11T00:00:00.000Z
 category: Poesía
-author: javier-palau
 issue: ano-1-numero-0
+author: javier-palau
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/antielegia-del-ave-fenix-por-si-misma.jpg
 featuredImage: /posts/antielegia-del-ave-fenix-por-si-misma.jpg
 jpgimagePosition: top
