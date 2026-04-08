@@ -8,7 +8,7 @@ coverImage: /posts/it-never-entered-my-mind.jpg
 featuredImage: /posts/it-never-entered-my-mind.jpg
 ---
 
-Comenzamos a sacralizar nuestros rituales, creamos una religión donde nosotros
+:::align-justify:::Comenzamos a sacralizar nuestros rituales, creamos una religión donde nosotros
 éramos los dioses. Nos adorábamos con devoción, respeto, miedo. Cada pequeño
 acto, cada situación insignificante iba dibujando en las paredes, en los platos,
 en las sillas, los libros, en las cenas, la cama, los signos de una doctrina
@@ -20,7 +20,7 @@ nosotros. Le dimos nombres a las cosas innombrables, entramos en nosotros, nos
 desprendimos del yugo del tedio, edificamos un gran palacio con pilares
 indestructibles, nuestro mar de bronce, Sion, El Paraíso de Muhammad.
 
-Esa noche después de cenar, abrimos una botella de vino barato para ahuyentar el
+:::align-justify:::Esa noche después de cenar, abrimos una botella de vino barato para ahuyentar el
 calor. Colocamos el disco _Ballads and blues_ de Miles. _I waited for you_. Sí,
 yo también esperé por ti, no me he cansado todavía, no creo que me canse por
 ahora. _Autumn Leaves_. Nos imaginamos el otoño en verano. Hablamos de la
@@ -34,7 +34,7 @@ que lleva al hombre a la ciudad en su caparazón. De Vertov. De Jarmucsh. De De
 Chirico. De Man Ray. De las malas en las noticias, en los periódicos, en la
 televisión.
 
-Amanecía. _It never entered my mind_. Una última pastilla con un trago de otra
+:::align-justify:::Amanecía. _It never entered my mind_. Una última pastilla con un trago de otra
 botella de vino. Voy en la línea, a veces doy vueltas y vuelvo, me encuentro con
 ella mientras todos viven. Ella vuela, ríe, llora, canta, sueña, ¿qué sueña? Se
 encuentra conmigo y me dice que despierte, que este sueño le pertenece a ella y
@@ -43,7 +43,7 @@ alfombra sucia. _Bye bye black bird_. Sus pies sobre mi espalda, ella con el
 último cigarrillo entre los labios, le dije que teníamos que comprar más. Mira
 hacia la ventana, la luz lastimó sus ojos acuosos.
 
-Parker toca _Perdido_. Yo quería fumarme un último cigarrillo, entreabría los
+:::align-justify:::Parker toca _Perdido_. Yo quería fumarme un último cigarrillo, entreabría los
 ojos, extendía la mano y se lo quitaba de la boca. Estiraba de nuevo la mano con
 ademan torpe, ella abría la boca. _Flyin’ home_. Instrumentos tirados en el
 piso. Esa sala misteriosa es una fábrica de poemas, dibujos, pinturas, melodías.
@@ -59,7 +59,7 @@ tienda de pulgas, convertía ese pequeño hogar en un museo. _You took advantage
 of me_. Dolores. No podía adaptar otra casa a mí. _Focus on sanity_. No podía
 adaptarme a otro medio que no fuera tu cuerpo.
 
-![](/posts/it-never-entered-my-mind.jpg)
+:::ls-loose:::![](/posts/it-never-entered-my-mind.jpg)
 
 <span class="caption">Fotografía por
 **<a href="https://www.pexels.com/@markusspiske?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">Markus
