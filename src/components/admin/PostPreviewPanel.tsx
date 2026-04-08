@@ -342,9 +342,19 @@ const PREVIEW_LINE_SPACING_CSS: Record<string, string> = {
   relaxed: "1.75",
   loose:   "2.0",
 };
+const PREVIEW_FONT_SIZE_CSS: Record<string, string> = {
+  "9":  "0.75rem",
+  "10": "0.833rem",
+  "11": "0.917rem",
+  "14": "1.167rem",
+  "16": "1.333rem",
+  "18": "1.5rem",
+  "24": "2rem",
+  "30": "2.5rem",
+};
 const PREVIEW_VALID_ALIGNS = new Set(["left", "center", "right", "justify"]);
 
-/** Convert a raw token string (e.g. "align-right ls-relaxed") to a CSS style string. */
+/** Convert a raw token string (e.g. "align-right ls-relaxed fs-14") to a CSS style string. */
 function blockPrefixToStyle(tokenStr: string): string {
   const tokens = tokenStr.trim().split(/\s+/);
   const styles: string[] = [];
@@ -355,6 +365,9 @@ function blockPrefixToStyle(tokenStr: string): string {
     } else if (token.startsWith("ls-")) {
       const v = token.slice(3);
       if (PREVIEW_LINE_SPACING_CSS[v]) styles.push(`line-height:${PREVIEW_LINE_SPACING_CSS[v]}`);
+    } else if (token.startsWith("fs-")) {
+      const v = token.slice(3);
+      if (PREVIEW_FONT_SIZE_CSS[v]) styles.push(`font-size:${PREVIEW_FONT_SIZE_CSS[v]}`);
     }
   }
   return styles.join("; ");

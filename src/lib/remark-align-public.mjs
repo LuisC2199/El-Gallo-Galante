@@ -39,9 +39,10 @@
 //                   PostPreviewPanel.tsx)
 // ──────────────────────────────────────
 //   BLOCK_PREFIX_RE = /^:::([^:]+):::/
-//   Align token:   align-(left|center|right|justify)
-//   Spacing token: ls-(compact|normal|relaxed|loose)
-//   "left" and "normal" are never serialized (default values).
+//   Align token:     align-(left|center|right|justify)
+//   Spacing token:   ls-(compact|normal|relaxed|loose)
+//   Font-size token: fs-(9|10|11|14|16|18|24|30)
+//   "left", "normal", and "12" are never serialized (default values).
 // ---------------------------------------------------------------------------
 
 const BLOCK_PREFIX_RE = /^:::([^:]+):::/;
@@ -55,6 +56,19 @@ const LINE_SPACING_CSS = {
   normal:  "",
   relaxed: "1.75",
   loose:   "2.0",
+};
+
+// Maps fs-NNN token value → CSS font-size in rem.
+// "12" (body default) is never serialized; this map covers only non-default sizes.
+const FONT_SIZE_CSS = {
+  "9":  "0.75rem",
+  "10": "0.833rem",
+  "11": "0.917rem",
+  "14": "1.167rem",
+  "16": "1.333rem",
+  "18": "1.5rem",
+  "24": "2rem",
+  "30": "2.5rem",
 };
 
 export function remarkAlignPublic() {
@@ -80,12 +94,15 @@ export function remarkAlignPublic() {
       const tokens = match[1].trim().split(/\s+/);
       let align = null;
       let ls    = null;
+      let fs    = null;
 
       for (const token of tokens) {
         if (token.startsWith("align-") && VALID_ALIGNS.has(token.slice(6))) {
           align = token.slice(6);
         } else if (token.startsWith("ls-") && token.slice(3) in LINE_SPACING_CSS) {
           ls = token.slice(3);
+        } else if (token.startsWith("fs-") && token.slice(3) in FONT_SIZE_CSS) {
+          fs = token.slice(3);
         }
       }
 
@@ -103,6 +120,7 @@ export function remarkAlignPublic() {
       const styles = [];
       if (align && align !== "left")                          styles.push(`text-align: ${align}`);
       if (ls && ls !== "normal" && LINE_SPACING_CSS[ls])      styles.push(`line-height: ${LINE_SPACING_CSS[ls]}`);
+      if (fs && FONT_SIZE_CSS[fs])                            styles.push(`font-size: ${FONT_SIZE_CSS[fs]}`);
 
       if (styles.length > 0) {
         node.data = node.data ?? {};

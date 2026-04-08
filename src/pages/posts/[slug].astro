@@ -49,12 +49,6 @@ const ogImage = post.data.coverImage ?? post.data.featuredImage;
         class:list={[
           "entry-content serif text-stone-800",
           dropCapMode === "auto" && "drop-cap",
-          // Poetry: `whitespace-pre-line` preserves verse line-breaks (structurally
-          // necessary), `overflow-x-auto` prevents layout breakage for long lines,
-          // `poetry` provides stanza margin via the .poetry CSS rules.
-          // Font-size, line-height, and paragraph spacing live in global.css
-          // (.entry-content rules) so the page wrapper stays formatting-neutral.
-          isPoetry && "whitespace-pre-line overflow-x-auto poetry",
         ]}
       >
         <PostContent />

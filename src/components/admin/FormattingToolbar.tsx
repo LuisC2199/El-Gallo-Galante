@@ -522,7 +522,7 @@ export default function FormattingToolbar() {
           disabled={disabled}
           className="min-w-[2rem] text-[11px] font-mono"
         >
-          {active.fontSize ? FONT_SIZE_LABELS[active.fontSize] : "M"}
+          {active.fontSize ?? "12"}
           <ChevronDown />
         </ToolBtn>
         {fontSizeOpen && (
@@ -531,9 +531,9 @@ export default function FormattingToolbar() {
               <HeadingOption
                 key={key}
                 label={FONT_SIZE_LABELS[key]}
-                tag={FONT_SIZE_MAP[key] || "—"}
-                onClick={() => setFontSize(key === "md" ? null : key)}
-                active={active.fontSize === key || (key === "md" && active.fontSize == null)}
+                tag="pt"
+                onClick={() => setFontSize(key === "12" ? null : key)}
+                active={active.fontSize === key || (key === "12" && active.fontSize == null)}
               />
             ))}
           </div>

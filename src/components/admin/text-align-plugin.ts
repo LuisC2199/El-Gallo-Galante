@@ -17,21 +17,24 @@
 // Grammar:  :::[TOKEN[ TOKEN]]:::
 //   align tokens:   align-left | align-center | align-right | align-justify
 //   spacing tokens: ls-compact | ls-normal  | ls-relaxed  | ls-loose
-// Tokens are space-separated; by convention align comes before ls.
+//   size tokens:    fs-9 | fs-10 | fs-11 | fs-14 | fs-16 | fs-18 | fs-24 | fs-30
+// Tokens are space-separated; by convention align comes before ls before fs.
 //
 // Round-trip:
-//   toMarkdown  → buildBlockPrefix(align, ls) → text node, then inline content
+//   toMarkdown  → buildBlockPrefix(align, ls, fs) → text node, then inline content
 //   remark-parse → first text child is ":::{tokens}:::[rest]"
-//   remarkAlignPlugin → parseBlockPrefix strips prefix, sets data.textAlign
-//                       and data.lineSpacing on the mdast node
-//   parseMarkdown.runner → sets ProseMirror textAlign + lineSpacing attrs
-//   toDOM → applies style="text-align:X; line-height:Y"
+//   remarkAlignPlugin → parseBlockPrefix strips prefix, sets data.textAlign,
+//                       data.lineSpacing, and data.fontSize on the mdast node
+//   parseMarkdown.runner → sets ProseMirror textAlign, lineSpacing, fontSize attrs
+//   toDOM → applies style="text-align:X; line-height:Y; font-size:Z"
 //
 // Defaults NOT serialized (omitting them is a no-op on reload):
 //   textAlign   = "left"   → align token omitted
 //   lineSpacing = "normal" → ls token omitted
+//   fontSize    = "12"     → fs token omitted  (12 pt ≈ browser body default)
 //
-// fontSize is EDITOR-VISUAL-ONLY – never written to the markdown file.
+// fontSize is serialized as an fs-NNN token in the block prefix (e.g. fs-14).
+// The default (12 pt, equivalent to browser body text) is never serialized.
 //
 // LEGACY SUPPORT
 // ──────────────
@@ -54,20 +57,28 @@ type TextAlign = "left" | "center" | "right" | "justify";
 const VALID_ALIGNS = new Set<string>(["left", "center", "right", "justify"]);
 const HEADING_LEVELS = [1, 2, 3, 4, 5, 6] as const;
 
-export type FontSizeKey = "xs" | "sm" | "md" | "lg" | "xl";
+export type FontSizeKey = "9" | "10" | "11" | "12" | "14" | "16" | "18" | "24" | "30";
 export const FONT_SIZE_MAP: Record<FontSizeKey, string> = {
-  xs: "0.8rem",
-  sm: "0.9rem",
-  md: "",      // default – no inline style
-  lg: "1.15rem",
-  xl: "1.35rem",
+  "9":  "0.75rem",
+  "10": "0.833rem",
+  "11": "0.917rem",
+  "12": "",           // default – no inline style (≈ browser body text)
+  "14": "1.167rem",
+  "16": "1.333rem",
+  "18": "1.5rem",
+  "24": "2rem",
+  "30": "2.5rem",
 };
 export const FONT_SIZE_LABELS: Record<FontSizeKey, string> = {
-  xs: "XS",
-  sm: "S",
-  md: "M",
-  lg: "L",
-  xl: "XL",
+  "9":  "9",
+  "10": "10",
+  "11": "11",
+  "12": "12",
+  "14": "14",
+  "16": "16",
+  "18": "18",
+  "24": "24",
+  "30": "30",
 };
 
 // Line spacing tokens → CSS line-height values.
@@ -88,6 +99,14 @@ export const LINE_SPACING_LABELS: Record<LineSpacingKey, string> = {
 };
 
 const remToKey = new Map(Object.entries(FONT_SIZE_MAP).filter(([, v]) => v).map(([k, v]) => [v, k]));
+// Legacy rem values from the old xs/sm/lg/xl size system → nearest pt key.
+// Only used for backward-compat when loading HTML blocks saved before the pt migration.
+const LEGACY_REM_MAP = new Map<string, FontSizeKey>([
+  ["0.8rem",  "10"],
+  ["0.9rem",  "11"],
+  ["1.15rem", "14"],
+  ["1.35rem", "16"],
+]);
 // Maps raw CSS line-height strings back to LineSpacingKey (for legacy HTML migration).
 const lineHeightToKey = new Map<string, LineSpacingKey>([
   ["1.2",  "compact"],
@@ -109,6 +128,7 @@ const lineHeightToKey = new Map<string, LineSpacingKey>([
 //   Match regex: /^:::([^:]+):::/   (colons never appear inside the brackets)
 //   Align tokens:   align-left | align-center | align-right | align-justify
 //   Spacing tokens: ls-compact | ls-normal  | ls-relaxed  | ls-loose
+//   Size tokens:    fs-9 | fs-10 | fs-11 | fs-14 | fs-16 | fs-18 | fs-24 | fs-30
 //
 // BACKWARD COMPATIBILITY:
 //   Old files with :::align-TYPE::: (no ls token) match BLOCK_PREFIX_RE and
@@ -122,8 +142,8 @@ const lineHeightToKey = new Map<string, LineSpacingKey>([
 //   toMarkdown re-adds it once from node.attrs.  Cannot accumulate.
 //
 // REMOVING a setting:
-//   Setting align → "left" or lineSpacing → "normal" removes that token.
-//   If both are default, no prefix is emitted at all.  Clean markdown.
+//   Setting align → "left", lineSpacing → "normal", or fontSize → "12"
+//   removes that token.  If all are at defaults, no prefix is emitted at all.
 // ---------------------------------------------------------------------------
 const BLOCK_PREFIX_RE = /^:::([^:]+):::/;
 
@@ -131,6 +151,7 @@ const BLOCK_PREFIX_RE = /^:::([^:]+):::/;
 interface BlockStyle {
   align: string | null;
   lineSpacing: string | null;
+  fontSize: string | null;
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -158,6 +179,7 @@ function parseBlockPrefix(node: any): BlockStyle | null {
   const tokens = match[1].trim().split(/\s+/);
   let align: string | null = null;
   let lineSpacing: string | null = null;
+  let fontSize: string | null = null;
 
   for (const token of tokens) {
     if (token.startsWith("align-")) {
@@ -166,6 +188,9 @@ function parseBlockPrefix(node: any): BlockStyle | null {
     } else if (token.startsWith("ls-")) {
       const v = token.slice(3);
       if (v in LINE_SPACING_MAP) lineSpacing = v;
+    } else if (token.startsWith("fs-")) {
+      const v = token.slice(3);
+      if (v in FONT_SIZE_MAP && v !== "12") fontSize = v;
     }
   }
 
@@ -175,7 +200,7 @@ function parseBlockPrefix(node: any): BlockStyle | null {
   } else {
     children[0] = { ...first, value: remaining };
   }
-  return { align, lineSpacing };
+  return { align, lineSpacing, fontSize };
 }
 
 /* eslint-enable @typescript-eslint/no-explicit-any */
@@ -192,14 +217,13 @@ function sanitizeLineSpacing(value: unknown): LineSpacingKey | null {
 }
 
 function sanitizeFontSize(value: unknown): FontSizeKey | null {
-  if (typeof value === "string" && value in FONT_SIZE_MAP && value !== "md") return value as FontSizeKey;
+  if (typeof value === "string" && value in FONT_SIZE_MAP && value !== "12") return value as FontSizeKey;
   return null;
 }
 
 function fontSizeFromRem(rem: string | undefined | null): FontSizeKey | null {
   if (!rem) return null;
-  const key = remToKey.get(rem);
-  return key ? (key as FontSizeKey) : null;
+  return (remToKey.get(rem) ?? LEGACY_REM_MAP.get(rem) ?? null) as FontSizeKey | null;
 }
 
 function lineSpacingFromCss(lh: string | undefined | null): LineSpacingKey | null {
@@ -306,8 +330,9 @@ export const remarkAlignPlugin = $remark("remarkAlign", () => () => (tree: any) 
       if (style) {
         node.data = {
           ...(node.data ?? {}),
-          ...(style.align       ? { textAlign: style.align }             : {}),
-          ...(style.lineSpacing ? { lineSpacing: style.lineSpacing }     : {}),
+          ...(style.align       ? { textAlign: style.align }         : {}),
+          ...(style.lineSpacing ? { lineSpacing: style.lineSpacing } : {}),
+          ...(style.fontSize    ? { fontSize: style.fontSize }       : {}),
         };
       }
       continue; // no further processing needed for paragraph/heading nodes
@@ -370,13 +395,14 @@ function buildStyle(node: any): string {
 
 /**
  * Build the serialized block-prefix token string for toMarkdown.
- * Returns "" when both align and lineSpacing are at their defaults → no prefix.
+ * Returns "" when align, lineSpacing, and fontSize are all at their defaults → no prefix.
  * ⚠ NOT used for visual rendering.
  */
-function buildBlockPrefix(align: string | null, lineSpacing: string | null): string {
+function buildBlockPrefix(align: string | null, lineSpacing: string | null, fontSize: string | null): string {
   const tokens: string[] = [];
   if (align && align !== "left") tokens.push(`align-${align}`);
   if (lineSpacing && lineSpacing !== "normal") tokens.push(`ls-${lineSpacing}`);
+  if (fontSize && fontSize !== "12") tokens.push(`fs-${fontSize}`);
   return tokens.length > 0 ? `:::${tokens.join(" ")}:::` : "";
 }
 
@@ -428,7 +454,7 @@ export const alignedParagraph = $node("paragraph", (ctx) => ({
     // parseMarkdown.runner maps those to ProseMirror attrs.
     // ⚠ Do NOT change this to raw HTML – that was the original bug.
     runner: (state: any, node: any) => {
-      const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing);
+      const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing, node.attrs.fontSize);
       state.openNode("paragraph");
       if (prefix) {
         state.addNode("text", undefined, prefix);
@@ -503,7 +529,7 @@ export const alignedHeading = $node("heading", (ctx) => {
       // Same :::[tokens]::: prefix strategy as paragraphs.
       // ⚠ Do NOT change this to raw HTML.
       runner: (state: any, node: any) => {
-        const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing);
+        const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing, node.attrs.fontSize);
         state.openNode("heading", undefined, {
           depth: node.attrs.level,
         });
