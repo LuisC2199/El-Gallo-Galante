@@ -6,7 +6,7 @@ issue: ano-1-numero-0
 author: javier-palau
 presentacion: 
   firma: "Guanajuato, a 01 de julio de 2020"
-  dropCapMode: auto
+  dropCapMode: none
 coverImage: /posts/theophaneia.jpg
 featuredImage: /posts/theophaneia.jpg
 imagePosition: top
