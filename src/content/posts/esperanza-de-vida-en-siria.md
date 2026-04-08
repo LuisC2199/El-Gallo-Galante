@@ -5,7 +5,7 @@ category: Poesía
 issue: ano-1-numero-0
 author: sean-salas
 presentacion: 
-  dropCapMode: none
+  dropCapMode: auto
 coverImage: /posts/esperanza-de-vida-en-siria.jpg
 featuredImage: /posts/esperanza-de-vida-en-siria.jpg
 ---
