@@ -275,21 +275,36 @@ export default function FormattingToolbar() {
         // Map "left" → null: left is the default, never needs an explicit attr.
         const effectiveAlign = align === "left" ? null : align;
 
-        // Apply to all block nodes in the selection range.
-        // Toggle: if the block already has this alignment, remove it (set null).
+        // Pre-scan: determine whether ALL eligible blocks already have this
+        // alignment so the toggle is applied uniformly (not per-block).
+        let allHave = true;
+        let hasEligible = false;
+        state.doc.nodesBetween($from.pos, $to.pos, (node) => {
+          if (node.type.name === "paragraph" || node.type.name === "heading") {
+            hasEligible = true;
+            if (node.attrs.textAlign !== effectiveAlign) allHave = false;
+            return false;
+          }
+          return true;
+        });
+        const applyAlign = hasEligible && allHave ? null : effectiveAlign;
+
+        // Build ONE transaction for all blocks, then dispatch once.
+        // Calling dispatch once per block (each time from the same state
+        // snapshot) causes every transaction to overwrite the previous one –
+        // only the last block's change would survive.
+        let tr = state.tr;
         state.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
           if (node.type.name === "paragraph" || node.type.name === "heading") {
-            const newAlign = node.attrs.textAlign === effectiveAlign ? null : effectiveAlign;
-            dispatch(
-              state.tr.setNodeMarkup(pos, undefined, {
-                ...node.attrs,
-                textAlign: newAlign,
-              }),
-            );
+            tr = tr.setNodeMarkup(pos, undefined, {
+              ...node.attrs,
+              textAlign: applyAlign,
+            });
             return false; // don't descend
           }
           return true;
         });
+        dispatch(tr);
       });
     },
     [getEditor],
@@ -306,19 +321,30 @@ export default function FormattingToolbar() {
         const { state, dispatch } = view;
         const { $from, $to } = state.selection;
 
-        state.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
+        let allHave = true;
+        let hasEligible = false;
+        state.doc.nodesBetween($from.pos, $to.pos, (node) => {
           if (node.type.name === "paragraph" || node.type.name === "heading") {
-            const newSize = node.attrs.fontSize === size ? null : size;
-            dispatch(
-              state.tr.setNodeMarkup(pos, undefined, {
-                ...node.attrs,
-                fontSize: newSize,
-              }),
-            );
+            hasEligible = true;
+            if (node.attrs.fontSize !== size) allHave = false;
             return false;
           }
           return true;
         });
+        const applySize = hasEligible && allHave ? null : size;
+
+        let tr = state.tr;
+        state.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
+          if (node.type.name === "paragraph" || node.type.name === "heading") {
+            tr = tr.setNodeMarkup(pos, undefined, {
+              ...node.attrs,
+              fontSize: applySize,
+            });
+            return false;
+          }
+          return true;
+        });
+        dispatch(tr);
       });
     },
     [getEditor],
@@ -343,19 +369,30 @@ export default function FormattingToolbar() {
         // Map "normal" → null: normal is the default, never needs an explicit attr.
         const effectiveSpacing = spacing === "normal" ? null : spacing;
 
-        state.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
+        let allHave = true;
+        let hasEligible = false;
+        state.doc.nodesBetween($from.pos, $to.pos, (node) => {
           if (node.type.name === "paragraph" || node.type.name === "heading") {
-            const newSpacing = node.attrs.lineSpacing === effectiveSpacing ? null : effectiveSpacing;
-            dispatch(
-              state.tr.setNodeMarkup(pos, undefined, {
-                ...node.attrs,
-                lineSpacing: newSpacing,
-              }),
-            );
+            hasEligible = true;
+            if (node.attrs.lineSpacing !== effectiveSpacing) allHave = false;
             return false;
           }
           return true;
         });
+        const applySpacing = hasEligible && allHave ? null : effectiveSpacing;
+
+        let tr = state.tr;
+        state.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
+          if (node.type.name === "paragraph" || node.type.name === "heading") {
+            tr = tr.setNodeMarkup(pos, undefined, {
+              ...node.attrs,
+              lineSpacing: applySpacing,
+            });
+            return false;
+          }
+          return true;
+        });
+        dispatch(tr);
       });
     },
     [getEditor],
