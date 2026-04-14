@@ -15,10 +15,10 @@ Hasta aquí escribimos, lector,
 > Y adiós, que esto no es más de\
 > darte la muestra del paño;\
 > si no te agrada la pieza,\
-> no desenvuelvas el fardo. [1]
+> no desenvuelvas el fardo. \[1]
 
-Los editores
+:::align-right:::**Los editores**
 
----
+***
 
-[1] Sor Juana Inés de la Cruz, 1690.
+\[1] Sor Juana Inés de la Cruz, 1690.
