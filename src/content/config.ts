@@ -63,4 +63,11 @@ const posts = defineCollection({
   }),
 });
 
-export const collections = { posts, authors, issues };
+const preamble = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
+export const collections = { posts, authors, issues, preamble };

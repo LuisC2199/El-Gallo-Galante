@@ -10,6 +10,7 @@ import AuthorEditor from "./AuthorEditor";
 import AuthorList from "./AuthorList";
 import IssueEditor from "./IssueEditor";
 import IssueList from "./IssueList";
+import PreambleEditor from "./PreambleEditor";
 import CreateItemModal, { postFields, authorFields, issueFields } from "./CreateItemModal";
 import { useUnsavedChanges } from "./useUnsavedChanges";
 import type { AuthorSummary, IssueSummary } from "../../lib/admin/types";
@@ -219,6 +220,11 @@ export default function AdminShell() {
               </div>
             )}
           </>
+        )}
+
+        {/* Preamble singleton */}
+        {activeCollection === "preamble" && (
+          <PreambleEditor onDirtyChange={handleDirtyChange} />
         )}
       </div>
 

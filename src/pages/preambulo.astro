@@ -1,0 +1,70 @@
+---
+import Shell from "../layouts/Shell.astro";
+import { getCollection } from "astro:content";
+
+// preamble is a singleton collection; always fetch the single entry
+const entries = await getCollection("preamble" as any);
+const preamble = entries[0];
+if (!preamble) {
+  return Astro.redirect("/");
+}
+
+const { Content } = await (preamble as any).render();
+---
+
+<Shell title="Preámbulo · El Gallo Galante">
+  <div class="max-w-3xl mx-auto px-6 py-12 md:py-20">
+    <h1 class="display-serif text-4xl md:text-5xl font-bold mb-16 text-stone-900 text-center">
+      {(preamble as any).data.title}
+    </h1>
+
+    <div class="serif text-lg md:text-xl leading-loose text-stone-700 space-y-8 preamble-body">
+      <Content />
+    </div>
+  </div>
+</Shell>
+
+<style>
+  /* Base paragraph — no bottom margin (space-y-8 on the wrapper handles gaps) */
+  .preamble-body :global(p) {
+    margin-bottom: 0;
+  }
+
+  .preamble-body :global(strong) {
+    font-weight: 600;
+    color: #1c1917; /* stone-900 */
+  }
+
+  .preamble-body :global(em) {
+    font-style: italic;
+  }
+
+  /* Blockquote — used for poem / verse blocks */
+  .preamble-body :global(blockquote) {
+    margin: 0;
+    padding: 1.5rem 2rem;
+    font-style: italic;
+    color: #57534e; /* stone-600 */
+    border-left: none;
+    background: transparent;
+  }
+
+  .preamble-body :global(blockquote p) {
+    line-height: 1.9;
+    margin-bottom: 0;
+  }
+
+  /* Horizontal rule — editorial separator between sections */
+  .preamble-body :global(hr) {
+    margin: 0.5rem 0;
+    border: none;
+    border-top: 1px solid #e7e5e4; /* stone-200 */
+  }
+
+  /* Superscript footnote markers inside the text */
+  .preamble-body :global(sup) {
+    font-size: 0.7em;
+    vertical-align: super;
+    font-style: normal;
+  }
+</style>

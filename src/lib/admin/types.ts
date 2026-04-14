@@ -132,7 +132,10 @@ export interface GitHubFileContent {
 // Save request / response
 // ---------------------------------------------------------------------------
 
-/** Body sent to PUT /api/admin/posts/:slug to update a post. */
+/**
+ * Generic request body for any file-update endpoint (posts, preamble, etc.).
+ * Kept as SavePostRequest for backwards compatibility with existing callers.
+ */
 export interface SavePostRequest {
   path: string;
   sha: string;
@@ -140,11 +143,20 @@ export interface SavePostRequest {
   body: string;
 }
 
-/** Response returned after a successful save. */
+/** @alias SavePostRequest – prefer this name in non-post contexts. */
+export type SaveFileRequest = SavePostRequest;
+
+/**
+ * Generic response returned after a successful file save.
+ * Kept as SavePostResponse for backwards compatibility with existing callers.
+ */
 export interface SavePostResponse {
   sha: string;
   path: string;
 }
+
+/** @alias SavePostResponse – prefer this name in non-post contexts. */
+export type SaveFileResponse = SavePostResponse;
 
 /** Response for update file via GitHub Contents API. */
 export interface GitHubUpdateResponse {

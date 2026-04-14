@@ -162,3 +162,13 @@ export function serializeIssue(
 ): string {
   return serializeMarkdown(frontmatter, body, ISSUE_KEY_ORDER);
 }
+
+/**
+ * Serialize the preamble (singleton) frontmatter + body into a complete Markdown file.
+ */
+export function serializePreamble(
+  frontmatter: Record<string, unknown>,
+  body: string,
+): string {
+  return serializeMarkdown(frontmatter, body, ["title"]);
+}
