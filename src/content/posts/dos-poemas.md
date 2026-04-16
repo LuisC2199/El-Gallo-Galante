@@ -10,7 +10,7 @@ coverImage: /posts/dos-poemas.jpg
 featuredImage: /posts/dos-poemas.jpg
 ---
 
-:::fs-14:::Güerito
+:::fs-18:::Güerito
 
 <span class="dropcap">T</span>u hermosura irradia afecciones\
 que son pies vírgenes pisando blandos la arena;\
@@ -33,7 +33,7 @@ Eres el oro que me hace avaro.\
 Pero si debiera recoger de tus manos la fortuna de mi vida,\
 una sola moneda me bastaría.
 
-:::fs-14:::Acaso
+:::fs-18:::Acaso
 
 <span class="dropcap">A</span>caso te amo sin una razón verdadera:\
 por instinto, como se ama a la familia\
