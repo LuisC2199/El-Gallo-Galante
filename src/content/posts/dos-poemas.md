@@ -10,7 +10,7 @@ coverImage: /posts/dos-poemas.jpg
 featuredImage: /posts/dos-poemas.jpg
 ---
 
-### Güerito
+:::fs-24:::Güerito
 
 Tu hermosura irradia afecciones\
 que son pies vírgenes pisando blandos la arena;\
@@ -33,7 +33,7 @@ Eres el oro que me hace avaro.\
 Pero si debiera recoger de tus manos la fortuna de mi vida,\
 una sola moneda me bastaría.
 
-### Acaso
+:::fs-24:::Acaso
 
 Acaso te amo sin una razón verdadera:\
 por instinto, como se ama a la familia\
