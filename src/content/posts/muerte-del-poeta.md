@@ -25,6 +25,6 @@ Poesía le dio la espalda al poeta.\
 Tórnose el firmamento el mismo infierno.\
 Las lágrimas corrieron y abrasaron.
 
-:::fs-10:::<p class="poem-signature">Guanajuato, Gto, a 27 de agosto de 2018.</p>
+:::align-right fs-10:::Guanajuato, Gto, a 27 de agosto de 2018.
 
 ![](/posts/muerte-del-poeta.jpg)
