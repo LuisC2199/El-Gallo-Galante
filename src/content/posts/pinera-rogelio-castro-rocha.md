@@ -4,6 +4,8 @@ date: 2019-04-20T00:00:00.000Z
 category: Crítica
 issue: ano-1-numero-0
 author: yanndy-arely-rangel-palacios
+presentacion: 
+  dropCapMode: manual
 coverImage: /posts/pinera-rogelio-castro-rocha.jpg
 featuredImage: /posts/pinera-rogelio-castro-rocha.jpg
 ---
@@ -13,7 +15,7 @@ de sus cuentos_, Universidad de Guanajuato/Fondo Nacional para la Cultura y las
 Artes, México. 2013, 135 pp. (_Pequeña Galería del Escritor Hispanoamericano,
 2_)
 
-Conocer a un autor tan especial, como lo es el escritor cubano Virgilio Piñera,
+<span class="dropcap">C</span>onocer a un autor tan especial, como lo es el escritor cubano Virgilio Piñera,
 resulta tentador para todas aquellas personas que gustan de toques sofisticados
 y llenos de un humor negro. El resto tal vez lo tomen con desagrado, al igual
 que muchos críticos, quienes lo han catalogado de esta forma gracias a su
@@ -45,7 +47,7 @@ Al mismo tiempo Piñera experimentó, gracias a su peculiar estilo, una situaci�
 al borde de la marginación tanto en sus obras como en su vida, así se menciona
 en una cita de Balderston que recupera Castro Rocha “Lo que más me sorprende en
 las antologías más generales del cuento latinoamericano es cómo Piñera ha
-figurado en muy pocas \[…\] Piñera pudo haber sido incluido en por lo menos
+figurado en muy pocas \[…] Piñera pudo haber sido incluido en por lo menos
 doscientas de ellas.” (p. 36). A pesar de dicha situación, es a través de las
 páginas donde se logra plasmar cómo fue que el autor cubano siempre se mantuvo
 fijo ante sus ideas y decisiones, lo cual lo llevó a colocarse como un hombre
