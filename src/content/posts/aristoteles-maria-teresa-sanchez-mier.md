@@ -4,6 +4,8 @@ date: 2019-09-11T00:00:00.000Z
 category: Crítica
 issue: ano-1-numero-0
 author: oscar-ovalle-robles
+presentacion: 
+  dropCapMode: manual
 coverImage: /posts/aristoteles-maria-teresa-sanchez-mier.jpg
 featuredImage: /posts/aristoteles-maria-teresa-sanchez-mier.jpg
 ---
@@ -12,7 +14,7 @@ MARÍA TERESA SÁNCHEZ MIER, _Aristóteles_, Universidad de Guanajuato/Fondo
 Nacional para la Cultura y las Artes, México. 2017, 144 pp. (_Pequeña Galería
 del Pensamiento, 2_)
 
-El primer libro de la colección de la _Pequeña galería del pensamiento_
+<span class="dropcap">E</span>l primer libro de la colección de la _Pequeña galería del pensamiento_
 —publicada por la Universidad de Guanajuato— que llegó a mis manos fue el
 _Aristóteles,_ de María Teresa Sánchez Mier. Recuerdo bien la grata impresión
 que causó en mí sostener un libro perteneciente a una colección hasta ese
