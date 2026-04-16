@@ -4,12 +4,9 @@ date: 2019-02-01T00:00:00.000Z
 category: Crítica
 issue: ano-1-numero-0
 author: jonathan-mirus
-coverImage: >-
-  /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
-featuredImage: >-
-  /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
+coverImage: /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
+featuredImage: /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
 ---
-
 
 En 1936 —quizás el año más oscuro de su vida— F. Scott Fitzgerald estaba
 convaleciente en un hotel en Asheville, Carolina del Norte, cuando ofreció a su
@@ -62,7 +59,7 @@ lectura requerida."
 10. _Cuentos de Anton Chejóv_ (ed. Robert N. Linscott).
 
 11. _Las mejores historias cortas humorísticas de América_ (Twain y Allan Poe)
-    \[ed. Alexander Jessup\].
+    \[ed. Alexander Jessup].
 
 12. _Victoria_ de Joseph Conrad
 
@@ -96,6 +93,6 @@ Consultado el 28 de enero de 2019.
 Traducción de Jonathan Mirus.
 </div>
 
-![](/posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg)
+:::align-center:::![](/posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg)
 
-<span class="caption">Fotografía de Carl Van Vechten \[Dominio público\]</span>
+:::align-center:::<span class="caption">Fotografía de Carl Van Vechten \[Dominio público]</span>
