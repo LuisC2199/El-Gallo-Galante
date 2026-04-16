@@ -10,7 +10,7 @@ coverImage: /posts/espejo.jpg
 featuredImage: /posts/espejo.jpg
 ---
 
-:::fs-14:::I
+I
 
 <span class="dropcap">E</span>ntonces, si esto es real\
 el cristal distingue un rostro\
