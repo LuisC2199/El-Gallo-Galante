@@ -11,33 +11,33 @@ featuredImage: /posts/antielegia-del-ave-fenix-por-si-misma.jpg
 jpgimagePosition: top
 ---
 
-Qué horrible se desgarra el viento  
+Qué horrible se desgarra el viento\
 al pasar a mi lado y observarme.
 
-Incluso el cielo inmarcesible  
+Incluso el cielo inmarcesible\
 se torna ya ceniza en vez de manto.
 
-El verde canto de las aves policromas  
+El verde canto de las aves policromas\
 pinta ahora de negro a quien me encuentra.
 
-Son sus notas el canto de los muertos  
-en otro tiempo vivos,  
-y yo ahora, en otro tiempo muerta,  
+Son sus notas el canto de los muertos\
+en otro tiempo vivos,\
+y yo ahora, en otro tiempo muerta,\
 nuevamente a la vida resplandezco.
 
-Esta vida mil veces rechazada  
-retorna eternamente y me condena  
+Esta vida mil veces rechazada\
+retorna eternamente y me condena\
 a vagar por los aires sin descanso.
 
-El mundo no lamenta  
-mis penas mientras ardo,  
-no compadece mis dolores  
+El mundo no lamenta\
+mis penas mientras ardo,\
+no compadece mis dolores\
 ni llora amargamente que descanse.
 
-El mundo llora porque sigo viva  
+El mundo llora porque sigo viva\
 y a pesar de matarme yo renazco.
 
-Es mi muerte tan breve como un sueño  
+Es mi muerte tan breve como un sueño\
 y sueño solamente con la muerte.
 
-<p class="poem-signature">San Luis Potosí, a 07 de enero de 2020</p>
+:::align-right fs-10:::San Luis Potosí, a 07 de enero de 2020
