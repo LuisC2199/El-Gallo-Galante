@@ -4,70 +4,70 @@ date: 2020-05-16T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: betsabe-jimenez-carranza
+presentacion: 
+  dropCapMode: manual
 coverImage: /posts/espejo.jpg
 featuredImage: /posts/espejo.jpg
 ---
 
-I
+**I**
 
-Entonces, si esto es real  
-el cristal distingue un rostro  
-aparición  
-cóncava o convexa  
+<span class="dropcap">E</span>ntonces, si esto es real\
+el cristal distingue un rostro\
+aparición\
+cóncava o convexa\
 arma de dos filos
 
-alma que escapa  
+alma que escapa\
 en distintas partículas
 
 medusa petrificada
 
-II
+**II**
 
-Espejo  
-mundo inverso  
+Espejo\
+mundo inverso\
 de puntual simetría
 
 ¿Quién se refleja?
 
-perfecto y delineado  
-gesto y mueca se unen  
-nada se salva  
-no un nombre  
-no el hombre  
-no la mujer  
+perfecto y delineado\
+gesto y mueca se unen\
+nada se salva\
+no un nombre\
+no el hombre\
+no la mujer\
 quimera revelada
 
-¿Dónde habito?  
-y se va, blanco vidrio  
+¿Dónde habito?\
+y se va, blanco vidrio\
 hielo besando el cielo
 
-III
+**III**
 
-Fui,  
-fragmento de un artefacto  
+Fui,\
+fragmento de un artefacto\
 desligado del fondo
 
-misma geometría  
+misma geometría\
 misma diástole
 
-memoria hallada  
+memoria hallada\
 mirada desleída
 
-IV
+**IV**
 
-Delante de sí, es parecido  
+Delante de sí, es parecido\
 palabra envuelta en reflejos
 
-excava  
+excava\
 en la espasmódica pupila
 
-donde se desviste un cuerpo  
-acariciando sus vértigos  
+donde se desviste un cuerpo\
+acariciando sus vértigos\
 eclosionando.
 
 ![](/posts/espejo.jpg)
 
-<span class="caption">Foto por
-<a href="https://www.instagram.com/acer.emree/" target="_blank" rel="noreferrer">Emre
-Can</a> de
-<a href="https://www.pexels.com/@emrecan" target="_blank" rel="noreferrer">Pexels</a></span>
+<span class="caption">Foto por <a href="https://www.instagram.com/acer.emree/" target="_blank" rel="noreferrer">Emre
+Can</a> de <a href="https://www.pexels.com/@emrecan" target="_blank" rel="noreferrer">Pexels</a></span>
