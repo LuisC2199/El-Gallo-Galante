@@ -4,11 +4,13 @@ date: 2019-02-01T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: javier-palau
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/la-isla-de-los-muertos.jpg
 featuredImage: /posts/la-isla-de-los-muertos.jpg
 ---
 
-_A C.G.C.R._
+:::align-right fs-10:::_A C.G.C.R._
 
 El agua se mece en calma,\
 el remo la hiere en silencio.\
