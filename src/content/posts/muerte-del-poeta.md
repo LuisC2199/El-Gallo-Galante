@@ -8,23 +8,23 @@ coverImage: /posts/muerte-del-poeta.jpg
 featuredImage: /posts/muerte-del-poeta.jpg
 ---
 
-Musa ancestral, eterna diosa, canta  
-del poeta caído los tormentos,  
-de la pluma fallida los intentos  
-de acercarse hasta ti con agonía.  
-Cuenta cómo adolece noche y día  
-sentado ante la página desierta  
-y viendo su fracaso, llora y grita:  
-«¡Lévantate del sueño, ya despierta!  
-Poesía, mi eterna amiga, ¡vamos!,  
-por un breve momento apenas vuelve  
+Musa ancestral, eterna diosa, canta\
+del poeta caído los tormentos,\
+de la pluma fallida los intentos\
+de acercarse hasta ti con agonía.\
+Cuenta cómo adolece noche y día\
+sentado ante la página desierta\
+y viendo su fracaso, llora y grita:\
+«¡Lévantate del sueño, ya despierta!\
+Poesía, mi eterna amiga, ¡vamos!,\
+por un breve momento apenas vuelve\
 y llenaré las páginas de tinta.»
 
-La Musa dio la vuelta decidida.  
-Poesía le dio la espalda al poeta.  
-Tórnose el firmamento el mismo infierno.  
+La Musa dio la vuelta decidida.\
+Poesía le dio la espalda al poeta.\
+Tórnose el firmamento el mismo infierno.\
 Las lágrimas corrieron y abrasaron.
 
-<p class="poem-signature">Guanajuato, Gto, a 27 de agosto de 2018.</p>
+:::fs-10:::<p class="poem-signature">Guanajuato, Gto, a 27 de agosto de 2018.</p>
 
 ![](/posts/muerte-del-poeta.jpg)
