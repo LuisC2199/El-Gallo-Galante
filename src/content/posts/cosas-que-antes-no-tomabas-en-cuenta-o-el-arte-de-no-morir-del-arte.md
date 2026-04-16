@@ -4,15 +4,15 @@ date: 2019-04-24T00:00:00.000Z
 category: Narrativa
 issue: ano-1-numero-0
 author: cesar-cruz
-coverImage: >-
-  /posts/cosas-que-antes-no-tomabas-en-cuenta-o-el-arte-de-no-morir-del-arte.jpg
-featuredImage: >-
-  /posts/cosas-que-antes-no-tomabas-en-cuenta-o-el-arte-de-no-morir-del-arte.jpg
+presentacion: 
+  dropCapMode: manual
+coverImage: /posts/cosas-que-antes-no-tomabas-en-cuenta-o-el-arte-de-no-morir-del-arte.jpg
+featuredImage: /posts/cosas-que-antes-no-tomabas-en-cuenta-o-el-arte-de-no-morir-del-arte.jpg
 ---
 
-A .J.P.H.
+:::align-right fs-10:::A .J.P.H.
 
-Yo siento que Guillermo es una comedia del nombre de Shakespeare. Y de
+<span class="dropcap">Y</span>o siento que Guillermo es una comedia del nombre de Shakespeare. Y de
 Shakespeare. Porque nunca me he querido llamar Guillermo. El gusto puede
 explicarse pero no entenderse. Y de eso se trata la comedia. Es una burla al
 lenguaje. Para demostrarle, y en parte demostrarme a mí también, que cómo
@@ -80,10 +80,5 @@ Termina la función. La obra se acabó. Aplausos.
 
 ![](/posts/cosas-que-antes-no-tomabas-en-cuenta-o-el-arte-de-no-morir-del-arte.jpg)
 
-<figcaption>
+:::align-center fs-9:::CC0 Dominio Público
 
-CC0 Dominio Público
-
-</figcaption>
-
-</figure>
