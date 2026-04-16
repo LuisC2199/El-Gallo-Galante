@@ -5,14 +5,14 @@ category: Poesía
 issue: ano-1-numero-0
 author: aleqs-garrigoz
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/dos-poemas.jpg
 featuredImage: /posts/dos-poemas.jpg
 ---
 
 ### Güerito
 
-<span class="dropcap">T</span>u hermosura irradia afecciones\
+Tu hermosura irradia afecciones\
 que son pies vírgenes pisando blandos la arena;\
 descansan sobre mi pecho y dejan una huella luminosa.
 
@@ -35,7 +35,7 @@ una sola moneda me bastaría.
 
 ### Acaso
 
-<span class="dropcap">A</span>caso te amo sin una razón verdadera:\
+Acaso te amo sin una razón verdadera:\
 por instinto, como se ama a la familia\
 predispuesta al incesto.\
 Y en ese deseo, el ritmo va nimbando dudas,\
