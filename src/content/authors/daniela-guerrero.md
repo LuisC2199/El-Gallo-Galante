@@ -1,14 +1,10 @@
 ---
 name: Daniela Guerrero
-birthYear: '1999'
+birthYear: "1999"
 birthPlace: Guanajuato
-photo: /authors/daniela-guerrero.jpg
+photo: /authors/600438832-3308778992603462-4830817759918648689-n.jpg
 gender: false
-social:
-  website: ''
-  instagram: ''
-  x: ''
-  facebook: ''
-  tiktok: ''
+social: {}
 ---
-Estudiante de Letras Españolas en la Universidad de Guanajuato. Actualmente realiza su tesis sobre María Luisa Mendoza.
+
+Licenciada en Letras Españolas en la Universidad de Guanajuato.
