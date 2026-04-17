@@ -341,4 +341,4 @@ siendo lo que fuimos ya sin serlo.
 
 ![](/posts/colibri.jpg)
 
-:::align-center fs-10:::<span class="caption">Ilustración de \<a href="https://www.instagram.com/linaentrelineas\_/" target="\_blank" rel="noreferrer">Paulina Quezada\</a>\</span>
+:::align-center fs-10:::Ilustración de [Paulina Quezada](https://www.instagram.com/linaentrelineas_/)
