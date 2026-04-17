@@ -10,7 +10,7 @@ coverImage: /posts/carta-a-guadalupe-duenas.jpg
 featuredImage: /posts/carta-a-guadalupe-duenas.jpg
 ---
 
-:::align-right fs-10:::_Guanajuato, Gto, 28 de septiembre de 2019._
+:::align-right fs-11:::_Guanajuato, Gto, 28 de septiembre de 2019._
 
 Querida Pita:
 
