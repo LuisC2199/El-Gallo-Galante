@@ -12,7 +12,7 @@ featuredImage: /posts/salvador-o-una-carta-que-torno-en-poema.jpg
 
 :::align-right fs-11:::Abasolo, Gto., a 13 de septiembre del 2020
 
-:::fs-11:::A veces quisiera tener un amigo en el pueblo,\
+A veces quisiera tener un amigo en el pueblo,\
 me lo digo muy a menudo:\
 cuando paso por el centro y las farmacias\
 iluminan mi rostro con sus luces de neón,\
