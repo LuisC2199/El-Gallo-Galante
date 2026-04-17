@@ -7,7 +7,6 @@ author: francisco-martinez
 presentacion: 
   dropCapMode: none
 coverImage: /posts/f1280x720-68389-200064-5050.jpg
-featuredImage: /posts/alaide.jpg
 imagePosition: center
 ---
 
