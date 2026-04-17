@@ -4,6 +4,8 @@ date: 2019-12-16T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: gabriel-reyes
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/rastro.jpg
 featuredImage: /posts/rastro.jpg
 ---
