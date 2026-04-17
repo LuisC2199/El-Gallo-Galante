@@ -4,11 +4,13 @@ date: 2019-09-28T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: gabriela-trejo-valencia
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/carta-a-guadalupe-duenas.jpg
 featuredImage: /posts/carta-a-guadalupe-duenas.jpg
 ---
 
-_Guanajuato, Gto, 28 de septiembre de 2019._
+:::align-right fs-10:::_Guanajuato, Gto, 28 de septiembre de 2019._
 
 Querida Pita:
 
@@ -38,7 +40,7 @@ cuento “Guía en la muerte”.
 Sólo estoy conjeturando un hilo conductor para ligarte con Guanajuato aunque lo
 sustantivo no es el cómo sino el qué, es decir, el cariño mostrado hacia esta
 tierra. Cuando te referías a la ciudad anteponías los adjetivos “leal y
-noble"<sup class="text-xs non-italic">[1]</sup>; tan encantada estabas con su gente hospitalaria que no
+noble"<sup class="text-xs non-italic">\[1]</sup>; tan encantada estabas con su gente hospitalaria que no
 dudaste en pasar por alto los severos picos de desigualdad y lo intrincado de su
 estructura social. Para ti fue toda una aventura recorrer las caprichosas
 calles, es más, debió parecerte un lujo “el ambiente de romance que satura las
@@ -78,7 +80,8 @@ Tu fiel admiradora,
 
 Gabriela Trejo Valencia
 
----
+***
+
 <p class="footnote">
 <sup class="text-xs non-italic">[1]</sup> Todas las referencias pertenecen al texto "San Gabriel de
 Barrera”, compilado en las _Obras completas_ (2017) de Guadalupe Dueñas, México:
