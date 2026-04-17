@@ -63,7 +63,8 @@ jardín lleno de olmos negros\
 harto vergel por el trébol\
 sin suerte, estepa de frutos\
 con espina y caro huerto\
-con hormigas en la nuca y parvadas sobre el pelo.
+con hormigas en la nuca\
+y parvadas sobre el pelo.
 
 ![](/posts/hormiguero.jpg)
 
