@@ -4,6 +4,8 @@ date: 2019-02-01T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: javier-palau
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/muerte-del-poeta.jpg
 featuredImage: /posts/muerte-del-poeta.jpg
 ---
