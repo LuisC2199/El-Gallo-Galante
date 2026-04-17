@@ -4,14 +4,16 @@ date: 2020-11-08T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: mateo-mansilla-moya
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/carta-a-nellie-campobello.jpg
 featuredImage: /posts/carta-a-nellie-campobello.jpg
 imagePosition: top
 ---
 
-:::align-right fs-10:::Ciudad de México a 21 de octubre de 2020
+:::align-right fs-11:::Ciudad de México a 21 de octubre de 2020
 
-Maestra Nellie Campobello,
+:::fs-11:::Maestra Nellie Campobello,
 
 Hoy llovió mucho y, cuando el cielo se despejó, vi a una mariposa revolotear en
 el patio del\
