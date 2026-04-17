@@ -278,4 +278,3 @@ necessarily endorse other content on this site.
 
 </div>
 
-![](/posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg)
