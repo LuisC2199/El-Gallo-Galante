@@ -11,9 +11,7 @@ featuredImage: /posts/carta-a-nellie-campobello.jpg
 imagePosition: top
 ---
 
-:::align-right:::Ciudad de México a 21 de octubre de 2020
-
-
+:::align-right fs-11:::Ciudad de México a 21 de octubre de 2020
 
 Maestra Nellie Campobello,
 
