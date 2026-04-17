@@ -62,7 +62,5 @@ con todos esos olores de nuevo.
 
 ![](/posts/sin-habitos.jpg)
 
-<span class="caption">Fotografía por
-**<a href="https://www.instagram.com/juanjomenta" target="_blank" rel="noreferrer">Juanjo
-Menta</a>** de
-**<a href="//www.pexels.com/@juanjomenta?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexelss" target="_blank" rel="noreferrer">Pexels</a>**</span>
+<span class="caption">Fotografía por <a href="https://www.instagram.com/juanjomenta" target="_blank" rel="noreferrer">Juanjo
+Menta</a> de <a href="//www.pexels.com/@juanjomenta?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexelss" target="_blank" rel="noreferrer">Pexels</a></span>
