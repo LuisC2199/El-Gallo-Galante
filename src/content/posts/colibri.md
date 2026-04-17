@@ -10,19 +10,18 @@ coverImage: /posts/colibri.jpg
 featuredImage: /posts/colibri.jpg
 ---
 
-Colibrí\
+:::fs-30:::Colibrí\
 \- hilo temporal de mis recuerdos -
-===================================
 
-:::align-right fs-10:::_Este poemario es para ti_\
+:::align-right fs-11:::_Este poemario es para ti_\
 _por tanto vuelo vivido_\
 _porque se me enraizó la nostalgia_\
 _porque este exilio_\
 _es la única posibilidad de reencuentro._
 
-## Colibrí I
+:::fs-18:::Colibrí I
 
-:::align-right fs-10:::_Acuérdate bonito de mí, como cuando me querías._
+:::align-right fs-11:::_Acuérdate bonito de mí, como cuando me querías._
 
 Cantaré al polvo\
 para no morir sola\
@@ -50,7 +49,10 @@ Conjúrame tú también\
 en los recuerdos\
 para que así yo muera menos.
 
-## Colibrí II
+```
+```
+
+:::fs-18:::Colibrí II
 
 Retrocede mi estancia\
 y se fija precisa\
@@ -62,7 +64,10 @@ para que no desaparezca\
 me faltaba llorar para ser triste\
 y me faltaba nombrar para que fuera.
 
-## Colibrí III
+```
+```
+
+:::fs-18:::Colibrí III
 
 De tu boca se despliegan acusaciones\
 el peor de los escándalos\
@@ -72,7 +77,10 @@ Ahí donde chocan son su nombre las cosas\
 no hay duda:\
 ha terminado el sueño.
 
-## Colibrí IV
+```
+```
+
+:::fs-18:::Colibrí IV
 
 En los rescoldos de lugares ahora inexistentes\
 se entrevé el recuerdo de una presencia inabarcable\
@@ -84,7 +92,10 @@ en mi desmemoria yo estoy segura de que\
 caben todos los siglos entre esa noche\
 y la ciudad aparece ante mí como un principio de los tiempos.
 
-## Colibrí V
+```
+```
+
+:::fs-18:::Colibrí V
 
 La palabra estalla,\
 sobreviene la aurora,\
@@ -92,9 +103,12 @@ el mundo nace\
 entre la luz y mis manos,\
 se enturbia mi mirada; la mar, la mar, la mar.
 
-## Colibrí VI
+```
+```
 
-:::align-right fs-10:::Hedonista, te fue fácil liquidar amores puros.\
+:::fs-18:::Colibrí VI
+
+:::align-right fs-11:::Hedonista, te fue fácil liquidar amores puros.\
 Caloncho, «Hedonista»
 
 Me resisto a dormir,\
@@ -104,7 +118,10 @@ Heme aquí con un miedo nuevo:\
 despertar\
 y volver a verte.
 
-## COLIBRÍ VII
+```
+```
+
+:::fs-18:::Colibrí VII
 
 "Te fuiste, ahora eres otra."
 
@@ -113,14 +130,20 @@ se cierran los caparazones\
 ya no se quieren más diluvios\
 es la única certeza.
 
-## Colibrí VIII
+```
+```
+
+:::fs-18:::Colibrí VIII
 
 También existe esta certeza\
 no hay despertar\
 sólo náufragos\
 de silencios.
 
-## Colibrí IX
+```
+```
+
+:::fs-18:::Colibrí IX
 
 Acepto la noche que cae\
 sobre mis hombros.\
@@ -132,7 +155,10 @@ cierro la ventana,\
 no vaya a ser que por viento\
 se me arremoline el recuerdo.
 
-## Colibrí X
+```
+```
+
+:::fs-18:::Colibrí X
 
 La nostalgia me cimbra\
 dolor,\
@@ -144,7 +170,10 @@ de mis ojos a los tuyos.
 Tus ojos\
 cuánto mar dentro de ellos.
 
-## Colibrí XI
+```
+```
+
+:::fs-18:::Colibrí XI
 
 Me voy al mar,\
 a encontrarme con mi niñez.\
@@ -152,7 +181,10 @@ Me llevan los pies\
 sobre una arena color ámbar.\
 ¡Voy a envolverme en las estrellas!
 
-## Colibrí XII
+```
+```
+
+:::fs-18:::Colibrí XII
 
 El principio es así\
 columna de huracanas y mareas\
@@ -173,7 +205,10 @@ las hojas inundan el pecho\
 el agua devela el relámpago\
 recupera el mundo su sombra.
 
-## Colibrí XIII
+```
+```
+
+:::fs-18:::Colibrí XIII
 
 Quiero decir ahora que no hay pasado\
 no hay pasado, ni existe\
@@ -188,7 +223,10 @@ no sabré nunca si esta tarde\
 dónde yo escuche adiós\
 tú has dicho muerte.
 
-## Colibrí XIV
+```
+```
+
+:::fs-18:::Colibrí XIV
 
 "Ciegamente yo te quise hasta el final."
 
@@ -209,7 +247,10 @@ para volver junto a ti
 Ahora lo sé:\
 tu espalda fue la tumba de mis labios.
 
-## Colibrí XV
+```
+```
+
+:::fs-18:::Colibrí XV
 
 Puestos los ojos en el horizonte\
 su voz,\
@@ -219,7 +260,10 @@ que se disuelve en su carne,\
 el canto es una plegaria\
 para conjurar huellas.
 
-## Colibrí XVI
+```
+```
+
+:::fs-18:::Colibrí XVI
 
 Te he esperado ahí\
 en las orillas turbias del atardecer\
@@ -230,7 +274,10 @@ Ella tenía un rostro inhumano\
 ignoraba el arte del sueño\
 me cubría los ojos de pesadillas.
 
-## Colibrí XVII
+```
+```
+
+:::fs-18:::Colibrí XVII
 
 No quiero ver tus ojos\
 hechos polvo\
@@ -246,7 +293,10 @@ no querré tu destino\
 porque del mío vislumbro\
 apenas una sombra.
 
-## Colibrí XVIII
+```
+```
+
+:::fs-18:::Colibrí XVIII
 
 Astro hecho de piedras,\
 ¿qué me vas a decir ahora?\
@@ -256,7 +306,10 @@ un amanecer entre dos noches\
 dos egoísmos\
 para un solo sol.
 
-## Colibrí XIX
+```
+```
+
+:::fs-18:::Colibrí XIX
 
 Vine aquí a reencontrarme contigo\
 frente a una cerveza\
@@ -274,9 +327,12 @@ mis\
 últimas\
 nostalgias.
 
-## Colibrí XX
+```
+```
 
-:::align-right fs-10:::*Porque he visto una playa que no olvido,*\
+:::fs-18:::Colibrí XX
+
+:::align-right fs-11:::*Porque he visto una playa que no olvido,*\
 Fina García Marruz, «Y sin embargo sé que son tinieblas»
 
 De nosotras ha de quedar lo que quisimos\
