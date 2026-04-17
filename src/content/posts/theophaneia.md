@@ -28,5 +28,3 @@ y es mi presente lo que el verbo piensa\
 en la creación que he comenzado.
 
 :::align-right fs-10:::*Guanajuato, a 01 de julio de 2020*
-
-![](/posts/theophaneia.jpg)
