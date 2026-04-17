@@ -4,6 +4,8 @@ date: 2020-12-17T00:00:00.000Z
 category: Ensayo
 issue: ano-1-numero-0
 author: mariana-del-vergel
+presentacion: 
+  dropCapMode: auto
 coverImage: /posts/sueno-domestico.jpg
 featuredImage: /posts/sueno-domestico.jpg
 ---
