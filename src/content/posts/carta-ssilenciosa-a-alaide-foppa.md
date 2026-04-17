@@ -21,10 +21,8 @@ Me quedo el derecho de guardar silencio, Alaíde, ante todo lo que sucede. ¿Qui
 
 Francisco
 
-```
 
 
-```
 
 :::align-center fs-10:::Fotografía de [La Jornada](https://www.jornada.com.mx/2012/10/21/cultura/a03a1cul)
 
