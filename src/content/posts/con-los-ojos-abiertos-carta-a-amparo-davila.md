@@ -8,7 +8,7 @@ coverImage: /posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg
 featuredImage: /posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg
 ---
 
-18 de abril de 2020
+:::align-right fs-10:::18 de abril de 2020
 
 Doña Amparo, le escribo desde la distancia. Hoy es un día triste del mes –no del
 abril de Machado, sino más bien del de Eliot. Mis líneas son un hilo desgajado
