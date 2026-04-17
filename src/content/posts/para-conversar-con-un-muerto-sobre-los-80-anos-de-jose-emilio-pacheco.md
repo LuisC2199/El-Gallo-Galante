@@ -4,10 +4,10 @@ date: 2019-06-30T00:00:00.000Z
 category: Ensayo
 issue: ano-1-numero-0
 author: asuncion-rangel
-coverImage: >-
-  /posts/para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco.jpg
-featuredImage: >-
-  /posts/para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco.jpg
+presentacion: 
+  dropCapMode: none
+coverImage: /posts/para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco.jpg
+featuredImage: /posts/para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco.jpg
 ---
 
 \[…\] es la reflexión sobre todo lo perdido lo que nos permite tomar en
