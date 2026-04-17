@@ -4,6 +4,8 @@ date: 2020-04-19T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: mariana-del-vergel
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg
 featuredImage: /posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg
 ---
