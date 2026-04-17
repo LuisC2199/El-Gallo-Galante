@@ -5,12 +5,12 @@ category: Poesía
 issue: ano-1-numero-0
 author: hilary-cruz
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/iii.jpg
 featuredImage: /posts/iii.jpg
 ---
 
-<span class="dropcap">¿</span>_Qué es poesía? ¿Y tú me lo preguntas?_\
+¿_Qué es poesía? ¿Y tú me lo preguntas?_\
 Miles de versos corriendo por tu espalda,\
 plenos testigos de su propia voz\
 mientras te empegan.\
