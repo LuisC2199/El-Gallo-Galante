@@ -13,9 +13,10 @@ cuerpo yace en el suelo, tiene los dedos rotos y en la muñeca una herida
 vertical. Después de unos minutos de inconsciencia se levanta. Se dirige a su
 escritorio y se dispone a escribir.
 
+```
+```
+
 ![](/posts/emanacion.jpg)
 
-<span class="caption">Fotografía por
-**<a href="https://www.pexels.com/@messalaciulla?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">MESSALA
-CIULLA</a>** de
-**<a href="https://www.pexels.com/photo/yellow-and-black-metal-tool-set-close-up-photography-2935006/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">Pexels</a>**</span>
+<span class="caption">Fotografía por <a href="https://www.pexels.com/@messalaciulla?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">MESSALA
+CIULLA</a> de <a href="https://www.pexels.com/photo/yellow-and-black-metal-tool-set-close-up-photography-2935006/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">Pexels</a></span>
