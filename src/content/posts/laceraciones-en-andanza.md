@@ -4,6 +4,8 @@ date: 2019-03-13T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: javier-palau
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/laceraciones-en-andanza.jpg
 featuredImage: /posts/laceraciones-en-andanza.jpg
 ---
