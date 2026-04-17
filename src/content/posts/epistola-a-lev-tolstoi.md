@@ -8,7 +8,7 @@ coverImage: /posts/epistola-a-lev-tolstoi.jpg
 featuredImage: /posts/epistola-a-lev-tolstoi.jpg
 ---
 
-:::align-right fs-10:::_Guanajuato, Gto. a 30 de septiembre de 2019._
+:::align-right fs-11:::_Guanajuato, Gto. a 30 de septiembre de 2019._
 
 Mi querido conde:
 
