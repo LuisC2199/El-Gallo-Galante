@@ -13,7 +13,7 @@ imagePosition: top
 
 :::align-right fs-11:::Ciudad de México a 21 de octubre de 2020
 
-:::fs-11:::Maestra Nellie Campobello,
+Maestra Nellie Campobello,
 
 Hoy llovió mucho y, cuando el cielo se despejó, vi a una mariposa revolotear en
 el patio del\
