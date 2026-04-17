@@ -5,14 +5,14 @@ category: Poesía
 issue: ano-1-numero-0
 author: betsabe-jimenez-carranza
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/espejo.jpg
 featuredImage: /posts/espejo.jpg
 ---
 
-I
+### I
 
-<span class="dropcap">E</span>ntonces, si esto es real\
+Entonces, si esto es real\
 el cristal distingue un rostro\
 aparición\
 cóncava o convexa\
@@ -23,7 +23,7 @@ en distintas partículas
 
 medusa petrificada
 
-II
+### II
 
 Espejo\
 mundo inverso\
@@ -43,7 +43,7 @@ quimera revelada
 y se va, blanco vidrio\
 hielo besando el cielo
 
-III
+### III
 
 Fui,\
 fragmento de un artefacto\
@@ -55,7 +55,7 @@ misma diástole
 memoria hallada\
 mirada desleída
 
-IV
+### IV
 
 Delante de sí, es parecido\
 palabra envuelta en reflejos
