@@ -10,7 +10,7 @@ coverImage: /posts/la-isla-de-los-muertos.jpg
 featuredImage: /posts/la-isla-de-los-muertos.jpg
 ---
 
-:::align-right fs-10:::_A C.G.C.R._
+:::align-right fs-11:::_A C.G.C.R._
 
 El agua se mece en calma,\
 el remo la hiere en silencio.\
