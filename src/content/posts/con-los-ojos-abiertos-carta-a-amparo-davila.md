@@ -57,4 +57,4 @@ Mariana del Vergel
 
 ![](/posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg)
 
-Archivo de _El Sol de Zacatecas_.
+:::align-center fs-10:::Archivo de _El Sol de Zacatecas_.
