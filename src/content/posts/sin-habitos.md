@@ -10,7 +10,7 @@ coverImage: /posts/sin-habitos.jpg
 featuredImage: /posts/sin-habitos.jpg
 ---
 
-:::align-right fs-10:::_De nada sirve el cuidado propio\
+:::align-right fs-11:::_De nada sirve el cuidado propio\
 para que salga llena de hermosura,\
 pues por falta de ingenio y de cultura,\
 un rasgo no hecho que no salga impropio._\
