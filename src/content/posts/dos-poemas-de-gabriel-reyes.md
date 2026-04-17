@@ -4,34 +4,36 @@ date: 2019-02-01T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: gabriel-reyes
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 featuredImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 ---
 
-Técnica
+## Técnica
 
-Surge la idea  
-duerme la mano  
-que a aquella crea  
+Surge la idea\
+duerme la mano\
+que a aquella crea\
 en sueño ufano.
 
-Surge la mano  
-\-duerme la idea- escribe en vano  
+Surge la mano\
+-duerme la idea- escribe en vano\
 mas se recrea.
 
-¡Cuán sopor tiene!  
-no se detiene  
+¡Cuán sopor tiene!\
+no se detiene\
 ya un eco toca
 
-que apenas labra  
-en la palabra  
+que apenas labra\
+en la palabra\
 que se equivoca.
 
-Ante un dios ausente
+## Ante un dios ausente
 
-Inmaculada soberana mácula  
-al doblar tu rodilla me doblegas,  
-mas mi llanto es de hombre y por el hombre,  
+Inmaculada soberana mácula\
+al doblar tu rodilla me doblegas,\
+mas mi llanto es de hombre y por el hombre,\
 emula mi dolor si es que lo creas.
 
 ![](/posts/dos-poemas-de-gabriel-reyes.jpg)
