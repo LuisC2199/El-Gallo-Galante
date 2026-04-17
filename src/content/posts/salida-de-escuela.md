@@ -4,6 +4,8 @@ date: 2020-10-29T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: jonathan-mirus
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/salida-de-escuela.jpg
 featuredImage: /posts/salida-de-escuela.jpg
 ---
