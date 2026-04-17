@@ -9,7 +9,7 @@ featuredImage: /posts/carta-a-virgilio-pinera.jpg
 imagePosition: top
 ---
 
-_Buenos Aires, 15 de octubre de 2019_
+:::align-right fs-10:::_Buenos Aires, 15 de octubre de 2019_
 
 Querido Virgilio,
 
