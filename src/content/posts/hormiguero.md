@@ -10,7 +10,7 @@ coverImage: /posts/hormiguero.jpg
 featuredImage: /posts/hormiguero.jpg
 ---
 
-:::align-right fs-10:::_Hay canas en mi cabeza, hay en los prados escarcha,_\
+:::align-right fs-11:::_Hay canas en mi cabeza, hay en los prados escarcha,_\
 _mas yo prosigo soñando, pobre, incurable sonámbula,_\
 _con la eterna primavera de la vida que se apaga_\
 _y la perenne frescura de los campos y las almas,_\
