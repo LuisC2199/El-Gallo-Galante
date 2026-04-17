@@ -10,7 +10,7 @@ coverImage: /posts/carta-a-tomas-segovia.jpg
 featuredImage: /posts/carta-a-tomas-segovia.jpg
 ---
 
-:::align-right fs-10:::_Guanajuato, Gto., a 20 de octubre de 2019_
+:::align-right fs-11:::_Guanajuato, Gto., a 20 de octubre de 2019_
 
 Querido Tomás:
 
