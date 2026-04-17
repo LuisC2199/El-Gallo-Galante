@@ -10,7 +10,7 @@ coverImage: /posts/espejo.jpg
 featuredImage: /posts/espejo.jpg
 ---
 
-:::fs-14:::I
+:::fs-16:::I
 
 Entonces, si esto es real\
 el cristal distingue un rostro\
@@ -23,7 +23,7 @@ en distintas partículas
 
 medusa petrificada
 
-:::fs-14:::II
+:::fs-16:::II
 
 Espejo\
 mundo inverso\
@@ -43,7 +43,7 @@ quimera revelada
 y se va, blanco vidrio\
 hielo besando el cielo
 
-:::fs-14:::III
+:::fs-16:::III
 
 Fui,\
 fragmento de un artefacto\
@@ -55,7 +55,7 @@ misma diástole
 memoria hallada\
 mirada desleída
 
-:::fs-14:::IV
+:::fs-16:::IV
 
 Delante de sí, es parecido\
 palabra envuelta en reflejos
