@@ -8,9 +8,9 @@ coverImage: /posts/carta-a-gilberto-owen.jpg
 featuredImage: /posts/carta-a-gilberto-owen.jpg
 ---
 
-24 de septiembre de 2019
+:::align-right fs-10:::24 de septiembre de 2019
 
-_Le escribo con el atrevimiento de sus nomeolvides y con la tinta verde que
+:::align-right fs-10:::_Le escribo con el atrevimiento de sus nomeolvides y con la tinta verde que
 tanto le gustaba usar._
 
 G.O.:
