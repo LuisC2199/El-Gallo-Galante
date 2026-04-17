@@ -5,7 +5,7 @@ category: Poesía
 issue: ano-1-numero-0
 author: hilary-cruz
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/sin-habitos.jpg
 featuredImage: /posts/sin-habitos.jpg
 ---
@@ -16,7 +16,7 @@ pues por falta de ingenio y de cultura,\
 un rasgo no hecho que no salga impropio._\
 Sor Juana Inés de la Cruz
 
-<span class="dropcap">C</span>ada vez que llego al pueblo\
+Cada vez que llego al pueblo\
 lleno de fulgores la memoria:\
 la cremosidad del chocolate,\
 el picor del pipián recién hecho,\
