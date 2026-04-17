@@ -1,15 +1,15 @@
 ---
 title: Carta silenciosa a Alaíde Foppa
-date: 2020-02-08
+date: 2020-02-08T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: francisco-martinez
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/alaide.jpg
 featuredImage: /posts/alaide.jpg
 imagePosition: center
 ---
-
-
 
 Si me preguntan, sí, sí lo recuerdo; lo recuerdo de tal manera que podría tejer con detalle largo y atinado y emocionante el esplendor que fue conocer tu escritura. Recuerdo que me pusieron una gran silueta humana, sin nada dentro, nada salvo la línea que recorría entero el cuerpo que a mis ojos se me presentaba vacío: todavía no era un cuerpo. Me leyeron los versos, aquellos que hiciste un día en que viste sobre tu cuerpo la complejidad y la totalidad misma del mundo, uno de esos raros sucesos de la vida que pasan pocas veces y que pocos están ahí para verlos.
 
