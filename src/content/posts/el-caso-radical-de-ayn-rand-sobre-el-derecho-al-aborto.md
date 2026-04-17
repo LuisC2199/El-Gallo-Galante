@@ -239,11 +239,11 @@ Archives</span>
 
 <div class="editorial-note">
 
-:::fs-10:::The Ayn Rand Institute has granted permission to <em>El Gallo Galante</em>
+:::align-center fs-10:::The Ayn Rand Institute has granted permission to <em>El Gallo Galante</em>
 to translate this article in its entirety from its original <a href="https://newideal.aynrand.org/ayn-rands-radical-views-on-abortion/" target="_blank">
 English version </a>.
 
-The Institute cannot guarantee the reliability of the translation and does not
+:::align-center fs-10:::The Institute cannot guarantee the reliability of the translation and does not
 necessarily endorse other content on this site.
 
 </div>
