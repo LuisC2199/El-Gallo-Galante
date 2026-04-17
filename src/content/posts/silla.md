@@ -4,6 +4,8 @@ date: 2019-04-29T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: pedro-mota
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/silla.jpg
 featuredImage: /posts/silla.jpg
 ---
