@@ -6,13 +6,13 @@ issue: ano-1-numero-0
 author: javier-palau
 presentacion: 
   firma: "Guanajuato, a 01 de julio de 2020"
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/theophaneia.jpg
 featuredImage: /posts/theophaneia.jpg
 imagePosition: top
 ---
 
-<span class="dropcap">S</span>oy el verbo que transcurre\
+Soy el verbo que transcurre\
 la creación permanente del mensaje;
 
 suspenso en el presente de los siglos de los siglos,\
