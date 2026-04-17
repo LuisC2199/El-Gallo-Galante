@@ -6,7 +6,7 @@ issue: ano-1-numero-0
 author: francisco-martinez
 presentacion: 
   dropCapMode: none
-coverImage: /posts/alaide.jpg
+coverImage: /posts/f1280x720-68389-200064-5050.jpg
 featuredImage: /posts/alaide.jpg
 imagePosition: center
 ---
@@ -20,3 +20,12 @@ Cuando volviste de México a tu país, Guatemala, nadie más supo de ti, Alaíde
 Me quedo el derecho de guardar silencio, Alaíde, ante todo lo que sucede. ¿Quién sería de ser así? Tu palabra siempre me acompañará, el tamaño breve de tu corazón será siempre suficiente para seguir levantando este mundo; por lo demás, descuida, ellas siguen levantando esa voz, preservando la libertad que les es propia, “y la calidad tranquila de la luz”.
 
 Francisco
+
+```
+
+
+```
+
+:::align-center fs-10:::Fotografía de [La Jornada](https://www.jornada.com.mx/2012/10/21/cultura/a03a1cul)
+
+:::align-center fs-10:::
