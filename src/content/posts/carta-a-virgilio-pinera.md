@@ -4,6 +4,8 @@ date: 2020-02-01T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: dainerys-machado-vento
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/carta-a-virgilio-pinera.jpg
 featuredImage: /posts/carta-a-virgilio-pinera.jpg
 imagePosition: top
