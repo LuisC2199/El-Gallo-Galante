@@ -5,7 +5,7 @@ category: Epistolario
 issue: ano-1-numero-0
 author: lilia-solorzano-esqueda
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/carta-a-tomas-segovia.jpg
 featuredImage: /posts/carta-a-tomas-segovia.jpg
 ---
