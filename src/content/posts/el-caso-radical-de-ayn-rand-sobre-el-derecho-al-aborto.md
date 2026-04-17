@@ -6,7 +6,7 @@ issue: ano-1-numero-0
 author: ben-bayer
 traductor: jonathan-mirus
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg
 featuredImage: /posts/el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto.jpg
 ---
@@ -19,7 +19,7 @@ Ayn Rand Institute
 ```
 ```
 
-<span class="dropcap">C</span>on la controversia del aborto en boga, he escrito una serie de artículos sobre
+Con la controversia del aborto en boga, he escrito una serie de artículos sobre
 el tema en los cuales se aplica la filosofía de Ayn Rand, el Objetivismo, al
 debate. Sin embargo, algunos “aficionados” a Rand, quienes aparentemente asumen
 que ella era “conservadora”, han expresado incredulidad al saber que ella era
