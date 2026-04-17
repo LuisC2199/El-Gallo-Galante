@@ -5,7 +5,7 @@ category: Poesía
 issue: ano-1-numero-0
 author: daniel-isai-mata-velazquez
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/hormiguero.jpg
 featuredImage: /posts/hormiguero.jpg
 ---
@@ -15,9 +15,9 @@ _mas yo prosigo soñando, pobre, incurable sonámbula,_\
 _con la eterna primavera de la vida que se apaga_\
 _y la perenne frescura de los campos y las almas,_\
 _aunque los unos se agostan y aunque las otras se abrasan._\
-Rosalía de Castro
+Rosalía de Castro, «Dicen que no hablan las plantas...»
 
-<span class="dropcap">E</span>n un prado alzado en siembra\
+En un prado alzado en siembra\
 por el olmo negro lleno,\
 un alto hormiguero en torres\
 se asomaba por el suelo\
