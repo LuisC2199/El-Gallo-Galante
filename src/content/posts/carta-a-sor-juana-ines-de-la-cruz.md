@@ -4,6 +4,8 @@ date: 2019-11-12T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: javier-palau
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/carta-a-sor-juana-ines-de-la-cruz.jpg
 featuredImage: /posts/carta-a-sor-juana-ines-de-la-cruz.jpg
 imagePosition: top
