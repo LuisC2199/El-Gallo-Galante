@@ -47,20 +47,52 @@ const isPreambuloActive = pathname === '/preambulo';
         )}
       </a>
 
-      <!-- Separator -->
+      <!-- Separator (always visible) -->
       <span class="w-px h-4 bg-stone-500 shrink-0"></span>
 
-      <!-- Category links — smaller and more muted to differentiate from primary nav -->
-      {CATEGORIES.map((c) => (
-        <a
-          href={`/categoria/${c.slug}`}
-          class="text-[11px] tracking-[0.2em] text-stone-600 hover:text-stone-900 transition-colors"
-        >
-          {c.label}
-        </a>
-      ))}
+      <!-- Inline category links — hidden when search is open -->
+      <div id="nav-cats-inline" class="flex gap-3.5 items-center">
+        {CATEGORIES.map((c) => (
+          <a
+            href={`/categoria/${c.slug}`}
+            class="text-[11px] tracking-[0.2em] text-stone-600 hover:text-stone-900 transition-colors"
+          >
+            {c.label}
+          </a>
+        ))}
+      </div>
 
-      <!-- Separator -->
+      <!-- Categories dropdown — visible only when search is open -->
+      <div id="nav-cats-dropdown" class="relative hidden">
+        <button
+          id="nav-cats-dropdown-btn"
+          class="flex items-center gap-1 text-[11px] tracking-[0.2em] text-stone-600 hover:text-stone-900 transition-colors cursor-pointer"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Categorías
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3 h-3 mt-px">
+            <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div
+          id="nav-cats-menu"
+          class="hidden absolute top-full left-0 mt-2 bg-white/95 backdrop-blur-sm border border-stone-100 shadow-lg rounded py-1 z-10 min-w-[130px]"
+          role="menu"
+        >
+          {CATEGORIES.map((c) => (
+            <a
+              href={`/categoria/${c.slug}`}
+              class="block px-4 py-2 text-[11px] tracking-[0.2em] text-stone-600 hover:text-stone-900 hover:bg-stone-50 transition-colors"
+              role="menuitem"
+            >
+              {c.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Separator (always visible) -->
       <span class="w-px h-4 bg-stone-500 shrink-0"></span>
 
       <a
@@ -69,6 +101,55 @@ const isPreambuloActive = pathname === '/preambulo';
       >
         Contáctanos
       </a>
+
+      <!-- Search form — hidden by default, shown when search is open -->
+      <form
+        id="nav-search-form"
+        action="/buscar"
+        method="get"
+        style="display:none"
+        class="items-center gap-1.5 border-b border-stone-400 ml-1"
+      >
+        <input
+          id="nav-search-input"
+          type="search"
+          name="q"
+          placeholder="Buscar…"
+          class="bg-transparent text-stone-800 placeholder:text-stone-400 text-[11px] tracking-wide focus:outline-none w-36"
+          aria-label="Buscar en la revista"
+        />
+        <button
+          type="submit"
+          class="text-stone-500 hover:text-stone-900 transition-colors shrink-0"
+          aria-label="Buscar"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3 h-3">
+            <path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </form>
+
+      <!-- Search open button — hidden when search is active -->
+      <button
+        id="nav-search-open-btn"
+        class="text-stone-500 hover:text-stone-900 transition-colors cursor-pointer ml-1"
+        aria-label="Abrir búsqueda"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+          <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      <!-- Search close button — hidden when search is inactive -->
+      <button
+        id="nav-search-close-btn"
+        class="hidden text-stone-400 hover:text-stone-900 transition-colors cursor-pointer"
+        aria-label="Cerrar búsqueda"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3.5 h-3.5">
+          <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L8.94 10l-4.72 4.72a.75.75 0 1 0 1.06 1.06L10 11.06l4.72 4.72a.75.75 0 1 0 1.06-1.06L11.06 10l4.72-4.72a.75.75 0 0 0-1.06-1.06L10 8.94 5.28 4.22Z" />
+        </svg>
+      </button>
     </div>
 
     <!-- Mobile toggle -->
@@ -88,7 +169,27 @@ const isPreambuloActive = pathname === '/preambulo';
       Cerrar <span class="text-lg leading-none">&times;</span>
     </button>
   </div>
-  <div class="flex flex-col gap-8 items-start pt-10 px-8 pb-8 min-h-[calc(100vh-65px)]">
+  <div class="flex flex-col gap-8 items-start pt-8 px-8 pb-8 min-h-[calc(100vh-65px)]">
+    <!-- Mobile search -->
+    <form action="/buscar" method="get" class="w-full flex items-center gap-2 border-b border-stone-200 pb-3">
+      <input
+        type="search"
+        name="q"
+        placeholder="Buscar en la revista…"
+        class="flex-1 bg-transparent text-stone-800 placeholder:text-stone-400 text-sm focus:outline-none"
+        aria-label="Buscar"
+      />
+      <button
+        type="submit"
+        class="text-stone-400 hover:text-stone-900 transition-colors shrink-0"
+        aria-label="Buscar"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+          <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </form>
+
     <a
       href="/preambulo"
       class={`display-serif text-3xl font-semibold ${isPreambuloActive ? 'text-stone-900' : 'text-stone-700'} hover:text-stone-900 transition-colors`}
@@ -119,6 +220,7 @@ const isPreambuloActive = pathname === '/preambulo';
 </div>
 
 <script>
+  // ── Mobile menu ──────────────────────────────────────────────────────────
   const toggleBtn = document.getElementById('nav-toggle-btn');
   const closeBtn = document.getElementById('nav-close-btn');
   const backdrop = document.getElementById('nav-backdrop');
@@ -145,4 +247,63 @@ const isPreambuloActive = pathname === '/preambulo';
 
   closeBtn?.addEventListener('click', closeMenu);
   backdrop?.addEventListener('click', closeMenu);
+
+  // ── Desktop search toggle ─────────────────────────────────────────────────
+  const searchOpenBtn = document.getElementById('nav-search-open-btn');
+  const searchCloseBtn = document.getElementById('nav-search-close-btn');
+  const searchForm = document.getElementById('nav-search-form') as HTMLFormElement | null;
+  const searchInput = document.getElementById('nav-search-input') as HTMLInputElement | null;
+  const catsInline = document.getElementById('nav-cats-inline');
+  const catsDropdown = document.getElementById('nav-cats-dropdown');
+  const catsDropdownBtn = document.getElementById('nav-cats-dropdown-btn');
+  const catsMenu = document.getElementById('nav-cats-menu');
+
+  function openSearch() {
+    catsInline?.classList.add('hidden');
+    catsDropdown?.classList.remove('hidden');
+    if (searchForm) searchForm.style.display = 'flex';
+    searchOpenBtn?.classList.add('hidden');
+    searchCloseBtn?.classList.remove('hidden');
+    searchInput?.focus();
+  }
+
+  function closeSearch() {
+    catsInline?.classList.remove('hidden');
+    catsDropdown?.classList.add('hidden');
+    if (searchForm) searchForm.style.display = 'none';
+    searchOpenBtn?.classList.remove('hidden');
+    searchCloseBtn?.classList.add('hidden');
+    closeCatsMenu();
+  }
+
+  searchOpenBtn?.addEventListener('click', openSearch);
+  searchCloseBtn?.addEventListener('click', closeSearch);
+
+  // Close search on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSearch();
+  });
+
+  // ── Categories dropdown ───────────────────────────────────────────────────
+  function openCatsMenu() {
+    catsMenu?.classList.remove('hidden');
+    catsDropdownBtn?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeCatsMenu() {
+    catsMenu?.classList.add('hidden');
+    catsDropdownBtn?.setAttribute('aria-expanded', 'false');
+  }
+
+  catsDropdownBtn?.addEventListener('click', () => {
+    const isOpen = !catsMenu?.classList.contains('hidden');
+    isOpen ? closeCatsMenu() : openCatsMenu();
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (catsDropdown && !catsDropdown.contains(e.target as Node)) {
+      closeCatsMenu();
+    }
+  });
 </script>

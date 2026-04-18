@@ -1,0 +1,116 @@
+---
+export const prerender = false;
+
+import Shell from "../layouts/Shell.astro";
+import PostPreview from "../components/PostPreview.astro";
+import { searchPosts } from "../lib/search";
+
+const q = Astro.url.searchParams.get("q")?.trim() ?? "";
+const results = q ? await searchPosts(q) : [];
+---
+
+<Shell
+  title={q ? `"${q}" · Búsqueda · El Gallo Galante` : "Búsqueda · El Gallo Galante"}
+  description={q ? `${results.length} resultado${results.length !== 1 ? "s" : ""} para "${q}".` : "Busca entre los textos de El Gallo Galante."}
+>
+  <div class="max-w-6xl mx-auto px-6">
+    <header class="max-w-3xl mx-auto mb-16 md:mb-20 text-center">
+      <p class="text-[10px] tracking-[0.3em] uppercase font-semibold text-stone-500 inline-block">
+        Búsqueda
+      </p>
+
+      {q ? (
+        <>
+          <h1 class="display-serif text-4xl md:text-6xl font-bold leading-tight mt-6 break-words">
+            {q}
+          </h1>
+          <div class="mt-8 text-[10px] uppercase tracking-[0.3em] text-stone-400">
+            {results.length} {results.length === 1 ? "resultado" : "resultados"}
+          </div>
+        </>
+      ) : (
+        <h1 class="display-serif text-4xl md:text-5xl font-bold leading-tight mt-6 text-stone-400 italic">
+          ¿Qué buscas?
+        </h1>
+      )}
+    </header>
+
+    <!-- Search form -->
+    <div class="max-w-xl mx-auto mb-16 md:mb-24">
+      <form
+        action="/buscar"
+        method="get"
+        class="flex items-center gap-3 border-b border-stone-300 pb-2"
+      >
+        <input
+          type="search"
+          name="q"
+          value={q}
+          placeholder="Buscar entre los textos…"
+          autofocus={!q ? true : undefined}
+          class="flex-1 bg-transparent text-stone-800 placeholder:text-stone-400 text-sm focus:outline-none"
+          aria-label="Buscar"
+        />
+        <button
+          type="submit"
+          class="text-stone-500 hover:text-stone-900 transition-colors"
+          aria-label="Buscar"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-4 h-4"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    {q && results.length === 0 && (
+      <div class="text-center py-24">
+        <p class="display-serif text-2xl text-stone-400 italic">
+          Sin resultados para «{q}».
+        </p>
+        <p class="mt-4 text-sm text-stone-400 tracking-wide">
+          Intenta con otras palabras o explora por categorías.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center mt-8">
+          {(
+            [
+              { slug: "poesia", label: "Poesía" },
+              { slug: "narrativa", label: "Narrativa" },
+              { slug: "critica", label: "Crítica" },
+              { slug: "ensayo", label: "Ensayo" },
+              { slug: "epistolario", label: "Epistolario" },
+            ] as const
+          ).map((c) => (
+            <a
+              href={`/categoria/${c.slug}`}
+              class="px-4 py-2 text-xs border border-stone-200 hover:border-stone-400 transition rounded-full"
+            >
+              {c.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {results.length > 0 && (
+      <section class="space-y-14 md:space-y-20">
+        {results.map(({ post, authorName, authorSlug }) => (
+          <PostPreview
+            post={post}
+            authorName={authorName}
+            authorSlug={authorSlug}
+          />
+        ))}
+      </section>
+    )}
+  </div>
+</Shell>
