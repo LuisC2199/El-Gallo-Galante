@@ -164,7 +164,7 @@ export default function AdminShell() {
               />
             ) : (
               <div className="flex-1 flex items-center justify-center text-sm text-stone-300">
-                Select a post to edit
+                Selecciona un post para editar
               </div>
             )}
           </>
@@ -190,7 +190,7 @@ export default function AdminShell() {
               />
             ) : (
               <div className="flex-1 flex items-center justify-center text-sm text-stone-300">
-                Select an author to edit
+                Selecciona un autor para editar
               </div>
             )}
           </>
@@ -216,7 +216,7 @@ export default function AdminShell() {
               />
             ) : (
               <div className="flex-1 flex items-center justify-center text-sm text-stone-300">
-                Select an issue to edit
+                Selecciona un número para editar
               </div>
             )}
           </>
@@ -231,7 +231,7 @@ export default function AdminShell() {
       {/* Creation modals */}
       {modalTarget === "posts" && (
         <CreateItemModal
-          title="New Post"
+          title="Nuevo Post"
           fields={postFields(authors, issues)}
           endpoint="/api/admin/posts/create"
           onCreate={handleCreated}
@@ -240,7 +240,7 @@ export default function AdminShell() {
       )}
       {modalTarget === "authors" && (
         <CreateItemModal
-          title="New Author"
+          title="Nuevo Autor"
           fields={authorFields()}
           endpoint="/api/admin/authors/create"
           onCreate={handleCreated}
@@ -249,7 +249,7 @@ export default function AdminShell() {
       )}
       {modalTarget === "issues" && (
         <CreateItemModal
-          title="New Issue"
+          title="Nuevo Número"
           fields={issueFields()}
           endpoint="/api/admin/issues/create"
           onCreate={handleCreated}
