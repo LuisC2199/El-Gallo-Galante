@@ -14,11 +14,14 @@ imagePosition: top
 
 Soy el verbo que transcurre\
 la creación permanente del mensaje;
+===================================
 
 suspenso en el presente de los siglos de los siglos,\
 por mí que soy mi propia esencia incorruptible,\
 sé los segundos que perduran transcurriendo\
 en el instante que no acaba:
+
+ 
 
 es mi verbo conmigo en el principio\
 hecho hombre en propia esencia\
