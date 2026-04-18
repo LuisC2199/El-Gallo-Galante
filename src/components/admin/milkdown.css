@@ -61,6 +61,11 @@
 
 .milkdown-wrapper .ProseMirror p {
   margin-bottom: 0.75rem;
+  /* ProseMirror sets white-space: break-spaces on the root .ProseMirror
+     element.  Without this override, new paragraphs created by pressing
+     Enter inherit that rule and render with preformatted-like whitespace
+     handling, making them visually indistinguishable from code blocks. */
+  white-space: normal;
 }
 
 .milkdown-wrapper .ProseMirror p:last-child {

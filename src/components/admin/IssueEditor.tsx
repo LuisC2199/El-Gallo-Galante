@@ -474,7 +474,7 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
           {/* ---- Editorial note (body) ---- */}
           <section>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
-              Editorial note
+              Nota editorial
             </h3>
             <textarea
               value={body}

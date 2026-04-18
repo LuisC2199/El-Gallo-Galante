@@ -432,7 +432,7 @@ export default function FormattingToolbar() {
       {/* Heading dropdown */}
       <div ref={headingRef} className="relative">
         <ToolBtn
-          title="Encabezado"
+          title="Formato"
           onClick={() => setHeadingOpen(!headingOpen)}
           active={active.heading > 0}
           disabled={disabled}

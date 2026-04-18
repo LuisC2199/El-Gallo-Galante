@@ -130,12 +130,18 @@ export default function MilkdownEditor({ value, onChange }: MilkdownEditorProps)
     onChangeRef.current(md);
   }, []);
 
+  // An empty string produces an empty ProseMirror document (no block nodes),
+  // which leaves the editor in a half-broken plain-textarea-like state.
+  // A single newline is the minimal valid markdown for an empty document
+  // (remark produces one empty paragraph node), so we normalize here.
+  const normalizedValue = value === "" ? "\n" : value;
+
   return (
     <EditorErrorBoundary>
       <div className="milkdown-wrapper rounded-lg border border-stone-200 bg-white overflow-hidden">
         <MilkdownProvider>
           <Toolbar />
-          <MilkdownInner initialValue={value} onChange={stableOnChange} />
+          <MilkdownInner initialValue={normalizedValue} onChange={stableOnChange} />
         </MilkdownProvider>
       </div>
     </EditorErrorBoundary>

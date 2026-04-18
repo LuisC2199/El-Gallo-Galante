@@ -178,6 +178,33 @@ body {
   margin-top: 2rem;
 }
 
+/* ---- Entry content: heading hierarchy ----
+ * Tailwind's preflight (via @import "tailwindcss") resets all heading sizes to
+ * inherit.  These rules restore the correct visual hierarchy for h1/h2/h3
+ * used inside post body text.  Scoped to .entry-content so they never bleed
+ * into the article header h1 which uses display-serif utility classes. */
+.entry-content h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.entry-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.entry-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
 /* Poetry font sizing (line-height left at browser default) */
 .entry-content.poetry p { font-size: 1rem; }
 @media (min-width: 640px) {
@@ -189,6 +216,13 @@ body {
 
 /* ---- Entry content: figures and editorial classes ---- */
 .entry-content figure { margin: 2.5rem 0; }
+
+/* ---- Entry content: list markers ----
+ * Tailwind's preflight removes list-style from ol/ul.  Restore the expected
+ * markers so the preview matches the deployed public page exactly. */
+.entry-content ul { list-style-type: disc; padding-left: 1.5rem; }
+.entry-content ol { list-style-type: decimal; padding-left: 1.5rem; }
+.entry-content li { margin-bottom: 0.25rem; }
 .entry-content figure img { width: 100%; display: block; border-radius: 0.25rem; }
 .entry-content figcaption {
   margin-top: 0.75rem;
