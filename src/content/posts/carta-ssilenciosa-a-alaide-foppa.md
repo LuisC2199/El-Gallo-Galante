@@ -1,15 +1,14 @@
 ---
 title: Carta silenciosa a Alaíde Foppa
-date: 2020-02-08
+date: 2020-02-08T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: francisco-martinez
-coverImage: /posts/alaide.jpg
-featuredImage: /posts/alaide.jpg
+presentacion: 
+  dropCapMode: none
+coverImage: /posts/f1280x720-68389-200064-5050.jpg
 imagePosition: center
 ---
-
-
 
 Si me preguntan, sí, sí lo recuerdo; lo recuerdo de tal manera que podría tejer con detalle largo y atinado y emocionante el esplendor que fue conocer tu escritura. Recuerdo que me pusieron una gran silueta humana, sin nada dentro, nada salvo la línea que recorría entero el cuerpo que a mis ojos se me presentaba vacío: todavía no era un cuerpo. Me leyeron los versos, aquellos que hiciste un día en que viste sobre tu cuerpo la complejidad y la totalidad misma del mundo, uno de esos raros sucesos de la vida que pasan pocas veces y que pocos están ahí para verlos.
 
@@ -20,3 +19,5 @@ Cuando volviste de México a tu país, Guatemala, nadie más supo de ti, Alaíde
 Me quedo el derecho de guardar silencio, Alaíde, ante todo lo que sucede. ¿Quién sería de ser así? Tu palabra siempre me acompañará, el tamaño breve de tu corazón será siempre suficiente para seguir levantando este mundo; por lo demás, descuida, ellas siguen levantando esa voz, preservando la libertad que les es propia, “y la calidad tranquila de la luz”.
 
 Francisco
+
+:::align-center fs-10:::

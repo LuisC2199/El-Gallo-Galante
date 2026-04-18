@@ -4,12 +4,9 @@ date: 2019-02-01T00:00:00.000Z
 category: Crítica
 issue: ano-1-numero-0
 author: jonathan-mirus
-coverImage: >-
-  /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
-featuredImage: >-
-  /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
+coverImage: /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
+featuredImage: /posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg
 ---
-
 
 En 1936 —quizás el año más oscuro de su vida— F. Scott Fitzgerald estaba
 convaleciente en un hotel en Asheville, Carolina del Norte, cuando ofreció a su
@@ -41,51 +38,30 @@ momento en las ediciones de _Modern Library_. En la parte superior de la página
 Richardson escribe: "Estos son libros que Scott pensó que deberían de ser de
 lectura requerida."
 
-1. _Nuestra hermana Carrie_ por Theodore Dreiser
-
-2. _Vida de Jesús_ por Ernest Renan
-
-3. _Casa de Muñecas_ por Henrik Ibsen
-
-4. _Winesburg, Ohio,_ por Sherwood Anderson
-
-5. _Cuento de viejas_ por Arnold Bennett
-
-6. _El halcón maltés_ por Dashiel Hammett
-
-7. _Rojo y negro_ por Stendhal
-
-8. _Cuentos de Guy de Maupassant_ (traducido por Michael Monahan)
-
-9. _Esquema de psicología anormal_, (ed. Gardner Murphy).
-
-10. _Cuentos de Anton Chejóv_ (ed. Robert N. Linscott).
-
-11. _Las mejores historias cortas humorísticas de América_ (Twain y Allan Poe)
-    \[ed. Alexander Jessup\].
-
-12. _Victoria_ de Joseph Conrad
-
-13. _La Rebelión de los Ángeles_ de Anatole France
-
-14. Las obras de teatro de Oscar Wilde
-
-15. _Santuario_ por William Faulkner
-
-16. _A la sombra de las muchachas en flor (En busca del tiempo perdido_ #2) por
+1. 1\. _Nuestra hermana Carrie_ de Theodore Dreiser
+2. 2\. _Vida de Jesús_ de Ernest Renan
+3. 3\. _Casa de muñecas_ de Henrik Ibsen
+4. 4\. _Winesburg, Ohio,_ de Sherwood Anderson
+5. 5\. _Cuento de viejas_ de Arnold Bennett
+6. 6\. _El halcón maltés_ de Dashiel Hammett
+7. 7. _Rojo y negro_ de Stendhal
+8. 8\. _Cuentos de Guy de Maupassant_ (traducido por Michael Monahan)
+9. 9\. _Esquema de psicología anormal_ (ed. Gardner Murphy).
+10. 10\. _Cuentos de Anton Chejóv_ (ed. Robert N. Linscott).
+11. 11\. _Las mejores historias cortas humorísticas de América_ (Twain y Allan Poe)
+    \[ed. Alexander Jessup].
+12. 12\. _Victoria_ de Joseph Conrad
+13. 13\. _La Rebelión de los ángeles_ de Anatole France
+14. 14\. Las obras de teatro de Oscar Wilde
+15. 15\. _Santuario_ de William Faulkner
+16. 16\. _A la sombra de las muchachas en flor (En busca del tiempo perdido_ #2) de
     Marcel Proust
-
-17. _El mundo de Guermantes (En busca del tiempo perdido #3)_ por Marcel Proust
-
-18. _Por el camino de Swann (en busca del tiempo perdido #1)_ por Marcel Proust
-
-19. _Viento del sur_ por Norman Douglas
-
-20. _Fiesta en el jardín_ por Katherine Mansfield
-
-21. _La Guerra y la Paz_ por León Tolstoi
-
-22. Poesía completa de John Keats y Percy Bysshe Shelley
+17. 17\. _El mundo de Guermantes (En busca del tiempo perdido #3)_ de Marcel Proust
+18. 18\. _Por el camino de Swann (en busca del tiempo perdido #1)_ de Marcel Proust
+19. 19. _Viento del sur_ de Norman Douglas
+20. 20\. _Fiesta en el jardín_ de Katherine Mansfield
+21. 21\. _La Guerra y la paz_ de León Tolstoi
+22. 22\. Poesía completa de John Keats y Percy Bysshe Shelley
 
 <div class="footnote">
 Original publicado en
@@ -96,6 +72,6 @@ Consultado el 28 de enero de 2019.
 Traducción de Jonathan Mirus.
 </div>
 
-![](/posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg)
+:::align-center:::![](/posts/f-scott-fitzgerald-crea-una-lista-de-22-libros-esenciales-1936-traduccion-de-jonathan-mirus.jpg)
 
-<span class="caption">Fotografía de Carl Van Vechten \[Dominio público\]</span>
+:::align-center fs-10:::<span class="caption">Fotografía de Carl Van Vechten \[Dominio público]</span>

@@ -4,6 +4,8 @@ date: 2019-03-11T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: jonathan-mirus
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/caida.jpg
 featuredImage: /posts/caida.jpg
 ---

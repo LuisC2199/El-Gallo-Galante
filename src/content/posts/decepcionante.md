@@ -4,6 +4,8 @@ date: 2020-02-05T00:00:00.000Z
 category: Poesía
 issue: ano-1-numero-0
 author: emmanuel-de-los-robles
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/decepcionante.jpg
 featuredImage: /posts/decepcionante.jpg
 ---

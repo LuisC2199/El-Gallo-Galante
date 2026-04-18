@@ -4,13 +4,15 @@ date: 2019-10-05T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: mariana-del-vergel
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/carta-a-gilberto-owen.jpg
 featuredImage: /posts/carta-a-gilberto-owen.jpg
 ---
 
-24 de septiembre de 2019
+:::align-right fs-11:::24 de septiembre de 2019
 
-_Le escribo con el atrevimiento de sus nomeolvides y con la tinta verde que
+:::align-right fs-11:::_Le escribo con el atrevimiento de sus nomeolvides y con la tinta verde que
 tanto le gustaba usar._
 
 G.O.:

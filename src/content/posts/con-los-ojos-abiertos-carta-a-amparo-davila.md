@@ -4,11 +4,13 @@ date: 2020-04-19T00:00:00.000Z
 category: Epistolario
 issue: ano-1-numero-0
 author: mariana-del-vergel
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg
 featuredImage: /posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg
 ---
 
-18 de abril de 2020
+:::align-right fs-11:::18 de abril de 2020
 
 Doña Amparo, le escribo desde la distancia. Hoy es un día triste del mes –no del
 abril de Machado, sino más bien del de Eliot. Mis líneas son un hilo desgajado
@@ -55,4 +57,4 @@ Mariana del Vergel
 
 ![](/posts/con-los-ojos-abiertos-carta-a-amparo-davila.jpg)
 
-Archivo de _El Sol de Zacatecas_.
+:::align-center fs-10:::Archivo de _El Sol de Zacatecas_.

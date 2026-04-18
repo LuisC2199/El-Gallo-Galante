@@ -5,14 +5,14 @@ category: Epistolario
 issue: ano-1-numero-0
 author: lilia-solorzano-esqueda
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/carta-a-tomas-segovia.jpg
 featuredImage: /posts/carta-a-tomas-segovia.jpg
 ---
 
-:::align-right:::_Guanajuato, Gto., a 20 de octubre de 2019_
+:::align-right fs-11:::_Guanajuato, Gto., a 20 de octubre de 2019_
 
-<span class="dropcap">Q</span>uerido Tomás:
+Querido Tomás:
 
 :::align-justify:::Ya casi se cumplirán 8 años desde que tu corazón finalmente dijo hasta aquí
 llegamos compañero. Te soltó la mano el tiempo con el que tan íntimamente

@@ -4,17 +4,17 @@ date: 2019-02-01T00:00:00.000Z
 category: Crítica
 issue: ano-1-numero-0
 author: daniela-guerrero
-coverImage: >-
-  /posts/resena-andreas-kurz-alejo-carpentier-los-peregrinos-jamas-regresan-a-casa.jpg
-featuredImage: >-
-  /posts/resena-andreas-kurz-alejo-carpentier-los-peregrinos-jamas-regresan-a-casa.jpg
+presentacion: 
+  dropCapMode: manual
+coverImage: /posts/resena-andreas-kurz-alejo-carpentier-los-peregrinos-jamas-regresan-a-casa.jpg
+featuredImage: /posts/resena-andreas-kurz-alejo-carpentier-los-peregrinos-jamas-regresan-a-casa.jpg
 ---
 
 ANDREAS KURZ, _Alejo Carpentier. Los peregrinos jamás regresan a casa,_
 Universidad de Guanajuato/Fondo Nacional para la Cultura y las Artes, México,
 2015; 116 pp. (_Pequeña Galería del Escritor Hispanoamericano, 3_)
 
-Dentro de los libros coleccionables que pertenecen a la _Pequeña galería del
+<span class="dropcap">D</span>entro de los libros coleccionables que pertenecen a la _Pequeña galería del
 escritor hispanoamericano_, publicados por la Universidad de Guanajuato, se
 encuentra una minuciosa investigación a cargo de Andreas Kurz, literato formado
 en la Universidad de Viena y especialista en Letras Hispánicas, quien muestra un
@@ -77,7 +77,7 @@ tiene un equivalente en la realidad? A dichas cuestiones, su respuesta es: “el
 recurso de las referencias culturales, textos que refieren otros textos, arte
 que remite al arte” (p. 67), o bien “insistir en la debilidad de las facultades
 intelectuales y narrativas para que sobresalga más el resultado obtenido” (p.
-70). Carpentier perfecciona dichas técnicas y lo refleja en esta obra, menciona
+70\). Carpentier perfecciona dichas técnicas y lo refleja en esta obra, menciona
 Kurz.
 
 En el siguiente apartado, _El siglo de las luces_ de 1962 y su comparación con

@@ -4,19 +4,21 @@ date: 2019-06-30T00:00:00.000Z
 category: Ensayo
 issue: ano-1-numero-0
 author: asuncion-rangel
-coverImage: >-
-  /posts/para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco.jpg
-featuredImage: >-
-  /posts/para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco.jpg
+presentacion: 
+  dropCapMode: manual
+coverImage: /posts/para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco.jpg
+featuredImage: /posts/para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco.jpg
 ---
 
-\[…\] es la reflexión sobre todo lo perdido lo que nos permite tomar en
+:::align-right fs-10:::\[…] es la reflexión sobre todo lo perdido lo que nos permite tomar en
 consideración aquello que todavía conservamos y lo mucho que tenemos que perder.
 Y estamos dispuestos a perderlo porque ya casi nada nos pertenece; casi nada,
-salvo esa facultad inquebrantable para la reflexión sobre la pérdida.  
-“Reflexión sobre la pérdida”, Antoní Mari
+salvo esa facultad inquebrantable para la reflexión sobre la pérdida.\
+“Reflexión sobre la pérdida”,
 
-Un domingo 26 de enero de 2014, Laura Emilia Pacheco informaba a los medios de
+:::align-right fs-10:::Antoni Marí
+
+<span class="dropcap">U</span>n domingo 26 de enero de 2014, Laura Emilia Pacheco informaba a los medios de
 comunicación que su padre había muerto de un paro cardiorrespiratorio. Había
 terminado de escribir su _Inventario_, dedicado a su gran amigo Juan Gelman,
 “hizo lo que hacía todas las noches, se acostaba a dormir y ya no despertó”,
@@ -125,8 +127,8 @@ el ya señalado diálogo con los muertos y los escritores mexicanos del siglo XI
 
 “Caverna” de *Islas a la deriva*, escrito entre 1973 y 1975, inicia con la siguiente tirada de versos:
 
-Es verdad que los muertos tampoco duran.  
-Ni siquiera la muerte permanece.  
+Es verdad que los muertos tampoco duran.\
+Ni siquiera la muerte permanece.\
 Todo vuelve a ser polvo (172).
 
 Y quizá es verdad, quizá ni siquiera la muerte de Pacheco permanece, todo se

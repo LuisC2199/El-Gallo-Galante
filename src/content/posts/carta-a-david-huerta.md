@@ -5,15 +5,15 @@ category: Epistolario
 issue: ano-1-numero-0
 author: carlos-ulises-mata
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/carta-a-david-huerta.jpg
 featuredImage: /posts/carta-a-david-huerta.jpg
 ---
 
-:::align-right:::*En Guanajuato y 2019*\
+:::align-right fs-11:::*En Guanajuato y 2019*\
 *(a la manera de Lezama Lima)*
 
-:::align-justify:::<span class="dropcap">Q</span>uerido David Huerta:
+:::align-justify:::Querido David Huerta:
 
 :::align-justify:::Qué bueno que no te gusta escribir por Whatsapp (otra coincidencia espiritual),
 qué malo que una vez más extravié la dirección “física” de tu casa en CDMX (en

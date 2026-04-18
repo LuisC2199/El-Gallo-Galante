@@ -2,10 +2,12 @@
 title: Altar a Penuria
 date: 2019-04-18T00:00:00.000Z
 category: Poesía
-author: gerardo-szae
 issue: ano-1-numero-0
-coverImage: "/posts/altar-a-penuria.jpg"
-featuredImage: "/posts/altar-a-penuria.jpg"
+author: gerardo-szae
+presentacion: 
+  dropCapMode: none
+coverImage: /posts/altar-a-penuria.jpg
+featuredImage: /posts/altar-a-penuria.jpg
 ---
 
 …escuchar  

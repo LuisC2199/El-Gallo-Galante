@@ -61,7 +61,5 @@ adaptarme a otro medio que no fuera tu cuerpo.
 
 :::ls-loose:::![](/posts/it-never-entered-my-mind.jpg)
 
-<span class="caption">Fotografía por
-**<a href="https://www.pexels.com/@markusspiske?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">Markus
-Spiske</a>** de
-**<a href="https://www.pexels.com/photo/vintage-music-retro-turntable-96857/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">Pexels</a>**</span>
+<span class="caption">Fotografía por <a href="https://www.pexels.com/@markusspiske?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">Markus
+Spiske</a> de <a href="https://www.pexels.com/photo/vintage-music-retro-turntable-96857/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels" target="_blank" rel="noreferrer">Pexels</a></span>

@@ -1,14 +1,10 @@
 ---
 name: Daniel Isaí Mata Velázquez
-birthYear: '2000'
+birthYear: "2000"
 birthPlace: Aguascalientes
-photo: /authors/daniel-isai-mata-velazquez.jpg
+photo: /authors/captura-de-pantalla-2026-04-17-a-la-s-10-31-33.png
 gender: true
-social:
-  website: ''
-  instagram: ''
-  x: ''
-  facebook: ''
-  tiktok: ''
+social: {}
 ---
-Estudiante de la Licenciatura en Letras Hispánicas en la BUAA. Ocupó el cargo de editor de la revista literaria y estudiantil *Pirocromo* de agosto de 2020 a agosto de 2021. Obtuvo el segundo lugar en la categoría de poesía en el concurso de talentos universitarios 2020 de la BUAA. Participó como ponente en la tercera edición del Congreso Nacional de Creadores Literarios. Ha sido publicado en la revista *Los Demonios y los Días* y *Campos de Plumas*.
+
+licenciado en Letras Hispánicas en la Universidad Autónoma de Aguascalientes. Ocupó el cargo de editor en la revista *Pirocromo* de 2020 a 2021. Ha sido publicado en las revistas *Círculo de Poesía*, *Los Demonios y los Días*, *Pirocromo*, *Campos de Plumas* y *La Historia y sus Gusanos*. Fue ponente en la tercera edición del Congreso Nacional de Creadores Literarios. Además, obtuvo mención honorífica en el Premio Nacional al Estudiante Universitario, en la categoría de poesía José Emilio Pacheco. Actualmente es fundador de GAIA: club de lectura.

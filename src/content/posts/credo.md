@@ -5,12 +5,14 @@ category: Poesía
 issue: ano-1-numero-0
 author: angel-alexandro-porras-ortega
 presentacion: 
-  dropCapMode: manual
+  dropCapMode: none
 coverImage: /posts/credo.jpg
 featuredImage: /posts/credo.jpg
 ---
 
-:::align-justify:::<span class="dropcap">C</span>reo en el verso, verdadero emblema de la omnipresencia en el inicio. Creo en el
+:::align-right fs-10:::*A Fabián Espejel*
+
+:::align-justify:::Creo en el verso, verdadero emblema de la omnipresencia en el inicio. Creo en el
 verso, creador absoluto de las cosas: su voz acariciante dijo tiempo, dijo luz y
 dijo sean. Creo en su conjugación, en su eco palpable y traducible, pero creo
 también en su preexistencia voladora; su aletear despierta el dormido corazón de
