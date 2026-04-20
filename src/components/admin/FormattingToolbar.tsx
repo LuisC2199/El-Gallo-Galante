@@ -91,6 +91,9 @@ function detectActiveState(view: any): ActiveState {
       if (!textAlign   && node.attrs.textAlign)   textAlign   = node.attrs.textAlign;
       if (!lineSpacing && node.attrs.lineSpacing) lineSpacing = node.attrs.lineSpacing;
       if (!fontSize    && node.attrs.fontSize)    fontSize    = node.attrs.fontSize;
+    } else if (name === "textSize") {
+      // Inline text-size node takes precedence over block fontSize attr
+      if (!fontSize && node.attrs.size) fontSize = node.attrs.size as FontSizeKey;
     } else if (name === "bullet_list") {
       bulletList = true;
     } else if (name === "ordered_list") {
@@ -310,7 +313,8 @@ export default function FormattingToolbar() {
     [getEditor],
   );
 
-  // Font size: set fontSize attr on the current block node
+  // Font size: applies inline (textSize node) when text is selected within a
+  // single parent, or block-level (fontSize attr) otherwise.
   const setFontSize = useCallback(
     (size: FontSizeKey | null) => {
       setFontSizeOpen(false);
@@ -319,19 +323,64 @@ export default function FormattingToolbar() {
       editor.action((ctx) => {
         const view = ctx.get(editorViewCtx);
         const { state, dispatch } = view;
-        const { $from, $to } = state.selection;
+        const { selection } = state;
+        const { $from, $to, empty } = selection;
 
+        // "12" (browser default) means "remove explicit size"
+        const effectiveSize = size === "12" ? null : size;
+        const textSizeType = state.schema.nodes.textSize;
+
+        // ── Inline mode: non-empty selection within a single parent node ──
+        if (!empty && textSizeType && $from.sameParent($to)) {
+          const parentName = $from.parent.type.name;
+
+          if (parentName === "textSize") {
+            // Cursor is inside an existing textSize node
+            const nodeStart = $from.before($from.depth);
+            const textSizeNode = $from.parent;
+            if (effectiveSize === null || textSizeNode.attrs.size === effectiveSize) {
+              // Same size clicked or default → unwrap
+              dispatch(
+                state.tr
+                  .replaceWith(nodeStart, nodeStart + textSizeNode.nodeSize, textSizeNode.content)
+                  .scrollIntoView(),
+              );
+            } else {
+              // Different size → update attrs
+              dispatch(
+                state.tr
+                  .setNodeMarkup(nodeStart, undefined, { size: effectiveSize })
+                  .scrollIntoView(),
+              );
+            }
+            return;
+          }
+
+          if (parentName !== "code_block" && effectiveSize !== null) {
+            // Wrap selection in a new textSize node
+            const content = state.doc.slice($from.pos, $to.pos).content;
+            try {
+              const newNode = textSizeType.create({ size: effectiveSize }, content);
+              dispatch(state.tr.replaceWith($from.pos, $to.pos, newNode).scrollIntoView());
+              return;
+            } catch {
+              // Schema validation failed — fall through to block mode
+            }
+          }
+        }
+
+        // ── Block mode: no selection or multi-block ───────────────────────
         let allHave = true;
         let hasEligible = false;
         state.doc.nodesBetween($from.pos, $to.pos, (node) => {
           if (node.type.name === "paragraph" || node.type.name === "heading") {
             hasEligible = true;
-            if (node.attrs.fontSize !== size) allHave = false;
+            if (node.attrs.fontSize !== effectiveSize) allHave = false;
             return false;
           }
           return true;
         });
-        const applySize = hasEligible && allHave ? null : size;
+        const applySize = hasEligible && allHave ? null : effectiveSize;
 
         let tr = state.tr;
         state.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {

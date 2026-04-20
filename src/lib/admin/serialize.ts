@@ -34,6 +34,7 @@ const AUTHOR_KEY_ORDER = [
 const ISSUE_KEY_ORDER = [
   "title",
   "date",
+  "endDate",
   "number",
   "coverImage",
   "description",

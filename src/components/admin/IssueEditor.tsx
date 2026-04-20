@@ -344,8 +344,8 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
               />
             </Field>
 
-            <div className="grid grid-cols-2 gap-4">
-              <Field label="Fecha" error={showValidation ? validationErrors.date : undefined}>
+            <div className="grid grid-cols-3 gap-4">
+              <Field label="Fecha de inicio" error={showValidation ? validationErrors.date : undefined}>
                 <input
                   type="date"
                   value={toDateInput(fm.date)}
@@ -354,6 +354,18 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
                     updateField("date", d ? `${d}T00:00:00.000Z` : "");
                   }}
                   className={fieldClass(showValidation && !!validationErrors.date)}
+                />
+              </Field>
+
+              <Field label="Fecha de fin">
+                <input
+                  type="date"
+                  value={toDateInput(fm.endDate)}
+                  onChange={(e) => {
+                    const d = e.target.value;
+                    updateField("endDate", d ? `${d}T00:00:00.000Z` : undefined);
+                  }}
+                  className={fieldClass()}
                 />
               </Field>
 

@@ -7,6 +7,7 @@ const issues = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.date(),
+    endDate: z.date().optional(), // optional end date for multi-year issues
     number: z.string().optional(), // e.g. "No. 12" or "Vol. 2"
     coverImage: z.string().optional(),
     description: z.string().optional(),

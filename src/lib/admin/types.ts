@@ -41,6 +41,7 @@ export interface IssueSummary {
   slug: string;
   title: string;
   date?: string;
+  endDate?: string;
   number?: string;
   path: string;
   sha: string;

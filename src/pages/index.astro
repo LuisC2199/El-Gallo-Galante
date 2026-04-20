@@ -1,6 +1,7 @@
 ---
 import Shell from "../layouts/Shell.astro";
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import { formatIssueDate } from "../lib/format-issue-date";
 
 const issues: CollectionEntry<"issues">[] = await getCollection("issues");
 
@@ -53,16 +54,7 @@ const featuredWorksWithAuthors: { post: CollectionEntry<"posts">; author: Collec
     })
   );
 
-const formatDate = (date: Date, issueId?: string): string => {
-  // Special case for the first issue (2018-2025)
-  if (issueId && (issueId === 'ano-1-numero-0.md' || issueId === 'ano-1-numero-0')) {
-    return '2018–2025';
-  }
-  return new Intl.DateTimeFormat("es-MX", {
-    year: "numeric",
-    month: "long",
-  }).format(date);
-};
+
 ---
 
 <Shell title="El Gallo Galante">
@@ -103,7 +95,7 @@ const formatDate = (date: Date, issueId?: string): string => {
                 style="-webkit-overflow-scrolling: touch; touch-action: pan-x;"
               >
                 {/* ✅ real padding for the viewport edges */}
-                <div class="flex w-max gap-3 md:gap-4 px-6 md:px-0">
+                <div class="flex w-max gap-3 md:gap-4 px-6 md:px-0 min-[1728px]:mx-auto">
                   {latestPostsWithAuthors.map(({ post, author }) => (
                     <a
                       href={`/posts/${post.slug}`}
@@ -235,7 +227,7 @@ const formatDate = (date: Date, issueId?: string): string => {
                   {latestIssue.data.title}
                 </h2>
                 <p class="text-sm tracking-wide text-stone-500 mb-8">
-                  {formatDate(latestIssue.data.date, latestIssue.id)} · {latestIssue.data.number}
+                  {formatIssueDate(latestIssue.data.date, latestIssue.data.endDate)} · {latestIssue.data.number}
                 </p>
               </div>
 

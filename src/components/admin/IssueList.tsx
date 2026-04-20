@@ -3,6 +3,7 @@
 // ---------------------------------------------------------------------------
 import { useEffect, useState, useMemo } from "react";
 import type { IssueSummary } from "../../lib/admin/types";
+import { formatIssueDate } from "../../lib/format-issue-date";
 
 type SortMode = "newest" | "oldest" | "az" | "za";
 
@@ -153,11 +154,10 @@ export default function IssueList({ selectedSlug, onSelect, refreshKey = 0, onNe
                 </p>
                 {i.date && (
                   <p className="text-xs text-stone-400 mt-0.5">
-                    {new Date(i.date).toLocaleDateString("es-MX", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
+                    {formatIssueDate(
+                      new Date(i.date),
+                      i.endDate ? new Date(i.endDate) : undefined,
+                    )}
                   </p>
                 )}
               </button>

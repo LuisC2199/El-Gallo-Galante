@@ -243,7 +243,8 @@ export function authorFields(): FieldDef[] {
 export function issueFields(): FieldDef[] {
   return [
     { kind: "text", key: "title", label: "Title", required: true, placeholder: "e.g. Año 2 número 3" },
-    { kind: "date", key: "date", label: "Date" },
+    { kind: "date", key: "date", label: "Fecha de inicio" },
+    { kind: "date", key: "endDate", label: "Fecha de fin" },
     { kind: "text", key: "number", label: "Number", placeholder: "e.g. No. 03" },
     { kind: "text", key: "description", label: "Description", placeholder: "Short description" },
   ];

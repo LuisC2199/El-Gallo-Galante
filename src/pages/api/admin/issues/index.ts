@@ -28,6 +28,7 @@ export const GET: APIRoute = async ({ locals }) => {
             slug: f.name.replace(/\.md$/, ""),
             title: (data.title as string) ?? f.name.replace(/\.md$/, ""),
             date: data.date ? new Date(data.date as string).toISOString() : undefined,
+            endDate: data.endDate ? new Date(data.endDate as string).toISOString() : undefined,
             number: data.number ? String(data.number) : undefined,
             path: f.path,
             sha: f.sha,

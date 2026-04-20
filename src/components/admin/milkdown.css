@@ -61,10 +61,21 @@
 
 .milkdown-wrapper .ProseMirror p {
   margin-bottom: 0.75rem;
-  /* ProseMirror sets white-space: break-spaces on the root .ProseMirror
-     element.  Without this override, new paragraphs created by pressing
-     Enter inherit that rule and render with preformatted-like whitespace
-     handling, making them visually indistinguishable from code blocks. */
+}
+
+/* ProseMirror sets white-space: break-spaces on the root .ProseMirror
+   element.  All prose block elements must explicitly reset this so they
+   use normal wrapping and are never visually confused with code blocks.
+   pre/code are intentionally excluded – they need preformatted spacing. */
+.milkdown-wrapper .ProseMirror p,
+.milkdown-wrapper .ProseMirror h1,
+.milkdown-wrapper .ProseMirror h2,
+.milkdown-wrapper .ProseMirror h3,
+.milkdown-wrapper .ProseMirror h4,
+.milkdown-wrapper .ProseMirror h5,
+.milkdown-wrapper .ProseMirror h6,
+.milkdown-wrapper .ProseMirror li,
+.milkdown-wrapper .ProseMirror blockquote {
   white-space: normal;
 }
 
