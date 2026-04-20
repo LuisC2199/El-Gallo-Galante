@@ -7,8 +7,8 @@
 // handled by the parent keying this component on the slug).
 // ---------------------------------------------------------------------------
 
-import { useRef, useCallback, Component, type ReactNode } from "react";
-import { Editor, defaultValueCtx, rootCtx, type KeymapItem } from "@milkdown/kit/core";
+import { useRef, useCallback, useEffect, Component, type ReactNode } from "react";
+import { Editor, defaultValueCtx, rootCtx, editorViewCtx, type KeymapItem } from "@milkdown/kit/core";
 import { commonmark } from "@milkdown/kit/preset/commonmark";
 import { history } from "@milkdown/kit/plugin/history";
 import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
@@ -88,7 +88,7 @@ function MilkdownInner({ initialValue, onChange }: InnerProps) {
   const onChangeRef = useRef(onChange);
   onChangeRef.current = onChange;
 
-  useEditor(
+  const { get, loading } = useEditor(
     (root) =>
       Editor.make()
         .config((ctx) => {
@@ -116,6 +116,26 @@ function MilkdownInner({ initialValue, onChange }: InnerProps) {
     // (parent should key this component on slug so it remounts entirely).
     [],
   );
+
+  // Blank/whitespace-only input (e.g. a brand-new empty post) produces an
+  // empty ProseMirror document with no block nodes. Without any blocks there
+  // are no valid cursor positions, so the user cannot click to start typing.
+  // After the editor finishes initialising, ensure there is always at least
+  // one empty paragraph so the content area is immediately interactive.
+  useEffect(() => {
+    if (loading) return;
+    const editor = get();
+    if (!editor) return;
+    editor.action((ctx) => {
+      const view = ctx.get(editorViewCtx);
+      if (view.state.doc.childCount > 0) return;
+      const { paragraph } = view.state.schema.nodes;
+      if (!paragraph) return;
+      view.dispatch(
+        view.state.tr.replaceWith(0, view.state.doc.content.size, paragraph.create()),
+      );
+    });
+  }, [loading, get]);
 
   return <Milkdown />;
 }
