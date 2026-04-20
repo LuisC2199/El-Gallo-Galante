@@ -7,8 +7,8 @@
 // handled by the parent keying this component on the slug).
 // ---------------------------------------------------------------------------
 
-import { useRef, useCallback, useEffect, Component, type ReactNode } from "react";
-import { Editor, defaultValueCtx, rootCtx, editorViewCtx, type KeymapItem } from "@milkdown/kit/core";
+import { useRef, useCallback, Component, type ReactNode } from "react";
+import { Editor, defaultValueCtx, rootCtx, type KeymapItem } from "@milkdown/kit/core";
 import { commonmark } from "@milkdown/kit/preset/commonmark";
 import { history } from "@milkdown/kit/plugin/history";
 import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
@@ -88,12 +88,24 @@ function MilkdownInner({ initialValue, onChange }: InnerProps) {
   const onChangeRef = useRef(onChange);
   onChangeRef.current = onChange;
 
-  const { get, loading } = useEditor(
+  useEditor(
     (root) =>
       Editor.make()
         .config((ctx) => {
           ctx.set(rootCtx, root);
-          ctx.set(defaultValueCtx, initialValue);
+          // Empty/whitespace-only Markdown (e.g. a brand-new post with no body)
+          // produces an empty remark AST, which Milkdown converts to a ProseMirror
+          // doc with zero block nodes. Zero blocks = no valid cursor positions =
+          // the user cannot click to type. Use the JSON doc format to bypass
+          // remark-parse and seed the editor with a proper empty paragraph instead.
+          if (initialValue.trim()) {
+            ctx.set(defaultValueCtx, initialValue);
+          } else {
+            ctx.set(defaultValueCtx, {
+              type: "json",
+              value: { type: "doc", content: [{ type: "paragraph" }] },
+            });
+          }
 
           // Wire up the markdown listener
           ctx
@@ -116,26 +128,6 @@ function MilkdownInner({ initialValue, onChange }: InnerProps) {
     // (parent should key this component on slug so it remounts entirely).
     [],
   );
-
-  // Blank/whitespace-only input (e.g. a brand-new empty post) produces an
-  // empty ProseMirror document with no block nodes. Without any blocks there
-  // are no valid cursor positions, so the user cannot click to start typing.
-  // After the editor finishes initialising, ensure there is always at least
-  // one empty paragraph so the content area is immediately interactive.
-  useEffect(() => {
-    if (loading) return;
-    const editor = get();
-    if (!editor) return;
-    editor.action((ctx) => {
-      const view = ctx.get(editorViewCtx);
-      if (view.state.doc.childCount > 0) return;
-      const { paragraph } = view.state.schema.nodes;
-      if (!paragraph) return;
-      view.dispatch(
-        view.state.tr.replaceWith(0, view.state.doc.content.size, paragraph.create()),
-      );
-    });
-  }, [loading, get]);
 
   return <Milkdown />;
 }
