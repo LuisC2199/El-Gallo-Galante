@@ -84,7 +84,7 @@ export default function CreateItemModal({
       // Client-side required check
       for (const f of fields) {
         if (f.required && !values[f.key]?.trim()) {
-          setError(`${f.label} is required`);
+          setError(`${f.label} es obligatorio`);
           return;
         }
       }
@@ -116,7 +116,7 @@ export default function CreateItemModal({
         const data: CreateItemResponse = await res.json();
         onCreate(data.slug);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Creation failed");
+        setError(err instanceof Error ? err.message : "Error al crear");
       } finally {
         setSubmitting(false);
       }
@@ -150,7 +150,7 @@ export default function CreateItemModal({
                   onChange={(e) => updateValue(f.key, e.target.value)}
                   className="mt-1 block w-full rounded-md border border-stone-200 bg-white px-3 py-2 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-stone-300"
                 >
-                  <option value="">{f.placeholder ?? "— select —"}</option>
+                  <option value="">{f.placeholder ?? "— seleccionar —"}</option>
                   {f.options.map((o) => (
                     <option key={o.value} value={o.value}>{o.label}</option>
                   ))}
@@ -180,7 +180,7 @@ export default function CreateItemModal({
             disabled={submitting}
             className="px-4 py-2 text-sm font-medium text-stone-600 rounded-md hover:bg-stone-50 transition-colors"
           >
-            Cancel
+            Cancelar
           </button>
           <button
             type="button"
@@ -188,7 +188,7 @@ export default function CreateItemModal({
             disabled={submitting}
             className="px-4 py-2 text-sm font-medium text-white bg-stone-800 rounded-md hover:bg-stone-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            {submitting ? "Creating…" : "Create"}
+            {submitting ? "Creando…" : "Crear"}
           </button>
         </div>
       </div>
@@ -207,18 +207,18 @@ export function postFields(
   const categories: PostCategory[] = ["Poesía", "Narrativa", "Crítica", "Ensayo", "Epistolario"];
 
   return [
-    { kind: "text", key: "title", label: "Title", required: true, placeholder: "Post title" },
-    { kind: "date", key: "date", label: "Date", required: true },
+    { kind: "text", key: "title", label: "Título", required: true, placeholder: "Título del post" },
+    { kind: "date", key: "date", label: "Fecha", required: true },
     {
-      kind: "select", key: "category", label: "Category", required: true,
+      kind: "select", key: "category", label: "Categoría", required: true,
       options: categories.map((c) => ({ value: c, label: c })),
     },
     {
-      kind: "select", key: "author", label: "Author", required: true,
+      kind: "select", key: "author", label: "Autor", required: true,
       options: authors.map((a) => ({ value: a.slug, label: a.name })),
     },
     {
-      kind: "select", key: "issue", label: "Issue",
+      kind: "select", key: "issue", label: "Número",
       options: issues.map((i) => ({
         value: i.slug,
         label: i.number ? `${i.number} — ${i.title}` : i.title,
@@ -226,7 +226,7 @@ export function postFields(
     },
     {
       kind: "select", key: "traductor", label: "Traductor",
-      placeholder: "— none —",
+      placeholder: "— ninguno —",
       options: authors.map((a) => ({ value: a.slug, label: a.name })),
     },
   ];
@@ -234,18 +234,18 @@ export function postFields(
 
 export function authorFields(): FieldDef[] {
   return [
-    { kind: "text", key: "name", label: "Name", required: true, placeholder: "Full name" },
-    { kind: "text", key: "birthYear", label: "Birth Year", placeholder: "e.g. 1990" },
-    { kind: "text", key: "birthPlace", label: "Birth Place", placeholder: "e.g. Guanajuato" },
+    { kind: "text", key: "name", label: "Nombre", required: true, placeholder: "Nombre completo" },
+    { kind: "text", key: "birthYear", label: "Año de nacimiento", placeholder: "ej. 1990" },
+    { kind: "text", key: "birthPlace", label: "Lugar de nacimiento", placeholder: "ej. Guanajuato" },
   ];
 }
 
 export function issueFields(): FieldDef[] {
   return [
-    { kind: "text", key: "title", label: "Title", required: true, placeholder: "e.g. Año 2 número 3" },
+    { kind: "text", key: "title", label: "Título", required: true, placeholder: "ej. Año 2 número 3" },
     { kind: "date", key: "date", label: "Fecha de inicio" },
     { kind: "date", key: "endDate", label: "Fecha de fin" },
-    { kind: "text", key: "number", label: "Number", placeholder: "e.g. No. 03" },
-    { kind: "text", key: "description", label: "Description", placeholder: "Short description" },
+    { kind: "text", key: "number", label: "Número", placeholder: "ej. No. 03" },
+    { kind: "text", key: "description", label: "Descripción", placeholder: "Descripción breve" },
   ];
 }
