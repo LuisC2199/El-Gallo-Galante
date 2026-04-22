@@ -11,7 +11,7 @@ featuredPostSlugs:
   - cuando-llega-el-silencio
   - antielegia-del-ave-fenix-por-si-misma
   - el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto
-  - iii
+  - altar-a-penuria
 ---
 
 
