@@ -20,13 +20,9 @@ por mí que soy mi propia esencia incorruptible,\
 sé los segundos que perduran transcurriendo\
 en el instante que no acaba:
 
- 
-
 es mi verbo conmigo en el principio\
 hecho hombre en propia esencia\
 que retorna el espíritu a la gloria,
 
 y es mi presente lo que el verbo piensa\
 en la creación que he comenzado.
-
-:::align-right fs-10:::*Guanajuato, a 01 de julio de 2020*
