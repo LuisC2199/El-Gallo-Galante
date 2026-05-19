@@ -2,7 +2,7 @@
 title: Preámbulo
 ---
 
-:::align-justify:::Hace algunos años y con el fin de «perder tiempo, amigos y dinero», creamos la revista digital *El Gallo Galante*. El propósito era en apariencia sencillo: dialogar con nuestra época a través de la palabra, como tantos otros lo habían hecho antes que nosotros. Octavio Paz decía que «siempre que un grupo de jóvenes escritores se juntan, quieren modificar al mundo, quieren llegar al cielo, quieren defender el infierno y lo único que se les ocurre es fundar una revista».
+:::align-justify:::<span class="dropcap">H</span>ace algunos años y con el fin de «perder tiempo, amigos y dinero», creamos la revista digital *El Gallo Galante*. El propósito era en apariencia sencillo: dialogar con nuestra época a través de la palabra, como tantos otros lo habían hecho antes que nosotros. Octavio Paz decía que «siempre que un grupo de jóvenes escritores se juntan, quieren modificar al mundo, quieren llegar al cielo, quieren defender el infierno y lo único que se les ocurre es fundar una revista».
 
 :::align-justify:::El tiempo, no obstante, termina con la relativa juventud y da paso a la experiencia. Después de navegar las extrañas aguas de los motores de búsqueda de Internet, de publicar textos que defenderemos siempre y de juntar unas cuantas misivas en un libro llamado *Al compás de los pájaros. Cartas para conversar con los muertos* no sabíamos cuál sería el siguiente paso para nuestra revista.
 
