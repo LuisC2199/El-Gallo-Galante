@@ -10,7 +10,10 @@ title: Preámbulo
 
 :::align-justify:::La violencia se ha vuelto una parte fundamental de nuestro mundo. Ante la libertad de expresión, se impone la censura o la autocensura; ante el pensamiento crítico, la *mea culpa* —y con ello la flagelación colectiva— y la corrección política. El chisme está hoy más que nunca vivo, sin embargo, parece que nadie quiere unir las piezas, desempolvar los archivos y hablar con los muertos. La ignorancia y la ideología en estos momentos van con cuchillo en mano.
 
-:::align-justify:::La crítica necesita curiosidad y viceversa, es por esto que después de algunos años de pausa, en los que la revista quedó disponible en línea sin renovar sus textos, hemos decidido darle nueva vida, recordar los textos que le dieron su primer impulso, y publicar nuevos números que hagan frente a nuestros tiempos. Es por eso por lo que reafirmamos, ante este nuevo lanzamiento, nuestro primer ímpetu con el que decidimos emprender este viaje:
+:::align-justify:::La crítica necesita curiosidad y viceversa, de ahí que después de algunos años de pausa, en los que la revista quedó disponible en línea sin renovar sus textos, hemos decidido darle nueva vida, recordar los textos que le dieron su primer impulso, y publicar nuevos números que hagan frente a nuestros tiempos. Es por eso por lo que reafirmamos, ante este nuevo lanzamiento, nuestro primer ímpetu con el que decidimos emprender este viaje:
+
+```
+```
 
 :::align-justify:::*El Gallo Galante* es aquel que escupe sin escrúpulos, escupitajo siempre directo, pero sin perder el temple. Cuando se atora el gallo hay que sacarlo, dejarlo cacarear, que se suelten los picotazos, pero siempre con plena conciencia de lo que suscita.
 
@@ -25,7 +28,7 @@ title: Preámbulo
 > Y adiós, que esto no es más de\
 > darte la muestra del paño;\
 > si no te agrada la pieza,\
-> no desenvuelvas el fardo. \[1]
+> no desenvuelvas el fardo. *\[1]*
 
 :::align-right:::**Los editores**
 
