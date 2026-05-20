@@ -98,6 +98,15 @@ export const LINE_SPACING_LABELS: Record<LineSpacingKey, string> = {
   loose:   "Amplio",
 };
 
+export type TextIndentKey = "0" | "1" | "2" | "3" | "4";
+export const TEXT_INDENT_MAP: Record<TextIndentKey, string> = {
+  "0": "",
+  "1": "2rem",
+  "2": "4rem",
+  "3": "6rem",
+  "4": "8rem",
+};
+
 const remToKey = new Map(Object.entries(FONT_SIZE_MAP).filter(([, v]) => v).map(([k, v]) => [v, k]));
 // Legacy rem values from the old xs/sm/lg/xl size system → nearest pt key.
 // Only used for backward-compat when loading HTML blocks saved before the pt migration.
@@ -114,6 +123,9 @@ const lineHeightToKey = new Map<string, LineSpacingKey>([
   ["2",    "loose"],
   ["2.0",  "loose"],
 ]);
+const marginLeftToIndent = new Map<string, TextIndentKey>(
+  Object.entries(TEXT_INDENT_MAP).filter(([, v]) => v).map(([k, v]) => [v, k as TextIndentKey]),
+);
 
 // ---------------------------------------------------------------------------
 // Block-style prefix – combined serialization of alignment + line spacing
@@ -152,6 +164,7 @@ interface BlockStyle {
   align: string | null;
   lineSpacing: string | null;
   fontSize: string | null;
+  textIndent: string | null;
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -180,6 +193,7 @@ function parseBlockPrefix(node: any): BlockStyle | null {
   let align: string | null = null;
   let lineSpacing: string | null = null;
   let fontSize: string | null = null;
+  let textIndent: string | null = null;
 
   for (const token of tokens) {
     if (token.startsWith("align-")) {
@@ -191,6 +205,9 @@ function parseBlockPrefix(node: any): BlockStyle | null {
     } else if (token.startsWith("fs-")) {
       const v = token.slice(3);
       if (v in FONT_SIZE_MAP && v !== "12") fontSize = v;
+    } else if (token.startsWith("indent-")) {
+      const v = token.slice(7);
+      if (v in TEXT_INDENT_MAP && v !== "0") textIndent = v;
     }
   }
 
@@ -200,7 +217,7 @@ function parseBlockPrefix(node: any): BlockStyle | null {
   } else {
     children[0] = { ...first, value: remaining };
   }
-  return { align, lineSpacing, fontSize };
+  return { align, lineSpacing, fontSize, textIndent };
 }
 
 /* eslint-enable @typescript-eslint/no-explicit-any */
@@ -221,6 +238,11 @@ function sanitizeFontSize(value: unknown): FontSizeKey | null {
   return null;
 }
 
+function sanitizeTextIndent(value: unknown): TextIndentKey | null {
+  if (typeof value === "string" && value in TEXT_INDENT_MAP && value !== "0") return value as TextIndentKey;
+  return null;
+}
+
 function fontSizeFromRem(rem: string | undefined | null): FontSizeKey | null {
   if (!rem) return null;
   return (remToKey.get(rem) ?? LEGACY_REM_MAP.get(rem) ?? null) as FontSizeKey | null;
@@ -229,6 +251,11 @@ function fontSizeFromRem(rem: string | undefined | null): FontSizeKey | null {
 function lineSpacingFromCss(lh: string | undefined | null): LineSpacingKey | null {
   if (!lh) return null;
   return lineHeightToKey.get(lh.trim()) ?? null;
+}
+
+function textIndentFromCss(marginLeft: string | undefined | null): TextIndentKey | null {
+  if (!marginLeft) return null;
+  return marginLeftToIndent.get(marginLeft.trim()) ?? null;
 }
 
 // ---------------------------------------------------------------------------
@@ -256,17 +283,20 @@ function parseStyleString(style: string): {
   textAlign: string | null;
   fontSize: FontSizeKey | null;
   lineSpacing: LineSpacingKey | null;
+  textIndent: TextIndentKey | null;
 } {
   let textAlign: string | null = null;
   let fontSize: FontSizeKey | null = null;
   let lineSpacing: LineSpacingKey | null = null;
+  let textIndent: TextIndentKey | null = null;
   for (const part of style.split(";")) {
     const [prop, val] = part.split(":").map(s => s.trim());
     if (prop === "text-align" && val && VALID_ALIGNS.has(val)) textAlign = val;
     if (prop === "font-size" && val) fontSize = fontSizeFromRem(val);
     if (prop === "line-height" && val) lineSpacing = lineSpacingFromCss(val);
+    if (prop === "margin-left" && val) textIndent = textIndentFromCss(val);
   }
-  return { textAlign, fontSize, lineSpacing };
+  return { textAlign, fontSize, lineSpacing, textIndent };
 }
 
 function extractInnerHtml(tag: string, html: string): string {
@@ -333,6 +363,7 @@ export const remarkAlignPlugin = $remark("remarkAlign", () => () => (tree: any) 
           ...(style.align       ? { textAlign: style.align }         : {}),
           ...(style.lineSpacing ? { lineSpacing: style.lineSpacing } : {}),
           ...(style.fontSize    ? { fontSize: style.fontSize }       : {}),
+          ...(style.textIndent  ? { textIndent: style.textIndent }   : {}),
         };
       }
       continue; // no further processing needed for paragraph/heading nodes
@@ -344,12 +375,12 @@ export const remarkAlignPlugin = $remark("remarkAlign", () => () => (tree: any) 
 
     const pMatch = STYLED_P_RE.exec(node.value);
     if (pMatch) {
-      const { textAlign, fontSize, lineSpacing } = parseStyleString(pMatch[1]);
-      if (textAlign || fontSize || lineSpacing) {
+      const { textAlign, fontSize, lineSpacing, textIndent } = parseStyleString(pMatch[1]);
+      if (textAlign || fontSize || lineSpacing || textIndent) {
         tree.children[i] = {
           type: "paragraph",
           children: htmlToMdastChildren(extractInnerHtml("p", node.value)),
-          data: { textAlign, fontSize, lineSpacing },
+          data: { textAlign, fontSize, lineSpacing, textIndent },
         };
         continue;
       }
@@ -357,13 +388,13 @@ export const remarkAlignPlugin = $remark("remarkAlign", () => () => (tree: any) 
 
     const hMatch = STYLED_H_RE.exec(node.value);
     if (hMatch) {
-      const { textAlign, fontSize, lineSpacing } = parseStyleString(hMatch[2]);
-      if (textAlign || fontSize || lineSpacing) {
+      const { textAlign, fontSize, lineSpacing, textIndent } = parseStyleString(hMatch[2]);
+      if (textAlign || fontSize || lineSpacing || textIndent) {
         tree.children[i] = {
           type: "heading",
           depth: Number(hMatch[1]),
           children: htmlToMdastChildren(extractInnerHtml(`h${hMatch[1]}`, node.value)),
-          data: { textAlign, fontSize, lineSpacing },
+          data: { textAlign, fontSize, lineSpacing, textIndent },
         };
       }
     }
@@ -390,6 +421,8 @@ function buildStyle(node: any): string {
     parts.push(`line-height: ${LINE_SPACING_MAP[node.attrs.lineSpacing as LineSpacingKey]}`);
   if (node.attrs.fontSize && FONT_SIZE_MAP[node.attrs.fontSize as FontSizeKey])
     parts.push(`font-size: ${FONT_SIZE_MAP[node.attrs.fontSize as FontSizeKey]}`);
+  if (node.attrs.textIndent && TEXT_INDENT_MAP[node.attrs.textIndent as TextIndentKey])
+    parts.push(`margin-left: ${TEXT_INDENT_MAP[node.attrs.textIndent as TextIndentKey]}`);
   return parts.join("; ");
 }
 
@@ -398,11 +431,12 @@ function buildStyle(node: any): string {
  * Returns "" when align, lineSpacing, and fontSize are all at their defaults → no prefix.
  * ⚠ NOT used for visual rendering.
  */
-function buildBlockPrefix(align: string | null, lineSpacing: string | null, fontSize: string | null): string {
+function buildBlockPrefix(align: string | null, lineSpacing: string | null, fontSize: string | null, textIndent: string | null): string {
   const tokens: string[] = [];
   if (align && align !== "left") tokens.push(`align-${align}`);
   if (lineSpacing && lineSpacing !== "normal") tokens.push(`ls-${lineSpacing}`);
   if (fontSize && fontSize !== "12") tokens.push(`fs-${fontSize}`);
+  if (textIndent && textIndent !== "0") tokens.push(`indent-${textIndent}`);
   return tokens.length > 0 ? `:::${tokens.join(" ")}:::` : "";
 }
 
@@ -414,6 +448,7 @@ export const alignedParagraph = $node("paragraph", (ctx) => ({
     textAlign:   { default: null },
     lineSpacing: { default: null },
     fontSize:    { default: null },
+    textIndent:  { default: null },
   },
   parseDOM: [
     {
@@ -422,6 +457,7 @@ export const alignedParagraph = $node("paragraph", (ctx) => ({
         textAlign:   sanitizeAlign(dom?.style?.textAlign),
         lineSpacing: lineSpacingFromCss(dom?.style?.lineHeight),
         fontSize:    fontSizeFromRem(dom?.style?.fontSize),
+        textIndent:  textIndentFromCss(dom?.style?.marginLeft),
       }),
     },
   ],
@@ -439,7 +475,8 @@ export const alignedParagraph = $node("paragraph", (ctx) => ({
       const textAlign   = sanitizeAlign(node.data?.textAlign);
       const lineSpacing = sanitizeLineSpacing(node.data?.lineSpacing);
       const fontSize    = sanitizeFontSize(node.data?.fontSize);
-      state.openNode(type, { textAlign, lineSpacing, fontSize });
+      const textIndent  = sanitizeTextIndent(node.data?.textIndent);
+      state.openNode(type, { textAlign, lineSpacing, fontSize, textIndent });
       if (node.children) state.next(node.children);
       else state.addText(node.value || "");
       state.closeNode();
@@ -454,7 +491,7 @@ export const alignedParagraph = $node("paragraph", (ctx) => ({
     // parseMarkdown.runner maps those to ProseMirror attrs.
     // ⚠ Do NOT change this to raw HTML – that was the original bug.
     runner: (state: any, node: any) => {
-      const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing, node.attrs.fontSize);
+      const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing, node.attrs.fontSize, node.attrs.textIndent);
       state.openNode("paragraph");
       if (prefix) {
         state.addNode("text", undefined, prefix);
@@ -483,6 +520,7 @@ export const alignedHeading = $node("heading", (ctx) => {
       textAlign:   { default: null },
       lineSpacing: { default: null },
       fontSize:    { default: null },
+      textIndent:  { default: null },
     },
     parseDOM: HEADING_LEVELS.map((x) => ({
       tag: `h${x}`,
@@ -495,6 +533,7 @@ export const alignedHeading = $node("heading", (ctx) => {
           textAlign:   sanitizeAlign(dom.style?.textAlign),
           lineSpacing: lineSpacingFromCss(dom.style?.lineHeight),
           fontSize:    fontSizeFromRem(dom.style?.fontSize),
+          textIndent:  textIndentFromCss(dom.style?.marginLeft),
         };
       },
     })),
@@ -519,7 +558,8 @@ export const alignedHeading = $node("heading", (ctx) => {
         const textAlign   = sanitizeAlign(node.data?.textAlign);
         const lineSpacing = sanitizeLineSpacing(node.data?.lineSpacing);
         const fontSize    = sanitizeFontSize(node.data?.fontSize);
-        state.openNode(type, { level: node.depth, textAlign, lineSpacing, fontSize });
+        const textIndent  = sanitizeTextIndent(node.data?.textIndent);
+        state.openNode(type, { level: node.depth, textAlign, lineSpacing, fontSize, textIndent });
         state.next(node.children);
         state.closeNode();
       },
@@ -529,7 +569,7 @@ export const alignedHeading = $node("heading", (ctx) => {
       // Same :::[tokens]::: prefix strategy as paragraphs.
       // ⚠ Do NOT change this to raw HTML.
       runner: (state: any, node: any) => {
-        const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing, node.attrs.fontSize);
+        const prefix = buildBlockPrefix(node.attrs.textAlign, node.attrs.lineSpacing, node.attrs.fontSize, node.attrs.textIndent);
         state.openNode("heading", undefined, {
           depth: node.attrs.level,
         });

@@ -16,15 +16,16 @@ const posts: CollectionEntry<"posts">[] = await getCollection("posts",
   (p: CollectionEntry<"posts">) => (p.data.status ?? "published") === "published",
 );
 
-// Get featured posts from featuredPostSlugs in order
+// Get featured posts from featuredPostSlugs in order.
+// Stale slugs are skipped so an editorial typo does not break the build.
 const featuredWorks: CollectionEntry<"posts">[] = latestIssue?.data.featuredPostSlugs
-  ? await Promise.all(
-      latestIssue.data.featuredPostSlugs.map(async (slug: string) => {
+  ? latestIssue.data.featuredPostSlugs
+      .map((slug: string) => {
         const post = posts.find((p) => p.slug === slug);
-        if (!post) throw new Error(`Featured post not found: ${slug}`);
+        if (!post) console.warn(`Featured post not found: ${slug}`);
         return post;
       })
-    )
+      .filter((post): post is CollectionEntry<"posts"> => Boolean(post))
   : [];
 
 // Get 5 latest posts for carousel
@@ -99,7 +100,7 @@ const featuredWorksWithAuthors: { post: CollectionEntry<"posts">; author: Collec
                   {latestPostsWithAuthors.map(({ post, author }) => (
                     <a
                       href={`/posts/${post.slug}`}
-                      class="flex-shrink-0 w-[240px] md:w-[320px] snap-start"
+                      class="group flex-shrink-0 w-[240px] md:w-[320px] snap-start"
                     >
                       <div class="relative overflow-hidden rounded-lg h-[320px] md:h-[400px] shadow-lg hover:shadow-2xl transition-all duration-300">
                         {post.data.coverImage && (

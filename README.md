@@ -1,43 +1,63 @@
-# Astro Starter Kit: Minimal
+# El Gallo Galante
+
+Digital magazine site for El Gallo Galante. The app publishes issues, posts,
+authors, categories, and a custom admin panel for authorized editors.
+
+## Stack
+
+- Astro 5 with the Cloudflare adapter
+- React admin UI mounted at `/admin`
+- Astro content collections for posts, authors, issues, and the preamble
+- GitHub Contents API for admin reads/writes
+- Cloudflare Access for admin authentication
+
+## Content Model
+
+Markdown content lives under `src/content`:
+
+- `posts/`: articles and literary works
+- `authors/`: author profiles and biographies
+- `issues/`: magazine issues with optional featured post slugs
+- `preamble/`: singleton preamble page
+
+Static media lives under `public`:
+
+- `public/posts/`
+- `public/authors/`
+- `public/covers/`
+
+Posts link to authors through Astro content references. Posts link to issues by
+the issue slug stored in post frontmatter.
+
+## Admin
+
+The admin panel is served from `/admin` and uses API routes under
+`/api/admin/*`. It edits Markdown files in GitHub, preserving concurrency with
+GitHub blob SHAs.
+
+Detailed admin architecture is documented in:
+
+- `docs/admin-architecture.md`
+
+## Commands
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Environment
 
-## 🚀 Project Structure
+Admin API routes require GitHub repository credentials:
 
-Inside of your Astro project, you'll see the following folders and files:
+- `GITHUB_TOKEN`
+- `GITHUB_OWNER`
+- `GITHUB_REPO`
+- `GITHUB_BRANCH` optional, defaults to `main`
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Admin authentication requires Cloudflare Access settings:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `CLOUDFLARE_ACCESS_AUD`
+- `CLOUDFLARE_ACCESS_TEAM_DOMAIN`

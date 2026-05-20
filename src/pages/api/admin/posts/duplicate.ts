@@ -14,7 +14,7 @@ import {
 import { serializePost } from "../../../../lib/admin/serialize";
 import { uniqueSlug } from "../../../../lib/admin/slugify";
 import type { CreateItemResponse } from "../../../../lib/admin/types";
-import matter from "gray-matter";
+import { parseMarkdown } from "../../../../lib/admin/frontmatter";
 
 const POSTS_DIR = "src/content/posts";
 
@@ -36,7 +36,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const sourcePath = `${POSTS_DIR}/${body.slug}.md`;
     const raw = await getFileContent(cfg, sourcePath);
     const decoded = decodeContent(raw.content);
-    const { data: frontmatter, content: mdBody } = matter(decoded);
+    const { data: frontmatter, content: mdBody } = parseMarkdown(decoded);
 
     // Generate unique slug based on the source slug
     const existing = await listFiles(cfg, POSTS_DIR);

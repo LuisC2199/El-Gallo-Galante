@@ -6,7 +6,7 @@ export const prerender = false;
 import type { APIRoute } from "astro";
 import { getGitHubConfig, listFiles, getFileContent, decodeContent } from "../../../../lib/admin/github";
 import type { CollectionItemSummary } from "../../../../lib/admin/types";
-import matter from "gray-matter";
+import { parseMarkdown } from "../../../../lib/admin/frontmatter";
 
 const POSTS_DIR = "src/content/posts";
 
@@ -24,7 +24,7 @@ export const GET: APIRoute = async ({ locals }) => {
         try {
           const raw = await getFileContent(cfg, f.path);
           const decoded = decodeContent(raw.content);
-          const { data } = matter(decoded);
+          const { data } = parseMarkdown(decoded);
 
           return {
             slug: f.name.replace(/\.md$/, ""),

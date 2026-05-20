@@ -386,9 +386,15 @@ const PREVIEW_FONT_SIZE_CSS: Record<string, string> = {
   "24": "2rem",
   "30": "2.5rem",
 };
+const PREVIEW_TEXT_INDENT_CSS: Record<string, string> = {
+  "1": "2rem",
+  "2": "4rem",
+  "3": "6rem",
+  "4": "8rem",
+};
 const PREVIEW_VALID_ALIGNS = new Set(["left", "center", "right", "justify"]);
 
-/** Convert a raw token string (e.g. "align-right ls-relaxed fs-14") to a CSS style string. */
+/** Convert a raw token string (e.g. "align-right ls-relaxed fs-14 indent-1") to a CSS style string. */
 function blockPrefixToStyle(tokenStr: string): string {
   const tokens = tokenStr.trim().split(/\s+/);
   const styles: string[] = [];
@@ -402,6 +408,9 @@ function blockPrefixToStyle(tokenStr: string): string {
     } else if (token.startsWith("fs-")) {
       const v = token.slice(3);
       if (PREVIEW_FONT_SIZE_CSS[v]) styles.push(`font-size:${PREVIEW_FONT_SIZE_CSS[v]}`);
+    } else if (token.startsWith("indent-")) {
+      const v = token.slice(7);
+      if (PREVIEW_TEXT_INDENT_CSS[v]) styles.push(`margin-left:${PREVIEW_TEXT_INDENT_CSS[v]}`);
     }
   }
   return styles.join("; ");

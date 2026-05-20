@@ -4,7 +4,7 @@
 export const prerender = false;
 
 import type { APIRoute } from "astro";
-import { getGitHubConfig, createBinaryFile } from "../../../lib/admin/github";
+import { getGitHubConfig, createBinaryFile, listFiles } from "../../../lib/admin/github";
 import type { MediaUploadTarget, MediaUploadResponse } from "../../../lib/admin/types";
 
 // ---------------------------------------------------------------------------
@@ -38,7 +38,27 @@ function slugifyFilename(raw: string): string {
     .replace(/[^a-z0-9]+/g, "-")       // non-alphanumeric → dash
     .replace(/^-+|-+$/g, "");          // trim leading/trailing dashes
 
-  return ext ? `${slug}.${ext}` : slug;
+  const safeBase = slug || "image";
+  return ext ? `${safeBase}.${ext}` : safeBase;
+}
+
+function splitFilename(filename: string): { base: string; ext: string } {
+  const dot = filename.lastIndexOf(".");
+  if (dot === -1) return { base: filename, ext: "" };
+
+  return {
+    base: filename.slice(0, dot),
+    ext: filename.slice(dot),
+  };
+}
+
+function uniqueFilename(filename: string, existingNames: Set<string>): string {
+  if (!existingNames.has(filename)) return filename;
+
+  const { base, ext } = splitFilename(filename);
+  let n = 2;
+  while (existingNames.has(`${base}-${n}${ext}`)) n++;
+  return `${base}-${n}${ext}`;
 }
 
 function isValidTarget(v: unknown): v is MediaUploadTarget {
@@ -81,10 +101,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
 
     // ---- Prepare paths ----
-    const safeFilename = slugifyFilename(file.name);
     const { repoDir, publicPrefix } = TARGET_MAP[target];
-    const repoPath = `${repoDir}/${safeFilename}`;
-    const publicPath = `${publicPrefix}/${safeFilename}`;
+    const safeFilename = slugifyFilename(file.name);
+    const existingFiles = await listFiles(cfg, repoDir, "");
+    const existingNames = new Set(existingFiles.map((entry) => entry.name));
+    const uniqueSafeFilename = uniqueFilename(safeFilename, existingNames);
+    const repoPath = `${repoDir}/${uniqueSafeFilename}`;
+    const publicPath = `${publicPrefix}/${uniqueSafeFilename}`;
 
     // ---- Read file bytes ----
     const buffer = await file.arrayBuffer();

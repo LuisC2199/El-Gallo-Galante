@@ -14,7 +14,7 @@ import {
 } from "../../../lib/admin/github";
 import { serializePreamble } from "../../../lib/admin/serialize";
 import type { FilePayload, SaveFileRequest, SaveFileResponse } from "../../../lib/admin/types";
-import matter from "gray-matter";
+import { parseMarkdown } from "../../../lib/admin/frontmatter";
 
 const PREAMBLE_PATH = "src/content/preamble/preamble.md";
 
@@ -28,7 +28,7 @@ export const GET: APIRoute = async ({ locals }) => {
 
     const raw = await getFileContent(cfg, PREAMBLE_PATH);
     const decoded = decodeContent(raw.content);
-    const { data, content } = matter(decoded);
+    const { data, content } = parseMarkdown(decoded);
 
     const payload: FilePayload = {
       path: raw.path,

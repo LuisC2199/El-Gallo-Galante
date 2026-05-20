@@ -7,12 +7,13 @@
 export const prerender = false;
 
 import type { APIRoute } from "astro";
-import { getGitHubConfig, getFileContent, decodeContent, updateFile, deleteFile } from "../../../../lib/admin/github";
+import { getGitHubConfig, getFileContent, decodeContent, updateFile, deleteFile, listFiles } from "../../../../lib/admin/github";
 import { serializeAuthor } from "../../../../lib/admin/serialize";
 import type { FilePayload, SavePostResponse } from "../../../../lib/admin/types";
-import matter from "gray-matter";
+import { parseMarkdown } from "../../../../lib/admin/frontmatter";
 
 const AUTHORS_DIR = "src/content/authors";
+const POSTS_DIR = "src/content/posts";
 
 // ---------------------------------------------------------------------------
 // GET
@@ -33,7 +34,7 @@ export const GET: APIRoute = async ({ params, locals }) => {
     const filePath = `${AUTHORS_DIR}/${slug}.md`;
     const raw = await getFileContent(cfg, filePath);
     const decoded = decodeContent(raw.content);
-    const { data, content } = matter(decoded);
+    const { data, content } = parseMarkdown(decoded);
 
     const payload: FilePayload = {
       path: raw.path,
@@ -151,6 +152,38 @@ export const DELETE: APIRoute = async ({ params, request, locals }) => {
     const env = (locals as any).runtime?.env ?? import.meta.env;
     const cfg = getGitHubConfig(env);
     const filePath = `${AUTHORS_DIR}/${slug}.md`;
+    const postFiles = await listFiles(cfg, POSTS_DIR);
+    const referencingPosts = (
+      await Promise.all(
+        postFiles.map(async (postFile) => {
+          const raw = await getFileContent(cfg, postFile.path);
+          const decoded = decodeContent(raw.content);
+          const { data } = parseMarkdown(decoded);
+          const referencesAuthor =
+            data.author === slug || data.traductor === slug;
+
+          return referencesAuthor
+            ? {
+                slug: postFile.name.replace(/\.md$/, ""),
+                title: typeof data.title === "string" ? data.title : postFile.name,
+              }
+            : null;
+        }),
+      )
+    ).filter(
+      (post): post is { slug: string; title: string } => post !== null,
+    );
+
+    if (referencingPosts.length > 0) {
+      return new Response(
+        JSON.stringify({
+          error:
+            "Cannot delete author because one or more posts still reference this author.",
+          references: referencingPosts,
+        }),
+        { status: 409, headers: { "Content-Type": "application/json" } },
+      );
+    }
 
     await deleteFile(cfg, filePath, body.sha, `admin: delete author ${slug}`);
 

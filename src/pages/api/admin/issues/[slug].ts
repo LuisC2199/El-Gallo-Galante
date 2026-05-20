@@ -10,7 +10,7 @@ import type { APIRoute } from "astro";
 import { getGitHubConfig, getFileContent, decodeContent, updateFile, deleteFile } from "../../../../lib/admin/github";
 import { serializeIssue } from "../../../../lib/admin/serialize";
 import type { FilePayload, SavePostResponse } from "../../../../lib/admin/types";
-import matter from "gray-matter";
+import { parseMarkdown } from "../../../../lib/admin/frontmatter";
 
 const ISSUES_DIR = "src/content/issues";
 
@@ -33,7 +33,7 @@ export const GET: APIRoute = async ({ params, locals }) => {
     const filePath = `${ISSUES_DIR}/${slug}.md`;
     const raw = await getFileContent(cfg, filePath);
     const decoded = decodeContent(raw.content);
-    const { data, content } = matter(decoded);
+    const { data, content } = parseMarkdown(decoded);
 
     const payload: FilePayload = {
       path: raw.path,

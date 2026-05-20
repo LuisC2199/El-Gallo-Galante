@@ -66,6 +66,12 @@ body {
   filter: grayscale(0%);
 }
 
+@media (hover: none), (pointer: coarse) {
+  .grayscale {
+    filter: none !important;
+  }
+}
+
 .social-link svg {
   transition: opacity 200ms ease;
 }

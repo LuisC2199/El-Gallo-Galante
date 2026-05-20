@@ -42,7 +42,8 @@
 //   Align token:     align-(left|center|right|justify)
 //   Spacing token:   ls-(compact|normal|relaxed|loose)
 //   Font-size token: fs-(9|10|11|14|16|18|24|30)
-//   "left", "normal", and "12" are never serialized (default values).
+//   Indent token:    indent-(1|2|3|4)
+//   "left", "normal", "12", and "0" are never serialized (default values).
 // ---------------------------------------------------------------------------
 
 const BLOCK_PREFIX_RE = /^:::([^:]+):::/;
@@ -71,6 +72,13 @@ const FONT_SIZE_CSS = {
   "30": "2.5rem",
 };
 
+const TEXT_INDENT_CSS = {
+  "1": "2rem",
+  "2": "4rem",
+  "3": "6rem",
+  "4": "8rem",
+};
+
 export function remarkAlignPublic() {
   return function (tree) {
     if (!tree.children) return;
@@ -95,6 +103,7 @@ export function remarkAlignPublic() {
       let align = null;
       let ls    = null;
       let fs    = null;
+      let indent = null;
 
       for (const token of tokens) {
         if (token.startsWith("align-") && VALID_ALIGNS.has(token.slice(6))) {
@@ -103,6 +112,8 @@ export function remarkAlignPublic() {
           ls = token.slice(3);
         } else if (token.startsWith("fs-") && token.slice(3) in FONT_SIZE_CSS) {
           fs = token.slice(3);
+        } else if (token.startsWith("indent-") && token.slice(7) in TEXT_INDENT_CSS) {
+          indent = token.slice(7);
         }
       }
 
@@ -121,6 +132,7 @@ export function remarkAlignPublic() {
       if (align && align !== "left")                          styles.push(`text-align: ${align}`);
       if (ls && ls !== "normal" && LINE_SPACING_CSS[ls])      styles.push(`line-height: ${LINE_SPACING_CSS[ls]}`);
       if (fs && FONT_SIZE_CSS[fs])                            styles.push(`font-size: ${FONT_SIZE_CSS[fs]}`);
+      if (indent && TEXT_INDENT_CSS[indent])                  styles.push(`margin-left: ${TEXT_INDENT_CSS[indent]}`);
 
       if (styles.length > 0) {
         node.data = node.data ?? {};

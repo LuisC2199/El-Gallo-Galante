@@ -17,7 +17,7 @@ import {
   decodeContent,
 } from "../../../../lib/admin/github";
 import type { RestoreResponse } from "../../../../lib/admin/types";
-import matter from "gray-matter";
+import { parseMarkdown } from "../../../../lib/admin/frontmatter";
 
 const COLLECTION_DIRS: Record<string, string> = {
   posts: "src/content/posts",
@@ -66,7 +66,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const result = await updateFile(cfg, filePath, historicalContent, sha, message);
 
     // Parse for the response so the editor can reload
-    const { data, content } = matter(historicalContent);
+    const { data, content } = parseMarkdown(historicalContent);
 
     const response: RestoreResponse = {
       sha: result.content.sha,

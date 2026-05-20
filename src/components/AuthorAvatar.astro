@@ -1,7 +1,4 @@
 ---
-import fs from "node:fs";
-import path from "node:path";
-
 type Size = "sm" | "md" | "lg";
 
 const {
@@ -16,12 +13,8 @@ const {
   class?: string;
 };
 
-const photoUrl = typeof photo === "string" ? photo : null;
-
-const photoExists =
-  typeof photoUrl === "string" &&
-  photoUrl.startsWith("/") &&
-  fs.existsSync(path.join(process.cwd(), "public", photoUrl));
+const photoUrl =
+  typeof photo === "string" && photo.trim().length > 0 ? photo.trim() : null;
 
 const initials = name
   .split(" ")
@@ -40,7 +33,7 @@ const box = sizeMap[size].box;
 const text = sizeMap[size].text;
 ---
 
-{photoExists ? (
+{photoUrl ? (
   <img
     src={photoUrl}
     alt={name}

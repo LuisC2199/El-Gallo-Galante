@@ -20,5 +20,12 @@ export default defineConfig({
   },
 
   integrations: [react()],
-  adapter: cloudflare()
+  // This app does not use Astro sessions; use in-memory storage so the
+  // Cloudflare adapter does not require a SESSION KV namespace.
+  session: {
+    driver: "memory",
+  },
+  adapter: cloudflare({
+    imageService: "compile",
+  })
 });

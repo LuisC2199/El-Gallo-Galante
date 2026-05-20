@@ -23,7 +23,15 @@ import {
   toggleLinkCommand,
 } from "@milkdown/kit/preset/commonmark";
 import { undoCommand, redoCommand } from "@milkdown/kit/plugin/history";
-import { FONT_SIZE_LABELS, FONT_SIZE_MAP, LINE_SPACING_LABELS, LINE_SPACING_MAP, type FontSizeKey, type LineSpacingKey } from "./text-align-plugin";
+import {
+  FONT_SIZE_LABELS,
+  FONT_SIZE_MAP,
+  LINE_SPACING_LABELS,
+  LINE_SPACING_MAP,
+  type FontSizeKey,
+  type LineSpacingKey,
+  type TextIndentKey,
+} from "./text-align-plugin";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -40,6 +48,7 @@ interface ActiveState {
   textAlign: string | null;    // "left" | "center" | "right" | "justify" | null
   lineSpacing: LineSpacingKey | null; // "compact" | "normal" | "relaxed" | "loose" | null
   fontSize: FontSizeKey | null;
+  textIndent: TextIndentKey | null;
 }
 
 const EMPTY_STATE: ActiveState = {
@@ -53,6 +62,7 @@ const EMPTY_STATE: ActiveState = {
   textAlign: null,
   lineSpacing: null,
   fontSize: null,
+  textIndent: null,
 };
 
 // ---------------------------------------------------------------------------
@@ -78,6 +88,7 @@ function detectActiveState(view: any): ActiveState {
   let textAlign: string | null = null;
   let lineSpacing: LineSpacingKey | null = null;
   let fontSize: FontSizeKey | null = null;
+  let textIndent: TextIndentKey | null = null;
 
   for (let d = $from.depth; d > 0; d--) {
     const node = $from.node(d);
@@ -87,10 +98,12 @@ function detectActiveState(view: any): ActiveState {
       if (!textAlign   && node.attrs.textAlign)   textAlign   = node.attrs.textAlign;
       if (!lineSpacing && node.attrs.lineSpacing) lineSpacing = node.attrs.lineSpacing;
       if (!fontSize    && node.attrs.fontSize)    fontSize    = node.attrs.fontSize;
+      if (!textIndent  && node.attrs.textIndent)  textIndent  = node.attrs.textIndent;
     } else if (name === "paragraph") {
       if (!textAlign   && node.attrs.textAlign)   textAlign   = node.attrs.textAlign;
       if (!lineSpacing && node.attrs.lineSpacing) lineSpacing = node.attrs.lineSpacing;
       if (!fontSize    && node.attrs.fontSize)    fontSize    = node.attrs.fontSize;
+      if (!textIndent  && node.attrs.textIndent)  textIndent  = node.attrs.textIndent;
     } else if (name === "textSize") {
       // Inline text-size node takes precedence over block fontSize attr
       if (!fontSize && node.attrs.size) fontSize = node.attrs.size as FontSizeKey;
@@ -105,7 +118,19 @@ function detectActiveState(view: any): ActiveState {
 
   // Normalize: null means default.  Show one button as active at all times.
   // After save+reload "left" / "normal" come back as null → same result.
-  return { bold, italic, heading, bulletList, orderedList, blockquote, link, textAlign: textAlign ?? "left", lineSpacing: lineSpacing ?? "normal", fontSize };
+  return {
+    bold,
+    italic,
+    heading,
+    bulletList,
+    orderedList,
+    blockquote,
+    link,
+    textAlign: textAlign ?? "left",
+    lineSpacing: lineSpacing ?? "normal",
+    fontSize,
+    textIndent: textIndent ?? "0",
+  };
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
@@ -311,6 +336,38 @@ export default function FormattingToolbar() {
       });
     },
     [getEditor],
+  );
+
+  // Text indentation: increase/decrease paragraph or heading indentation.
+  // The value is saved as a block attr, then serialized by text-align-plugin
+  // as indent-1 through indent-4.
+  const adjustTextIndent = useCallback(
+    (delta: -1 | 1) => {
+      const editor = getEditor();
+      if (!editor) return;
+      editor.action((ctx) => {
+        const view = ctx.get(editorViewCtx);
+        const { state, dispatch } = view;
+        const { $from, $to } = state.selection;
+        const current = Number(active.textIndent ?? "0");
+        const next = Math.max(0, Math.min(4, current + delta));
+        const applyIndent = next === 0 ? null : String(next);
+
+        let tr = state.tr;
+        state.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
+          if (node.type.name === "paragraph" || node.type.name === "heading") {
+            tr = tr.setNodeMarkup(pos, undefined, {
+              ...node.attrs,
+              textIndent: applyIndent,
+            });
+            return false;
+          }
+          return true;
+        });
+        dispatch(tr);
+      });
+    },
+    [getEditor, active.textIndent],
   );
 
   // Font size: applies inline (textSize node) when text is selected within a
@@ -530,6 +587,12 @@ export default function FormattingToolbar() {
       <ToolBtn title="Justificar" onClick={() => setTextAlign("justify")} active={active.textAlign === "justify"} disabled={disabled}>
         <SvgAlignJustify />
       </ToolBtn>
+      <ToolBtn title="Disminuir sangría" onClick={() => adjustTextIndent(-1)} disabled={disabled || active.textIndent == null || active.textIndent === "0"}>
+        <SvgOutdent />
+      </ToolBtn>
+      <ToolBtn title="Aumentar sangría" onClick={() => adjustTextIndent(1)} active={active.textIndent != null && active.textIndent !== "0"} disabled={disabled || active.textIndent === "4"}>
+        <SvgIndent />
+      </ToolBtn>
 
       <Sep />
 
@@ -747,6 +810,28 @@ function SvgAlignJustify() {
     <svg className={iconClass} {...iconProps}>
       <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
       <line x1="3" y1="14" x2="21" y2="14" /><line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  );
+}
+
+function SvgIndent() {
+  return (
+    <svg className={iconClass} {...iconProps}>
+      <line x1="10" y1="6" x2="21" y2="6" />
+      <line x1="10" y1="12" x2="21" y2="12" />
+      <line x1="10" y1="18" x2="21" y2="18" />
+      <polyline points="3,8 7,12 3,16" />
+    </svg>
+  );
+}
+
+function SvgOutdent() {
+  return (
+    <svg className={iconClass} {...iconProps}>
+      <line x1="10" y1="6" x2="21" y2="6" />
+      <line x1="10" y1="12" x2="21" y2="12" />
+      <line x1="10" y1="18" x2="21" y2="18" />
+      <polyline points="7,8 3,12 7,16" />
     </svg>
   );
 }

@@ -8,7 +8,7 @@ export const prerender = false;
 import type { APIRoute } from "astro";
 import { getGitHubConfig, getFileAtCommit } from "../../../../lib/admin/github";
 import type { FileAtCommitResponse } from "../../../../lib/admin/types";
-import matter from "gray-matter";
+import { parseMarkdown } from "../../../../lib/admin/frontmatter";
 
 const COLLECTION_DIRS: Record<string, string> = {
   posts: "src/content/posts",
@@ -34,7 +34,7 @@ export const GET: APIRoute = async ({ url, locals }) => {
 
     const filePath = `${COLLECTION_DIRS[collection]}/${slug}.md`;
     const raw = await getFileAtCommit(cfg, filePath, commitSha);
-    const { data, content } = matter(raw);
+    const { data, content } = parseMarkdown(raw);
 
     const body: FileAtCommitResponse = {
       frontmatter: data as Record<string, unknown>,
