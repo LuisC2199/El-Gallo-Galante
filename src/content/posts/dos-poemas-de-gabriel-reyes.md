@@ -53,8 +53,9 @@ featuredImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 :::ls-compact:::que se equivoca.
 
 ```
+```
 
-
+```
 ```
 
 :::fs-18:::Ante un dios ausente
