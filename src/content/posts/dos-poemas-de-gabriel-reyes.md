@@ -30,6 +30,10 @@ que apenas labra\
 en la palabra\
 que se equivoca.
 
+```
+
+```
+
 :::fs-18:::II. Ante un dios ausente
 
 Inmaculada soberana mácula\
