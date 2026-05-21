@@ -21,6 +21,7 @@ import {
   turnIntoTextCommand,
   insertHrCommand,
   toggleLinkCommand,
+  insertHardbreakCommand,
 } from "@milkdown/kit/preset/commonmark";
 import { undoCommand, redoCommand } from "@milkdown/kit/plugin/history";
 import {
@@ -387,8 +388,10 @@ export default function FormattingToolbar() {
         const effectiveSize = size === "12" ? null : size;
         const textSizeType = state.schema.nodes.textSize;
 
-        // ── Inline mode: non-empty selection within a single parent node ──
-        if (!empty && textSizeType && $from.sameParent($to)) {
+        const selectsWholeParent = $from.parentOffset === 0 && $to.parentOffset === $from.parent.content.size;
+
+        // ── Inline mode: non-empty partial selection within a single parent node ──
+        if (!empty && textSizeType && $from.sameParent($to) && !selectsWholeParent) {
           const parentName = $from.parent.type.name;
 
           if (parentName === "textSize") {
@@ -655,6 +658,9 @@ export default function FormattingToolbar() {
       <Sep />
 
       {/* Horizontal rule */}
+      <ToolBtn title="Salto de línea suave" onClick={() => exec(insertHardbreakCommand.key)} disabled={disabled}>
+        <SvgSoftBreak />
+      </ToolBtn>
       <ToolBtn title="Línea horizontal" onClick={() => exec(insertHrCommand.key)} disabled={disabled}>
         ―
       </ToolBtn>
@@ -832,6 +838,15 @@ function SvgOutdent() {
       <line x1="10" y1="12" x2="21" y2="12" />
       <line x1="10" y1="18" x2="21" y2="18" />
       <polyline points="7,8 3,12 7,16" />
+    </svg>
+  );
+}
+
+function SvgSoftBreak() {
+  return (
+    <svg className={iconClass} {...iconProps}>
+      <path d="M19 5v5a4 4 0 0 1-4 4H5" />
+      <polyline points="8,10 4,14 8,18" />
     </svg>
   );
 }

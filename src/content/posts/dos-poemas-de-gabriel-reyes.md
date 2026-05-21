@@ -10,60 +10,29 @@ coverImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 featuredImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 ---
 
-:::fs-18:::<span style="font-size: 1.5rem"><span style="font-size: 1.5rem"><span style="font-size: 1.5rem">Técnica</span></span></span>
+:::fs-18:::Técnica
 
-```
-```
+Surge la idea\
+duerme la mano\
+que a aquella crea\
+en sueño ufano.
 
-:::ls-compact:::Surge la idea
+Surge la mano\
+-duerme la idea-\
+escribe en vano\
+mas se recrea.
 
-:::ls-compact:::duerme la mano
+¡Cuán sopor tiene!\
+no se detiene\
+ya un eco toca
 
-:::ls-compact:::que a aquella crea
-
-:::ls-compact:::en sueño ufano.
-
-```
-```
-
-:::ls-compact:::Surge la mano
-
-:::ls-compact:::-duerme la idea-
-
-:::ls-compact:::escribe en vano
-
-:::ls-compact:::mas se recrea.
-
-```
-```
-
-:::ls-compact:::¡Cuán sopor tiene!
-
-:::ls-compact:::no se detiene
-
-:::ls-compact:::ya un eco toca
-
-```
-```
-
-:::ls-compact:::que apenas labra
-
-:::ls-compact:::en la palabra
-
-:::ls-compact:::que se equivoca.
-
-```
-```
-
-```
-```
+que apenas labra\
+en la palabra\
+que se equivoca.
 
 :::fs-18:::Ante un dios ausente
 
-```
-```
-
-:::ls-compact:::Inmaculada soberana mácula\
+Inmaculada soberana mácula\
 al doblar tu rodilla me doblegas,\
 mas mi llanto es de hombre y por el hombre,\
 emula mi dolor si es que lo creas.

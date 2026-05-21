@@ -157,12 +157,12 @@ body {
 }
 @media (min-width: 640px) {
   .entry-content.poetry p {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 }
 @media (min-width: 768px) {
   .entry-content.poetry p {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
 

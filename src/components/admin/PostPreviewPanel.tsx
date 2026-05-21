@@ -208,10 +208,10 @@ body {
 /* Poetry font sizing (line-height left at browser default) */
 .entry-content.poetry p { font-size: 1rem; }
 @media (min-width: 640px) {
-  .entry-content.poetry p { font-size: 1.125rem; }
+  .entry-content.poetry p { font-size: 1rem; }
 }
 @media (min-width: 768px) {
-  .entry-content.poetry p { font-size: 1.25rem; }
+  .entry-content.poetry p { font-size: 1rem; }
 }
 
 /* ---- Entry content: figures and editorial classes ---- */

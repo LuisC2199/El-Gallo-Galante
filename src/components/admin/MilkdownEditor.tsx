@@ -14,7 +14,8 @@ import { history } from "@milkdown/kit/plugin/history";
 import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
 import { indent } from "@milkdown/kit/plugin/indent";
 import { trailing } from "@milkdown/kit/plugin/trailing";
-import { $shortcut } from "@milkdown/kit/utils";
+import { Plugin } from "@milkdown/prose/state";
+import { $prose, $shortcut, markdownToSlice } from "@milkdown/kit/utils";
 import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react";
 import "@milkdown/kit/prose/view/style/prosemirror.css";
 import "./milkdown.css";
@@ -75,6 +76,73 @@ const enterAsParagraph = $shortcut(
 );
 
 // ---------------------------------------------------------------------------
+// Poetry paste cleanup
+// ---------------------------------------------------------------------------
+//
+// Word often puts each poem verse on its own clipboard line.  If Milkdown
+// treats those as independent paragraphs, stanza rhythm becomes impossible to
+// control.  For poem-like paste text, convert single newlines to Markdown hard
+// breaks and preserve blank lines as stanza breaks.
+// ---------------------------------------------------------------------------
+
+function normalizeClipboardText(text: string): string {
+  return text
+    .replace(/\r\n?/g, "\n")
+    .replace(/\u00a0/g, " ")
+    .replace(/[ \t]+$/gm, "")
+    .trim();
+}
+
+function looksLikePoemPaste(text: string): boolean {
+  const normalized = normalizeClipboardText(text);
+  if (!normalized.includes("\n")) return false;
+
+  const lines = normalized.split("\n");
+  const nonEmpty = lines.map((line) => line.trim()).filter(Boolean);
+  if (nonEmpty.length < 3) return false;
+
+  const markdownish = /(^|\n)\s*(```|#{1,6}\s|[-*+]\s+|\d+\.\s+|\|)/.test(normalized);
+  if (markdownish) return false;
+
+  const shortLines = nonEmpty.filter((line) => line.length <= 80).length;
+  const averageLength = nonEmpty.reduce((sum, line) => sum + line.length, 0) / nonEmpty.length;
+  return averageLength <= 65 && shortLines / nonEmpty.length >= 0.75;
+}
+
+function poemTextToMarkdown(text: string): string {
+  const normalized = normalizeClipboardText(text);
+  const stanzas = normalized
+    .split(/\n{2,}/)
+    .map((stanza) => stanza.split("\n").map((line) => line.trim()).filter(Boolean))
+    .filter((lines) => lines.length > 0);
+
+  return stanzas
+    .map((lines) => lines.map((line, index) => (index < lines.length - 1 ? `${line}\\` : line)).join("\n"))
+    .join("\n\n");
+}
+
+function sanitizeEditorMarkdown(markdown: string): string {
+  return markdown.replace(/(?:^|\n)```[ \t]*\n```(?=\n|$)/g, "\n").replace(/\n{3,}/g, "\n\n");
+}
+
+const poetryPasteCleanup = $prose((ctx) => new Plugin({
+  props: {
+    handlePaste(view, event) {
+      const text = event.clipboardData?.getData("text/plain") ?? "";
+      if (!looksLikePoemPaste(text)) return false;
+
+      const markdown = poemTextToMarkdown(text);
+      if (!markdown) return false;
+
+      event.preventDefault();
+      const slice = markdownToSlice(markdown)(ctx);
+      view.dispatch(view.state.tr.replaceSelection(slice).scrollIntoView());
+      return true;
+    },
+  },
+}));
+
+// ---------------------------------------------------------------------------
 // Inner component – must be inside MilkdownProvider
 // ---------------------------------------------------------------------------
 
@@ -111,8 +179,9 @@ function MilkdownInner({ initialValue, onChange }: InnerProps) {
           ctx
             .get(listenerCtx)
             .markdownUpdated((_ctx, markdown, prevMarkdown) => {
-              if (markdown !== prevMarkdown) {
-                onChangeRef.current(markdown);
+              const cleanMarkdown = sanitizeEditorMarkdown(markdown);
+              if (cleanMarkdown !== prevMarkdown) {
+                onChangeRef.current(cleanMarkdown);
               }
             });
         })
@@ -122,6 +191,7 @@ function MilkdownInner({ initialValue, onChange }: InnerProps) {
         .use(listener)
         .use(history)
         .use(indent)
+        .use(poetryPasteCleanup)
         .use(trailing)
         .use(enterAsParagraph),
     // Only recreate editor if the initial value identity changes
