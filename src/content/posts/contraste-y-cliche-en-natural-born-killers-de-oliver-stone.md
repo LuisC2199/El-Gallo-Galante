@@ -60,7 +60,7 @@ vivo.» Estas líneas, corroboran otra en donde el psiquiatra describe que
 reconocen el bien y el mal, sólo que no les importa. Esto es importante, pues
 parece que sí les importa, pero se mantienen en un estado de placer  estético hasta el punto de quiebre de la cinta.
 
-El contraste con el cliché pone de manifiesto un constate _oxímoron_ en la
+El contraste con el *cliché* pone de manifiesto un constate _oxímoron_ en la
 película, esto es, una antítesis que se coloca en dos términos para parecer
 excluirse mutuamente, pero que están ligados, como una realidad atrapada en la
 lucha de contrarios.
