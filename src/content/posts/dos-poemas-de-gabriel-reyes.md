@@ -50,11 +50,14 @@ featuredImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 :::ls-compact:::que se equivoca.
 
 ```
+
+
+
 ```
 
 :::fs-18:::Ante un dios ausente
 
-Inmaculada soberana mácula\
+:::ls-compact:::Inmaculada soberana mácula\
 al doblar tu rodilla me doblegas,\
 mas mi llanto es de hombre y por el hombre,\
 emula mi dolor si es que lo creas.
