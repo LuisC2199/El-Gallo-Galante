@@ -15,21 +15,17 @@ Veracruzana, México, 2019, 115 pp.
 el acercamiento de una obra en particular? Bien es cierto que el camino más
 evidente es abrir el libro en cuestión y esperar una sorpresa. Para ello es
 indiscutible que tendría que haber un lector dispuesto a abrir las páginas. El
-lector asiduo, en ocasiones, busca nuevas formas de acercarse a lo desconocido;
-en otros casos, el lector de primer acercamiento abre el libro, se sorprende, y
+lector asiduo, en ocasiones, busca nuevas formas de acercarse a lo desconocido y,
 en el mejor de los casos, busca saber más sobre lo que esta leyendo. Una de las
-labores de la crítica literaria es introducir nuevos autores, aquellos que
-tienen singularidades no tan vistas o poco conocidas en el canon estético de su
-época, tal fue la incursión de la obra de José Emilio Pacheco.
+labores de la crítica literaria es introducir nuevos autores y profundizar en aquellos consagrados. Comprender el porqué se vuelven parte del canon de nuestras letras tiene que ver con un estudio profundo de las singularidades no tan vistas o poco conocidas para el público. Las virtudes estéticas e históricas juegan un papel en la comprensión de diversos autores y muchas veces se dan por sentadas, en otras se proponen nuevas formas de acercamiento.
 
 La Universidad Veracruzana junto con Luis Antonio de Villena presentan
 _Iniciación a José Emilio Pacheco_, una reedición corregida y aumentada que el
 autor ya había realizado en el año 1986 para la colección _Los Poetas_ en
 España. Villena, como él mismo explica, se considera uno de los primeros
 «pachequianos» en la península. Este libro es producto del acercamiento de
-Villena a la obra de José Emilio Pacheco, además, en ese mismo año lanzó una
-compilación en Alianza Editorial de la obra poética que se tenía al momento del
-poeta mexicano.
+Villena a la obra del poeta. Además, en ese mismo año lanzó una
+compilación en Alianza Editorial de la obra poética que se tenía al momento de Pacheco.
 
 Retomando el inicio, Villena indica que «la última razón de la crítica es llegar
 a una obra, explicarla, abrirla, invitar a ella. El método (o los métodos)
@@ -39,9 +35,9 @@ cosa que, en sus palabras, haría feliz a Pacheco. Es a través de un prólogo
 breve, unas consideraciones previas y veintitrés pequeños capítulos los que
 forman el cuerpo del libro y que recorrerá, casi en su totalidad, la obra
 poética de José Emilio Pacheco. Sin embargo, la obra prosística del mexicano
-pasa casi desapercibida, o mejor dicho es ignorada; esto es entendible, ya que
+pasa casi desapercibida, o mejor dicho es ignorada. Esto puede ser entendible, ya que
 el libro en sus inicios no fue extenso, además Luis Antonio de Villena es
-escritor de poesía y su enfoque es el mismo.
+escritor de poesía y su enfoque es el mismo. Lamentablemente, se extraña la prosa del autor mexicano ya que podría dar la impresión de que hay algo incompleto en el estudio.
 
 Desde las primeras páginas, Villena traza el perfil de José Emilio Pacheco para
 situarlo únicamente en su contexto, en este caso la generación de Medio Siglo
@@ -60,13 +56,6 @@ de la tradición que realizó José Emilio Pacheco a lo largo de su obra, donde 
 vuelve de mayor profundidad cuando el lector conoce los referentes, aunque no
 por ello deja de tener impacto poético.
 
-Es en el poemario _No me preguntes cómo pasa el tiempo_ (1970) donde Villena
-aclara que se da un cambio trascendente en Pacheco pues el autor consigue su voz
-poética con mayor claridad. En _Irás y no volverás_ (1973) es donde la
-experiencia de lo poético sugiere un aspecto meditativo negándose a la intimidad
-y, siguiendo al autor, Pacheco realiza un ocultamiento del yo constantemente.
-Esto se vuelve mucho más evidente a partir de _Isla a la deriva_ (1976).
-
 Tras hacer explicita la adquisición de una voz poética propia en Pacheco,
 Villena se enfoca en los tópicos que el encuentra relevantes en el poeta
 mexicano. Se ha hablado ya de la relación del autor con la tradición. Es esta
@@ -81,7 +70,7 @@ marcado por el ya referido y constante ocultamiento del yo lírico de Pacheco.
 Las páginas principales las ocupan los poemarios que van de la década de los 70
 a los 80, esto es evidente ya que, como se ha mencionado, el libro es una
 reedición aumentada. Los poemarios posteriores de Pacheco son tocados, si bien
-con cuidado y enfocándose en los tópicos antes propuestos, con mayor rapidez; es
+con cuidado y enfocándose en los tópicos antes propuestos, con mayor rapidez. Es
 a partir de _Ciudad de la memoria_ (1990) donde el análisis poético que el autor
 realiza de Pacheco parece ir volviéndose menos especifico, más fugaz y algo
 entrecortado.
@@ -98,10 +87,9 @@ iniciarse en Pacheco también es conocer al ser humano detrás de la poética.
 
 El enfoque que realiza Luis Antonio de Villena a la poética pachequiana es de
 una manera bastante sencilla, con un lenguaje claro, donde el lector puede
-realizar correlaciones entre la poesía del poeta mexicano con su propia
-experiencia lectora, además de una invitación por conocer más, como lo es la
-misma poesía de Pacheco. _Iniciación a José Emilio Pacheco_ logra proponer una
+realizar correlaciones entre la poesía del mexicano  con su propia
+experiencia lectora, además, claro, de una invitación abierta para profundizar en los diversos temas descritos. _Iniciación a José Emilio Pacheco_ logra proponer una
 forma de acercamiento, sobre todo para un público que pretende iniciarse en el
-caudal del río que lleva a la mar de la poesía de José Emilio Pacheco.
+caudal del río que lleva a la mar de la poesía de uno de los grandes escritores mexicanos.
 
 ![](/posts/iniciacion-a-jose-emilio-pacheco-luis-antonio-de-villena.jpg)
