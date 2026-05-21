@@ -36,8 +36,8 @@ breve, unas consideraciones previas y veintitrés pequeños capítulos los que
 forman el cuerpo del libro y que recorrerá, casi en su totalidad, la obra
 poética de José Emilio Pacheco. Sin embargo, la obra prosística del mexicano
 pasa casi desapercibida, o mejor dicho es ignorada. Esto puede ser entendible, ya que
-el libro en sus inicios no fue extenso. Además, Luis Antonio de Villena es
-escritor de poesía y su enfoque es el mismo. Lamentablemente, se extraña la prosa del autor mexicano ya que podría dar la impresión de que hay algo incompleto en el estudio.
+el libro en sus inicios no fue extenso. Si bien Luis Antonio de Villena es
+poeta y puede haber un sesgo, lo cierto es que se extraña la prosa del autor mexicano ya que podría dar la impresión de que hay algo incompleto en el estudio.
 
 Desde las primeras páginas, Villena traza el perfil de José Emilio Pacheco para
 situarlo únicamente en su contexto, en este caso la generación de Medio Siglo
