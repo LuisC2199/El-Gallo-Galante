@@ -55,7 +55,6 @@ featuredImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 ```
 
 
-
 ```
 
 :::fs-18:::Ante un dios ausente
