@@ -18,7 +18,9 @@ que a aquella crea\
 en sueño ufano.
 
 Surge la mano\
--duerme la idea- escribe en vano\
+-duerme la idea-
+
+escribe en vano\
 mas se recrea.
 
 ¡Cuán sopor tiene!\
