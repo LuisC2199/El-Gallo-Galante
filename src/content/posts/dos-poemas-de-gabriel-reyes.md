@@ -10,7 +10,10 @@ coverImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 featuredImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 ---
 
-:::fs-18:::Técnica
+:::fs-18:::<span style="font-size: 1.5rem"><span style="font-size: 1.5rem"><span style="font-size: 1.5rem">Técnica</span></span></span>
+
+```
+```
 
 :::ls-compact:::Surge la idea
 
@@ -56,6 +59,9 @@ featuredImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 ```
 
 :::fs-18:::Ante un dios ausente
+
+```
+```
 
 :::ls-compact:::Inmaculada soberana mácula\
 al doblar tu rodilla me doblegas,\
