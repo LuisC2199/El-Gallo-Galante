@@ -20,11 +20,11 @@ con cera y cálamos.
 
 :::align-center:::El alba abrasa;\
 cuales dioses los vimos\
-en alto erguirse
+en alto erguirse.
 
-:::align-center:::¡Míralo caer Dédalo!\
+:::align-center:::¡Míralo caer, Dédalo!\
 ¿Quién expiará\
-sobrino e hijo?
+las alas rotas?
 
 Los rayos lloran,\
 calman las olas,\
@@ -39,7 +39,7 @@ el grito mudo,\
 en mi reflejo.
 
 :::align-center:::Rompe el destino.\
-Llagado, en la orilla\
+Lacerado, en la orilla\
 del mundo, náufrago,
 
 :::align-center:::evoca el cielo délfico;\
