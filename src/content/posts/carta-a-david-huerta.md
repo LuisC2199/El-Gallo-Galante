@@ -28,7 +28,7 @@ momentos vividos durante tu estancia aquí, y lamentar (a manera de recordatorio
 los que ya no alcanzamos a convocar, por la brevedad de tu paso por el pueblo.
 
 :::align-justify:::Comienzo con el registro de los momentos faustos, esos que parecen ocurrir para
-que uno los recuerde luego, para sublimar su sustancia en memoria, en anécdota.
+que uno los recuerde, luego, para sublimar su sustancia en memoria, en anécdota.
 
 :::align-justify:::El primero ocurrió cuando recién habías llegado a tu hotel en la ciudad (sé que
 te alegró que se llamara “Cuévano” y tuviera en la recepción un gran retrato de
