@@ -1,5 +1,5 @@
 ---
-title: It never entered my mind
+title: It Never Entered my Mind
 date: 2020-02-16T00:00:00.000Z
 category: Narrativa
 issue: ano-1-numero-0
@@ -21,7 +21,7 @@ desprendimos del yugo del tedio, edificamos un gran palacio con pilares
 indestructibles, nuestro mar de bronce, Sion, El Paraíso de Muhammad.
 
 :::align-justify:::Esa noche después de cenar, abrimos una botella de vino barato para ahuyentar el
-calor. Colocamos el disco _Ballads and blues_ de Miles. _I waited for you_. Sí,
+calor. Colocamos el disco _Ballads and Blues_ de Miles. _I Waited for You_. Sí,
 yo también esperé por ti, no me he cansado todavía, no creo que me canse por
 ahora. _Autumn Leaves_. Nos imaginamos el otoño en verano. Hablamos de la
 polifonía de Gillespie, de su magnífico atrevimiento de fusionar tantos géneros.
@@ -34,18 +34,18 @@ que lleva al hombre a la ciudad en su caparazón. De Vertov. De Jarmucsh. De De
 Chirico. De Man Ray. De las malas en las noticias, en los periódicos, en la
 televisión.
 
-:::align-justify:::Amanecía. _It never entered my mind_. Una última pastilla con un trago de otra
+:::align-justify:::Amanecía. _It Never Entered my Mind_. Una última pastilla con un trago de otra
 botella de vino. Voy en la línea, a veces doy vueltas y vuelvo, me encuentro con
 ella mientras todos viven. Ella vuela, ríe, llora, canta, sueña, ¿qué sueña? Se
 encuentra conmigo y me dice que despierte, que este sueño le pertenece a ella y
 no a mí. Me duermo desnudo en el piso, tengo frío, y la cara hundida en la
-alfombra sucia. _Bye bye black bird_. Sus pies sobre mi espalda, ella con el
+alfombra sucia. _Bye bye Black Bird_. Sus pies sobre mi espalda, ella con el
 último cigarrillo entre los labios, le dije que teníamos que comprar más. Mira
 hacia la ventana, la luz lastimó sus ojos acuosos.
 
 :::align-justify:::Parker toca _Perdido_. Yo quería fumarme un último cigarrillo, entreabría los
 ojos, extendía la mano y se lo quitaba de la boca. Estiraba de nuevo la mano con
-ademan torpe, ella abría la boca. _Flyin’ home_. Instrumentos tirados en el
+ademan torpe, ella abría la boca. _Flyin’ Home_. Instrumentos tirados en el
 piso. Esa sala misteriosa es una fábrica de poemas, dibujos, pinturas, melodías.
 Ese templo tenía nuestras formas, las ventanas, las puertas, el techo, los
 huecos, la humedad, el calor, el frío, eran nuestros ojos, nuestras bocas,
@@ -55,8 +55,8 @@ ocre y lo repartía en la pequeña sala. Allí quieta con sus cuatro sillas, esp
 por nosotros, los pocillos del café, los buenos días, uno que otro sueño que
 llevamos arrastrado hasta ella. La inmensidad, la fatalidad y el mandato creador
 del caos. Los cuadros afiches de Dalí, de Picasso, de Klee que compramos en una
-tienda de pulgas, convertía ese pequeño hogar en un museo. _You took advantage
-of me_. Dolores. No podía adaptar otra casa a mí. _Focus on sanity_. No podía
+tienda de pulgas, convertía ese pequeño hogar en un museo. _You Took Advantage
+of Me_. Dolores. No podía adaptar otra casa a mí. _Focus on Sanity_. No podía
 adaptarme a otro medio que no fuera tu cuerpo.
 
 :::ls-loose:::![](/posts/it-never-entered-my-mind.jpg)
