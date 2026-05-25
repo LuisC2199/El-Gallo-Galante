@@ -5,7 +5,7 @@ birthPlace: Estado de México
 photo: /authors/maritza-gonzalez-huitron.jpg
 gender: false
 social: 
-  instagram: "@marglzhuitron"
+  instagram: "https://www.instagram.com/marglzhuitron"
   facebook: "https://www.facebook.com/maritza.r.gonzalez.7/"
 ---
 
