@@ -10,7 +10,7 @@ coverImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 featuredImage: /posts/dos-poemas-de-gabriel-reyes.jpg
 ---
 
-:::fs-18:::Técnica
+:::fs-18:::I. Técnica
 
 Surge la idea\
 duerme la mano\
@@ -30,7 +30,7 @@ que apenas labra\
 en la palabra\
 que se equivoca.
 
-:::fs-18:::Ante un dios ausente
+:::fs-18:::II. Ante un dios ausente
 
 Inmaculada soberana mácula\
 al doblar tu rodilla me doblegas,\

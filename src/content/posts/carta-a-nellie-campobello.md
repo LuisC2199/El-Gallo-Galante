@@ -16,10 +16,8 @@ imagePosition: top
 Maestra Nellie Campobello,
 
 Hoy llovió mucho y, cuando el cielo se despejó, vi a una mariposa revolotear en
-el patio del\
-departamento hasta desaparecer entre las hojas de una palma robelina; me imaginé
-el día en el\
-que usted fue mariposa.
+el patio del departamento hasta desaparecer entre las hojas de una palma robelina; me imaginé
+el día en el que usted fue mariposa.
 
 Quiero platicarle que, poco antes de que tuviéramos que encerrarnos por la
 pandemia, visité una cafetería cerca del Monumento a la Revolución; cuando el sol se

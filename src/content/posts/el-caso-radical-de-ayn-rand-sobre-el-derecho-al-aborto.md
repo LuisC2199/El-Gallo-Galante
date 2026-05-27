@@ -16,9 +16,6 @@ Ayn Rand Institute
 
 :::align-right:::\[Traducción de Jonathan Mirus]
 
-```
-```
-
 <span class="dropcap">C</span>on la controversia del aborto en boga, he escrito una serie de artículos sobre
 el tema en los cuales se aplica la filosofía de Ayn Rand, el Objetivismo, al
 debate. Sin embargo, algunos “aficionados” a Rand, quienes aparentemente asumen
@@ -70,7 +67,7 @@ nacido).
 
 El aborto es un derecho moral — el cual debe ser otorgado exclusivamente a la
 elección de la mujer involucrada. Moralmente, nada más que su deseo debe ser
-considerado ¿Quién puede, acaso, tener el derecho de dictarle qué disposición
+considerado. ¿Quién puede, acaso, tener el derecho de dictarle qué disposición
 debe realizar sobre el funcionamiento de su propio cuerpo? La Iglesia Católica
 es responsable de las vergonzosamente barbáricas leyes antiaborto en este país,
 las cuales deben ser repudiadas y abolidas."<sup class="text-xs non-italic">\[2]</sup>
@@ -277,4 +274,3 @@ necessarily endorse other content on this site.
 <p><sup>13</sup> Sesión de preguntas y respuestas después de Leonard Peikoff, “Objective Communication,” Lecture 1 (1980), edited transcript in Mayhew (ed.), <em>Ayn Rand Answers</em>, 54.</p>
 
 </div>
-
