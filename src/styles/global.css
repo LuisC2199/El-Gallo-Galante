@@ -154,6 +154,7 @@ body {
    must be on the scroll-container element, not the individual paragraph. */
 .entry-content.poetry p {
   font-size: 1rem;
+  line-height: 1.35;
 }
 @media (min-width: 640px) {
   .entry-content.poetry p {

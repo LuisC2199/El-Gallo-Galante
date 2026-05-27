@@ -206,7 +206,7 @@ body {
 }
 
 /* Poetry font sizing (line-height left at browser default) */
-.entry-content.poetry p { font-size: 1rem; }
+.entry-content.poetry p { font-size: 1rem; line-height: 1.35; }
 @media (min-width: 640px) {
   .entry-content.poetry p { font-size: 1rem; }
 }
@@ -508,9 +508,8 @@ export default function PostPreviewPanel({
       dropCapMode === "auto" && "drop-cap",
       // "manual" mode: no auto drop-cap — relies on <span class="dropcap"> in body
       // "none" mode: no drop-cap styling at all
-      // Poetry: whitespace-pre-line/overflow-x-auto are structurally required;
-      // poetry provides stanza spacing. Font-size/line-height in PREVIEW_CSS.
-      isPoetry && "whitespace-pre-line overflow-x-auto poetry",
+      // Poetry provides stanza spacing; markdown hard breaks provide verse lines.
+      isPoetry && "overflow-x-auto poetry",
     ]
       .filter(Boolean)
       .join(" ");
