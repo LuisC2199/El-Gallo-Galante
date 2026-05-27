@@ -22,21 +22,20 @@ la cinta ha ido ganando adeptos con cada generación que pasa, y es,
 precisamente, considerada por muchos como una cinta de culto.
 
 El filme cuenta la historia de Mickey (Woody Harelson) y Mellory Knox (Juliette
-Lewis), una pareja de asesinos seriales quienes en su niñez fueron abusados por
-parte de la figura paterna, aquella que, en términos tradicionales, debería
-brindar protección; en Mickey, los golpes brutales, en Mellory, además de los
+Lewis), una pareja de asesinos seriales quienes en su niñez fueron abusados cada uno por su padre, aquel que, en términos tradicionales, debería
+brindar protección. En Mickey, los golpes brutales, en Mellory, además de los
 golpes, los constantes asaltos sexuales. El daño mutuo es parte del motivo que
 los mantendrá juntos, pues significa una comprensión del otro, empero, lo que
 realmente los une es el amor que surge entre ellos en un idílico encuentro.
 Mickey lleva, a modo de mandado, carne a la casa de Mellory; es el cuerpo del
-animal que lleva Mickey cargando al hombro una premonición de lo que serán: así
+animal que lleva  cargando al hombro una premonición de lo que serán: así
 como el carnicero lleva a cuestas la carne sin sentir el dolor de sus víctimas,
 ellos serán los asesinos que carguen a sus muertos.
 
-A lo largo de la cinta se encuentra un contraste constante, inmerso en la
+A lo largo de la cinta se encuentran distintos contrastes, los cuales están inmersos en la
 esencia psicodélica de la cinta constituida por el _soundtrack_, las animaciones
 y los diferentes tipos de montaje, uniéndose con lo que va suscitando en la
-historia. Este contraste juega con lo establecido generando una estética que
+historia. Esto juega con lo establecido generando una estética que
 cambia junto con los personajes. Para realizar una crítica por contraste, por
 ejemplo, Stone se vale de la familia de Mellory, en donde se satiriza los
 programas de la televisión americana, como podrían ser comedias como *Full House* (1987-1995), The Wonder Years (1988-1993) o _Married…
@@ -46,8 +45,8 @@ with Children_ (1987-1997). De la misma forma, lo hace con los noticieros que ha
 Este juego de generar contraste también resulta en un manejo del _cliché_, en el
 cómo desatarlo. Por una parte, con el ejemplo anterior, las comedias familiares
 han sufrido un desgaste estético, se han vuelto un _cliché._ El trabajo de la
-historia es darle otro sentido, desatarlo a través de violentar a la familia;
-por otra parte, tenemos el _cliché_ de los amantes, el trabajo de desatarlo se
+historia es darle otro sentido, desatarlo a través de violentar a la familia.
+Por otra parte, tenemos el _cliché_ de los amantes, el trabajo de desatarlo se
 realiza por su relación homicida, ya no son sólo unos amantes, sino que hay un
 contraste, entre el amor como creación y el homicidio como destrucción.
 
@@ -67,7 +66,7 @@ lucha de contrarios.
 
 Finalmente, ¿no es la búsqueda de la verdad, de lo correcto, un contraste
 inmerso en la realidad que busca ser develado? La cinta no sólo es una crítica
-sobre los medios masivos, sino sobre el sentido de justicia, y a la
+sobre los medios masivos, sino sobre el sentido de justicia, y sobre la
 responsabilidad no sólo de estos, sino de todos. No es sorpresa que Wayne Gale
 (Robert Downey Jr.) grite al final «Yo soy la estrella de maniacos americanos»,
 palabras que, en sentido actual, y como cinta de culto, siguen estando presentes
