@@ -49,27 +49,21 @@ Conjúrame tú también\
 en los recuerdos\
 para que así yo muera menos.
 
-```
-```
-
 :::fs-18:::Colibrí II
 
 Retrocede mi estancia\
 y se fija precisa\
-en la imagen de la fotografía\
+en la imagen de la fotografía,\
 ¿qué podía ser yo a esa hora?\
-cuando hay tanta dicha que no se dice\
-para que no desaparezca\
+Cuando hay tanta dicha que no se dice\
+para que no desaparezca,\
 ¿qué podía ser yo?\
-me faltaba llorar para ser triste\
+Me faltaba llorar para ser triste\
 y me faltaba nombrar para que fuera.
-
-```
-```
 
 :::fs-18:::Colibrí III
 
-De tu boca se despliegan acusaciones\
+De tu boca se despliegan acusaciones,\
 el peor de los escándalos\
 de todas las lenguas mal habladas.
 
@@ -77,13 +71,10 @@ Ahí donde chocan son su nombre las cosas\
 no hay duda:\
 ha terminado el sueño.
 
-```
-```
-
 :::fs-18:::Colibrí IV
 
 En los rescoldos de lugares ahora inexistentes\
-se entrevé el recuerdo de una presencia inabarcable\
+se entrevé el recuerdo de una presencia inabarcable,\
 mi lengua se remuerde en silencio\
 hasta que arriba a la raíz de mi voz tu nombre.
 
@@ -92,9 +83,6 @@ en mi desmemoria yo estoy segura de que\
 caben todos los siglos entre esa noche\
 y la ciudad aparece ante mí como un principio de los tiempos.
 
-```
-```
-
 :::fs-18:::Colibrí V
 
 La palabra estalla,\
@@ -102,9 +90,6 @@ sobreviene la aurora,\
 el mundo nace\
 entre la luz y mis manos,\
 se enturbia mi mirada; la mar, la mar, la mar.
-
-```
-```
 
 :::fs-18:::Colibrí VI
 
@@ -118,30 +103,21 @@ Heme aquí con un miedo nuevo:\
 despertar\
 y volver a verte.
 
-```
-```
-
 :::fs-18:::Colibrí VII
 
 "Te fuiste, ahora eres otra."
 
 Dialogo monosilábico,\
-se cierran los caparazones\
-ya no se quieren más diluvios\
+se cierran los caparazones,\
+ya no se quieren más diluvios,\
 es la única certeza.
-
-```
-```
 
 :::fs-18:::Colibrí VIII
 
-También existe esta certeza\
+También existe esta certeza,\
 no hay despertar\
 sólo náufragos\
 de silencios.
-
-```
-```
 
 :::fs-18:::Colibrí IX
 
@@ -155,9 +131,6 @@ cierro la ventana,\
 no vaya a ser que por viento\
 se me arremoline el recuerdo.
 
-```
-```
-
 :::fs-18:::Colibrí X
 
 La nostalgia me cimbra\
@@ -170,9 +143,6 @@ de mis ojos a los tuyos.
 Tus ojos\
 cuánto mar dentro de ellos.
 
-```
-```
-
 :::fs-18:::Colibrí XI
 
 Me voy al mar,\
@@ -181,39 +151,33 @@ Me llevan los pies\
 sobre una arena color ámbar.\
 ¡Voy a envolverme en las estrellas!
 
-```
-```
-
 :::fs-18:::Colibrí XII
 
 El principio es así\
 columna de huracanas y mareas\
 la ceguera del devenir\
-detiene sus certezas\
+detiene sus certezas,\
 el espejo roto de tiempo\
 estalla.
 
-El aire se torna viento\
-raíz del aire\
+El aire se torna viento,\
+raíz del aire,\
 ahí donde crece el viento\
 se encuentran,\
 nace una semilla del aire\
 presagio de alturas y abismos.
 
 Los mares invaden los ríos,\
-las hojas inundan el pecho\
-el agua devela el relámpago\
+las hojas inundan el pecho,\
+el agua devela el relámpago,\
 recupera el mundo su sombra.
-
-```
-```
 
 :::fs-18:::Colibrí XIII
 
 Quiero decir ahora que no hay pasado\
 no hay pasado, ni existe\
 tampoco\
-el tiempo\
+el tiempo,\
 confieso que esta noche no volverá nunca\
 por más veces que rehaga el recuerdo.
 
@@ -222,9 +186,6 @@ tengo tantas voces dentro del cuerpo\
 no sabré nunca si esta tarde\
 dónde yo escuche adiós\
 tú has dicho muerte.
-
-```
-```
 
 :::fs-18:::Colibrí XIV
 
@@ -247,9 +208,6 @@ para volver junto a ti
 Ahora lo sé:\
 tu espalda fue la tumba de mis labios.
 
-```
-```
-
 :::fs-18:::Colibrí XV
 
 Puestos los ojos en el horizonte\
@@ -260,9 +218,6 @@ que se disuelve en su carne,\
 el canto es una plegaria\
 para conjurar huellas.
 
-```
-```
-
 :::fs-18:::Colibrí XVI
 
 Te he esperado ahí\
@@ -270,12 +225,9 @@ en las orillas turbias del atardecer\
 detenida en el limbo del aire\
 bajo la protección de tiempo.
 
-Ella tenía un rostro inhumano\
-ignoraba el arte del sueño\
+Ella tenía un rostro inhumano,\
+ignoraba el arte del sueño,\
 me cubría los ojos de pesadillas.
-
-```
-```
 
 :::fs-18:::Colibrí XVII
 
@@ -288,32 +240,26 @@ sino lo que en ti\
 es una ensoñación.
 
 No estarás envuelta en un anhelo\
-sino en la crueldad del amanecer\
+sino en la crueldad del amanecer,\
 no querré tu destino\
 porque del mío vislumbro\
 apenas una sombra.
-
-```
-```
 
 :::fs-18:::Colibrí XVIII
 
 Astro hecho de piedras,\
 ¿qué me vas a decir ahora?\
-veinte tragos\
+Veinte tragos\
 una cama\
 un amanecer entre dos noches\
 dos egoísmos\
 para un solo sol.
 
-```
-```
-
 :::fs-18:::Colibrí XIX
 
 Vine aquí a reencontrarme contigo\
 frente a una cerveza\
-vine aquí a reencontrame con la imagen de un anhelo\
+vine aquí a rencontrame con la imagen de un anhelo\
 o\
 vine aquí a destruir mi sueño.
 
@@ -321,14 +267,11 @@ Te miro a los ojos por tres segundos\
 ha huido el fuego\
 las palabras acompañan\
 ¿a dónde se ha ido el delirio?\
-bebo el sorbo\
+Bebo el sorbo\
 de\
 mis\
 últimas\
 nostalgias.
-
-```
-```
 
 :::fs-18:::Colibrí XX
 
