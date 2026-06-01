@@ -89,7 +89,7 @@ ALABANZA
 
 En silencio la rosa habla de ti.
 
-Esas dos líneas son una muestra de lo poderosa poesía de Pacheco. En primer
+Esas dos líneas son una muestra de lo poderosa que es la poesía de Pacheco. En primer
 lugar, porque convoca diversos elementos de la tradición literaria: el silencio,
 la rosa, el habla que busca ser la poesía, la alabanza o el elogio como una
 expresión de encomio o como panegírico. Por otra parte, porque, mediante esa
