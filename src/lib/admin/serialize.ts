@@ -50,6 +50,7 @@ const CONTACT_KEY_ORDER = [
   "conditionsHeading",
   "conditions",
   "note",
+  "notice",
 ];
 
 /**

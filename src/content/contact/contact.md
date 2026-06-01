@@ -33,6 +33,9 @@ conditions:
   - Cualquier controversia con respecto a estas bases será resuelta por los editores.
   - La participación en esta convocatoria implica la aceptación de todas y cada una de sus bases.
 note: "*El Gallo Galante* es una revista independiente cuya existencia depende del bolsillo de los editores. Lamentablemente no nos encontramos en posibilidades de remunerar las colaboraciones."
+notice:
+  title: "Convocatoria número 1"
+  text: "Estará abierta desde la publicación de la presente el 31 de mayo hasta el 30 de junio de 2026."
 ---
 
 

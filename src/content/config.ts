@@ -87,6 +87,12 @@ const contact = defineCollection({
     conditionsHeading: z.string(),
     conditions: z.array(z.string()),
     note: z.string().optional(),
+    notice: z
+      .object({
+        title: z.string().optional(),
+        text: z.string().optional(),
+      })
+      .optional(),
   }),
 });
 

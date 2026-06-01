@@ -21,6 +21,11 @@ interface BaseItem {
   text: string;
 }
 
+interface Notice {
+  title?: string;
+  text?: string;
+}
+
 interface ValidationErrors {
   title?: string;
   heading?: string;
@@ -53,6 +58,16 @@ function normalizeConditions(value: unknown): string[] {
   return Array.isArray(value) ? value.map((item) => normalizeText(item)) : [];
 }
 
+function normalizeNotice(value: unknown): Notice {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+
+  const record = value as Record<string, unknown>;
+  return {
+    title: normalizeText(record.title),
+    text: normalizeText(record.text),
+  };
+}
+
 function cleanInline(value: unknown): string {
   return normalizeText(value).replace(/\s+/g, " ").trim();
 }
@@ -75,6 +90,9 @@ function cleanFrontmatter(fm: Record<string, unknown>): Record<string, unknown> 
 
   const description = cleanInline(fm.description);
   const note = cleanInline(fm.note);
+  const notice = normalizeNotice(fm.notice);
+  const noticeTitle = cleanInline(notice.title);
+  const noticeText = cleanInline(notice.text);
 
   return {
     ...fm,
@@ -86,6 +104,13 @@ function cleanFrontmatter(fm: Record<string, unknown>): Record<string, unknown> 
     conditionsHeading: cleanInline(fm.conditionsHeading),
     conditions,
     note: note || undefined,
+    notice:
+      noticeTitle || noticeText
+        ? {
+            title: noticeTitle || undefined,
+            text: noticeText || undefined,
+          }
+        : undefined,
   };
 }
 
@@ -301,6 +326,23 @@ export default function ContactEditor({ onDirtyChange }: ContactEditorProps) {
     [markDirty],
   );
 
+  const updateNotice = useCallback(
+    (key: keyof Notice, value: string) => {
+      setFrontmatter((prev) => {
+        const notice = normalizeNotice(prev.notice);
+        return {
+          ...prev,
+          notice: {
+            ...notice,
+            [key]: value || undefined,
+          },
+        };
+      });
+      markDirty();
+    },
+    [markDirty],
+  );
+
   const handleSave = useCallback(async () => {
     const cleaned = cleanFrontmatter(frontmatter);
     const errors = validate(cleaned);
@@ -347,6 +389,7 @@ export default function ContactEditor({ onDirtyChange }: ContactEditorProps) {
   const visibleBases = bases.length > 0 ? bases : [{ text: "" }];
   const conditions = normalizeConditions(fm.conditions);
   const visibleConditions = conditions.length > 0 ? conditions : [""];
+  const notice = normalizeNotice(fm.notice);
 
   return (
     <div className="flex-1 flex flex-col overflow-hidden">
@@ -582,6 +625,32 @@ export default function ContactEditor({ onDirtyChange }: ContactEditorProps) {
                 className={fieldClass() + " resize-y leading-relaxed"}
               />
             </Field>
+
+            <div className="rounded-md border border-stone-200 bg-stone-50/70 p-4">
+              <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-stone-400">
+                Aviso inferior
+              </h4>
+              <div className="space-y-3">
+                <Field label="Título">
+                  <input
+                    type="text"
+                    value={notice.title ?? ""}
+                    onChange={(e) => updateNotice("title", e.target.value)}
+                    className={fieldClass()}
+                    placeholder="Convocatoria número 1"
+                  />
+                </Field>
+                <Field label="Texto">
+                  <textarea
+                    value={notice.text ?? ""}
+                    onChange={(e) => updateNotice("text", e.target.value)}
+                    rows={3}
+                    className={fieldClass() + " resize-y leading-relaxed"}
+                    placeholder="Estará abierta desde..."
+                  />
+                </Field>
+              </div>
+            </div>
           </section>
         </div>
       </div>
