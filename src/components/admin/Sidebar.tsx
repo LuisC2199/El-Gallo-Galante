@@ -15,6 +15,7 @@ const collections = [
 
 const singletons = [
   { id: "preamble", label: "Preámbulo" },
+  { id: "contact", label: "Contacto" },
 ] as const;
 
 export default function Sidebar({ activeCollection, onCollectionChange }: SidebarProps) {

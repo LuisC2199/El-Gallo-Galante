@@ -41,6 +41,17 @@ const ISSUE_KEY_ORDER = [
   "featuredPostSlugs",
 ];
 
+const CONTACT_KEY_ORDER = [
+  "title",
+  "description",
+  "heading",
+  "intro",
+  "bases",
+  "conditionsHeading",
+  "conditions",
+  "note",
+];
+
 /**
  * Convert a frontmatter value to a YAML-safe string representation.
  * Handles the subset of types we actually encounter in post frontmatter.
@@ -172,4 +183,14 @@ export function serializePreamble(
   body: string,
 ): string {
   return serializeMarkdown(frontmatter, body, ["title"]);
+}
+
+/**
+ * Serialize the contact page singleton frontmatter + body into Markdown.
+ */
+export function serializeContact(
+  frontmatter: Record<string, unknown>,
+  body: string,
+): string {
+  return serializeMarkdown(frontmatter, body, CONTACT_KEY_ORDER);
 }

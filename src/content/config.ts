@@ -71,4 +71,23 @@ const preamble = defineCollection({
   }),
 });
 
-export const collections = { posts, authors, issues, preamble };
+const contact = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    heading: z.string(),
+    intro: z.string(),
+    bases: z.array(
+      z.object({
+        title: z.string().optional(),
+        text: z.string(),
+      }),
+    ),
+    conditionsHeading: z.string(),
+    conditions: z.array(z.string()),
+    note: z.string().optional(),
+  }),
+});
+
+export const collections = { posts, authors, issues, preamble, contact };

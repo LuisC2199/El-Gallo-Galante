@@ -11,6 +11,7 @@ import AuthorList from "./AuthorList";
 import IssueEditor from "./IssueEditor";
 import IssueList from "./IssueList";
 import PreambleEditor from "./PreambleEditor";
+import ContactEditor from "./ContactEditor";
 import CreateItemModal, { postFields, authorFields, issueFields } from "./CreateItemModal";
 import { useUnsavedChanges } from "./useUnsavedChanges";
 import type { AuthorSummary, IssueSummary } from "../../lib/admin/types";
@@ -225,6 +226,11 @@ export default function AdminShell() {
         {/* Preamble singleton */}
         {activeCollection === "preamble" && (
           <PreambleEditor onDirtyChange={handleDirtyChange} />
+        )}
+
+        {/* Contact singleton */}
+        {activeCollection === "contact" && (
+          <ContactEditor onDirtyChange={handleDirtyChange} />
         )}
       </div>
 
