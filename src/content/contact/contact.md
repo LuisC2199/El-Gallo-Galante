@@ -21,7 +21,7 @@ bases:
     text: "Si usted manda una colaboración fuera de tiempo de convocatoria nos reservamos el derecho de contestar, ya que posiblemente no tengamos el tiempo necesario para leer su material."
 conditionsHeading: Condiciones de publicación
 conditions: 
-  - "*El Gallo Galante* **[no]** se compromete a publicar los trabajos recibidos. Los editores decidirán siempre acerca de las colaboraciones dictaminadas."
+  - "*El Gallo Galante* **no** se compromete a publicar los trabajos recibidos. Los editores decidirán siempre acerca de las colaboraciones dictaminadas."
   - "Los autores de los textos e imágenes publicados en *El Gallo Galante* son propietarios de su material y responsables de las opiniones expresadas en ellos."
   - "No se aceptan textos generados en su totalidad por ningún tipo de Inteligencia Artificial (IA). Si el autor aplicó correcciones ortotipográficas, creó tablas, realizó formatos de citación o empleó alguna herramienta para redactar cualquier parte del texto con algún programa de este tipo, tendrá que comunicarlo a la revista desde un inicio, de lo contrario el texto será rechazado."
   - Cualquier texto que incurra en sospecha de plagio será rechazado y ningún texto del autor podrá ser considerado nuevamente para esta revista.
