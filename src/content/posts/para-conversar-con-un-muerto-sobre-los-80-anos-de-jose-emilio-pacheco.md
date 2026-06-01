@@ -102,7 +102,7 @@ entrevista (1980)”: “Es curioso lo que nos hace hablar el silencio. Lo cual
 quiere decir que la impulsión de la palabra vendría del silencio, no de la
 locuacidad. La palabra poética nace de la interioridad. Es palabra y silencio a
 la vez. Aparece como invitación a interiores cámaras silenciosas. _La hondura de
-la palabra poética es la hondura de los silencios_ a que nos asoma”.
+la palabra poética es la hondura de los silencios_ *a que nos asoma”*.
 
 Antes de la palabra, en el silencio, está contenido todo, como potencia. En el
 verso de Pacheco eso es lo que “la rosa habla de ti”. Y es, justo, la
@@ -127,9 +127,9 @@ el ya señalado diálogo con los muertos y los escritores mexicanos del siglo XI
 
 “Caverna” de *Islas a la deriva*, escrito entre 1973 y 1975, inicia con la siguiente tirada de versos:
 
-Es verdad que los muertos tampoco duran.\
+:::align-center:::Es verdad que los muertos tampoco duran.\
 Ni siquiera la muerte permanece.\
-Todo vuelve a ser polvo (172).
+Todo vuelve a ser polvo.
 
 Y quizá es verdad, quizá ni siquiera la muerte de Pacheco permanece, todo se
 hace polvo _casi sin darnos cuenta_.
