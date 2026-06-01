@@ -10,11 +10,15 @@ coverImage: /posts/rastro.jpg
 featuredImage: /posts/rastro.jpg
 ---
 
-Mis rosas dactilares se marchitan  
-aunque en Jordanes ojos las refresque  
-su tersura, que espinó hasta la piedra,  
-con la espiral de la ceniza marca  
+Mis rosas dactilares se marchitan\
+aunque en Jordanes ojos las refresque\
+su tersura, que espinó hasta la piedra,\
+con la espiral de la ceniza marca\
 los capilares lirios de las cosas.
+
+```
+
+```
 
 ![](/posts/rastro.jpg)
 
