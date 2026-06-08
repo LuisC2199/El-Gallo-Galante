@@ -24,19 +24,19 @@ en alto erguirse.
 
 :::align-center:::¡Míralo caer, Dédalo!\
 ¿Quién expiará\
-las alas rotas?
+su último canto?
 
 Los rayos lloran,\
 calman las olas,\
 descienden plumas rotas,
 
 :::align-center:::y la caída\
-vislumbra en sus pupilas\
-de mármol claro,
+se vislumbra en sus ojos\
+de mármol claro.
 
-:::align-right:::bautiza el mar naciente\
-el grito mudo,\
-en mi reflejo.
+:::align-right:::Espuma, mar naciente,\
+un grito mudo,\
+es mi reflejo.
 
 :::align-center:::Rompe el destino.\
 Lacerado, en la orilla\
