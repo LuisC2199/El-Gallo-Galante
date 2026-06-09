@@ -34,28 +34,28 @@ descienden plumas rotas,
 se vislumbra en sus ojos\
 de mármol claro.
 
-:::align-right:::Espuma, mar naciente,\
+:::align-right:::Nace en la blanca espuma\
 un grito mudo,\
 es mi reflejo.
 
-:::align-center:::Rompe el destino.\
+:::align-center:::Rompe el destino:\
 Lacerado, en la orilla\
 del mundo, náufrago,
 
-:::align-center:::evoca el cielo délfico;\
+:::align-center:::evoca el cielo délfico,\
 con firme mástil,\
-surca las aguas.
+surca las aguas,
 
-:::align-center:::Como cambiante nube,\
+:::align-center:::como cambiante nube,\
 vuela el _martierra_,\
-navega el aire.
+navega el aire,
 
-:::align-center:::Como Ulises mañero,\
+:::align-center:::como Ulises mañero,\
 entre islas griegas,\
-tras larga ausencia.
+tras larga ausencia,
 
-:::align-center:::Como Sinbad, varado\
-por el oriente,\
+:::align-center:::como Sinbad, varado\
+por el Oriente,\
 buscando siempre...
 
 :::align-center:::el solitario sol,\
