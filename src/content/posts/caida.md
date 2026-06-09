@@ -39,7 +39,7 @@ un grito mudo,\
 es mi reflejo.
 
 :::align-center:::Rompe el destino:\
-Lacerado, en la orilla\
+lacerado, en la orilla\
 del mundo, náufrago,
 
 :::align-center:::evoca el cielo délfico,\
