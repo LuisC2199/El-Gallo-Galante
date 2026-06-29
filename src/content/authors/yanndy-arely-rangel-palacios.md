@@ -5,7 +5,7 @@ birthPlace: Guanajuato
 photo: /authors/yanndy-arely-rangel-palacios.jpg
 gender: false
 social: 
-  instagram: "@yanr.an12"
+  instagram: "https://www.instagram.com/yanr.an12"
 ---
 
 Licenciada en Letras Españolas por parte de la Universidad de Guanajauto. Actualmente se desempeña como correctora de textos. Su principal interés radica en la relación de la literatura con las artes visuales.
