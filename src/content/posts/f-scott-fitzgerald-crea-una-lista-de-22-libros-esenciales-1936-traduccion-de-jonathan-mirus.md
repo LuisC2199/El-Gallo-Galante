@@ -43,7 +43,7 @@ lectura requerida."
 3. _Casa de muñecas_ de Henrik Ibsen
 4. _Winesburg, Ohio,_ de Sherwood Anderson
 5. _Cuento de viejas_ de Arnold Bennett
-6. _El halcón maltés_ de Dashiel Hammett
+6. _El halcón maltés_ de Dashiell Hammett
 7. _Rojo y negro_ de Stendhal
 8. _Cuentos de Guy de Maupassant_ (traducido por Michael Monahan)
 9. _Esquema de psicología anormal_ (ed. Gardner Murphy).
