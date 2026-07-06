@@ -1,5 +1,5 @@
 ---
-title: "INICIACIÓN A JOSÉ EMILIO PACHECO, Luis Antonio de Villena"
+title: "Iniciación a José Emilio Pacheco, Luis Antonio de Villena"
 date: 2019-06-30T00:00:00.000Z
 category: Crítica
 issue: ano-1-numero-0
@@ -8,7 +8,7 @@ coverImage: /posts/iniciacion-a-jose-emilio-pacheco-luis-antonio-de-villena.jpg
 featuredImage: /posts/iniciacion-a-jose-emilio-pacheco-luis-antonio-de-villena.jpg
 ---
 
-LUIS ANTONIO DE VILLENA, _Iniciación a José Emilio Pacheco_, Universidad
+Luis Antonio de Villena, _Iniciación a José Emilio Pacheco_, Universidad
 Veracruzana, México, 2019, 115 pp.
 
 ¿Cómo iniciarse en la lectura de un escritor? ¿Por dónde debe comenzar el lector
