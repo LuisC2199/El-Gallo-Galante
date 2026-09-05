@@ -4,7 +4,7 @@ birthYear: "2000"
 birthPlace: Aguascalientes
 photo: /authors/img-20260105-225934.jpg
 social: 
-  instagram: "https://www.instagram.com/aureariel_"
+  instagram: "https://www.instagram.com/aureariel__"
   facebook: "https://www.facebook.com/ariel.avilamacias"
 ---
 
