@@ -2,6 +2,7 @@
 name: Damián Jerónimo Andreñuk
 birthYear: "1986"
 birthPlace: Buenos Aires
+photo: /authors/foto-damian-andrenuk-3.jpg
 social: 
   instagram: "https://www.instagram.com/damianandrenuk"
 ---
