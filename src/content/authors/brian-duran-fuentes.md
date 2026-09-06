@@ -2,6 +2,7 @@
 name: Brian Durán-Fuentes
 birthYear: "1990"
 birthPlace: Ciudad de México
+photo: /authors/duranfuentes.jpg
 social: 
   instagram: "https://www.instagram.com/brain3dx"
 ---
