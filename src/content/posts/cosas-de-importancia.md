@@ -8,6 +8,7 @@ author: neftali-s-almanza
 presentacion: 
   dropCapMode: none
 coverImage: /posts/almanza-cosas-de-importancia-pexels-ron-lach-10610283.jpg
+imagePosition: bottom
 ---
 
 No soy un profeta\
