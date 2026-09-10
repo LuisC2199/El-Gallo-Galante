@@ -5,6 +5,8 @@ category: Poesía
 status: draft
 issue: ano-1-numero-1
 author: brian-duran-fuentes
+presentacion: 
+  dropCapMode: none
 coverImage: /posts/duran-dialogos-con-caronte-pexels-th2city-16321792.jpg
 ---
 
