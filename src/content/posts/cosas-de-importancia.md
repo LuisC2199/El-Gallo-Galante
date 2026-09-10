@@ -11,10 +11,10 @@ coverImage: /posts/almanza-cosas-de-importancia-pexels-ron-lach-10610283.jpg
 imagePosition: bottom
 ---
 
-No soy un profeta\
+:::ls-relaxed:::No soy un profeta\
 y estas no son cosas de importancia.
 
-En el cumpleaños de mi tío\
+:::ls-relaxed:::En el cumpleaños de mi tío\
 hubo un momento en que sus labios,\
 vírgenes de 38 años,\
 se unieron como un beso\
@@ -28,7 +28,7 @@ un accidente de carro, viajaba solo\
 por una carretera vacía.\
 Pero esto no pude saberlo.
 
-En lo alto de la escalera imaginé a mi padre\
+:::ls-relaxed:::En lo alto de la escalera imaginé a mi padre\
 cortando moras para mis hermanos y yo.\
 Nunca hubo un árbol de moras\
 así como no lo hay ahora\
@@ -42,10 +42,10 @@ la dulce imagen\
 de una infancia imposible.\
 Pero estas no son cosas que importen.
 
-Las profecías tienden a ser dichas\
+:::ls-relaxed:::Las profecías tienden a ser dichas\
 por idiotas o por sabios.
 
-Nunca me dijo mi madre que canción\
+:::ls-relaxed:::Nunca me dijo mi madre que canción\
 silbaba cuando lavaba la ropa\
 en el río,\
 qué frutos dieron\
@@ -59,27 +59,27 @@ todo—\
 uno debe aguantar\
 para hacerse llamar hombre.
 
-Las cosas de importancia nunca se dicen,\
+:::ls-relaxed:::Las cosas de importancia nunca se dicen,\
 solo saben mostrarse.
 
-Solía esconderme detrás de la ventana\
+:::ls-relaxed:::Solía esconderme detrás de la ventana\
 y hacerle caras y gestos al perro del tiempo\
 seguro de que nunca me atraparía.
 
-Una vez vi un pájaro estrellarse\
+:::ls-relaxed:::Una vez vi un pájaro estrellarse\
 sobre el pavimento,\
 sentí su agonía\
 y fue una sorpresa dolorosa\
 descubrirme pájaro también.
 
-La luz se fue en todo el rancho\
+:::ls-relaxed:::La luz se fue en todo el rancho\
 y mi padre contaba historias\
 moviendo las manos\
 contra la luz de las velas\
 proyectando sombras en las paredes\
 mientras mi madre y yo lo escuchábamos.
 
-Las profecías serán dichas\
+:::ls-relaxed:::Las profecías serán dichas\
 a su debido tiempo.\
 Las cosas de importancia\
 serán reveladas.\
@@ -88,12 +88,7 @@ Yo solo sé de la belleza cuando la veo.\
 Como dije, yo no soy un profeta\
 y estas no son cosas de importancia.
 
-```
-
-```
-
 <figure class="image-block align-center">
   <img src="/posts/almanza-cosas-de-importancia-pexels-ron-lach-10610283-2.jpg" />
   <figcaption class="caption">Fotografía de Ron Lach</figcaption>
 </figure>
-
