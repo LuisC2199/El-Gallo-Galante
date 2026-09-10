@@ -24,20 +24,20 @@ Caronte de la Ciudad de los Palacios,\
 temo mucho que desenfundes el fierro\
 y redirijas tu nave a mi muerte.\
 Por el contrario, hablamos de las cosas\
-en sí mismas,\
+                                         en sí mismas,\
 de la vida potable y vida de riego,\
 así psicoanalizas pasajeros.
 
 :::ls-relaxed:::Dices que así pasa con las mujeres,\
 dan un dolor dulce e irremplazable.\
 Y yo digo que sostengo el cerebro\
-con la mano izquierda.\
+                           con la mano izquierda.\
 Y tú dices que ganan más los taqueros.\
 Y yo digo que sólo quedan memorias.
 
 :::ls-relaxed:::Nos dan risa las centellas en la calle.\
 Cuando tocaron Los Cadillacs, recuerdo\
-que cantaba Vicentico,\
+                          que cantaba Vicentico,\
 *Siguiendo la luna no llegaré lejos*\
 y entonces la luna salió de las nubes,\
 pero ese es un recuerdo robado,\
