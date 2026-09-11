@@ -10,7 +10,7 @@ presentacion:
 coverImage: /posts/leonardo-entre-la-visualidad-pexels-aymerik-grenier-759296371-30553304.jpg
 ---
 
-Gastón Carrasco Aguilar, *El Instante no es decisivo*, Ediciones Balmaceda Arte Joven,  Chile, 2014, 62 pp. 
+Gastón Carrasco Aguilar, *El Instante no es decisivo*, Chile, Ediciones Balmaceda Arte Joven, 2014, 62 pp. 
 
 ```
  
@@ -27,11 +27,6 @@ Gastón Carrasco Aguilar, *El Instante no es decisivo*, Ediciones Balmaceda Arte
 
 :::align-justify:::*El Instante no es decisivo* es una respuesta directa y sin vacilación hacia la nociva acusación que a veces sigue al lenguaje descriptivo en cuanto a su utilización en los distintos géneros literarios: una lectura árida y con un ritmo lento. Carrasco, en su intento por desmontar esto, evidencia que los hechos de una realidad y sus detalles adquieren una complejidad profunda a nivel de interpretación cuando se analizan los poemas y las imágenes desde otro lente,  lo que revela una estética única en comparación a otros libros que siguen una línea similar.
 
-```
-
-```
-
 <figure class="image-block align-center">
   <img src="/posts/leonardo-portada.jpeg" />
 </figure>
-
