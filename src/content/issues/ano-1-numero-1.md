@@ -4,13 +4,6 @@ date: 2026-09-13T00:00:00.000Z
 endDate: 2026-10-16T00:00:00.000Z
 number: No. 01
 description: Primer número de El Gallo Galante
-featuredPostSlugs: 
-  - para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco
-  - cuando-llega-el-silencio
-  - carta-a-virgilio-pinera
-  - antielegia-del-ave-fenix-por-si-misma
-  - el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto
-  - esperanza-de-vida-en-siria
 ---
 
 El Gallo Galante nació en 2018 con la idea de dialogar con la palabra y su actualidad bajo el signo de la curiosidad y la crítica que caracterizó a la revista Ulises. Hasta el año 2021, habíamos publicado sin un orden cronológico aparente. Sin embargo, el rigor estético caracterizó los textos que hoy se encuentran reunidos en nuestro número 0.
