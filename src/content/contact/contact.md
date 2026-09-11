@@ -12,7 +12,7 @@ bases:
   - 
     text: "Todas las colaboraciones deberán ir acompañadas de una fotografía del autor y una breve semblanza que incluirá los siguientes datos y formato: Nombre del autor (lugar y año de nacimiento), estudios, publicaciones, talleres o cualquier otro dato de interés (consignando editorial, ciudad y año, así como premios, becas o residencias que haya obtenido)."
   - 
-    text: "Los textos deberán remitirse al correo electrónico [elgallogalante@gmail.com](mailto:elgallogalante@gmail.com), indicando en el asunto lo siguiente: Número de convocatoria y sección. Ejemplo: **NÚMERO 5, EPISTOLARIO**."
+    text: "Los textos deberán remitirse al correo electrónico [elgallogalante@gmail.com](mailto:elgallogalante@gmail.com), indicando en el asunto lo siguiente: Número de convocatoria y sección. Ejemplo: **NÚMERO 2, EPISTOLARIO**."
   - 
     text: "En el archivo, el documento deberá tener la estructura `Nombre_Apellido_NombreDelTexto`."
   - 
@@ -33,9 +33,9 @@ conditions:
   - Cualquier controversia con respecto a estas bases será resuelta por los editores.
   - La participación en esta convocatoria implica la aceptación de todas y cada una de sus bases.
 note: "*El Gallo Galante* es una revista independiente cuya existencia depende del bolsillo de los editores. Lamentablemente no nos encontramos en posibilidades de remunerar las colaboraciones."
-notice:
-  title: "Convocatoria número 1"
-  text: "Estará abierta desde la publicación de la presente el 31 de mayo hasta el 30 de junio de 2026."
+notice: 
+  title: Convocatoria cerrada
+  text: En este momento no estamos recibiendo manuscritos.
 ---
 
 
