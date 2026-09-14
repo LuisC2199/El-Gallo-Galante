@@ -10,7 +10,7 @@ presentacion:
 coverImage: /posts/gabriel-slp-panorama-of-san-luis-potosi-4.jpg
 ---
 
-:::align-right fs-11:::San Luis Potosí, a 19 de agosto de 2026
+:::align-right:::San Luis Potosí, a 19 de agosto de 2026
 
 :::align-justify:::Querido(re)mío:
 
@@ -25,4 +25,3 @@ Gabriel Alfonso Pérez Reyes
   <img src="/posts/gabriel-ilustracion-de-juan-de-alba-de-alberto-beltran-garcia.jpg" />
   <figcaption class="caption">Ilustración de Juan de Alba, de Alberto Beltrán García</figcaption>
 </figure>
-
