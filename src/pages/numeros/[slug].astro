@@ -52,6 +52,7 @@ for (const entry of issuePostsWithAuthors) {
 }
 const categoryGroups = Array.from(postsByCategory, ([category, posts]) => ({
   category,
+  anchor: `seccion-${category.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`,
   posts: posts.sort((a, b) =>
     alphabetical.compare(a.post.data.title, b.post.data.title) ||
     alphabetical.compare(a.post.slug, b.post.slug)
@@ -131,14 +132,39 @@ const categoryGroups = Array.from(postsByCategory, ([category, posts]) => ({
 
     {/* Posts Section */}
     {issuePostsWithAuthors.length > 0 ? (
-      <div class="space-y-20 md:space-y-28">
-        {categoryGroups.map(({ category, posts }, index) => (
-          <section aria-labelledby={`category-${index}`}>
-            <header class="flex items-baseline justify-between gap-4 border-b border-stone-200 pb-4 mb-8 md:mb-12">
+      <>
+        <section id="indice-numero" data-issue-filters aria-labelledby="issue-filter-title" class="issue-index border-y border-stone-200 py-5 mb-12 md:mb-16">
+          <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+            <h2 id="issue-filter-title" class="text-[10px] uppercase tracking-[0.3em] font-semibold text-stone-500">
+              En este número
+            </h2>
+            <button type="button" data-show-all disabled class="issue-filter-reset min-h-11 text-xs text-stone-600 underline underline-offset-4 hover:text-stone-950 disabled:text-stone-400 disabled:no-underline">
+              Mostrar todas
+            </button>
+          </div>
+          <div role="group" aria-label="Filtrar por categoría" class="flex flex-wrap gap-2 sm:gap-3 mt-3">
+            {categoryGroups.map(({ category, posts, anchor }) => (
+              <button type="button" data-category={anchor} disabled aria-controls={anchor} aria-pressed="false" class="issue-filter flex min-h-11 items-center gap-2 rounded-full border border-stone-300 bg-white px-3 py-2 text-stone-700 hover:border-stone-500 hover:bg-stone-50 transition-colors">
+                <svg aria-hidden="true" class="issue-filter-check w-3 h-3 shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3 3 7-7" /></svg>
+                <span class="serif text-lg leading-tight">{category}</span>
+                <span class="text-[11px] tabular-nums opacity-75">
+                  {posts.length}<span class="sr-only"> {posts.length === 1 ? 'texto' : 'textos'}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+          <p data-filter-status role="status" aria-live="polite" aria-atomic="true" class="sr-only">
+            Mostrando {issuePostsWithAuthors.length} de {issuePostsWithAuthors.length} textos · Todas las categorías
+          </p>
+        </section>
+        <div class="flex flex-col gap-20 md:gap-28">
+        {categoryGroups.map(({ category, posts, anchor }, index) => (
+          <section id={anchor} data-post-count={posts.length} class="issue-category" aria-labelledby={`category-${index}`}>
+            <header class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-stone-200 pb-4 mb-8 md:mb-12">
               <h2 id={`category-${index}`} class="display-serif text-2xl md:text-3xl font-bold">
                 {category}
               </h2>
-              <span class="text-[10px] uppercase tracking-[0.3em] text-stone-400 shrink-0">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-stone-400">
                 {posts.length} {posts.length === 1 ? 'texto' : 'textos'}
               </span>
             </header>
@@ -153,7 +179,8 @@ const categoryGroups = Array.from(postsByCategory, ([category, posts]) => ({
             </div>
           </section>
         ))}
-      </div>
+        </div>
+      </>
     ) : (
       <div class="max-w-2xl mx-auto text-center py-12">
         <p class="serif text-stone-500 italic text-lg">
@@ -173,3 +200,94 @@ const categoryGroups = Array.from(postsByCategory, ([category, posts]) => ({
     </footer>
   </div>
 </Shell>
+
+<script>
+  const filters = document.querySelector<HTMLElement>("[data-issue-filters]");
+  if (filters) {
+    const buttons = Array.from(filters.querySelectorAll<HTMLButtonElement>("[data-category]"));
+    const sections = Array.from(document.querySelectorAll<HTMLElement>(".issue-category"));
+    const reset = filters.querySelector<HTMLButtonElement>("[data-show-all]")!;
+    const status = filters.querySelector<HTMLElement>("[data-filter-status]")!;
+    const selected = new Set<string>();
+    const totalPosts = sections.reduce((total, section) => total + Number(section.dataset.postCount), 0);
+
+    function updateFilters() {
+      const showAll = selected.size === 0 || selected.size === buttons.length;
+      let visiblePosts = 0;
+
+      for (const button of buttons) {
+        button.setAttribute("aria-pressed", String(selected.has(button.dataset.category!)));
+      }
+      for (const section of sections) {
+        section.hidden = !showAll && !selected.has(section.id);
+        if (!section.hidden) visiblePosts += Number(section.dataset.postCount);
+      }
+
+      const categorySummary = showAll
+        ? "Todas las categorías"
+        : `${selected.size} ${selected.size === 1 ? "categoría seleccionada" : "categorías seleccionadas"}`;
+      status.textContent = `Mostrando ${visiblePosts} de ${totalPosts} ${totalPosts === 1 ? "texto" : "textos"} · ${categorySummary}`;
+      reset.disabled = selected.size === 0;
+    }
+
+    for (const button of buttons) {
+      button.addEventListener("click", () => {
+        const category = button.dataset.category!;
+        if (selected.has(category)) selected.delete(category);
+        else selected.add(category);
+        updateFilters();
+      });
+      button.disabled = false;
+    }
+    reset.addEventListener("click", () => {
+      selected.clear();
+      updateFilters();
+    });
+
+    updateFilters();
+  }
+</script>
+
+<style>
+  .issue-category[hidden] {
+    display: none;
+  }
+
+  .issue-index,
+  .issue-category {
+    scroll-margin-top: 6rem;
+  }
+
+  .issue-filter,
+  .issue-filter-reset:not(:disabled) {
+    cursor: pointer;
+  }
+
+  .issue-filter[aria-pressed="true"] {
+    background: #292524;
+    border-color: #292524;
+    color: #fff;
+  }
+
+  .issue-filter-check {
+    visibility: hidden;
+  }
+
+  .issue-filter[aria-pressed="true"] .issue-filter-check {
+    visibility: visible;
+  }
+
+  .issue-filter:focus-visible,
+  .issue-filter-reset:focus-visible {
+    outline: 2px solid #78716c;
+    outline-offset: 4px;
+  }
+
+  @media (min-width: 768px) {
+    .issue-index,
+    .issue-category {
+      scroll-margin-top: 8rem;
+    }
+  }
+
+</style>
