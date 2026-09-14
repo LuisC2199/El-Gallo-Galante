@@ -20,11 +20,6 @@ La estupidez glacial.\
 La muralla impenetrable de la vanidad.\
 La torpeza de sangrar por lo insignificante.
 
-```
-
- 
-```
-
 :::ls-relaxed fs-16:::Criaturas heladas
 
 :::ls-relaxed:::Cordura al borde de un lejano acantilado\
