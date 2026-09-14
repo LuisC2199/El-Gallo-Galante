@@ -1,6 +1,6 @@
 ---
 title: Extravío
-date: 2026-09-13T00:00:00.000Z
+date: 2026-09-12T00:00:00.000Z
 category: Poesía
 status: published
 issue: ano-1-numero-1
