@@ -6,12 +6,12 @@ number: No. 01
 coverImage: /covers/numero-1.jpeg
 description: "El Gallo Galante, número 1"
 featuredPostSlugs: 
+  - la-teoria-viaja-en-transporte-publico
   - ciudad-de-la-niebla
+  - anti-haiku
   - carta-a-juan-de-alba
   - la-casa-que-cargaba-mi-cuerpo
-  - la-teoria-viaja-en-transporte-publico
   - extravio
-  - anti-haiku
   - zona-abisal
   - el-compromiso-se-incendia-en-la-memoria
 ---
