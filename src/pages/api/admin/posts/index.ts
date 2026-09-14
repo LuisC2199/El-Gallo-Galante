@@ -11,6 +11,10 @@ import { parseMarkdown } from "../../../../lib/admin/frontmatter";
 const POSTS_DIR = "src/content/posts";
 const SUMMARY_CONCURRENCY = 6;
 const SUMMARY_FETCH_ATTEMPTS = 3;
+const JSON_HEADERS = {
+  "Content-Type": "application/json",
+  "Cache-Control": "no-store, max-age=0",
+};
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -124,14 +128,14 @@ export const GET: APIRoute = async ({ locals }) => {
 
     return new Response(JSON.stringify(summaries), {
       status: 200,
-      headers: { "Content-Type": "application/json" },
+      headers: JSON_HEADERS,
     });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Unknown error";
     console.error("[api/admin/posts] 500:", message, err instanceof Error ? err.stack : "");
     return new Response(JSON.stringify({ error: message }), {
       status: 500,
-      headers: { "Content-Type": "application/json" },
+      headers: JSON_HEADERS,
     });
   }
 };

@@ -13,6 +13,10 @@ import type { FilePayload, SavePostRequest, SavePostResponse } from "../../../..
 import { parseMarkdown } from "../../../../lib/admin/frontmatter";
 
 const POSTS_DIR = "src/content/posts";
+const JSON_HEADERS = {
+  "Content-Type": "application/json",
+  "Cache-Control": "no-store, max-age=0",
+};
 
 // ---------------------------------------------------------------------------
 // GET
@@ -22,7 +26,7 @@ export const GET: APIRoute = async ({ params, locals }) => {
   if (!slug) {
     return new Response(JSON.stringify({ error: "Missing slug parameter" }), {
       status: 400,
-      headers: { "Content-Type": "application/json" },
+      headers: JSON_HEADERS,
     });
   }
 
@@ -44,14 +48,14 @@ export const GET: APIRoute = async ({ params, locals }) => {
 
     return new Response(JSON.stringify(payload), {
       status: 200,
-      headers: { "Content-Type": "application/json" },
+      headers: JSON_HEADERS,
     });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Unknown error";
     const status = message.includes("404") ? 404 : 500;
     return new Response(JSON.stringify({ error: message }), {
       status,
-      headers: { "Content-Type": "application/json" },
+      headers: JSON_HEADERS,
     });
   }
 };

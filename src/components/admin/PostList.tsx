@@ -2,11 +2,17 @@
 // Admin – list of posts with search, filtering, and sorting
 // ---------------------------------------------------------------------------
 import { useEffect, useState, useMemo, useCallback } from "react";
-import type { CollectionItemSummary, AuthorSummary, IssueSummary } from "../../lib/admin/types";
+import type {
+  CollectionItemSummary,
+  AuthorSummary,
+  IssueSummary,
+  FilePayload,
+} from "../../lib/admin/types";
 
 type SortMode = "newest" | "oldest" | "az" | "za";
 
 const CATEGORIES = ["Poesía", "Narrativa", "Crítica", "Ensayo", "Epistolario"];
+const DETAIL_FETCH_CONCURRENCY = 4;
 
 const STATUS_OPTIONS = [
   { value: "published", label: "Publicado", dotColor: "bg-emerald-400" },
@@ -19,6 +25,82 @@ const STATUS_DOT: Record<string, string> = {
   review: "bg-blue-400",
   published: "bg-emerald-400",
 };
+
+function isIncompleteSummary(post: CollectionItemSummary): boolean {
+  return !post.title || !post.date || !post.category || !post.author || !post.issue;
+}
+
+function dateFromFrontmatter(value: unknown): string | undefined {
+  if (!value) return undefined;
+  const date = new Date(String(value));
+  return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
+}
+
+function mergePostPayload(
+  summary: CollectionItemSummary,
+  payload: FilePayload,
+): CollectionItemSummary {
+  const fm = payload.frontmatter;
+
+  return {
+    ...summary,
+    path: payload.path || summary.path,
+    sha: payload.sha || summary.sha,
+    title: typeof fm.title === "string" ? fm.title : summary.title,
+    date: dateFromFrontmatter(fm.date) ?? summary.date,
+    category: typeof fm.category === "string" ? fm.category : summary.category,
+    status: typeof fm.status === "string" ? fm.status : (summary.status ?? "published"),
+    author: typeof fm.author === "string" ? fm.author : summary.author,
+    issue: typeof fm.issue === "string" ? fm.issue : summary.issue,
+  };
+}
+
+async function mapWithConcurrency<T, R>(
+  items: T[],
+  limit: number,
+  mapper: (item: T) => Promise<R>,
+): Promise<R[]> {
+  const results = new Array<R>(items.length);
+  let nextIndex = 0;
+
+  async function worker() {
+    while (nextIndex < items.length) {
+      const currentIndex = nextIndex;
+      nextIndex += 1;
+      results[currentIndex] = await mapper(items[currentIndex]);
+    }
+  }
+
+  await Promise.all(
+    Array.from({ length: Math.min(limit, items.length) }, () => worker()),
+  );
+
+  return results;
+}
+
+async function repairPostSummary(
+  post: CollectionItemSummary,
+): Promise<CollectionItemSummary | null> {
+  try {
+    const res = await fetch(
+      `/api/admin/posts/${encodeURIComponent(post.slug)}?refresh=${Date.now()}`,
+      {
+        cache: "no-store",
+        headers: { Accept: "application/json" },
+      },
+    );
+    if (!res.ok) return null;
+    const payload = (await res.json()) as FilePayload;
+    return mergePostPayload(post, payload);
+  } catch (err) {
+    console.warn(
+      "[PostList] failed to repair post summary:",
+      post.slug,
+      err instanceof Error ? err.message : String(err),
+    );
+    return null;
+  }
+}
 
 interface PostListProps {
   selectedSlug: string | null;
@@ -56,16 +138,47 @@ export default function PostList({
     setLoading(true);
     setError(null);
 
-    fetch("/api/admin/posts")
-      .then(async (res) => {
+    async function loadPosts() {
+      try {
+        const res = await fetch(`/api/admin/posts?refresh=${Date.now()}`, {
+          cache: "no-store",
+          headers: { Accept: "application/json" },
+        });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json() as Promise<CollectionItemSummary[]>;
-      })
-      .then((data) => { if (!cancelled) setPosts(data); })
-      .catch((err) => {
+        const data = (await res.json()) as CollectionItemSummary[];
+        if (cancelled) return;
+        setPosts(data);
+        setLoading(false);
+
+        const incomplete = data.filter(isIncompleteSummary);
+        if (incomplete.length === 0) return;
+
+        const repaired = await mapWithConcurrency(
+          incomplete,
+          DETAIL_FETCH_CONCURRENCY,
+          repairPostSummary,
+        );
+        if (cancelled) return;
+
+        const repairedBySlug = new Map(
+          repaired
+            .filter((post): post is CollectionItemSummary => post !== null)
+            .map((post) => [post.slug, post]),
+        );
+
+        if (repairedBySlug.size > 0) {
+          setPosts((current) =>
+            current.map((post) => repairedBySlug.get(post.slug) ?? post),
+          );
+        }
+      } catch (err) {
         if (!cancelled) setError(err instanceof Error ? err.message : "Failed to load posts");
-      })
-      .finally(() => { if (!cancelled) setLoading(false); });
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    loadPosts();
 
     return () => { cancelled = true; };
   }, [refreshKey]);
