@@ -12,10 +12,6 @@ coverImage: /posts/itzcua-diptico-pexels-pawel-l-435199-1309688.jpg
 
 :::ls-relaxed fs-16:::Punto de fuga
 
-```
- 
-```
-
 :::ls-relaxed:::Una bolsa del mandado\
 casi toca el sueño,\
 caminar por caminar\
@@ -63,10 +59,6 @@ de la huida.
 
 :::ls-relaxed fs-16:::Luna de sangre
 
-```
- 
-```
-
 :::ls-relaxed:::<span style="font-size: 1.167rem">I</span>
 
 :::ls-relaxed:::\
@@ -77,10 +69,6 @@ refractada hiere la luna
 brota sangre
 
 :::ls-relaxed:::Un nuevo astro
-
-```
- 
-```
 
 :::ls-relaxed fs-14:::II
 
@@ -109,12 +97,7 @@ en el cielo charco
 :::ls-relaxed:::buscando los restos\
 de su nombre
 
-```
-
-```
-
 <figure class="image-block align-center">
   <img src="/posts/itzcua-diptico-pexels-pawel-l-435199-1309688-2.jpg" />
   <figcaption class="caption">Fotografía de  Paweł L.</figcaption>
 </figure>
-
