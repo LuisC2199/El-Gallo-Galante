@@ -35,23 +35,28 @@ const sortedIssues: CollectionEntry<"issues">[] = issues
       {sortedIssues.map((issue: CollectionEntry<"issues">) => (
         <a
           href={`/numeros/${issue.id.replace(/\.md$/, '')}`}
-          class="group block relative overflow-hidden rounded-xl h-[350px] md:h-[420px] hover:shadow-2xl transition-all duration-500"
+          class="group block relative overflow-hidden rounded-xl h-[350px] md:h-[420px] bg-stone-900 hover:shadow-2xl transition-all duration-500"
         >
+          {/* Fallback if no cover image */}
+          {!issue.data.coverImage && (
+            <div class="absolute inset-0 z-0 bg-gradient-to-br from-stone-800 to-stone-950"></div>
+          )}
+
           {/* Background Cover Image */}
           {issue.data.coverImage && (
             <img
               src={issue.data.coverImage}
               alt={issue.data.title}
-              class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+              class="absolute inset-0 z-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
               loading="lazy"
             />
           )}
 
           {/* Overlay for text readability */}
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+          <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-black/20"></div>
 
           {/* Content positioned at bottom */}
-          <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
+          <div class="absolute bottom-0 left-0 right-0 z-20 p-8 md:p-12 text-white">
             {/* Label */}
             <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-white/90 bg-white/20 backdrop-blur-sm inline-block px-3 py-1 mb-4">
               Número {issue.data.number || ''}
@@ -69,16 +74,11 @@ const sortedIssues: CollectionEntry<"issues">[] = issues
 
             {/* Description */}
             {issue.data.description && (
-              <p class="mt-4 serif text-base md:text-lg text-white/85 leading-relaxed max-w-3xl">
+              <p class="issue-card-description mt-4 serif text-base md:text-lg text-white/85 leading-relaxed max-w-3xl">
                 {issue.data.description}
               </p>
             )}
           </div>
-
-          {/* Fallback if no cover image */}
-          {!issue.data.coverImage && (
-            <div class="absolute inset-0 bg-gradient-to-br from-stone-800 to-stone-900"></div>
-          )}
         </a>
       ))}
     </section>

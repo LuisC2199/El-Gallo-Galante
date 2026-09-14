@@ -66,6 +66,55 @@ body {
   filter: grayscale(0%);
 }
 
+.issue-card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.issue-intro summary::-webkit-details-marker {
+  display: none;
+}
+
+.issue-intro-close-label,
+.issue-intro[open] .issue-intro-open-label,
+.issue-intro[open] .issue-intro-preview {
+  display: none;
+}
+
+.issue-intro[open] .issue-intro-close-label {
+  display: inline;
+}
+
+.issue-note-content {
+  text-align: left;
+}
+
+.issue-note-content p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.issue-note-content > * + * {
+  margin-top: 1.25rem;
+}
+
+.issue-note-content ul,
+.issue-note-content ol {
+  padding-left: 1.5rem;
+}
+
+.issue-note-content ul {
+  list-style-type: disc;
+}
+
+.issue-note-content ol {
+  list-style-type: decimal;
+}
+
 @media (hover: none), (pointer: coarse) {
   .grayscale {
     filter: none !important;
