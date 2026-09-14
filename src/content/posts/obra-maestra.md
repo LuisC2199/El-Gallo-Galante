@@ -27,6 +27,6 @@ y yo, la hija que devoró.
 
 <figure class="image-block align-center">
   <img src="/posts/gabriela-obramaestra-detalle-2.png" />
-  <figcaption class="caption">Detalle de la obra *Saturno devorando a su hijo* (1820-1823) de Francisco de Goya</figcaption>
+  <figcaption class="caption">Detalle de la obra <em>Saturno devorando a su hijo</em> (1820-1823) de Francisco de Goya</figcaption>
 </figure>
 
