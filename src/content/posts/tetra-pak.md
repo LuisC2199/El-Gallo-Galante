@@ -9,10 +9,10 @@ presentacion:
   dropCapMode: none
 ---
 
-:::align-right fs-10:::Y damos vueltas a la heladera\
-y sólo queda un limón sin exprimir.\
-Nos divertimos en primavera\
-y en invierno nos queremos morir.\
+:::align-right fs-10:::*Y damos vueltas a la heladera*\
+*y sólo queda un limón sin exprimir.*\
+*Nos divertimos en primavera*\
+*y en invierno nos queremos morir.*\
 Charly García, «Símbolo de paz».
 
 ```
