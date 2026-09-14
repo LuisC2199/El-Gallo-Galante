@@ -12,18 +12,10 @@ coverImage: /posts/casandra-la-espera-pexels-omar-ramadan-1739260-30490499.jpg
 
 :::align-right fs-11:::A Viani, con todo mi amor.
 
-```
-  
-```
-
-:::align-right fs-11:::Ten siempre en tu mente a Ítaca.\
-La llegada allí es tu destino.\
+:::align-right fs-11:::*Ten siempre en tu mente a Ítaca.*\
+*La llegada allí es tu destino.*\
 Constantino Cavafis, «Ítaca»
-
-```
-
   
-```
 
 :::align-justify:::<span class="dropcap">P</span>or primera vez, después de varios meses, sentí de nuevo la espera. La espera siempre es extraña; muchas cosas ocurren y no ocurren durante esta. Había olvidado ya la categoría tan antigua de las mujeres que esperan. 
 
