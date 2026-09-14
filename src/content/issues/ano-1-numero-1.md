@@ -14,6 +14,7 @@ featuredPostSlugs:
   - extravio
   - zona-abisal
   - el-compromiso-se-incendia-en-la-memoria
+  - carcomas
 ---
 
 El Gallo Galante nació en 2018 con la idea de dialogar con la palabra y su actualidad bajo el signo de la curiosidad y la crítica que caracterizó a la revista Ulises. Hasta el año 2021, habíamos publicado sin un orden cronológico aparente. Sin embargo, el rigor estético caracterizó los textos que hoy se encuentran reunidos en nuestro número 0.
