@@ -12,11 +12,6 @@ coverImage: /posts/leonardo-entre-la-visualidad-pexels-aymerik-grenier-759296371
 
 Gastón Carrasco Aguilar, *El Instante no es decisivo*, Chile, Ediciones Balmaceda Arte Joven, 2014, 62 pp. 
 
-```
- 
- 
-```
-
 :::align-justify:::<span class="dropcap">P</span>ensar en Gastón Carrasco Aguilar como escritor es remontarse al ejercicio fotográfico de sus hablantes líricos. La mayoría de sus libros se caracterizan por mantener una escritura que origina un ojo cámara a partir de la descripción de acontecimientos. En este sentido, no sería extraño que sea del gusto de lectores con una cercanía al mundo de la fotografía y las teorías visuales en torno a la representación de la realidad. Si bien, para un par de críticos este libro podría resultar en poemas narrativos carentes de figuras retóricas, lo cierto es que se muestra un lenguaje complejo que ahonda en los límites de la imagen y la palabra. Este escrito del autor chileno se inscribe en aquellos nichos de los postulados fotográficos, con una comprensión realista y sensible sobre las imágenes. Aquí, no es simplemente detallar y decir sucesos al vacío, sino que, el hablante lírico de Carrasco entrega y resalta una dignidad a todas esas capturas descritas pertenecientes a otros fotógrafos famosos del siglo pasado. Esto da como resultado que *El Instante no es decisivo* sitúe la écfrasis desde un elemento creador de una realidad que resulta dura, humana y cercana, algo que la nueva generación de artistas renegados por las Bellas Artes entiende a cabalidad, y cuyo poemario muestra de manera directa y sin mayores complicaciones. 
 
 :::align-justify:::El poemario cuenta con tres ejes temáticos; el primero una serie de poemas que interiorizan una reflexión sobre la naturaleza de la imagen capturada dentro de la perspectiva fotográfica; el segundo, títulos que apuntan a confrontar el momento exacto para toma fotográfica, el cual fue difundida por Henri Cartier-Bresson; y, por último, la descripción de otras obras visuales, evidencia un lenguaje escrito fragmentado y experimental. "El hombre desciende / vertical, en picada / contra el suelo / uno más / entre muchos / de los cuerpos / que eligieron / el vacío / antes que el fuego / gravedad” (p. 51).
