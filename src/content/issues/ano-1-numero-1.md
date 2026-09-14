@@ -7,7 +7,7 @@ coverImage: /covers/numero-1.jpeg
 description: "El Gallo Galante, número 1"
 featuredPostSlugs: 
   - carta-para-federico-garcia-desde-la-orilla-del-mar
-  - en-espera
+  - la-espera
   - ciudad-de-la-niebla
   - la-casa-que-cargaba-mi-cuerpo
 ---
