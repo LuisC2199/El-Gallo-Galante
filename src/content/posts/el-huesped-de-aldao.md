@@ -1,5 +1,5 @@
 ---
-title: El huesped de Aldao
+title: El húesped de Aldao
 date: 2026-09-13T00:00:00.000Z
 category: Narrativa
 status: published
@@ -7,14 +7,14 @@ issue: ano-1-numero-1
 author: gonzalo-lopez-martinez
 presentacion: 
   dropCapMode: manual
-coverImage: /posts/gonzalo-lopez-aldao-batalla-de-chacabuco-pedro-subercaseaux.jpg
+coverImage: /posts/batalla-de-pilar.jpg
 ---
 
 :::align-right fs-11:::*Zumban las balas en la tarde última.*\
 *Hay viento y hay cenizas en el viento...* \
 Jorge Luis Borges, «Poema conjetural»
 
-:::align-justify:::<span class="dropcap">L</span>levaba arrastrando los pies horas y horas. Había salido con la luna a cuestas y ya el sol de septiembre le pesaba en las espaldas. Era sudor y sangre lo que iba escurriéndose por su sien, secándose en su rostro. La desesperanza le poblaba la mirada que apuntaba al sur. Hacia allá marchaba sin temor, sin provisiones ni certezas. Un lejano paraje lo animó a seguir. Se refregó los ojos con los nudillos y volvió a mirar. Un hombre apoyado en la tranquera lo observaba a la distancia. Lo vio a lo lejos, cuando descubrió su andar torpe y fatigado. Parecía inspeccionarlo con la vista conforme se acercaba: primero advirtió la camisa ensangrentada; luego, las botas torcidas y, por último, supo distinguir el brillo rojizo de la cara castigada por el sol.
+:::align-justify:::<span class="dropcap">L</span>levaba arrastrando los pies horas y horas. Había salido con la luna a cuestas y ya el sol de septiembre le pesaba en las espaldas. Era sudor y sangre lo que iba escurriéndose por la sien, secándose en el rostro. La desesperanza le poblaba la mirada que apuntaba al sur. Hacia allá marchaba sin temor, sin provisiones ni certezas. Un lejano paraje lo animó a seguir. Se refregó los ojos con los nudillos y volvió a mirar. Un hombre apoyado en la tranquera lo observaba a la distancia. Lo vio a lo lejos, cuando descubrió su andar torpe y fatigado. Parecía inspeccionarlo con la vista conforme se acercaba: primero advirtió la camisa ensangrentada; luego, las botas torcidas y, por último, supo distinguir el brillo rojizo de la cara castigada por el sol.
 
 :::align-justify:::A falta de algunos pasos, el caminante notó que eran realidad la tranquera y el hombre que lo miraba y se desplomó de cansancio y de hambre, sabiéndose salvado. El paisano ayudó al desconocido, lo levantó y se lo colgó al hombro. Sintió que apenas respiraba. Ingresaron al rancho, uno con el paso cargado; el otro, a la rastra en peso muerto. Un viejo catre fue el destino del foráneo. Necesitó el caminante un descanso de sol a sol y más de un plato de guiso para volver a parecer un hombre. El paisano hizo espacio en la palabra para que el otro comiera en paz. En la sobremesa le ofreció unas tortas fritas e invitó a la conversación. Entonces el foráneo contó su historia: 
 
@@ -25,6 +25,6 @@ Jorge Luis Borges, «Poema conjetural»
 :::align-justify:::El paisano simuló un gesto de condescendencia o de agradecimiento. Se acercó, le apoyó la mano izquierda en la frente, lo sujetó firme y rodeando la cabeza; mientras la mano derecha tanteaba la faca en su tirador, la misma faca que un instante después dibujó un surco de sangre a lo ancho del cuello. Zapateó unos segundos el caminante por debajo de la mesa; sus ojos buscaron inútiles una explicación en los del paisano, hasta apagarse.
 
 <figure class="image-block align-center">
-  <img src="/posts/gonzalo-lopez-aldao-batalla-de-chacabuco-pedro-subercaseaux-2.jpg" />
-  <figcaption class="caption">Batalla de Chacabuco (1901) de Pedro Subercaseaux</figcaption>
+  <img src="/posts/batalla-de-pilar-2.jpg" />
+  <figcaption class="caption"> Combate de caballería en la época de Rosas (c. 1839), de Carlos Morel</figcaption>
 </figure>
