@@ -2,7 +2,7 @@
 title: Ciudad de la niebla
 date: 2026-09-13T00:00:00.000Z
 category: Narrativa
-status: draft
+status: published
 issue: ano-1-numero-1
 author: samuel-villamil
 coverImage: /posts/samuel-ciudad-de-niebla-pexels-juan-pablo-galindo-olaya-311819356-13557510.jpg
