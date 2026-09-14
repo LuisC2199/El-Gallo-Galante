@@ -2,7 +2,7 @@
 title: Carcomas
 date: 2026-09-13T00:00:00.000Z
 category: Ensayo
-status: draft
+status: published
 issue: ano-1-numero-1
 author: ximena-huelgas
 coverImage: /posts/ximena-carcomaspexels-andreas-schnabl-1775843-38266951.jpg
