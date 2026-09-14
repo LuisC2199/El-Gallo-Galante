@@ -1,5 +1,5 @@
 ---
-title: El húesped de Aldao
+title: El huésped de Aldao
 date: 2026-09-13T00:00:00.000Z
 category: Narrativa
 status: published
