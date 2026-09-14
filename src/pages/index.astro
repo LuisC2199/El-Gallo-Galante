@@ -28,14 +28,84 @@ const featuredWorks: CollectionEntry<"posts">[] = latestIssue?.data.featuredPost
       .filter((post): post is CollectionEntry<"posts"> => Boolean(post))
   : [];
 
-// Get 5 latest posts for carousel
+// Get 5 varied posts for carousel:
+// prioritize different categories and different authors
+const CAROUSEL_SIZE = 5;
+
 const issueSlug = latestIssue?.id.replace(/\.md$/, '');
-const latestPosts: CollectionEntry<"posts">[] = latestIssue
+
+const sortedPosts: CollectionEntry<"posts">[] = latestIssue
   ? posts
       .filter((p: CollectionEntry<"posts">) => p.data.issue === issueSlug)
+      .slice()
       .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-      .slice(0, 5)
   : [];
+
+const latestPosts: CollectionEntry<"posts">[] = [];
+
+const usedCategories = new Set<string>();
+const usedAuthors = new Set<string>();
+const usedSlugs = new Set<string>();
+
+const addCarouselPost = (post: CollectionEntry<"posts">) => {
+  latestPosts.push(post);
+
+  usedSlugs.add(post.slug);
+  usedCategories.add(post.data.category);
+  usedAuthors.add(post.data.author.id);
+};
+
+// PASS 1:
+// Prefer posts where BOTH the category and author are different
+for (const post of sortedPosts) {
+  if (latestPosts.length >= CAROUSEL_SIZE) break;
+
+  const category = post.data.category;
+  const authorId = post.data.author.id;
+
+  if (
+    !usedCategories.has(category) &&
+    !usedAuthors.has(authorId)
+  ) {
+    addCarouselPost(post);
+  }
+}
+
+// PASS 2:
+// If we still need posts, prioritize unused categories
+for (const post of sortedPosts) {
+  if (latestPosts.length >= CAROUSEL_SIZE) break;
+
+  if (
+    !usedSlugs.has(post.slug) &&
+    !usedCategories.has(post.data.category)
+  ) {
+    addCarouselPost(post);
+  }
+}
+
+// PASS 3:
+// If we still need posts, prioritize unused authors
+for (const post of sortedPosts) {
+  if (latestPosts.length >= CAROUSEL_SIZE) break;
+
+  if (
+    !usedSlugs.has(post.slug) &&
+    !usedAuthors.has(post.data.author.id)
+  ) {
+    addCarouselPost(post);
+  }
+}
+
+// PASS 4:
+// Fill any remaining spots with the newest available posts
+for (const post of sortedPosts) {
+  if (latestPosts.length >= CAROUSEL_SIZE) break;
+
+  if (!usedSlugs.has(post.slug)) {
+    addCarouselPost(post);
+  }
+}
 
 const latestPostsWithAuthors: { post: CollectionEntry<"posts">; author: CollectionEntry<"authors"> }[] =
   await Promise.all(
