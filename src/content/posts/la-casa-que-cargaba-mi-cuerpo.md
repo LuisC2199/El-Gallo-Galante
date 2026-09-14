@@ -5,12 +5,14 @@ category: Narrativa
 status: published
 issue: ano-1-numero-1
 author: priscila-carolina-silva-guerrero
+presentacion: 
+  dropCapMode: manual
 coverImage: /posts/pris-la-casa-pexels-aysegul-aytoren-46790226-15431075.jpg
 ---
 
-:::align-justify:::Desde mis vísceras derrumbé una casa que habité en el 2014. Era tan pequeña que su techo parecía tocarme la cabeza y, en mis días de agonía, sentía cómo la entrada se hacía más chiquita todavía. Luego, mi visión —media borrosa también— la hacía parecer un embudo, o tal vez era el efecto del torrente de cortisol que me inyectaba su dueño. O ambas.
+:::align-justify:::<span class="dropcap">D</span>esde mis vísceras derrumbé una casa que habité en el 2014. Era tan pequeña que su techo parecía tocarme la cabeza y, en mis días de agonía, sentía cómo la entrada se hacía más chiquita todavía. Mi visión —media borrosa— la hacía parecer un embudo, o tal vez era el efecto del torrente de cortisol que me inyectaba su dueño. O ambas.
 
-:::align-justify:::Esa casa pudo haber sido bonita, aunque sólo por dentro, porque por fuera —para empezar— el tapete de “Bienvenidos” era terracería. Luego, tenía una puerta horrible; la madera estaba rota y rallada con algo que no era ni un intento de grafiti. Al lado había una ventana opaca, donde escribí C y P con un corazón.
+:::align-justify:::Esa casa pudo haber sido bonita, aunque sólo por dentro, porque por fuera —para empezar— el tapete de “Bienvenidos” era terracería. Tenía una puerta horrible; la madera estaba rota y rallada con algo que no era ni un intento de grafiti. Al lado había una ventana opaca, donde escribí C y P con un corazón.
 
 :::align-justify:::Fue acogedora, a veces pacífica; la mayoría de las veces, violenta. Yo metía a la fuerza mi intuición gritando: «¡Peligro!»
 
