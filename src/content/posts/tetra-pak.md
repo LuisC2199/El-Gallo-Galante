@@ -7,6 +7,7 @@ issue: ano-1-numero-1
 author: jonathan-mirus
 presentacion: 
   dropCapMode: none
+coverImage: /posts/jonathan-tetra-pak-pexels-ian-panelo-7451919-3.jpg
 ---
 
 :::align-right fs-10:::*Y damos vueltas a la heladera*\
@@ -14,11 +15,7 @@ presentacion:
 *Nos divertimos en primavera*\
 *y en invierno nos queremos morir.*\
 Charly García, «Símbolo de paz».
-
-```
-   
   
-```
 
 :::ls-relaxed:::Esperamos constantemente\
 la liberación,\
