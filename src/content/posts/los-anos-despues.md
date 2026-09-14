@@ -2,7 +2,7 @@
 title: Los años después
 date: 2026-09-13T00:00:00.000Z
 category: Narrativa
-status: draft
+status: published
 issue: ano-1-numero-1
 author: gonzalo-zurano
 coverImage: /posts/gonzalo-zulano-los-dias-despues-pexels-matteobasilephoto-12535729.jpg
