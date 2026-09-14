@@ -65,7 +65,9 @@ crece la imagen dentro en el vacío pleno.
 :::ls-relaxed:::El sabor de una sílaba en mi lengua:\
 resto de luz, partícula de engaño.
 
-:::fs-14:::IV. Lamento
+:::fs-14:::\
+\
+IV. Lamento
 
 :::align-right fs-10:::*enamorats d’aquest pardal, ploreu*\
 Llorad, enamorados de este pájaro\
