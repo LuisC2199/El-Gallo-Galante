@@ -15,7 +15,6 @@ coverImage: /posts/javier-extravio-pexels-evelyn-chong-253251-907917.jpg
 :::align-right fs-10:::*Por arriba de su cabeza revoloteaba un pájaro*\
 *extraviado que no era ese su lugar.*\
 Angelina Muñiz-Huberman
-  
 
 :::ls-relaxed:::Tres graznidos al aire, nada más:\
 sólo eso me bastó, ni un cuerpo ni una sombra.
@@ -65,16 +64,14 @@ crece la imagen dentro en el vacío pleno.
 
 :::ls-relaxed:::El sabor de una sílaba en mi lengua:\
 resto de luz, partícula de engaño.
-  
 
 :::fs-14:::IV. Lamento
 
 :::align-right fs-10:::*enamorats d’aquest pardal, ploreu*\
 Llorad, enamorados de este pájaro\
 Ramón Xirau
-  
 
-:::ls-relaxed fs-10:::Ha muerto. El ave ha muerto.
+:::ls-relaxed:::Ha muerto. El ave ha muerto.
 
 :::ls-relaxed:::Ya sus alas el viento no recorren\
 Ni con su canto el alma nos abrasa.
