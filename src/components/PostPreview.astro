@@ -13,7 +13,7 @@ const categorySlug = post.data.category
   .replace(/[\u0300-\u036f]/g, "");
 ---
 
-<article class="group relative overflow-hidden rounded-xl h-[320px] md:h-[420px]">
+<article class="group relative overflow-hidden rounded-xl min-h-[320px] md:min-h-[420px] flex flex-col justify-end">
 
   <!-- Background Image -->
   {post.data.coverImage && (
@@ -44,7 +44,7 @@ const categorySlug = post.data.category
 
   <!-- Center-Bottom Content -->
   <!-- Center-Bottom Content -->
-  <div class="absolute bottom-0 left-0 right-0 p-8 md:p-14 text-white text-center md:text-left">
+  <div class="relative pt-24 px-6 pb-8 md:pt-28 md:px-14 md:pb-14 text-white text-center md:text-left">
     <!-- Issue -->
     {post.data.issue && (
       <div class="text-[10px] uppercase tracking-[0.35em] text-white/70 mb-4">

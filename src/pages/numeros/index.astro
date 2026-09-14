@@ -35,7 +35,7 @@ const sortedIssues: CollectionEntry<"issues">[] = issues
       {sortedIssues.map((issue: CollectionEntry<"issues">) => (
         <a
           href={`/numeros/${issue.id.replace(/\.md$/, '')}`}
-          class="group block relative overflow-hidden rounded-xl h-[350px] md:h-[420px] bg-stone-900 hover:shadow-2xl transition-all duration-500"
+          class="group flex flex-col justify-end relative overflow-hidden rounded-xl min-h-[350px] md:min-h-[420px] bg-stone-900 hover:shadow-2xl transition-all duration-500"
         >
           {/* Fallback if no cover image */}
           {!issue.data.coverImage && (
@@ -56,7 +56,7 @@ const sortedIssues: CollectionEntry<"issues">[] = issues
           <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-black/20"></div>
 
           {/* Content positioned at bottom */}
-          <div class="absolute bottom-0 left-0 right-0 z-20 p-8 md:p-12 text-white">
+          <div class="relative z-20 p-8 md:p-12 text-white">
             {/* Label */}
             <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-white/90 bg-white/20 backdrop-blur-sm inline-block px-3 py-1 mb-4">
               Número {issue.data.number || ''}

@@ -48,12 +48,12 @@ const results = q ? await searchPosts(q) : [];
           value={q}
           placeholder="Buscar entre los textos…"
           autofocus={!q ? true : undefined}
-          class="flex-1 bg-transparent text-stone-800 placeholder:text-stone-400 text-sm focus:outline-none"
+          class="min-w-0 w-full flex-1 bg-transparent text-stone-800 placeholder:text-stone-400 text-base focus:outline-none"
           aria-label="Buscar"
         />
         <button
           type="submit"
-          class="text-stone-500 hover:text-stone-900 transition-colors"
+          class="min-h-11 min-w-11 shrink-0 flex items-center justify-center text-stone-500 hover:text-stone-900 transition-colors"
           aria-label="Buscar"
         >
           <svg

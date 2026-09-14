@@ -1,6 +1,7 @@
 // ---------------------------------------------------------------------------
 // Admin – Post preview panel (iframe-based, mirrors production rendering)
 // ---------------------------------------------------------------------------
+import dropCapCss from "../../styles/drop-caps.css?raw";
 import { useMemo } from "react";
 import { marked } from "marked";
 import type { AuthorSummary } from "../../lib/admin/types";
@@ -27,8 +28,6 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #fcfcfc;
   color: #1a1a1a;
-  /* Prevent horizontal scrollbar caused by full-bleed image (w-screen + translate) */
-  overflow-x: hidden;
 }
 .serif { font-family: 'Crimson Pro', serif; }
 .display-serif { font-family: 'Playfair Display', serif; }
@@ -57,6 +56,16 @@ body {
 .max-w-screen-xl { max-width: 1280px; }
 .max-w-3xl { max-width: 48rem; }
 .max-w-2xl { max-width: 42rem; }
+.preview-heading-content { max-width: 816px; }
+.preview-article-body { max-width: 720px; }
+.preview-meta { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem 1rem; }
+.preview-meta .meta-separator { display: none; flex-shrink: 0; }
+.preview-meta .meta-date { white-space: nowrap; }
+main :is(h1, h2, h3), .entry-content:not(.poetry) { overflow-wrap: anywhere; }
+@media (min-width: 640px) {
+  .preview-meta { flex-direction: row; flex-wrap: wrap; }
+  .preview-meta .meta-separator { display: block; }
+}
 .text-center { text-align: center; }
 .text-justify { text-align: justify; }
 .text-right { text-align: right; }
@@ -109,41 +118,7 @@ body {
   .md\\:h-\\[70vh\\] { height: 70vh; }
 }
 
-/* ---- Drop cap ---- */
-.drop-cap > p:first-child::first-letter,
-.drop-cap::first-letter {
-  float: left;
-  font-family: "Playfair Display", serif;
-  font-size: 3.5em;
-  line-height: 0.9;
-  padding-right: 0.12em;
-  padding-top: 0.05em;
-}
-
-/* Manual drop cap via <span class="dropcap"> */
-.dropcap {
-  float: left;
-  font-family: "Playfair Display", serif;
-  font-size: 3.5em;
-  line-height: 0.9;
-  padding-right: 0.12em;
-  padding-top: 0.05em;
-}
-
-/* Inline prefix that precedes a drop-cap letter (e.g. "La " before "P") */
-.dc-prefix {
-  float: left;
-  font-family: "Playfair Display", serif;
-  font-size: 1.1em;
-  line-height: 1;
-  margin-right: 0.35em;
-  margin-top: 0.25em;
-  opacity: 0.85;
-}
-/* When a dc-prefix is present, the following letter needs less padding */
-.drop-cap > p:first-child .dc-prefix + *::first-letter {
-  padding-right: 0.10em;
-}
+${dropCapCss}
 
 /* ---- Poetry ---- */
 /* Matches global.css exactly: 0.1rem base margin, 1rem stanza gap */
@@ -534,29 +509,29 @@ export default function PostPreviewPanel({
 <body class="min-h-screen antialiased">
   <div class="min-h-screen flex flex-col selection:bg-stone-200">
     <main class="flex-grow pt-12 pb-20">
-      <article class="max-w-screen-xl mx-auto px-6">
+      <article>
 
-        <header class="max-w-3xl mx-auto mb-16 md:mb-24 text-center">
-          <div class="flex flex-col items-center gap-6 mb-12">
+        <header class="mb-16 md:mb-24 text-center">
+          <div class="preview-heading-content mx-auto px-6 flex flex-col items-center gap-6 mb-12">
             ${category ? `<span class="text-[10px] tracking-[0.3em] uppercase font-bold text-stone-800 bg-stone-100 px-4 py-1">${escapeHtml(category)}</span>` : ""}
             <h1 class="display-serif text-4xl md:text-7xl font-bold leading-tight">${escapeHtml(title)}</h1>
-            <div class="flex items-center gap-4 text-sm text-stone-400 font-light">
+            <div class="preview-meta text-sm text-stone-400 font-light">
               ${authorName ? `<span class="underline underline-offset-4">${escapeHtml(authorName)}</span>` : ""}
-              ${authorName && date ? '<span class="w-1 h-1 bg-stone-300 rounded-full"></span>' : ""}
-              ${date ? `<span>${escapeHtml(date)}</span>` : ""}
+              ${authorName && date ? '<span class="meta-separator w-1 h-1 bg-stone-300 rounded-full"></span>' : ""}
+              ${date ? `<span class="meta-date">${escapeHtml(date)}</span>` : ""}
             </div>
           </div>
           ${
             featuredImage
-              /* Full-bleed image — mirrors ArticleHeader.astro: w-screen relative left-1/2 -translate-x-1/2 */
-              ? `<div class="w-screen relative left-1/2 -translate-x-1/2 mb-16 md:mb-24">
+              /* Full-width image — mirrors ArticleHeader.astro. */
+              ? `<div class="w-full mb-16 md:mb-24">
               <img src="${escapeHtml(featuredImage)}" alt="${escapeHtml(title)}" class="w-full h-[50vh] md:h-[70vh] object-cover ${imgPosClass}" />
             </div>`
               : ""
           }
         </header>
 
-        <div class="max-w-2xl mx-auto">
+        <div class="preview-article-body mx-auto px-6">
           ${metaEpistolar ? `<p class="meta-epistolar">${escapeHtml(metaEpistolar)}</p>` : ""}
           ${dedicatoria ? `<p class="dedicatoria">${escapeHtml(dedicatoria)}</p>` : ""}
           ${

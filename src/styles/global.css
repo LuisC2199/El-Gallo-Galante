@@ -1,46 +1,11 @@
 @import "tailwindcss";
+@import "./drop-caps.css";
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-in { animation: fadeIn 200ms ease-out; }
-
-.drop-cap > p:first-child::first-letter,
-.drop-cap::first-letter {
-  float: left;
-  font-family: "Playfair Display", serif;
-  font-size: 2.5em;
-  line-height: 0.55;
-  padding-right: 0.12em;
-  margin-top: 0.05em;
-
-  transform: translateY(0.32em);
-}
-
-.dropcap {
-  float: left;
-  font-family: "Playfair Display", serif;
-  font-size: 2.5em;
-  line-height: 0.5;
-  padding-right: 0.12em;
-  padding-top: 0.05em;
-}
-
-.dc-prefix {
-  float: left;
-  font-family: "Playfair Display", serif;
-  font-size: 1.1em;
-  line-height: 1;
-  margin-right: 0.35em;
-  margin-top: 0.25em;
-  opacity: 0.85;
-}
-
-/* Ajuste cuando hay prefijo: el drop cap no necesita tanto padding */
-.drop-cap > p:first-child .dc-prefix + *::first-letter {
-  padding-right: 0.10em;
-}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -53,6 +18,14 @@ body {
 }
 .display-serif {
     font-family: 'Playfair Display', serif;
+}
+
+/* Long titles and editorial links must fit narrow columns without clipping. */
+main :is(h1, h2, h3),
+.entry-content:not(.poetry),
+.author-content,
+.issue-note-content {
+  overflow-wrap: anywhere;
 }
 ::selection {
     background: #e5e7eb;

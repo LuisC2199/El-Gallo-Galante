@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import { marked } from "marked";
-import Layout from "../layouts/Layout.astro";
-import Navigation from "../components/Navigation.astro";
 import Shell from "../layouts/Shell.astro";
 
 type BaseItem = {
@@ -39,11 +37,10 @@ function renderInline(value: unknown): string {
 ---
 
 <Shell title={`${title} · El Gallo Galante`} description={description}>
-  <Layout title={`${title} · El Gallo Galante`}>
-    <Navigation />
+
 
     <!-- Wider container -->
-    <main class="max-w-7xl mx-auto px-6 md:px-10 pb-16 md:pb-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 pb-16 md:pb-24">
       <!-- Header: less boxed -->
       <header class="text-center mb-16 md:mb-24 pt-6">
 
@@ -54,11 +51,11 @@ function renderInline(value: unknown): string {
       </header>
 
       <!-- Body: left fixed width, right fluid -->
-      <div class="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-10 md:gap-16 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-[320px_minmax(0,1fr)] gap-10 lg:gap-16 items-start">
 
         <!-- Left: pushed visually left by wider container -->
-        <aside class="space-y-10 md:sticky md:top-28">
-          <div class="border border-stone-100 bg-white/60 p-8">
+        <aside class="space-y-10 lg:sticky lg:top-28">
+          <div class="border border-stone-100 bg-white/60 p-6 sm:p-8">
             <h2 class="text-[10px] uppercase tracking-[0.35em] text-stone-400 font-semibold">
               Correo electrónico
             </h2>
@@ -67,16 +64,16 @@ function renderInline(value: unknown): string {
               href="mailto:contacto@elgallogalante.com"
               class="mt-5 flex items-center gap-3 text-stone-800 hover:text-stone-500 transition-colors"
             >
-              <svg class="w-4 h-4 opacity-70" viewBox="0 0 24 24" fill="none">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none">
                 <path d="M4 7h16v10H4V7Z" stroke="currentColor" stroke-width="2"/>
                 <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
-              <span class="serif text-lg">elgallogalante@gmail.com</span>
+              <span class="serif text-lg min-w-0 [overflow-wrap:anywhere]">elgallogalante@gmail.com</span>
             </a>
 
           </div>
 
-          <div class="border border-stone-100 bg-white/60 p-8">
+          <div class="border border-stone-100 bg-white/60 p-6 sm:p-8">
             <h2 class="text-[10px] uppercase tracking-[0.35em] text-stone-400 font-semibold">
               Redes sociales
             </h2>
@@ -88,7 +85,7 @@ function renderInline(value: unknown): string {
                 target="_blank"
                 rel="noreferrer"
               >
-                <svg class="w-4 h-4 opacity-70" viewBox="0 0 24 24" fill="none">
+                <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none">
                   <rect x="7" y="7" width="10" height="10" rx="3" stroke="currentColor" stroke-width="2"/>
                   <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
                 </svg>
@@ -101,7 +98,7 @@ function renderInline(value: unknown): string {
                 target="_blank"
                 rel="noreferrer"
               >
-                <svg class="w-4 h-4 opacity-70" viewBox="0 0 24 24" fill="none">
+                <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none">
                   <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
                 <span class="text-sm tracking-wide">X (Twitter)</span>
@@ -112,7 +109,7 @@ function renderInline(value: unknown): string {
                 target="_blank"
                 rel="noreferrer"
               >
-                <svg class="w-4 h-4 opacity-70" viewBox="0 0 24 24" fill="none">
+                <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <span class="text-sm tracking-wide">Facebook</span>
@@ -122,7 +119,7 @@ function renderInline(value: unknown): string {
         </aside>
 
         <!-- Right: now much wider -->
-        <section class="space-y-8 max-w-none">
+        <section class="space-y-8 max-w-none min-w-0">
           <div class="max-w-4xl">
             <div class="mb-8">
               <h2 class="display-serif text-3xl md:text-4xl font-bold text-stone-900 mb-4">
@@ -176,8 +173,8 @@ function renderInline(value: unknown): string {
                 )}
 
                 {(noticeTitle || noticeText) && (
-                  <div class="mt-10 rounded-lg border border-stone-200 bg-white/70 p-8 md:p-10">
-                    <div class="grid grid-cols-[1.25rem_1fr] gap-5 md:gap-6">
+                  <div class="mt-10 rounded-lg border border-stone-200 bg-white/70 p-5 sm:p-8 lg:p-10">
+                    <div class="grid grid-cols-[1.25rem_minmax(0,1fr)] gap-5 md:gap-6">
                       <svg
                         class="mt-1 h-5 w-5 text-stone-400"
                         viewBox="0 0 24 24"
@@ -211,11 +208,14 @@ function renderInline(value: unknown): string {
         </section>
 
       </div>
-    </main>
-  </Layout>
+    </div>
 </Shell>
 
 <style>
+  .contact-markdown {
+    overflow-wrap: anywhere;
+  }
+
   .contact-markdown :global(strong) {
     font-weight: 600;
     color: #1c1917;
@@ -226,9 +226,7 @@ function renderInline(value: unknown): string {
   }
 
   .contact-markdown :global(a) {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.25rem;
+    overflow-wrap: anywhere;
     font-weight: 600;
     color: #1c1917;
     text-decoration-line: underline;

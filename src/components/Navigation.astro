@@ -12,21 +12,23 @@ const isEdicionesActive = pathname.startsWith('/numeros');
 const isPreambuloActive = pathname === '/preambulo';
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-[#fcfcfc]/90 backdrop-blur-sm border-b border-stone-100">
-  <div class="max-w-6xl mx-auto px-6 h-16 md:h-24 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-4 group">
+<nav aria-label="Navegación principal" class="fixed top-0 left-0 right-0 z-50 bg-[#fcfcfc]/90 backdrop-blur-sm border-b border-stone-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 md:h-24 flex items-center justify-between gap-3 xl:gap-6">
+    <a href="/" class="flex min-w-0 items-center gap-2 md:gap-4 group">
       <img
         src="/assets/logo.png"
         alt="El Gallo Galante"
-        class="w-18 h-18 md:w-20 md:h-20 object-cover transition-transform duration-500 group-hover:scale-105"
+        width="80"
+        height="80"
+        class="w-12 h-12 md:w-20 md:h-20 shrink-0 object-contain transition-transform duration-500 group-hover:scale-105"
       />
-      <span class="display-serif text-xl md:text-3xl font-bold tracking-tight">
+      <span class="display-serif text-lg sm:text-xl md:text-3xl font-bold tracking-tight whitespace-nowrap">
         El Gallo Galante
       </span>
     </a>
 
     <!-- Desktop Nav -->
-    <div class="hidden md:flex gap-3.5 items-center text-sm font-light tracking-wider uppercase">
+    <div class="hidden xl:flex shrink-0 gap-3.5 items-center text-sm font-light tracking-wider uppercase">
       <!-- Primary nav links -->
       <a
         href="/preambulo"
@@ -153,35 +155,35 @@ const isPreambuloActive = pathname === '/preambulo';
     </div>
 
     <!-- Mobile toggle -->
-    <button id="nav-toggle-btn" class="md:hidden text-xs uppercase tracking-widest text-stone-800 cursor-pointer" aria-label="Abrir menú">
+    <button id="nav-toggle-btn" class="xl:hidden min-h-11 min-w-11 shrink-0 text-xs uppercase tracking-widest text-stone-800 cursor-pointer" aria-label="Abrir menú" aria-controls="nav-panel" aria-expanded="false">
       Menú
     </button>
   </div>
 </nav>
 
 <!-- Mobile Menu Backdrop -->
-<div id="nav-backdrop" class="hidden fixed inset-0 bg-black/30 z-[55] backdrop-blur-sm md:hidden"></div>
+<div id="nav-backdrop" class="hidden fixed inset-0 bg-black/30 z-[55] backdrop-blur-sm xl:hidden"></div>
 
 <!-- Mobile Menu Panel -->
-<div id="nav-panel" class="fixed top-0 right-0 h-screen w-[80vw] max-w-sm bg-white/95 backdrop-blur-md shadow-2xl z-[56] transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto md:hidden">
+<div id="nav-panel" role="dialog" aria-modal="true" aria-label="Menú de navegación" aria-hidden="true" inert class="invisible fixed top-0 right-0 h-dvh w-[90vw] max-w-sm bg-white/95 backdrop-blur-md shadow-2xl z-[56] transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto overscroll-contain xl:hidden">
   <div class="flex justify-end items-center px-6 pt-6 pb-4 border-b border-stone-100">
-    <button id="nav-close-btn" class="flex items-center gap-1.5 text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors" aria-label="Cerrar menú">
+    <button id="nav-close-btn" class="flex min-h-11 items-center gap-1.5 text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors" aria-label="Cerrar menú">
       Cerrar <span class="text-lg leading-none">&times;</span>
     </button>
   </div>
-  <div class="flex flex-col gap-8 items-start pt-8 px-8 pb-8 min-h-[calc(100vh-65px)]">
+  <div class="flex flex-col gap-6 items-start pt-6 px-6 pb-8">
     <!-- Mobile search -->
     <form action="/buscar" method="get" class="w-full flex items-center gap-2 border-b border-stone-200 pb-3">
       <input
         type="search"
         name="q"
         placeholder="Buscar en la revista…"
-        class="flex-1 bg-transparent text-stone-800 placeholder:text-stone-400 text-sm focus:outline-none"
+        class="min-w-0 w-full flex-1 bg-transparent text-stone-800 placeholder:text-stone-400 text-base focus:outline-none"
         aria-label="Buscar"
       />
       <button
         type="submit"
-        class="text-stone-400 hover:text-stone-900 transition-colors shrink-0"
+        class="min-w-11 min-h-11 flex items-center justify-center text-stone-400 hover:text-stone-900 transition-colors shrink-0"
         aria-label="Buscar"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
@@ -225,19 +227,37 @@ const isPreambuloActive = pathname === '/preambulo';
   const closeBtn = document.getElementById('nav-close-btn');
   const backdrop = document.getElementById('nav-backdrop');
   const panel = document.getElementById('nav-panel');
+  const desktopViewport = window.matchMedia('(min-width: 1280px)');
+  let menuOpen = false;
+  let previousOverflow = '';
 
   function openMenu() {
+    if (!panel || menuOpen) return;
+    menuOpen = true;
+    previousOverflow = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = 'hidden';
+    panel.inert = false;
+    panel.classList.remove('invisible');
+    panel.setAttribute('aria-hidden', 'false');
     panel?.classList.remove('translate-x-full');
     panel?.classList.add('translate-x-0');
     backdrop?.classList.remove('hidden');
-    if (toggleBtn) toggleBtn.textContent = '';
+    toggleBtn?.setAttribute('aria-expanded', 'true');
+    closeBtn?.focus();
   }
 
-  function closeMenu() {
+  function closeMenu(restoreFocus = true) {
+    if (!panel || !menuOpen) return;
+    menuOpen = false;
+    if (restoreFocus) toggleBtn?.focus();
+    panel.inert = true;
+    panel.classList.add('invisible');
+    panel.setAttribute('aria-hidden', 'true');
+    document.documentElement.style.overflow = previousOverflow;
     panel?.classList.remove('translate-x-0');
     panel?.classList.add('translate-x-full');
     backdrop?.classList.add('hidden');
-    if (toggleBtn) toggleBtn.textContent = 'Menú';
+    toggleBtn?.setAttribute('aria-expanded', 'false');
   }
 
   toggleBtn?.addEventListener('click', () => {
@@ -245,8 +265,26 @@ const isPreambuloActive = pathname === '/preambulo';
     isOpen ? closeMenu() : openMenu();
   });
 
-  closeBtn?.addEventListener('click', closeMenu);
-  backdrop?.addEventListener('click', closeMenu);
+  closeBtn?.addEventListener('click', () => closeMenu());
+  backdrop?.addEventListener('click', () => closeMenu());
+  desktopViewport.addEventListener('change', (event) => {
+    if (event.matches) closeMenu(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (!menuOpen || !panel) return;
+    if (event.key === 'Escape') closeMenu();
+    if (event.key !== 'Tab') return;
+    const controls = Array.from(panel.querySelectorAll<HTMLElement>('a[href], button, input'));
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last?.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first?.focus();
+    }
+  });
 
   // ── Desktop search toggle ─────────────────────────────────────────────────
   const searchOpenBtn = document.getElementById('nav-search-open-btn');

@@ -29,14 +29,7 @@ const allPosts: CollectionEntry<"posts">[] = await getCollection("posts",
 // Use issue slug (without .md extension) to match posts
 const issueSlug = issue.id.replace(/\.md$/, '');
 
-const issuePosts: CollectionEntry<"posts">[] = allPosts
-  .filter((post: CollectionEntry<"posts">) => post.data.issue === issueSlug)
-  .slice()
-  .sort(
-    (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
-      b.data.date.valueOf() - a.data.date.valueOf()
-  );
-
+const issuePosts = allPosts.filter((post) => post.data.issue === issueSlug);
 // Load authors for each post
 const issuePostsWithAuthors: { post: CollectionEntry<"posts">; author: CollectionEntry<"authors"> }[] =
   await Promise.all(
@@ -47,6 +40,25 @@ const issuePostsWithAuthors: { post: CollectionEntry<"posts">; author: Collectio
     })
   );
 
+
+// Count only published posts in this issue, with alphabetical category tie-breaks.
+const alphabetical = new Intl.Collator("es-MX", { sensitivity: "base" });
+const postsByCategory = new Map<string, typeof issuePostsWithAuthors>();
+for (const entry of issuePostsWithAuthors) {
+  const category = entry.post.data.category;
+  const entries = postsByCategory.get(category) ?? [];
+  entries.push(entry);
+  postsByCategory.set(category, entries);
+}
+const categoryGroups = Array.from(postsByCategory, ([category, posts]) => ({
+  category,
+  posts: posts.sort((a, b) =>
+    alphabetical.compare(a.post.data.title, b.post.data.title) ||
+    alphabetical.compare(a.post.slug, b.post.slug)
+  ),
+})).sort((a, b) =>
+  a.posts.length - b.posts.length || alphabetical.compare(a.category, b.category)
+);
 
 ---
 
@@ -119,15 +131,29 @@ const issuePostsWithAuthors: { post: CollectionEntry<"posts">; author: Collectio
 
     {/* Posts Section */}
     {issuePostsWithAuthors.length > 0 ? (
-      <section class="space-y-14 md:space-y-20">
-        {issuePostsWithAuthors.map(({ post, author }) => (
-          <PostPreview
-            post={post}
-            authorName={author.data.name}
-            authorSlug={author.slug}
-          />
+      <div class="space-y-20 md:space-y-28">
+        {categoryGroups.map(({ category, posts }, index) => (
+          <section aria-labelledby={`category-${index}`}>
+            <header class="flex items-baseline justify-between gap-4 border-b border-stone-200 pb-4 mb-8 md:mb-12">
+              <h2 id={`category-${index}`} class="display-serif text-2xl md:text-3xl font-bold">
+                {category}
+              </h2>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-stone-400 shrink-0">
+                {posts.length} {posts.length === 1 ? 'texto' : 'textos'}
+              </span>
+            </header>
+            <div class="space-y-14 md:space-y-20">
+              {posts.map(({ post, author }) => (
+                <PostPreview
+                  post={post}
+                  authorName={author.data.name}
+                  authorSlug={author.slug}
+                />
+              ))}
+            </div>
+          </section>
         ))}
-      </section>
+      </div>
     ) : (
       <div class="max-w-2xl mx-auto text-center py-12">
         <p class="serif text-stone-500 italic text-lg">

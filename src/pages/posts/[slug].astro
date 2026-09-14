@@ -26,10 +26,10 @@ const ogImage = post.data.coverImage ?? post.data.featuredImage;
 ---
 
 <Shell title={`${post.data.title} · El Gallo Galante`} description={post.data.excerpt} ogImage={ogImage} ogType="article">
-  <article class="max-w-screen-xl mx-auto px-6">
+  <article>
     <ArticleHeader post={post} author={author} />
 
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-[720px] mx-auto px-6">
       {pres.metaEpistolar && (
         <p class="meta-epistolar">{pres.metaEpistolar}</p>
       )}
@@ -68,9 +68,9 @@ const ogImage = post.data.coverImage ?? post.data.featuredImage;
             class="author-photo"
           />
           <h4 class="text-xs uppercase tracking-widest font-bold">{author.data.gender === false ? "Sobre la autora" : "Sobre el autor"}</h4>
-          <p class="serif text-stone-500 italic">
+          <div class="serif text-stone-500 italic">
             <AuthorContent />
-          </p>
+          </div>
           <a
             href={`/autor/${author.slug}`}
             class="text-[10px] uppercase font-bold tracking-widest hover:text-stone-400 transition-colors"
