@@ -17,7 +17,7 @@ featuredPostSlugs:
   - carcomas
 ---
 
-:::align-justify:::El Gallo Galante nació en 2018 con la idea de dialogar con la palabra y su actualidad bajo el signo de la curiosidad y la crítica que caracterizó a la revista Ulises. Hasta el año 2021, habíamos publicado sin un orden cronológico aparente. Sin embargo, el rigor estético caracterizó los textos que hoy se encuentran reunidos en nuestro número 0. Ahora, después de algunos años, El Gallo Galante regresa para seguir dialogando. 
+:::align-justify:::El Gallo Galante nació en 2018 con la idea de dialogar con la palabra y su actualidad bajo el signo de la curiosidad y la crítica que caracterizó a la revista Ulises. Hasta el año 2021, habíamos publicado sin un orden cronológico aparente. Sin embargo, el rigor estético caracterizó los textos que hoy se encuentran reunidos en nuestro número 0. Ahora, después de algunos años, El Gallo Galante regresa para seguir dialogando.\
 
 :::align-justify:::Para este primer número, la sección de narrativa está conformada por un cuento colombiano “Ciudad de la niebla” que nos llevará por la lluvia que extiende su manto sobre Bogotá. Desde Argentina llegan tres historias: “El huésped de Aldao” nos mostrará los vestigios que dejaron los enfrentamientos entre las facciones argentinas en el siglo XIX; “El espacio fuera de Estanislao”, donde un oficinista cruza las barreras del tedio; y “Los años después”, un viaje en auto para encontrar respuestas. Asimismo, desde Aguascalientes llega “una mujer de humo”, donde el cuerpo de la protagonista será puesto a prueba a través del calor de la cocina. Finalmente, Guanajuato se hace presente con “La casa que cargaba mi cuerpo”, un cuento que roza entre el ensayo y la ficción para mostrar la crudeza de la vida entre muros.\
 
