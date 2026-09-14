@@ -13,7 +13,7 @@
 import { useState, useRef, useCallback } from "react";
 import { useInstance } from "@milkdown/react";
 import { insert } from "@milkdown/kit/utils";
-import type { MediaUploadResponse } from "../../lib/admin/types";
+import type { MediaUploadResponse, MediaUploadTarget } from "../../lib/admin/types";
 
 const ACCEPT = ".jpg,.jpeg,.png,.webp";
 type Alignment = "left" | "center" | "right";
@@ -48,7 +48,11 @@ function buildFigureHtml(
 // Component
 // ---------------------------------------------------------------------------
 
-export default function ImageInsertButton() {
+interface ImageInsertButtonProps {
+  target?: MediaUploadTarget;
+}
+
+export default function ImageInsertButton({ target = "posts" }: ImageInsertButtonProps) {
   const [loading, getEditor] = useInstance();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -86,7 +90,7 @@ export default function ImageInsertButton() {
     try {
       const form = new FormData();
       form.append("file", file);
-      form.append("target", "posts");
+      form.append("target", target);
 
       const res = await fetch("/api/admin/media", {
         method: "POST",
@@ -108,7 +112,7 @@ export default function ImageInsertButton() {
       setUploading(false);
       if (fileRef.current) fileRef.current.value = "";
     }
-  }, []);
+  }, [target]);
 
   const handleFileChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

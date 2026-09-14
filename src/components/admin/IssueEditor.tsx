@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // Admin – Issue editor (frontmatter form + editorial body)
 // ---------------------------------------------------------------------------
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, lazy, Suspense } from "react";
 import type {
   FilePayload,
   SavePostResponse,
@@ -20,6 +20,8 @@ import {
   LoadingMessage,
   ErrorMessage,
 } from "./EditorFields";
+
+const MilkdownEditor = lazy(() => import("./MilkdownEditor"));
 
 // ---- Props ----
 
@@ -488,13 +490,19 @@ export default function IssueEditor({ slug, onDirtyChange, onDelete, onDuplicate
             <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
               Nota editorial
             </h3>
-            <textarea
-              value={body}
-              onChange={(e) => updateBody(e.target.value)}
-              rows={8}
-              className={fieldClass() + " resize-y font-mono text-xs leading-relaxed"}
-              placeholder="Optional editorial note in Markdown…"
-            />
+            <Suspense
+              fallback={
+                <div className="h-96 border border-stone-200 rounded-lg flex items-center justify-center text-sm text-stone-400">
+                  Cargando editor…
+                </div>
+              }
+            >
+              <MilkdownEditor
+                value={body}
+                onChange={updateBody}
+                imageTarget="covers"
+              />
+            </Suspense>
           </section>
         </div>
       </div>

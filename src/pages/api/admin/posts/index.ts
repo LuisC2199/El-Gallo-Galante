@@ -9,6 +9,64 @@ import type { CollectionItemSummary } from "../../../../lib/admin/types";
 import { parseMarkdown } from "../../../../lib/admin/frontmatter";
 
 const POSTS_DIR = "src/content/posts";
+const SUMMARY_CONCURRENCY = 6;
+const SUMMARY_FETCH_ATTEMPTS = 3;
+
+function wait(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function shouldRetryGitHubRead(err: unknown): boolean {
+  const message = err instanceof Error ? err.message : String(err);
+  return (
+    /GitHub API (403|429|5\d\d):/.test(message) ||
+    /fetch failed|network|timed out|timeout/i.test(message)
+  );
+}
+
+async function getFileContentWithRetry(
+  cfg: ReturnType<typeof getGitHubConfig>,
+  filePath: string,
+) {
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= SUMMARY_FETCH_ATTEMPTS; attempt++) {
+    try {
+      return await getFileContent(cfg, filePath);
+    } catch (err) {
+      lastError = err;
+      if (attempt === SUMMARY_FETCH_ATTEMPTS || !shouldRetryGitHubRead(err)) {
+        throw err;
+      }
+      await wait(150 * attempt);
+    }
+  }
+
+  throw lastError;
+}
+
+async function mapWithConcurrency<T, R>(
+  items: T[],
+  limit: number,
+  mapper: (item: T) => Promise<R>,
+): Promise<R[]> {
+  const results = new Array<R>(items.length);
+  let nextIndex = 0;
+
+  async function worker() {
+    while (nextIndex < items.length) {
+      const currentIndex = nextIndex;
+      nextIndex += 1;
+      results[currentIndex] = await mapper(items[currentIndex]);
+    }
+  }
+
+  await Promise.all(
+    Array.from({ length: Math.min(limit, items.length) }, () => worker()),
+  );
+
+  return results;
+}
 
 export const GET: APIRoute = async ({ locals }) => {
   try {
@@ -19,10 +77,12 @@ export const GET: APIRoute = async ({ locals }) => {
 
     // Fetch each file's content to extract frontmatter summary data.
     // For large collections consider paginating or caching; fine for now.
-    const summaries: CollectionItemSummary[] = await Promise.all(
-      files.map(async (f) => {
+    const summaries: CollectionItemSummary[] = await mapWithConcurrency(
+      files,
+      SUMMARY_CONCURRENCY,
+      async (f) => {
         try {
-          const raw = await getFileContent(cfg, f.path);
+          const raw = await getFileContentWithRetry(cfg, f.path);
           const decoded = decodeContent(raw.content);
           const { data } = parseMarkdown(decoded);
 
@@ -38,7 +98,12 @@ export const GET: APIRoute = async ({ locals }) => {
             issue: data.issue as string | undefined,
             sha: f.sha,
           } satisfies CollectionItemSummary;
-        } catch {
+        } catch (err) {
+          console.warn(
+            "[api/admin/posts] summary fallback:",
+            f.path,
+            err instanceof Error ? err.message : String(err),
+          );
           // If an individual file fails to parse, return minimal info.
           return {
             slug: f.name.replace(/\.md$/, ""),
@@ -47,7 +112,7 @@ export const GET: APIRoute = async ({ locals }) => {
             sha: f.sha,
           } satisfies CollectionItemSummary;
         }
-      }),
+      },
     );
 
     // Sort newest first.

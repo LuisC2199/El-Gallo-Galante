@@ -23,6 +23,7 @@ import FormattingToolbar from "./FormattingToolbar";
 import ImageInsertButton from "./ImageInsertButton";
 import { textAlignPlugins } from "./text-align-plugin";
 import { inlineSizePlugins } from "./inline-size-plugin";
+import type { MediaUploadTarget } from "../../lib/admin/types";
 
 // ---------------------------------------------------------------------------
 // Heading-Enter → paragraph plugin
@@ -236,12 +237,16 @@ class EditorErrorBoundary extends Component<EBProps, EBState> {
 // Toolbar – needs to be inside MilkdownProvider
 // ---------------------------------------------------------------------------
 
-function Toolbar() {
+interface ToolbarProps {
+  imageTarget: MediaUploadTarget;
+}
+
+function Toolbar({ imageTarget }: ToolbarProps) {
   return (
     <div className="flex flex-wrap items-center gap-1 px-3 py-1.5 bg-stone-50 border-b border-stone-200 text-[11px]">
       <FormattingToolbar />
       <span className="mx-1 h-4 w-px bg-stone-200 shrink-0" />
-      <ImageInsertButton />
+      <ImageInsertButton target={imageTarget} />
     </div>
   );
 }
@@ -255,9 +260,15 @@ interface MilkdownEditorProps {
   value: string | null | undefined;
   /** Called whenever the Markdown content changes. */
   onChange: (markdown: string) => void;
+  /** Media folder used by the toolbar's inline image upload. */
+  imageTarget?: MediaUploadTarget;
 }
 
-export default function MilkdownEditor({ value, onChange }: MilkdownEditorProps) {
+export default function MilkdownEditor({
+  value,
+  onChange,
+  imageTarget = "posts",
+}: MilkdownEditorProps) {
   // onChangeStable avoids re-rendering the provider when the parent
   // re-renders with a new onChange reference.
   const onChangeRef = useRef(onChange);
@@ -278,7 +289,7 @@ export default function MilkdownEditor({ value, onChange }: MilkdownEditorProps)
     <EditorErrorBoundary>
       <div className="milkdown-wrapper rounded-lg border border-stone-200 bg-white overflow-hidden">
         <MilkdownProvider>
-          <Toolbar />
+          <Toolbar imageTarget={imageTarget} />
           <MilkdownInner initialValue={normalizedValue} onChange={stableOnChange} />
         </MilkdownProvider>
       </div>
