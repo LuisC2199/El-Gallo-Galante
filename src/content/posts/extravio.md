@@ -78,7 +78,7 @@ Ramón Xirau
 :::ls-relaxed:::Ha muerto. El ave ha muerto.
 
 :::ls-relaxed:::Ya sus alas el viento no recorren\
-Ni con su canto el alma nos abrasa.
+ni con su canto el alma nos abrasa.
 
 :::ls-relaxed:::Nadie oye más las notas\
 que se empeñaban, pródigas,\
