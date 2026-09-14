@@ -12,8 +12,8 @@ coverImage: /posts/javier-extravio-pexels-evelyn-chong-253251-907917.jpg
 
 :::fs-14:::I.
 
-:::align-right fs-10:::Por arriba de su cabeza revoloteaba un pájaro\
-extraviado que no era ese su lugar.\
+:::align-right fs-10:::*Por arriba de su cabeza revoloteaba un pájaro*\
+*extraviado que no era ese su lugar.*\
 Angelina Muñiz-Huberman
 
 ```
@@ -87,7 +87,7 @@ resto de luz, partícula de engaño.
 
 :::fs-14:::IV. Lamento
 
-:::align-right fs-10:::enamorats d’aquest pardal, ploreu\
+:::align-right fs-10:::*enamorats d’aquest pardal, ploreu*\
 Llorad, enamorados de este pájaro\
 Ramón Xirau
 
