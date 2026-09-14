@@ -2,7 +2,7 @@
 title: La casa que cargaba mi cuerpo
 date: 2026-09-13T00:00:00.000Z
 category: Narrativa
-status: draft
+status: published
 issue: ano-1-numero-1
 author: priscila-carolina-silva-guerrero
 coverImage: /posts/pris-la-casa-pexels-aysegul-aytoren-46790226-15431075.jpg
