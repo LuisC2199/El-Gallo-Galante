@@ -37,7 +37,8 @@ por siempre vagará         el mundo de la imagen.
 
 :::ls-relaxed:::Tres graznidos al aire, nada más.
 
-:::ls-relaxed fs-14:::II.
+:::ls-relaxed fs-14:::\
+II.
 
 :::ls-relaxed:::¿Qué sílaba entonar, qué resto elijo\
 de aquel pretérito naufragio què\
@@ -51,7 +52,8 @@ el Nombre de la luz y las tinieblas?
 :::ls-relaxed:::La nada nos envuelve en el vacío:\
 roto el vaso se fracturó el sonido.
 
-:::ls-relaxed fs-14:::III.
+:::ls-relaxed fs-14:::\
+III.
 
 :::ls-relaxed:::Tañe la cuerda, vibra el aire,\
 asciende el aroma del humo que en cenizas se deshace.
