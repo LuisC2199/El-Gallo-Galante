@@ -4,8 +4,8 @@ date: 2018-09-15T00:00:00.000Z
 endDate: 2021-12-01T00:00:00.000Z
 number: No. 00
 coverImage: /covers/numero-cero.jpeg
-description: El primer número de El Gallo Galante
-featuredPostSlugs:
+description: El número 0 de El Gallo Galante
+featuredPostSlugs: 
   - para-conversar-con-un-muerto-sobre-los-80-anos-de-jose-emilio-pacheco
   - carta-a-virgilio-pinera
   - cuando-llega-el-silencio
@@ -13,3 +13,5 @@ featuredPostSlugs:
   - el-caso-radical-de-ayn-rand-sobre-el-derecho-al-aborto
   - altar-a-penuria
 ---
+
+
