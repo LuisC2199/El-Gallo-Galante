@@ -123,7 +123,14 @@ function poemTextToMarkdown(text: string): string {
 }
 
 function sanitizeEditorMarkdown(markdown: string): string {
-  return markdown.replace(/(?:^|\n)```[ \t]*\n```(?=\n|$)/g, "\n").replace(/\n{3,}/g, "\n\n");
+  return markdown
+    // Shift+Enter creates a Markdown hard-break marker (`\`). That marker is
+    // valid only when another text line follows it inside the same paragraph.
+    // If it sits before a blank line or EOF, Markdown renders it as a visible
+    // backslash, so remove that invalid paragraph-terminal form on save.
+    .replace(/[ \t]*\\(?=\n[ \t]*\n|$)/g, "")
+    .replace(/(?:^|\n)```[ \t]*\n```(?=\n|$)/g, "\n")
+    .replace(/\n{3,}/g, "\n\n");
 }
 
 const poetryPasteCleanup = $prose((ctx) => new Plugin({

@@ -79,6 +79,24 @@ const TEXT_INDENT_CSS = {
   "4": "8rem",
 };
 
+function stripTerminalHardBreakMarker(node) {
+  const children = node.children;
+  if (!children || children.length === 0) return;
+
+  const last = children[children.length - 1];
+  if (last?.type !== "text" || typeof last.value !== "string") return;
+
+  // Backslash hard-break syntax only works when text continues on the next
+  // line. Before a blank line or EOF it renders as a literal backslash, which
+  // can happen when Shift+Enter is used at the end of a paragraph.
+  const nextValue = last.value.replace(/[ \t]*\\$/, "");
+  if (nextValue) {
+    children[children.length - 1] = { ...last, value: nextValue };
+  } else {
+    children.pop();
+  }
+}
+
 export function remarkAlignPublic() {
   return function (tree) {
     if (!tree.children) return;
@@ -90,40 +108,44 @@ export function remarkAlignPublic() {
       const children = node.children;
       if (!children || children.length === 0) continue;
 
-      const first = children[0];
-      // The prefix is always a plain text node; a block starting with
-      // emphasis/strong/link has no alignment prefix.
-      if (first.type !== "text") continue;
-
-      const match = BLOCK_PREFIX_RE.exec(first.value);
-      if (!match) continue;
-
-      // Parse space-separated tokens inside ::: :::
-      const tokens = match[1].trim().split(/\s+/);
       let align = null;
       let ls    = null;
       let fs    = null;
       let indent = null;
 
-      for (const token of tokens) {
-        if (token.startsWith("align-") && VALID_ALIGNS.has(token.slice(6))) {
-          align = token.slice(6);
-        } else if (token.startsWith("ls-") && token.slice(3) in LINE_SPACING_CSS) {
-          ls = token.slice(3);
-        } else if (token.startsWith("fs-") && token.slice(3) in FONT_SIZE_CSS) {
-          fs = token.slice(3);
-        } else if (token.startsWith("indent-") && token.slice(7) in TEXT_INDENT_CSS) {
-          indent = token.slice(7);
+      const first = children[0];
+      // The prefix is always a plain text node; a block starting with
+      // emphasis/strong/link has no alignment prefix.
+      if (first.type === "text") {
+        const match = BLOCK_PREFIX_RE.exec(first.value);
+
+        if (match) {
+          // Parse space-separated tokens inside ::: :::
+          const tokens = match[1].trim().split(/\s+/);
+
+          for (const token of tokens) {
+            if (token.startsWith("align-") && VALID_ALIGNS.has(token.slice(6))) {
+              align = token.slice(6);
+            } else if (token.startsWith("ls-") && token.slice(3) in LINE_SPACING_CSS) {
+              ls = token.slice(3);
+            } else if (token.startsWith("fs-") && token.slice(3) in FONT_SIZE_CSS) {
+              fs = token.slice(3);
+            } else if (token.startsWith("indent-") && token.slice(7) in TEXT_INDENT_CSS) {
+              indent = token.slice(7);
+            }
+          }
+
+          // Strip the prefix from the first text child.
+          const remaining = first.value.slice(match[0].length);
+          if (remaining === "") {
+            children.splice(0, 1);
+          } else {
+            children[0] = { ...first, value: remaining };
+          }
         }
       }
 
-      // Strip the prefix from the first text child.
-      const remaining = first.value.slice(match[0].length);
-      if (remaining === "") {
-        children.splice(0, 1);
-      } else {
-        children[0] = { ...first, value: remaining };
-      }
+      stripTerminalHardBreakMarker(node);
 
       // Build CSS style string and attach via data.hProperties so rehype
       // adds it as an HTML attribute.  Inline style wins over any class-level

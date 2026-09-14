@@ -220,6 +220,24 @@ function parseBlockPrefix(node: any): BlockStyle | null {
   return { align, lineSpacing, fontSize, textIndent };
 }
 
+function stripTerminalHardBreakMarker(node: any): void {
+  const children: any[] | undefined = node.children;
+  if (!children || children.length === 0) return;
+
+  const last = children[children.length - 1];
+  if (last?.type !== "text" || typeof last.value !== "string") return;
+
+  // A trailing backslash followed by a paragraph boundary is not parsed as a
+  // Markdown hard break; it becomes visible text. Clean it as the content loads
+  // into Milkdown so the editor does not show the accidental marker after save.
+  const nextValue = last.value.replace(/[ \t]*\\$/, "");
+  if (nextValue) {
+    children[children.length - 1] = { ...last, value: nextValue };
+  } else {
+    children.pop();
+  }
+}
+
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
 function sanitizeAlign(value: unknown): TextAlign | null {
@@ -357,6 +375,7 @@ export const remarkAlignPlugin = $remark("remarkAlign", () => () => (tree: any) 
     //    prefix and attach textAlign / lineSpacing as data for parseMarkdown.
     if (node.type === "paragraph" || node.type === "heading") {
       const style = parseBlockPrefix(node);
+      stripTerminalHardBreakMarker(node);
       if (style) {
         node.data = {
           ...(node.data ?? {}),
