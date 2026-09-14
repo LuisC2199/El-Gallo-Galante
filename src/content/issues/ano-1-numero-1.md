@@ -29,6 +29,6 @@ Por su parte, la sección de ensayo reúne a 3 mujeres con la potencia de un yo 
 
 Finalmente, nuestro epistolario se engalana con 2 misivas muy sentidas. La primera va dirigida a nuestro querido Federico García Lorca y la segunda, a Juan de Alba, poeta potosino de calidad indiscutible, cuyos versos aún son desconocidos para un sector del vasto público.
 
-Agradecemos Ximena Contreras por la portada y a todas las personas que se dan el tiempo de explorar cada pluma que conforma a este Gallo. Sin ellas, y sin ustedes, esta revista no sería posible. Que disfrute el número 1, ¡adelante!
+Agradecemos Ximena Contreras por la portada y a todas plumas que conforman este Gallo. Sin ellas, y sin ustedes, lectores, esta revista no sería posible. Que disfruten el número 1, ¡adelante!
 
 Los editores
