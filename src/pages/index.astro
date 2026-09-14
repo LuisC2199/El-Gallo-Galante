@@ -162,11 +162,11 @@ const featuredWorksWithAuthors: { post: CollectionEntry<"posts">; author: Collec
             {/* ✅ FULL-BLEED wrapper: escapes max-w-5xl */}
             <div class="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
               <div
-                class="carousel-container overflow-x-auto overflow-y-hidden pb-6 md:pb-8 overscroll-x-contain snap-x snap-mandatory scroll-px-6"
+                class="carousel-container overflow-x-auto overflow-y-hidden pb-6 md:pb-8 overscroll-x-contain snap-x snap-mandatory scroll-px-10"
                 style="-webkit-overflow-scrolling: touch; touch-action: pan-x;"
               >
                 {/* ✅ real padding for the viewport edges */}
-                <div class="flex w-max gap-3 md:gap-4 px-6 min-[1728px]:mx-auto">
+                <div class="flex w-max gap-3 md:gap-4 px-10 min-[1728px]:mx-auto">
                   {latestPostsWithAuthors.map(({ post, author }, index) => (
                     <a
                       href={`/posts/${post.slug}`}
