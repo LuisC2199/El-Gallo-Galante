@@ -34,8 +34,8 @@ conditions:
   - La participación en esta convocatoria implica la aceptación de todas y cada una de sus bases.
 note: "*El Gallo Galante* es una revista independiente cuya existencia depende del bolsillo de los editores. Lamentablemente no nos encontramos en posibilidades de remunerar las colaboraciones."
 notice: 
-  title: Convocatoria cerrada
-  text: En este momento no estamos recibiendo manuscritos.
+  title: Convocatoria número 2
+  text: la convocatoria para el número 2 estará abierta a partir del 1 de octubre y concluirá el 1 de noviembre.
 ---
 
 
