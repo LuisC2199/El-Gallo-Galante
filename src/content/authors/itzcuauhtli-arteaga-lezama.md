@@ -3,6 +3,7 @@ name: Itzcuauhtli Arteaga Lezama
 birthYear: "1996"
 birthPlace: Veracruz
 photo: /authors/foto-itzcuauhtli-arteaga-lezama-2.jpeg
+gender: true
 social: 
   instagram: "https://www.instagram.com/ojosgirasoles"
 ---
