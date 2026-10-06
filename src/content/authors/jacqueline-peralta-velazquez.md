@@ -3,6 +3,7 @@ name: Jacqueline Peralta Velázquez
 birthYear: "1994"
 birthPlace: Baja California Sur
 photo: /authors/fotografia.jpg
+gender: false
 social: 
   instagram: "https://www.instagram.com/jacquelinepevel"
 ---
