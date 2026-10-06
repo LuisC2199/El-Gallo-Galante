@@ -3,6 +3,7 @@ name: Gonzalo López Martínez
 birthYear: "1977"
 birthPlace: Puerto Madryn
 photo: /authors/gonzalo-lopez-martinez-foto.jpeg
+gender: true
 social: 
   instagram: "https://www.instagram.com/glm.corrector/"
 ---
