@@ -3,6 +3,7 @@ name: Gonzalo Zurano
 birthYear: "1984"
 birthPlace: Buenos Aires
 photo: /authors/04102024-04102024-dsc-0941.jpg
+gender: true
 social: 
   instagram: "http://instagram.com/gonzazuranotextos"
 ---
