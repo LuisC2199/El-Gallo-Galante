@@ -3,6 +3,7 @@ name: Darío González Rodríguez
 birthYear: "1999"
 birthPlace: Michoacán
 photo: /authors/picsart-26-06-17-19-03-51-841.jpg
+gender: true
 social: 
   instagram: "https://www.instagram.com/dar.gon_99"
 ---
