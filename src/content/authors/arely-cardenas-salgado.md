@@ -3,6 +3,7 @@ name: Arely Cárdenas Salgado
 birthYear: "1998"
 birthPlace: Estado de México
 photo: /authors/imagen2.jpg
+gender: false
 social: 
   instagram: "https://www.instagram.com/arelycardenas.s/"
 ---
