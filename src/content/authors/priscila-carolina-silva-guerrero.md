@@ -3,6 +3,7 @@ name: Priscila Carolina Silva Guerrero
 birthYear: "1986"
 birthPlace: Guanajuato
 photo: /authors/img-6534-2.jpg
+gender: false
 social: 
   x: "https://x.com/la_priska"
   instagram: "https://www.instagram.com/la_priskaland"
