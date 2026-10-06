@@ -3,6 +3,7 @@ name: Leonardo Alexi López
 birthYear: "1995"
 birthPlace: Curicó
 photo: /authors/imagen1.jpg
+gender: true
 social: 
   instagram: "https://www.instagram.com/a.lopez.p"
 ---
