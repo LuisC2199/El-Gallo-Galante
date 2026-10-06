@@ -3,6 +3,7 @@ name: Ximena Huelgas
 birthYear: "2003"
 birthPlace: Puebla
 photo: /authors/xhuelgas.jpg
+gender: false
 social: 
   instagram: "https://www.instagram.com/xhximena"
 ---
