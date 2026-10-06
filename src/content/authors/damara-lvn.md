@@ -3,6 +3,7 @@ name: Damara Lvn
 birthYear: "2000"
 birthPlace: Guanajuato
 photo: /authors/damara-lvn.jpg
+gender: false
 social: 
   instagram: "https://www.instagram.com/damara_lvn"
 ---
