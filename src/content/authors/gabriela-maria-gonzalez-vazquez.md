@@ -3,6 +3,7 @@ name: Gabriela María González Vázquez
 birthYear: "1996"
 birthPlace: Guanajuato
 photo: /authors/imagen1.png
+gender: false
 social: 
   instagram: "https://www.instagram.com/soyabisal"
 ---
