@@ -3,6 +3,7 @@ name: Daira Galeano
 birthYear: "2000"
 birthPlace: Buenos Aires
 photo: /authors/foto-autora.jpg
+gender: false
 social: 
   instagram: "https://www.instagram.com/galeanodaira"
 ---
