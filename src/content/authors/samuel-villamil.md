@@ -3,6 +3,7 @@ name: Samuel Villamil
 birthYear: "2006"
 birthPlace: Bogotá
 photo: /authors/foto-para-presentaciones.jpg
+gender: true
 social: 
   instagram: "https://www.instagram.com/samuelv377"
 ---
