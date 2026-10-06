@@ -3,6 +3,7 @@ name: Neftalí S. Almanza
 birthYear: "1998"
 birthPlace: Illinois
 photo: /authors/neftali.jpg
+gender: true
 social: 
   instagram: "https://www.instagram.com/nef_gallagher"
 ---
