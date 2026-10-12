@@ -5,7 +5,7 @@ heading: Bases de publicación
 intro: "El Gallo Galante se honra en compartir sus bases de publicación:"
 bases: 
   - 
-    text: "Se recibirán colaboraciones para dictamen a partir de la convocatoria de un nuevo número. Si el fallo es favorable, los trabajos serán publicados en la revista. La decisión es inapelable. A todos los remitentes se responderá acuse de recibido, pero no necesariamente se seguirá la correspondencia. Si después de 1 mes no se les contesta se sobreentenderá que el texto no fue aceptado."
+    text: "Se recibirán colaboraciones para dictamen a partir de la convocatoria de un nuevo número. Si el fallo es favorable, los trabajos serán publicados en la revista. La decisión es inapelable. A todos los remitentes se responderá acuse de recibido, pero no necesariamente se seguirá la correspondencia. Si después de 1 mes,, a partir del cierre de la convocatoria, no se le contesta, se sobreentenderá que el texto no fue aceptado."
   - 
     title: Extensión
     text: "Máximo 10 cuartillas para textos de narrativa, ensayo y crítica y de 1 a 10 poemas con un máximo de 300 versos en su conjunto, debiendo presentarse en formatos compatibles con Microsoft Word como .doc y .docx a interlineado doble, en letra Times New Roman de 12 puntos."
