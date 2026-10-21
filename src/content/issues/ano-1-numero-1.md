@@ -27,8 +27,8 @@ featuredPostSlugs:
 
 :::align-justify:::Por su parte, la sección de ensayo reúne a tres mujeres con la potencia de un yo escritural que se abre paso entre la ciudad (“La teoría viaja en transporte público”), la búsqueda individual (“La espera”), y la soledad (“Carcomas”).
 
-:::align-justify:::Finalmente, nuestro epistolario se engalana con dos misivas muy sentidas. La primera va dirigida a nuestro querido Federico García Lorca y la segunda, a Juan de Alba, poeta potosino de calidad indiscutible, cuyos versos aún son desconocidos para un sector del vasto público.
+:::align-justify:::Finalmente, nuestro epistolario se engalana con dos misivas muy sentidas. La primera va dirigida a nuestro querido Federico García Lorca y la segunda a Juan de Alba, poeta potosino de calidad indiscutible, cuyos versos aún son desconocidos para un sector del vasto público.
 
-:::align-justify:::Agradecemos Ximena Contreras por la portada y a todas plumas que conforman este Gallo. Sin ellas, y sin ustedes, lectores, esta revista no sería posible. Que disfruten el número 1, ¡adelante!
+:::align-justify:::Agradecemos a Ximena Contreras por la portada y a todas plumas que conforman este Gallo. Sin ellas, y sin ustedes, lectores, esta revista no sería posible. Que disfruten el número 1, ¡adelante!
 
 :::align-justify:::Los editores
